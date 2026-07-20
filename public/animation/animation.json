@@ -443,7 +443,7 @@
           }
         },
         {
-          "id": "mind_left_1",
+          "id": "node_person_l1",
           "role": "prop",
           "anim": "fade-rise",
           "from": {
@@ -488,7 +488,7 @@
           }
         },
         {
-          "id": "mind_left_2",
+          "id": "node_person_l2",
           "role": "prop",
           "anim": "fade-rise",
           "from": {
@@ -533,7 +533,7 @@
           }
         },
         {
-          "id": "mind_left_3",
+          "id": "node_person_l3",
           "role": "prop",
           "anim": "fade-rise",
           "from": {
@@ -550,7 +550,7 @@
           "loop": false
         },
         {
-          "id": "mind_right_1",
+          "id": "node_person_r1",
           "role": "prop",
           "anim": "fade-rise",
           "from": {
@@ -595,7 +595,7 @@
           }
         },
         {
-          "id": "mind_right_2",
+          "id": "node_person_r2",
           "role": "prop",
           "anim": "fade-rise",
           "from": {
@@ -640,7 +640,7 @@
           }
         },
         {
-          "id": "mind_right_3",
+          "id": "node_person_r3",
           "role": "prop",
           "anim": "fade-rise",
           "from": {

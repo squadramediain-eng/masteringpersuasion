@@ -932,30 +932,6 @@
     "lead": -0.15,
     "at": 31.51
    },
-   "ring_1": {
-    "is": "solid ring behind trait 1 (same coords as spot_trait_1)",
-    "cue": "First, always stay calm",
-    "lead": -0.5,
-    "at": 3.44
-   },
-   "ring_2": {
-    "is": "solid ring behind trait 2 (same coords as spot_trait_2)",
-    "cue": "Second, actively listen",
-    "lead": -0.5,
-    "at": 10.28
-   },
-   "ring_3": {
-    "is": "solid ring behind trait 3 (same coords as spot_trait_3)",
-    "cue": "Third, find common ground",
-    "lead": -0.5,
-    "at": 16.18
-   },
-   "ring_4": {
-    "is": "solid ring behind trait 4 (same coords as spot_trait_4)",
-    "cue": "Finally, gain buy-in",
-    "lead": -0.5,
-    "at": 22.52
-   },
    "shadow_1": {
     "is": "captain shadow ellipse (945,952)",
     "cue": "First, always stay calm",
