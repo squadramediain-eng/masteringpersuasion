@@ -17,6 +17,11 @@ extras/ballast_water_management_reference_video_audio/
 extras/ballast-reference-keyframes/
 extras/ballast-reference-keyframes.zip
 
+# The Claude Design project export (86.7 MB). Its payload is already tracked —
+# the 20 frames landed in src/assets/scenes/ — so the archive itself is just the
+# delivery vehicle. Re-download it from Claude Design if you need it again.
+extras/MasteringPersuasion_updatedproject_github.zip
+
 # ─── Scratch ─────────────────────────────────────────────────────────────────
 *.log
 .DS_Store
