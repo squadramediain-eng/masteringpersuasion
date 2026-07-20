@@ -1,0 +1,29 @@
+# ─── Dependencies ────────────────────────────────────────────────────────────
+# Regenerable with `npm install` (187 packages + a headless Chromium shell).
+node_modules/
+
+# ─── Renders ─────────────────────────────────────────────────────────────────
+# 124-133 MB each — OVER GitHub's 100 MB per-file hard limit, and regenerable
+# with `npm run render`. Never commit output.
+out/
+
+# ─── Reference material (local only) ─────────────────────────────────────────
+# The approved Ballast Water Management film is 770 MB — far over GitHub's limit.
+# It is source material for analysis, not project source. Keep it on disk; share
+# it out-of-band (the 34 extracted keyframes are the shareable form of it).
+extras/ballast_water_management_reference_video_audio/
+
+# Derived from that video — regenerable, and already shared with the design system.
+extras/ballast-reference-keyframes/
+extras/ballast-reference-keyframes.zip
+
+# ─── Scratch ─────────────────────────────────────────────────────────────────
+*.log
+.DS_Store
+Thumbs.db
+
+# NOTE — deliberately TRACKED, because they are the contract with Claude Design:
+#   src/assets/scenes/*.svg          the 20 frames        (~2.2 MB)
+#   public/animation/animation.json  the timing manifest  (~0.12 MB)
+#   public/animation/audio-cues.json the narration cues
+#   public/audio/*.mp3               the voiceover        (9.3 MB, under the limit)

@@ -1,0 +1,49 @@
+FRAME_09 — Strategy Table
+Appears in the video at: 4:12
+Scene length: 1020 frames = 34.0 seconds (30fps)
+Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Beat: Table builds row by row; results colour in.
+
+────────────────────────────────────────
+OCEAN WAVES / WAVE BAND
+Appears: eases up into place frame 0–24 (settles), then drifts side-to-side + slight sway continuously (organic, non-repeating). Never fully stops.
+
+PANEL / CARD
+Appears: rises + scales in frame 16–32. Motion: none once set.
+
+SHIP
+Appears: sails in from the left frame 17–44 (0.6s–1.5s). Motion: gentle continuous bob (up/down) once settled.
+
+SHIP
+Appears: sails in from the left frame 17–44 (0.6s–1.5s). Motion: gentle continuous bob (up/down) once settled.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 24–38. Motion: none (orbit ring may spin).
+
+ICON — helm
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 27–40 (0.9s–1.3s). Motion: none once set.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 29–43. Motion: none (orbit ring may spin).
+
+ICON — lifering
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 30–44 (1.0s–1.5s). Motion: none once set.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 33–47. Motion: none (orbit ring may spin).
+
+ICON — lockout
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 34–47 (1.1s–1.6s). Motion: none once set.
+
+ICON — anchor
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 37–50 (1.2s–1.7s). Motion: none once set.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 38–52. Motion: none (orbit ring may spin).
+
+Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
+Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
+
+## Notes for the animator
+- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene09.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
+- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.

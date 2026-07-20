@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mastering Persuasion — Video Review</title>
+<style>
+  :root{
+    --bg:#f5f6fa; --panel:#ffffff; --line:#dbe3f2; --ink:#253761; --muted:#6c7da4;
+    --primary:#3761b6; --royal:#0840a5; --peri:#6084f0; --glow:#71afd8; --alert:#ac4f55;
+    --ok:#2e7d5b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:14px/1.45 "DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  header{
+    display:flex; align-items:center; gap:12px; padding:10px 14px;
+    background:var(--panel); border-bottom:1px solid var(--line); flex-wrap:wrap;
+  }
+  header h1{font-size:15px;margin:0 8px 0 0;color:var(--royal);font-weight:700;letter-spacing:-.2px;white-space:nowrap}
+  .grow{flex:1}
+  label.f, span.f{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  input[type=text]{
+    font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);
+    border-radius:6px;background:#fff;color:var(--ink);
+  }
+  input#round{width:64px} input#author{width:120px}
+  button{
+    font:inherit;font-size:13px;font-weight:600;padding:6px 11px;border-radius:6px;
+    border:1px solid var(--line); background:#fff; color:var(--primary); cursor:pointer;
+  }
+  button:hover{border-color:var(--primary)}
+  button.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+  button.primary:hover{background:var(--royal)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  main{flex:1;display:flex;min-height:0}
+  .stage{flex:1;display:flex;flex-direction:column;min-width:0;padding:14px;gap:10px}
+  .videowrap{
+    flex:1; position:relative; background:#0d1526; border-radius:10px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; min-height:0;
+  }
+  video{max-width:100%;max-height:100%;display:block}
+  /* marking layer — one canvas for box + freehand, replays a comment's marks on seek */
+  #mark{position:absolute;inset:0;display:block;pointer-events:none}
+  #mark.on{pointer-events:auto;cursor:crosshair}
+  #drop{
+    position:absolute; inset:0; display:flex; flex-direction:column; gap:8px;
+    align-items:center; justify-content:center; color:#c8d6ee; text-align:center; padding:24px;
+    border:2px dashed rgba(200,214,238,.35); border-radius:10px; cursor:pointer;
+  }
+  #drop.hide{display:none}
+  #drop.hot{background:rgba(96,132,240,.15);border-color:var(--peri)}
+  #drop b{color:#fff;font-size:16px}
+  #drop span{font-size:12px;opacity:.75;max-width:420px}
+  /* transport */
+  .transport{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tc{
+    font:600 15px/1 ui-monospace,"DM Mono",Menlo,Consolas,monospace;
+    color:var(--royal); background:#fff; border:1px solid var(--line);
+    padding:7px 10px; border-radius:6px; letter-spacing:.5px;
+  }
+  .scene{font-size:12px;color:var(--muted)}
+  .scene b{color:var(--primary)}
+  .modebtn{font-size:12px;padding:5px 9px}
+  .modebtn.active{background:var(--alert);color:#fff;border-color:var(--alert)}
+  /* timeline */
+  .track{position:relative;height:34px;background:#fff;border:1px solid var(--line);border-radius:6px;cursor:pointer}
+  #played{position:absolute;left:0;top:0;bottom:0;background:rgba(96,132,240,.16);border-radius:5px 0 0 5px;pointer-events:none}
+  #playhead{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--royal);pointer-events:none}
+  .seg{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);pointer-events:none}
+  .mk{
+    position:absolute;top:5px;width:10px;height:10px;margin-left:-5px;border-radius:50%;
+    background:var(--alert);border:2px solid #fff;cursor:pointer;box-shadow:0 0 0 1px var(--alert);
+  }
+  .mk.done{background:var(--ok);box-shadow:0 0 0 1px var(--ok)}
+  /* sidebar */
+  aside{
+    width:380px;flex:none;background:var(--panel);border-left:1px solid var(--line);
+    display:flex;flex-direction:column;min-height:0;
+  }
+  .add{padding:12px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  textarea{
+    font:inherit;font-size:13px;padding:8px;border:1px solid var(--line);border-radius:6px;
+    resize:vertical;min-height:64px;color:var(--ink);
+  }
+  .row{display:flex;gap:8px;align-items:center}
+  select{font:inherit;font-size:12px;padding:5px 6px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  .hint{font-size:11px;color:var(--muted)}
+  .list{flex:1;overflow:auto;padding:8px}
+  .c{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin-bottom:8px;background:#fff;cursor:pointer}
+  .c:hover{border-color:var(--primary);background:#fbfcff}
+  .c.done{opacity:.62;border-style:dashed}
+  .c .top{display:flex;align-items:center;gap:6px;margin-bottom:5px;flex-wrap:wrap}
+  .c .tcbtn{
+    font:600 12px/1 ui-monospace,"DM Mono",Menlo,Consolas,monospace;
+    color:var(--primary);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;
+  }
+  .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+    padding:2px 6px;border-radius:99px;background:#eaf0fb;color:var(--primary)}
+  .tag.mark{background:#fbeaec;color:var(--alert)}
+  .c p{margin:0;font-size:13px;white-space:pre-wrap;word-break:break-word}
+  .c .acts{display:flex;gap:8px;margin-top:6px}
+  .c .acts button{font-size:11px;padding:3px 7px}
+  .empty{color:var(--muted);font-size:12px;text-align:center;padding:26px 12px}
+  footer{padding:8px 12px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  kbd{font:inherit;font-size:10px;background:#eef2fa;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 4px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Video Review</h1>
+  <label class="f">Round <input type="text" id="round" value="v1"></label>
+  <label class="f">Reviewer <input type="text" id="author" placeholder="your name"></label>
+  <span class="grow"></span>
+  <button id="pick">Open video…</button>
+  <button id="importBtn">Import JSON…</button>
+  <button id="export" class="primary">Export JSON</button>
+  <input type="file" id="file" accept="video/*" hidden>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+</header>
+
+<main>
+  <div class="stage">
+    <div class="videowrap">
+      <video id="v" preload="metadata"></video>
+      <canvas id="mark"></canvas>
+      <div id="drop">
+        <b>Drop the video here</b>
+        <span>or click to choose it. Nothing is uploaded — the file is read locally in your browser and never leaves this machine.</span>
+        <span id="dropname"></span>
+      </div>
+    </div>
+
+    <div class="transport">
+      <button id="play" disabled>▶ Play</button>
+      <button id="prev" disabled title="Previous frame">◀ Frame</button>
+      <button id="next" disabled title="Next frame">Frame ▶</button>
+      <span class="tc" id="tc">00:00:00:00</span>
+      <span class="scene" id="scene">—</span>
+      <span class="grow"></span>
+      <span class="f">Mark on frame:</span>
+      <button class="modebtn" id="modePen" disabled title="Freehand draw over the frame">✎ Draw</button>
+      <button class="modebtn" id="modeBox" disabled title="Drag a box around the element">▭ Box</button>
+      <button id="addBtn" disabled>+ Comment <kbd>C</kbd></button>
+    </div>
+
+    <div class="track" id="track">
+      <div id="played"></div>
+      <div id="playhead"></div>
+    </div>
+  </div>
+
+  <aside>
+    <div class="add">
+      <div class="row">
+        <span class="tag" id="atTag">at —</span>
+        <select id="label">
+          <option value="visual">visual</option>
+          <option value="timing">timing</option>
+          <option value="text">text</option>
+          <option value="audio">audio</option>
+          <option value="other">other</option>
+        </select>
+        <span class="grow"></span>
+        <span class="hint" id="markHint"></span>
+      </div>
+      <textarea id="text" placeholder="Describe the issue. Be specific about WHICH element and WHAT is wrong — draw on the frame to point at it, then write e.g. &quot;this icon is wrong for the line being read&quot;."></textarea>
+      <div class="row">
+        <button id="save" class="primary" disabled>Add comment</button>
+        <button id="undo" title="Remove the last stroke (Ctrl+Z)">↶ Undo</button>
+        <button id="clearMarks" title="Remove all marks on this frame">Clear marks</button>
+        <span class="grow"></span>
+        <span class="hint" id="count">0 comments</span>
+      </div>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+</main>
+
+<footer>
+  <span><kbd>space</kbd> play/pause</span>
+  <span><kbd>,</kbd> <kbd>.</kbd> step frame</span>
+  <span><kbd>←</kbd> <kbd>→</kbd> 1s</span>
+  <span><kbd>D</kbd> draw</span>
+  <span><kbd>Ctrl</kbd>+<kbd>Z</kbd> undo stroke</span>
+  <span><kbd>C</kbd> comment</span>
+  <span class="grow"></span>
+  <span id="saveState">saved locally</span>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Locked project framerate (src/utils/sceneRegistry.ts). Timecodes are HH:MM:SS:FF
+  // where FF is a frame at this rate — the same format import-review-comments.js parses.
+  var FPS = 30;
+
+  // Display only. Scene assignment is NOT exported: resolve-comment-scenes.js recomputes it
+  // live from sceneRegistry.ts every run, which is what lets the ledger survive a retime.
+  var SCENES = [
+    ['scene-00','Cover — Mastering Persuasion',0,990],
+    ['scene-01','What is Persuasion — Definition',34,720],
+    ['scene-02','Six Key Areas — Overview',59,870],
+    ['scene-03','Section 1 — Safety Tool',89,660],
+    ['scene-04','Persuasion Steps',112,1050],
+    ['scene-05','Master-Pilot Rel. — Bridge Ops',148,510],
+    ['scene-06','Bridge Scenario — Sail Area',166,960],
+    ['scene-07','Compare — Aggressive vs Assertive',199,933],
+    ['scene-08','Correcting Habits — Buy-In',231,600],
+    ['scene-09','Strategy Table',252,990],
+    ['scene-10','The 30-Second Metric',286,840],
+    ['scene-11','Resolving Disputes — Terminal',315,570],
+    ['scene-12','Terminal Conflict — Compromise',335,840],
+    ['scene-13','Escalate vs Compromise',364,1320],
+    ['scene-14','New Procedures — Engine Room',409,750],
+    ['scene-15',"What's In It For Me",435,990],
+    ['scene-16','Key Behaviours — Influence Styles',469,390],
+    ['scene-17','Behaviour & Influence Table',483,840],
+    ['scene-18','Persuasive Leader Traits',512,1020],
+    ['scene-19','Why Influencing Is Vital',547,1170]
+  ].map(function (s) {
+    return { id: s[0], label: s[1], start: s[2], end: s[2] + s[3] / FPS };
+  });
+
+  var $ = function (id) { return document.getElementById(id); };
+  var v = $('v'), track = $('track'), list = $('list');
+  var mark = $('mark'), markCtx = null;
+  var comments = [];
+  var editingId = null;
+
+  // marking state — all coords stored NORMALISED 0..1 within the painted video area, so a
+  // mark drawn here lands on the same element when Claude renders the still at 1920×1080.
+  var markMode = 'off';          // 'off' | 'pen' | 'box'
+  var activeRegion = null;       // {x,y,w,h}
+  var activeStrokes = [];        // [ [ {x,y}, ... ], ... ]
+  var penStroke = null;          // stroke being drawn right now
+  var boxStart = null;           // client point where a box drag began
+  var markOrder = [];            // 'stroke' | 'box' in the order added, so Undo is true LIFO
+
+  // ---------- time helpers ----------
+  function frameOf(t) { return Math.round(t * FPS); }
+  function pad(n, w) { return String(n).padStart(w || 2, '0'); }
+  function toTimecode(t) {
+    var f = frameOf(t);
+    var s = Math.floor(f / FPS);
+    return pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60) + ':' + pad(f % FPS);
+  }
+  function sceneAt(t) {
+    for (var i = 0; i < SCENES.length; i++) if (t >= SCENES[i].start && t < SCENES[i].end) return SCENES[i];
+    return null;
+  }
+
+  // ---------- storage ----------
+  function key() { return 'mp-video-review:' + ($('round').value.trim() || 'v1'); }
+  function save() {
+    try {
+      localStorage.setItem(key(), JSON.stringify({ author: $('author').value, comments: comments }));
+      $('saveState').textContent = 'saved locally · ' + comments.length;
+    } catch (e) { $('saveState').textContent = 'could not save locally'; }
+  }
+  function load() {
+    try {
+      var raw = localStorage.getItem(key());
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      comments = d.comments || [];
+      if (d.author && !$('author').value) $('author').value = d.author;
+      render();
+    } catch (e) { /* ignore a corrupt cache */ }
+  }
+
+  // ---------- video loading (local only, no upload) ----------
+  function useFile(f) {
+    if (!f) return;
+    v.src = URL.createObjectURL(f);
+    $('drop').classList.add('hide');
+    $('dropname').textContent = f.name;
+    ['play', 'prev', 'next', 'addBtn', 'save', 'modePen', 'modeBox'].forEach(function (id) { $(id).disabled = false; });
+  }
+  $('pick').onclick = function () { $('file').click(); };
+  $('drop').onclick = function () { $('file').click(); };
+  $('file').onchange = function (e) { useFile(e.target.files[0]); };
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) { e.preventDefault(); $('drop').classList.add('hot'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    document.addEventListener(ev, function (e) { e.preventDefault(); $('drop').classList.remove('hot'); });
+  });
+  document.addEventListener('drop', function (e) {
+    var f = e.dataTransfer && e.dataTransfer.files[0];
+    if (f && /^video\//.test(f.type)) useFile(f);
+  });
+
+  // ---------- transport ----------
+  function step(n) { v.pause(); v.currentTime = Math.max(0, (frameOf(v.currentTime) + n) / FPS); }
+  $('play').onclick = function () { v.paused ? v.play() : v.pause(); };
+  $('prev').onclick = function () { step(-1); };
+  $('next').onclick = function () { step(1); };
+  v.addEventListener('play', function () { $('play').textContent = '❚❚ Pause'; });
+  v.addEventListener('pause', function () { $('play').textContent = '▶ Play'; });
+  v.addEventListener('loadedmetadata', function () { resizeCanvas(); drawSegments(); tick(); });
+  v.addEventListener('timeupdate', tick);
+  v.addEventListener('seeked', tick);
+
+  function tick() {
+    var t = v.currentTime || 0;
+    $('tc').textContent = toTimecode(t);
+    $('atTag').textContent = 'at ' + toTimecode(t);
+    var s = sceneAt(t);
+    $('scene').innerHTML = s
+      ? '<b>' + s.id + '</b> · ' + s.label + ' · +' + (t - s.start).toFixed(1) + 's'
+      : '<b>gap</b> · between scenes';
+    if (v.duration) {
+      var p = (t / v.duration) * 100;
+      $('played').style.width = p + '%';
+      $('playhead').style.left = p + '%';
+    }
+    paintMarks();
+  }
+
+  function drawSegments() {
+    if (!v.duration) return;
+    Array.prototype.slice.call(track.querySelectorAll('.seg')).forEach(function (n) { n.remove(); });
+    SCENES.forEach(function (s) {
+      var d = document.createElement('div');
+      d.className = 'seg';
+      d.style.left = (s.start / v.duration * 100) + '%';
+      d.title = s.id + ' — ' + s.label;
+      track.appendChild(d);
+    });
+  }
+
+  track.onclick = function (e) {
+    if (!v.duration || e.target.classList.contains('mk')) return;
+    var r = track.getBoundingClientRect();
+    v.pause();
+    v.currentTime = Math.max(0, Math.min(v.duration, ((e.clientX - r.left) / r.width) * v.duration));
+  };
+
+  // ---------- marking (freehand pen + box), all on one canvas ----------
+  function wrapRect() { return v.parentElement.getBoundingClientRect(); }
+  // the <video> letterboxes inside its element; measure the actually-painted area
+  function videoBox() {
+    if (!v.videoWidth) return null;
+    var er = v.getBoundingClientRect();
+    var ar = v.videoWidth / v.videoHeight, br = er.width / er.height;
+    var w = br > ar ? er.height * ar : er.width;
+    var h = br > ar ? er.height : er.width / ar;
+    return { left: er.left + (er.width - w) / 2, top: er.top + (er.height - h) / 2, width: w, height: h };
+  }
+  function clientToNorm(cx, cy) {
+    var b = videoBox(); if (!b) return null;
+    return {
+      x: Math.max(0, Math.min(1, (cx - b.left) / b.width)),
+      y: Math.max(0, Math.min(1, (cy - b.top) / b.height))
+    };
+  }
+  function normToCanvas(nx, ny) {
+    var b = videoBox(), w = wrapRect();
+    return { x: b.left - w.left + nx * b.width, y: b.top - w.top + ny * b.height };
+  }
+
+  function resizeCanvas() {
+    var w = v.parentElement.clientWidth, h = v.parentElement.clientHeight;
+    var dpr = window.devicePixelRatio || 1;
+    mark.width = w * dpr; mark.height = h * dpr;
+    mark.style.width = w + 'px'; mark.style.height = h + 'px';
+    markCtx = mark.getContext('2d');
+    markCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    paintMarks();
+  }
+
+  function paintOne(region, strokes) {
+    if (!videoBox()) return;
+    var ctx = markCtx;
+    if (region) {
+      var a = normToCanvas(region.x, region.y);
+      ctx.strokeStyle = 'rgba(96,132,240,.95)';
+      ctx.fillStyle = 'rgba(96,132,240,.16)';
+      ctx.lineWidth = 2;
+      var b = videoBox();
+      ctx.fillRect(a.x, a.y, region.w * b.width, region.h * b.height);
+      ctx.strokeRect(a.x, a.y, region.w * b.width, region.h * b.height);
+    }
+    if (strokes && strokes.length) {
+      ctx.strokeStyle = 'rgba(172,79,85,.95)';
+      ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      strokes.forEach(function (st) {
+        if (!st || st.length < 1) return;
+        if (st.length === 1) {  // a single click — draw a dot so the pen still shows something
+          var p0 = normToCanvas(st[0].x, st[0].y);
+          ctx.beginPath(); ctx.arc(p0.x, p0.y, 2, 0, Math.PI * 2); ctx.fillStyle = 'rgba(172,79,85,.95)'; ctx.fill();
+          return;
+        }
+        ctx.beginPath();
+        st.forEach(function (pt, i) {
+          var p = normToCanvas(pt.x, pt.y);
+          if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+        });
+        ctx.stroke();
+      });
+    }
+  }
+
+  function commentAtFrame() {
+    var f = frameOf(v.currentTime || 0);
+    for (var i = 0; i < comments.length; i++) {
+      var c = comments[i];
+      if ((c.region || (c.drawing && c.drawing.length)) && Math.abs(frameOf(c.timecode_sec) - f) <= 2) return c;
+    }
+    return null;
+  }
+
+  function paintMarks() {
+    if (!markCtx) return;
+    markCtx.clearRect(0, 0, v.parentElement.clientWidth, v.parentElement.clientHeight);
+    var composing = markMode !== 'off' || editingId;
+    if (composing) {
+      var strokes = activeStrokes.slice();
+      if (penStroke) strokes = strokes.concat([penStroke]);
+      paintOne(activeRegion, strokes);
+    } else {
+      var c = commentAtFrame();
+      if (c) paintOne(c.region, c.drawing);
+    }
+  }
+
+  function setMode(m) {
+    markMode = (markMode === m) ? 'off' : m;
+    $('modePen').classList.toggle('active', markMode === 'pen');
+    $('modeBox').classList.toggle('active', markMode === 'box');
+    mark.classList.toggle('on', markMode !== 'off');
+    if (markMode !== 'off') v.pause();
+    paintMarks();
+  }
+  $('modePen').onclick = function () { setMode('pen'); };
+  $('modeBox').onclick = function () { setMode('box'); };
+
+  mark.addEventListener('mousedown', function (e) {
+    if (markMode === 'off' || !videoBox()) return;
+    if (markMode === 'pen') { penStroke = [clientToNorm(e.clientX, e.clientY)]; }
+    else { boxStart = { x: e.clientX, y: e.clientY }; activeRegion = null; }
+    paintMarks();
+  });
+  mark.addEventListener('mousemove', function (e) {
+    if (markMode === 'pen' && penStroke) { penStroke.push(clientToNorm(e.clientX, e.clientY)); paintMarks(); }
+    else if (markMode === 'box' && boxStart) {
+      var a = clientToNorm(boxStart.x, boxStart.y), b = clientToNorm(e.clientX, e.clientY);
+      activeRegion = {
+        x: +Math.min(a.x, b.x).toFixed(4), y: +Math.min(a.y, b.y).toFixed(4),
+        w: +Math.abs(a.x - b.x).toFixed(4), h: +Math.abs(a.y - b.y).toFixed(4)
+      };
+      paintMarks();
+    }
+  });
+  function endStroke() {
+    if (penStroke) {
+      if (penStroke.length >= 2) {
+        activeStrokes.push(penStroke.map(function (p) { return { x: +p.x.toFixed(4), y: +p.y.toFixed(4) }; }));
+        markOrder.push('stroke');
+      }
+      penStroke = null;
+    }
+    if (boxStart) {
+      boxStart = null;
+      if (activeRegion && (activeRegion.w < 0.01 || activeRegion.h < 0.01)) activeRegion = null;
+      // region is singular — a new box replaces the old, so keep at most one 'box' in the order
+      markOrder = markOrder.filter(function (m) { return m !== 'box'; });
+      if (activeRegion) markOrder.push('box');
+    }
+    updateMarkHint(); paintMarks();
+  }
+  mark.addEventListener('mouseup', endStroke);
+  mark.addEventListener('mouseleave', endStroke);
+
+  function updateMarkHint() {
+    var bits = [];
+    if (activeStrokes.length) bits.push(activeStrokes.length + (activeStrokes.length === 1 ? ' stroke' : ' strokes'));
+    if (activeRegion) bits.push('1 box');
+    $('markHint').textContent = bits.length ? bits.join(' · ') + ' marked' : '';
+  }
+  function clearActiveMarks() {
+    activeRegion = null; activeStrokes = []; penStroke = null; markOrder = [];
+    updateMarkHint(); paintMarks();
+  }
+  $('clearMarks').onclick = clearActiveMarks;
+
+  // Undo the most recently added mark (true LIFO — whichever of stroke/box came last).
+  // Lets a reviewer fix one bad shape without wiping the whole markup.
+  function undoMark() {
+    var last = markOrder.pop();
+    if (last === 'box') activeRegion = null;
+    else if (last === 'stroke') activeStrokes.pop();
+    else if (activeStrokes.length) activeStrokes.pop();   // fallback if order got out of sync
+    else activeRegion = null;
+    updateMarkHint(); paintMarks();
+  }
+  $('undo').onclick = undoMark;
+
+  // ---------- comments ----------
+  function nextId() {
+    var n = 0;
+    comments.forEach(function (c) { var m = /^c(\d+)$/.exec(c.id); if (m) n = Math.max(n, +m[1]); });
+    return 'c' + (n + 1);
+  }
+
+  $('addBtn').onclick = function () { v.pause(); $('text').focus(); };
+
+  $('save').onclick = function () {
+    var txt = $('text').value.trim();
+    if (!txt) { $('text').focus(); return; }
+    var t = v.currentTime || 0;
+    var strokes = activeStrokes.length ? activeStrokes : null;
+    if (editingId) {
+      var c = comments.filter(function (x) { return x.id === editingId; })[0];
+      c.text = txt; c.label = $('label').value;
+      if (activeRegion) c.region = activeRegion; else delete c.region;
+      if (strokes) c.drawing = strokes; else delete c.drawing;
+      editingId = null;
+      $('save').textContent = 'Add comment';
+    } else {
+      // Exactly the shape import-review-comments.js emits (region/drawing are additive and
+      // ride through resolve-comment-scenes.js untouched), so the export drops straight in.
+      var c2 = {
+        id: nextId(),
+        raw_timecode: toTimecode(t),
+        timecode_sec: Math.round(t * 100) / 100,
+        text: txt,
+        scene_id: null,
+        local_frame: null,
+        status: 'unresolved',
+        label: $('label').value,
+        author: $('author').value.trim() || null
+      };
+      if (activeRegion) c2.region = activeRegion;
+      if (strokes) c2.drawing = strokes;
+      comments.push(c2);
+    }
+    $('text').value = '';
+    clearActiveMarks();
+    setMode(markMode);  // leave the mode as it was but refresh button state
+    render(); save();
+  };
+
+  function render() {
+    comments.sort(function (a, b) { return a.timecode_sec - b.timecode_sec; });
+    $('count').textContent = comments.length + (comments.length === 1 ? ' comment' : ' comments');
+
+    Array.prototype.slice.call(track.querySelectorAll('.mk')).forEach(function (n) { n.remove(); });
+    if (v.duration) {
+      comments.forEach(function (c) {
+        var m = document.createElement('div');
+        m.className = 'mk' + (c.status !== 'unresolved' ? ' done' : '');
+        m.style.left = (c.timecode_sec / v.duration * 100) + '%';
+        m.title = c.raw_timecode + ' — ' + c.text.slice(0, 70);
+        m.onclick = function (e) { e.stopPropagation(); seekTo(c); };
+        track.appendChild(m);
+      });
+    }
+
+    list.innerHTML = '';
+    if (!comments.length) {
+      list.innerHTML = '<div class="empty">No comments yet.<br>Scrub to the exact frame, draw on it, then press <b>C</b>.</div>';
+      return;
+    }
+    comments.forEach(function (c) {
+      var d = document.createElement('div');
+      d.className = 'c' + (c.status !== 'unresolved' ? ' done' : '');
+      // Whole card seeks to the comment's frame (frame.io behaviour); the action buttons
+      // below stopPropagation so Edit/Delete don't also fire this.
+      d.onclick = function () { seekTo(c); };
+      var top = document.createElement('div');
+      top.className = 'top';
+      var b = document.createElement('button');
+      b.className = 'tcbtn'; b.textContent = c.raw_timecode;
+      b.onclick = function (e) { e.stopPropagation(); seekTo(c); };
+      top.appendChild(b);
+      var tag = document.createElement('span');
+      tag.className = 'tag'; tag.textContent = c.label || 'visual';
+      top.appendChild(tag);
+      if (c.drawing && c.drawing.length) {
+        var dt = document.createElement('span'); dt.className = 'tag mark'; dt.textContent = '✎ drawing'; top.appendChild(dt);
+      }
+      if (c.region) {
+        var rt = document.createElement('span'); rt.className = 'tag mark'; rt.textContent = '▭ box'; top.appendChild(rt);
+      }
+      d.appendChild(top);
+      var p = document.createElement('p'); p.textContent = c.text; d.appendChild(p);
+      var acts = document.createElement('div'); acts.className = 'acts';
+      var ed = document.createElement('button'); ed.textContent = 'Edit';
+      ed.onclick = function (e) {
+        e.stopPropagation();
+        editingId = c.id; $('text').value = c.text; $('label').value = c.label || 'visual';
+        activeRegion = c.region || null;
+        activeStrokes = c.drawing ? c.drawing.map(function (s) { return s.slice(); }) : [];
+        penStroke = null;
+        // approximate order for undo: existing strokes, then the box
+        markOrder = activeStrokes.map(function () { return 'stroke'; });
+        if (activeRegion) markOrder.push('box');
+        updateMarkHint();
+        $('save').textContent = 'Update comment';
+        seekTo(c); $('text').focus();
+      };
+      var del = document.createElement('button'); del.textContent = 'Delete';
+      del.onclick = function (e) {
+        e.stopPropagation();
+        comments = comments.filter(function (x) { return x.id !== c.id; });
+        render(); save();
+      };
+      acts.appendChild(ed); acts.appendChild(del);
+      d.appendChild(acts);
+      list.appendChild(d);
+    });
+  }
+
+  function seekTo(c) {
+    if (!v.src) return;
+    v.pause();
+    v.currentTime = c.timecode_sec;
+  }
+
+  // ---------- export / import ----------
+  $('export').onclick = function () {
+    if (!comments.length) { alert('No comments to export yet.'); return; }
+    var round = ($('round').value.trim() || 'v1').replace(/[^\w.-]/g, '');
+    var out = JSON.stringify(comments, null, 2);
+    var blob = new Blob([out], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = round + '-comments.json';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  };
+
+  $('importBtn').onclick = function () { $('importFile').click(); };
+  $('importFile').onchange = function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      try {
+        var d = JSON.parse(r.result);
+        if (!Array.isArray(d)) throw new Error('expected a JSON array of comments');
+        comments = d;
+        render(); save();
+      } catch (err) { alert('Could not read that file: ' + err.message); }
+    };
+    r.readAsText(f);
+  };
+
+  $('round').onchange = function () { comments = []; render(); load(); };
+  $('author').onchange = save;
+
+  // ---------- keyboard ----------
+  document.addEventListener('keydown', function (e) {
+    var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
+    if (typing) {
+      if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); $('save').click(); }
+      return;
+    }
+    if (!v.src) return;
+    if (e.key === ' ') { e.preventDefault(); v.paused ? v.play() : v.pause(); }
+    else if (e.key === ',') { e.preventDefault(); step(-1); }
+    else if (e.key === '.') { e.preventDefault(); step(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); v.pause(); v.currentTime = Math.max(0, v.currentTime - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); v.pause(); v.currentTime += 1; }
+    else if ((e.key === 'z' || e.key === 'Z') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); undoMark(); }
+    else if (e.key === 'd' || e.key === 'D') { e.preventDefault(); setMode('pen'); }
+    else if (e.key === 'c' || e.key === 'C') { e.preventDefault(); v.pause(); $('text').focus(); }
+  });
+
+  window.addEventListener('resize', function () { resizeCanvas(); tick(); });
+  load();
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,5307 @@
+{
+  "project": "Mastering Persuasion",
+  "style": "STS Motion — Persuasion",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "totalDurationSec": 586,
+  "totalDurationFrames": 17580,
+  "audio": "audio/mastering-persuasion.mp3",
+  "easings": {
+    "brand": "cubic-bezier(0.16,1,0.3,1)",
+    "ambient": "ease-in-out",
+    "continuous": "linear"
+  },
+  "conventions": {
+    "layerOrder": [
+      "background",
+      "ambient",
+      "decor",
+      "numeral",
+      "text",
+      "card",
+      "ship",
+      "character",
+      "circle",
+      "icon",
+      "arrow",
+      "alert"
+    ],
+    "frameTransition": {
+      "type": "crossfade",
+      "durationMs": 320
+    },
+    "rules": [
+      "content easing = brand curve",
+      "titles and body copy TYPE ON with a visible cursor — the house signature (reversed 2026-07-17 to match the approved reference film and the design system; the old rule said 'no letter-spin / typewriter on text' and was wrong). Decorative letter loops (spin/bounce/pulse) stay banned.",
+      "no spins on content (orbit rings excepted)",
+      "alert is the only non-blue beat",
+      "wave band loops the whole frame as the through-line — and is MANDATORY in every frame (the 'intentionally waveless' rule was retired 2026-07-17). It is hoisted to src/scenes/WorldLayer.tsx and rendered once behind all scenes, so the water never breaks at a cut."
+    ]
+  },
+  "frames": [
+    {
+      "index": 0,
+      "title": "Cover — Mastering Persuasion",
+      "archetype": "Cover",
+      "file": "frames/frame_0.svg",
+      "startSec": 0,
+      "durationSec": 33,
+      "endSec": 33,
+      "startFrame": 0,
+      "durationFrames": 990,
+      "beat": "Title lands, library icons pop in, ship sails onto the wave band.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 33000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "dot_matrix_left",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "dot_matrix_right",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 280,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_anchor",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "anchor",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_helm",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "helm",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_gears",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "gears",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_shield",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "shield",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1230,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "megaphone_journey",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1340,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "title": "What is Persuasion — Definition",
+      "archetype": "E · Convergence",
+      "file": "frames/frame_1.svg",
+      "startSec": 34,
+      "durationSec": 24,
+      "endSec": 58,
+      "startFrame": 1020,
+      "durationFrames": 720,
+      "beat": "Definition card sets, inputs converge from all sides.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_mind_left_1",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "mind_left_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_mind_left_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "mind_left_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 790,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_mind_left_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "mind_left_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 880,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "mind_right_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 970,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_mind_right_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "mind_right_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1060,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_mind_right_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1400,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "mind_right_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1150,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_top_1",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1550,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "spot_input_top_1_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_top_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1240,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_top_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1850,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_top_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1330,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_top_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 2000,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_top_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1420,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_bottom_1",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 2150,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_bottom_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1510,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_bottom_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 2300,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_bottom_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1600,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_input_bottom_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 2450,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "input_bottom_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1690,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "definition_card",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Six Key Areas",
+      "archetype": "Icon grid",
+      "file": "frames/frame_2.svg",
+      "startSec": 59,
+      "durationSec": 29,
+      "endSec": 88,
+      "startFrame": 1770,
+      "durationFrames": 870,
+      "beat": "Six tiles reveal in sequence, each with its icon.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 29000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tile_safety_tool",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tile_master_pilot",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 52
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-below",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "tile_correcting_habits",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 610,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tile_resolving_disputes",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 700,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tile_new_procedures",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 790,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tile_key_behaviours",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 880,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "title": "Section 1 — Safety Tool",
+      "archetype": "A · Divider",
+      "file": "frames/frame_3.svg",
+      "startSec": 89,
+      "durationSec": 22,
+      "endSec": 111,
+      "startFrame": 2670,
+      "durationFrames": 660,
+      "beat": "Numeral scales up, AB & bosun scene enters, hazard cue pops.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 22000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "scatter",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 280,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_hazmat",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "hazmat",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "connectors",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "spot_lifering",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "lifering",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "crew",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "title": "Persuasion Steps",
+      "archetype": "F · Step flow",
+      "file": "frames/frame_4.svg",
+      "startSec": 112,
+      "durationSec": 35,
+      "endSec": 147,
+      "startFrame": 3360,
+      "durationFrames": 1050,
+      "beat": "Three steps pop left-to-right, arrows draw between them.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 35000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_step_icon_1",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "step_icon_1",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "step_label_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_step_icon_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "step_icon_2",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "step_label_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 790,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_step_icon_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "step_icon_3",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "step_label_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 880,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "title": "Section 2 — Master-Pilot",
+      "archetype": "A · Divider",
+      "file": "frames/frame_5.svg",
+      "startSec": 148,
+      "durationSec": 17,
+      "endSec": 165,
+      "startFrame": 4440,
+      "durationFrames": 510,
+      "beat": "Numeral + title, master & pilot scene settles.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 17000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "blueprint",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_helm",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "helm",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_radio",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "radio",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": 90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "title": "Bridge Scenario — Sail Area",
+      "archetype": "H · Scenario",
+      "file": "frames/frame_6.svg",
+      "startSec": 166,
+      "durationSec": 32,
+      "endSec": 198,
+      "startFrame": 4980,
+      "durationFrames": 960,
+      "beat": "Ship sails in, quote sets, swing arrow draws, highlight lifts.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 32000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "label_kick_ahead",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "spot_idea_bulb",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "idea_bulb",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_compass",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_compass",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "wind_arrows",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "swing_arrow",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1180,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "title": "Aggressive vs Assertive",
+      "archetype": "B · Compare",
+      "file": "frames/frame_7.svg",
+      "startSec": 199,
+      "durationSec": 31.1,
+      "endSec": 230.1,
+      "startFrame": 5970,
+      "durationFrames": 933,
+      "beat": "Two panels reveal; alert-X vs blue-✓ pop in contrast.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 31100,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "connectors",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "connectors_2",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1180,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "figures_aggressive",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": -60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "connectors_3",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1300,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "figures_assertive",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 780,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "ship_scales",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": 90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "title": "Section 3 — Correcting Habits",
+      "archetype": "A · Divider",
+      "file": "frames/frame_8.svg",
+      "startSec": 231,
+      "durationSec": 20,
+      "endSec": 251,
+      "startFrame": 6930,
+      "durationFrames": 600,
+      "beat": "Numeral + title, crew-lightering scene enters.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "scatter",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 280,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_anchor",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "anchor",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "crew",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 52
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-below",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "title": "Strategy Table",
+      "archetype": "C · Table",
+      "file": "frames/frame_9.svg",
+      "startSec": 252,
+      "durationSec": 33,
+      "endSec": 285,
+      "startFrame": 7560,
+      "durationFrames": 990,
+      "beat": "Table builds row by row; results colour in.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 33000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "spot_ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "icon_ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "spot_helm",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_helm",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_lifering",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_lifering",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_lockout",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_lockout",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_anchor",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_anchor",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1230,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "table_strategy",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "title": "The 30-Second Metric",
+      "archetype": "D · Stat",
+      "file": "frames/frame_10.svg",
+      "startSec": 286,
+      "durationSec": 28,
+      "endSec": 314,
+      "startFrame": 8580,
+      "durationFrames": 840,
+      "beat": "\"30\" counts up and pops; icons orbit in quietly.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 28000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "blueprint",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_clock",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_clock",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_shield",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_shield",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_stopwatch",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_stopwatch",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_awareness",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_awareness",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1230,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_3",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 810,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "title": "Section 4 — Resolving Disputes",
+      "archetype": "A · Divider",
+      "file": "frames/frame_11.svg",
+      "startSec": 315,
+      "durationSec": 19,
+      "endSec": 334,
+      "startFrame": 9450,
+      "durationFrames": 570,
+      "beat": "Numeral + title, container ship + officer enter.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 19000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_stopwatch",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_stopwatch",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "crew",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "title": "Terminal Conflict",
+      "archetype": "H · Scenario",
+      "file": "frames/frame_12.svg",
+      "startSec": 335,
+      "durationSec": 28,
+      "endSec": 363,
+      "startFrame": 10050,
+      "durationFrames": 840,
+      "beat": "Cranes rise, ship sets, compromise circle resolves.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "crane_1",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "crane_2",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": 90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "container_ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "spot_figures_conflict",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "icon_compromise",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "figures_conflict",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 780,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "deck_detail",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "crane_inset",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": -90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-left",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "title": "Escalate vs Compromise",
+      "archetype": "B · Compare",
+      "file": "frames/frame_13.svg",
+      "startSec": 364,
+      "durationSec": 44,
+      "endSec": 408,
+      "startFrame": 10920,
+      "durationFrames": 1320,
+      "beat": "Escalate vs commit panels reveal; check pops.",
+      "elements": []
+    },
+    {
+      "index": 14,
+      "title": "Section 5 — New Procedures",
+      "archetype": "A · Divider",
+      "file": "frames/frame_14.svg",
+      "startSec": 409,
+      "durationSec": 25,
+      "endSec": 434,
+      "startFrame": 12270,
+      "durationFrames": 750,
+      "beat": "Numeral + title, engine-room resistance beat.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 25000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_gears",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "gears",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_wrench",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "wrench",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "crew",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "title": "What's In It For Me",
+      "archetype": "E · Convergence",
+      "file": "frames/frame_15.svg",
+      "startSec": 435,
+      "durationSec": 33,
+      "endSec": 468,
+      "startFrame": 13050,
+      "durationFrames": 990,
+      "beat": "Four icons converge with arrows onto the glowing tablet.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "converging_arrows",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "spot_benefit_survey",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "benefit_survey",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_benefit_avoid",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "benefit_avoid",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_benefit_cargo_calc",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "benefit_cargo_calc",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_benefit_schedule",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "benefit_schedule",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_tablet_center",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "tablet_center",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 610,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "title": "Section 6 — Key Behaviours",
+      "archetype": "A · Divider",
+      "file": "frames/frame_16.svg",
+      "startSec": 469,
+      "durationSec": 13,
+      "endSec": 482,
+      "startFrame": 14070,
+      "durationFrames": 390,
+      "beat": "Numeral + title, leader vs negative officer.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 13000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "divider_head",
+          "role": "numeral",
+          "anim": "scale-fade",
+          "from": {
+            "opacity": 0,
+            "scale": 0.82
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 300,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_helm",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "helm",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "spot_scales",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_scales",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "crew",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateX": 60
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 660,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "tag_leader",
+          "role": "character",
+          "anim": "slide-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 52
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0,
+            "translateY": 0
+          },
+          "startMs": 780,
+          "durationMs": 640,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-below",
+          "idle": {
+            "anim": "float",
+            "translateY": [
+              -6,
+              6
+            ],
+            "dur": 3800,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "title": "Behaviour & Influence Table",
+      "archetype": "C · Table",
+      "file": "frames/frame_17.svg",
+      "startSec": 483,
+      "durationSec": 28,
+      "endSec": 511,
+      "startFrame": 14490,
+      "durationFrames": 840,
+      "beat": "Behaviour rows build; positive cyan, negative alert.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "row_positive",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "table_header",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 610,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "row_negative",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 700,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "title": "Persuasive Leader Traits",
+      "archetype": "G · Circle cluster",
+      "file": "frames/frame_18.svg",
+      "startSec": 512,
+      "durationSec": 34,
+      "endSec": 546,
+      "startFrame": 15360,
+      "durationFrames": 1020,
+      "beat": "Hero master sets centre; four trait circles pop around.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "guides",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "connectors",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_trait_1",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "trait_1",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 700,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_trait_2",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 950,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "trait_2",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 790,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_trait_3",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1100,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "trait_3",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 880,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_trait_4",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1250,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "trait_4",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 970,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "connectors_2",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1180,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "captain",
+          "role": "prop",
+          "anim": "fade-rise",
+          "from": {
+            "opacity": 0,
+            "translateY": 18
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 1060,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "title": "Why Influencing Is Vital",
+      "archetype": "E · Convergence",
+      "file": "frames/frame_19.svg",
+      "startSec": 547,
+      "durationSec": 39,
+      "endSec": 586,
+      "startFrame": 16410,
+      "durationFrames": 1170,
+      "beat": "Closing question sets over the \"?\" watermark; icons orbit.",
+      "elements": [
+        {
+          "id": "bg",
+          "role": "background",
+          "anim": "fade",
+          "from": {
+            "opacity": 0
+          },
+          "to": {
+            "opacity": 1
+          },
+          "startMs": 0,
+          "durationMs": 400,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "waves",
+          "role": "ambient",
+          "anim": "wave-drift",
+          "from": {
+            "translateX": -14
+          },
+          "to": {
+            "translateX": 14
+          },
+          "startMs": 0,
+          "durationMs": 39000,
+          "easing": "ease-in-out",
+          "loop": true,
+          "note": "back layers slower; foam opacity pulse"
+        },
+        {
+          "id": "text_0",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 420,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "scatter",
+          "role": "decor",
+          "anim": "fade-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 220,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "icon_ship",
+          "role": "ship",
+          "anim": "sail-in",
+          "from": {
+            "opacity": 0,
+            "translateX": 90
+          },
+          "to": {
+            "opacity": 1,
+            "translateX": 0
+          },
+          "startMs": 560,
+          "durationMs": 900,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "from-right",
+          "idle": {
+            "anim": "bob",
+            "translateY": [
+              -8,
+              8
+            ],
+            "rotate": [
+              -1,
+              1
+            ],
+            "dur": 4200,
+            "ease": "ease-in-out",
+            "loop": true
+          }
+        },
+        {
+          "id": "icon_growth",
+          "role": "card",
+          "anim": "rise-scale",
+          "from": {
+            "opacity": 0,
+            "translateY": 30,
+            "scale": 0.96
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0,
+            "scale": 1
+          },
+          "startMs": 520,
+          "durationMs": 540,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "spot_globe",
+          "role": "circle",
+          "anim": "pop-scale",
+          "from": {
+            "opacity": 0,
+            "scale": 0.6
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 800,
+          "durationMs": 480,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "orbit": {
+            "anim": "spin",
+            "rotate": [
+              0,
+              360
+            ],
+            "dur": 24000,
+            "ease": "linear",
+            "loop": true,
+            "target": "dashed orbit ring"
+          }
+        },
+        {
+          "id": "icon_globe",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 900,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "icon_lighthouse",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1010,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "connectors",
+          "role": "arrow",
+          "anim": "draw",
+          "from": {
+            "strokeDashoffset": 1,
+            "opacity": 1
+          },
+          "to": {
+            "strokeDashoffset": 0,
+            "opacity": 1
+          },
+          "startMs": 1060,
+          "durationMs": 460,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "direction": "along-path",
+          "note": "arrowhead pops at end"
+        },
+        {
+          "id": "icon_handshake",
+          "role": "icon",
+          "anim": "pop",
+          "from": {
+            "opacity": 0,
+            "scale": 0.8
+          },
+          "to": {
+            "opacity": 1,
+            "scale": 1
+          },
+          "startMs": 1120,
+          "durationMs": 440,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false,
+          "overshoot": 1.06
+        },
+        {
+          "id": "text_1",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 550,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        },
+        {
+          "id": "text_2",
+          "role": "text",
+          "anim": "rise-fade",
+          "from": {
+            "opacity": 0,
+            "translateY": 26
+          },
+          "to": {
+            "opacity": 1,
+            "translateY": 0
+          },
+          "startMs": 680,
+          "durationMs": 520,
+          "easing": "cubic-bezier(0.16,1,0.3,1)",
+          "loop": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "mastering-persuasion",
+  "version": "1.0.0",
+  "description": "Mastering Persuasion — 20-frame maritime persuasion explainer (Remotion + SVG pipeline)",
+  "scripts": {
+    "start": "remotion studio",
+    "prebuild": "node scripts/qa-review-gate.js",
+    "build": "remotion render src/index.ts MainComposition out/mastering_persuasion_v2.mp4",
+    "prerender": "node scripts/qa-review-gate.js",
+    "render": "remotion render src/index.ts MainComposition out/mastering_persuasion_v2.mp4 --codec=h264 --jpeg-quality=80 --concurrency=4",
+    "check-audio": "node scripts/check-audio-durations.js",
+    "qa-review": "node scripts/qa-review-gate.js"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.475",
+    "@remotion/google-fonts": "^4.0.475",
+    "@remotion/renderer": "^4.0.475",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.475"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.475",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  },
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  }
+}

@@ -1,0 +1,25 @@
+FRAME_17 — Behaviour & Influence Table
+Appears in the video at: 8:03
+Scene length: 870 frames = 29.0 seconds (30fps)
+Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Beat: Behaviour rows build; positive cyan, negative alert.
+
+────────────────────────────────────────
+TEXT ("DEBRIEF, DON'T DETONATE")
+Appears: rises (26px) + fades in frame 13–28 (0.4s–0.9s). Motion: none once set.
+
+PANEL / CARD
+Appears: rises + scales in frame 16–32. Motion: none once set.
+
+PANEL / CARD
+Appears: rises + scales in frame 18–35. Motion: none once set.
+
+PANEL / CARD
+Appears: rises + scales in frame 21–37. Motion: none once set.
+
+Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
+Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
+
+## Notes for the animator
+- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene17.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
+- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.

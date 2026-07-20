@@ -1,0 +1,53 @@
+FRAME_03 — Section 1 — Safety Tool · AB & Bosun
+Appears in the video at: 1:29
+Scene length: 690 frames = 23.0 seconds (30fps)
+Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Beat: Numeral scales up, AB & bosun scene enters, hazard cue pops.
+
+────────────────────────────────────────
+OCEAN WAVES / WAVE BAND
+Appears: eases up into place frame 0–24 (settles), then drifts side-to-side + slight sway continuously (organic, non-repeating). Never fully stops.
+
+BACKGROUND DECOR (guides / grid / dots)
+Appears: fades + scales up frame 7–22. Motion: none once set.
+
+BACKGROUND DECOR (guides / grid / dots)
+Appears: fades + scales up frame 8–24. Motion: none once set.
+
+SECTION HEADER (numeral + kicker + title)
+Appears: scales up (0.82→1) + fades in frame 9–28 (0.3s–0.9s). Motion: none once set.
+The big numeral rides this group; the three label texts below stagger in on top of it.
+
+TEXT ("SECTION 01")
+Appears: rises (26px) + fades in frame 13–28 (0.4s–0.9s). Motion: none once set.
+
+TEXT ("Safety Tool")
+Appears: rises (26px) + fades in frame 17–32 (0.6s–1.1s). Motion: none once set.
+
+TEXT ("AB & Bosun Scenario")
+Appears: rises (26px) + fades in frame 20–36 (0.7s–1.2s). Motion: none once set.
+
+CHARACTER(S)
+Appears: slides + fades in from right frame 20–39 (0.7s–1.3s). Motion: gentle idle float once settled.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 24–38. Motion: none (orbit ring may spin).
+
+ICON — hazmat
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 27–40 (0.9s–1.3s). Motion: none once set.
+
+CONCEPT CIRCLE
+Appears: pops in (scale 0.6→1 + fade) frame 29–43. Motion: none (orbit ring may spin).
+
+ICON — lifering
+Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 30–44 (1.0s–1.5s). Motion: none once set.
+
+CONNECTOR ARROW
+Appears: draws on / fades in frame 32–46. Motion: arrowhead settles at the end.
+
+Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
+Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
+
+## Notes for the animator
+- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene03.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
+- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.
