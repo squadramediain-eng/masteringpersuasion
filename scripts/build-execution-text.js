@@ -85,11 +85,18 @@ function elementsOf(svgFile) {
   const body = svg.replace(/<defs[\s\S]*?<\/defs>/g, '');
   const out = [];
   const seenTop = new Set();
-  for (const m of body.matchAll(/<(g|path|line|polyline|polygon|circle|ellipse|rect|image)\s[^>]*\bid="([^"]+)"/g)) {
+  for (const m of body.matchAll(/<(g|path|line|polyline|polygon|circle|ellipse|rect|image)\s[^>]*\bid="([^"]+)"[^>]*>/g)) {
     const id = m[2];
     if (seenTop.has(id) || JUNK.test(id) || SKIP_IDS.test(id)) continue;
     seenTop.add(id);
-    out.push({ id, role: classify(id), kind: 'element' });
+    const tag = m[0];
+    const attr = (n) => (new RegExp(`data-${n}="([^"]*)"`).exec(tag) || [, null])[1];
+    out.push({
+      id, role: classify(id), kind: 'element',
+      // Narration binding authored into the artwork — see motion.ts withData().
+      dataT: attr('t'), dataEnter: attr('enter'), dataCue: attr('cue'),
+      dataLayer: attr('layer'), dataBeat: attr('beat'),
+    });
   }
   const seenText = new Set();
   let n = 0;
@@ -114,9 +121,18 @@ function describe(el, svgFile, specEls) {
   const se = specEls.get(el.id);
   const bits = [];
 
-  // Entrance
+  // Entrance — precedence matches motion.ts: spec -> data-* -> cue -> override.
   if (ov?.at !== undefined) bits.push(`enters ${ov.at.toFixed(2)}s (frame-overrides)`);
   else if (cue?.at !== undefined) bits.push(`enters ${cue.at.toFixed(2)}s on the narration cue "${cue.cue}"`);
+  else if (el.dataLayer === 'world') bits.push('WORLD — on from frame 0, never enters or exits');
+  else if (el.dataT !== null && el.dataT !== undefined) {
+    bits.push(
+      `enters ${Number(el.dataT).toFixed(2)}s on the narration beat` +
+      (el.dataCue ? ` "${el.dataCue}"` : '') +
+      (el.dataBeat ? ` (beat ${el.dataBeat})` : '') +
+      (el.dataEnter ? `, ${el.dataEnter}` : '')
+    );
+  }
   else if (se) bits.push(`enters ${(se.startMs / 1000).toFixed(2)}s (guider spec, ${se.anim})`);
   else bits.push('enters on the fallback recipe (no spec entry — role-based stagger)');
 
@@ -199,11 +215,17 @@ function build(scene) {
   L.push('- To change any element here, edit public/animation/frame-overrides.json');
   L.push('  (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which');
   L.push('  id is which on screen.');
-  if (!Object.keys(CUES).length) {
-    L.push('- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2');
-    L.push('  redesign renamed every element, so all 133 cues were orphaned (preserved in');
-    L.push('  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider');
-    L.push('  spec or the fallback stagger, NOT from the words that name them.');
+  const cued = els.filter((e) => e.dataT !== null && e.dataT !== undefined).length;
+  if (cued) {
+    L.push(`- NARRATION TIMING: ${cued} element(s) in this frame carry data-t authored into`);
+    L.push('  the artwork by the design project. That timing travels WITH the element, so a');
+    L.push('  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133');
+    L.push('  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).');
+    L.push('  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.');
+  } else if (!Object.keys(CUES).length) {
+    L.push('- NO NARRATION TIMING in this frame: no data-t attributes and audio-cues.json is');
+    L.push('  empty, so entrances come from the guider spec or the fallback stagger, NOT');
+    L.push('  from the words that name them.');
   }
   return L.join('\n') + '\n';
 }

@@ -91,6 +91,63 @@ const metricFor = (svgFile: string, id: string): TextMetric | undefined =>
 
 const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TYPE_MAX_MS);
 
+// ─── EMBEDDED NARRATION BINDING (data-* on the artwork) ──────────────────────
+// The design project now authors the binding INTO the SVG:
+//   <g id="art_1" data-layer="content" data-beat="3" data-cue="pillar"
+//      data-t="7" data-enter="pop" data-cx="443" data-cy="823">
+// 209 elements across the 20 frames carry data-t.
+//
+// This is a better answer to the problem than the one we asked for. We asked for
+// stable ids so audio-cues.json could keep binding; instead the timing travels
+// WITH the element, so a rename cannot orphan it — which is what killed all 133
+// cues when mp_v2 renamed everything.
+//
+//   data-t      seconds from the SCENE's start when the element lands
+//   data-enter  slide | pop | typewriter | fade
+//   data-layer  world = always on, never enters (WorldLayer's rule, per spec 12 §2)
+//
+// Precedence: guider spec -> THIS -> audio-cues.json -> frame-overrides.json.
+// It outranks the spec because it was authored against the artwork as it now
+// exists, while 84% of the spec's ids no longer resolve at all.
+const ENTER_FROM: Record<string, Record<string, number>> = {
+  slide: { translateX: 60, opacity: 0 },
+  pop: { scale: 0.8, opacity: 0 },
+  fade: { opacity: 0 },
+  typewriter: { opacity: 1 },   // the glyph reveal is the entrance; see TYPE-ON
+};
+const ENTER_DUR: Record<string, number> = { slide: 700, pop: 520, fade: 600, typewriter: 200 };
+
+function withData(rec: Rec, el: Element, role: string): Rec {
+  const layer = el.getAttribute('data-layer');
+  const tRaw = el.getAttribute('data-t');
+  const enter = el.getAttribute('data-enter') || '';
+
+  // WORLD never enters — it is on from frame 0 and only ever idles.
+  if (layer === 'world') {
+    return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 } };
+  }
+  if (tRaw === null) return rec;
+  const t = Number(tRaw);
+  if (!isFinite(t)) return rec;
+
+  const from = ENTER_FROM[enter];
+  if (!from) return { ...rec, start: t * 1000 };
+  // Slide direction follows the element's own side of the frame, so content
+  // arrives from the nearest edge rather than all sweeping the same way.
+  const cx = Number(el.getAttribute('data-cx'));
+  const dir = isFinite(cx) && cx > 960 ? 1 : -1;
+  const resolved = enter === 'slide' ? { ...from, translateX: (from.translateX ?? 60) * dir } : from;
+  return {
+    ...rec,
+    anim: enter,
+    start: t * 1000,
+    dur: ENTER_DUR[enter] ?? rec.dur,
+    ease: 'brand',
+    from: resolved,
+    to: { opacity: 1, scale: 1, translateX: 0 },
+  };
+}
+
 // ─── DEFAULT IDLE — "the frame is never still" (spec 12 §6) ──────────────────
 // Only 23 of the guider's 242 elements (10%) carry an idle loop, and 8 frames
 // carry none at all — so once a scene's entrances finish, ~90% of it freezes.
@@ -467,7 +524,8 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     const se = spec?.get(id);
     // Cue applies to whatever recipe was built — spec OR fallback. frame_13 has no spec
     // elements at all, so gating this on the spec would leave the longest scene uncued.
-    const rec = withCue(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), svgFile, id);
+    const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role);
+    const rec = withCue(base, svgFile, id);
     const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id);
     // hide: true — drop the element from the DOM entirely rather than animating it to
     // opacity 0, so it costs nothing to render and cannot be caught mid-transition.

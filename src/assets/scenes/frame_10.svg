@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
 <defs></defs>
 <g isolation="isolate">
 
@@ -1630,7 +1629,7 @@
 &#x9;&#x9;<circle fill="#B2CEE5" cx="346.68" cy="333.25" r="0.96"></circle>
 &#x9;</g>
 </g>
-<g id="number">
+<g id="number" data-layer="content" data-beat="1" data-cue="specific metric" data-t="289" data-enter="pop" data-cx="956" data-cy="551">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -1728,7 +1727,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="circle_x5f_1">
+<g id="circle_x5f_1" data-layer="content" data-beat="3" data-cue="worth a life" data-t="300" data-enter="pop" data-cx="626" data-cy="634">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="1.5144" stroke-miterlimit="10" cx="622.77" cy="543.95" r="105.75"></circle>
@@ -1777,7 +1776,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="circle_x5f_2">
+<g id="circle_x5f_2" data-layer="content" data-beat="3" data-cue="worth a life" data-t="300" data-enter="pop" data-cx="970" data-cy="946">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="1.5144" stroke-miterlimit="10" cx="967" cy="854.61" r="107.02"></circle>
@@ -1826,7 +1825,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="circle_x5f_3">
+<g id="circle_x5f_3" data-layer="content" data-beat="3" data-cue="worth a life" data-t="300" data-enter="pop" data-cx="1322" data-cy="635">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="1.5144" stroke-miterlimit="10" cx="1319.4" cy="542.71" r="108.58"></circle>
@@ -1875,7 +1874,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="circle_x5f_4">
+<g id="circle_x5f_4" data-layer="content" data-beat="3" data-cue="worth a life" data-t="300" data-enter="pop" data-cx="964" data-cy="323">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="1.5144" stroke-miterlimit="10" cx="960.94" cy="232.46" r="106.62"></circle>

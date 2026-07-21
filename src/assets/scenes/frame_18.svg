@@ -123,7 +123,7 @@
 &#x9;&#x9;<path opacity="0.47" fill="url(#SVGID_00000167386948984776162160000009012180896518491008_)" d="M304.56,411.85&#xA;&#x9;&#x9;&#x9;c-0.4-1.96-1.81-3.61-3.71-4.31c-0.88-0.32-1.74-0.4-2.55-0.32c-0.34-4.95-4.46-8.85-9.5-8.85c-4.24,0-7.83,2.78-9.06,6.61&#xA;&#x9;&#x9;&#x9;c-1.7-2.62-4.65-4.35-8.01-4.35c-1.74,0-3.37,0.48-4.78,1.29c-1.74-5.12-6.57-8.8-12.28-8.8c-7.16,0-12.96,5.8-12.96,12.96&#xA;&#x9;&#x9;&#x9;c0,2.17,0.54,4.22,1.48,6.02c-6.11,0.66-10.4,1.72-11.46,2.95h51.84h19.86h17.31C317.41,413.31,311.48,412.08,304.56,411.85z"></path>
 &#x9;</g>
 </g>
-<g id="part_3">
+<g id="part_3" data-layer="content" data-beat="3" data-cue="actively listen" data-t="526" data-enter="pop" data-cx="554" data-cy="732">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -204,7 +204,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_4">
+<g id="part_4" data-layer="content" data-beat="4" data-cue="common ground" data-t="532" data-enter="pop" data-cx="1329" data-cy="398">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -285,7 +285,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_5">
+<g id="part_5" data-layer="content" data-beat="2" data-cue="calm and rational" data-t="520" data-enter="pop" data-cx="554" data-cy="398">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -366,7 +366,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_6">
+<g id="part_6" data-layer="content" data-beat="5" data-cue="buy-in" data-t="538" data-enter="pop" data-cx="1329" data-cy="732">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -447,7 +447,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="icon3">
+<g id="icon3" data-layer="content" data-beat="4" data-cue="common ground" data-t="532" data-enter="pop" data-cx="1333" data-cy="365">
 &#x9;<g>
 &#x9;&#x9;<path fill="none" stroke="#3860AD" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="M1297.17,381.56&#xA;&#x9;&#x9;&#x9;c0,0-0.07-3.83-0.07-3.83c-0.3-17.27,19.18-40.32,37.74-30.04c15.06,8.33,17.43,32.94,10.48,47.01&#xA;&#x9;&#x9;&#x9;c-9.73,19.7-11.92,32.59-14.84,37.95c-3.52,6.46-11.9,9.01-18.82,6.53c-7.24-2.6-9.96-10.04-9.63-17.24"></path>
 &#x9;&#x9;<path fill="none" stroke="#3860AD" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="M1304.71,393.97&#xA;&#x9;&#x9;&#x9;c0,0,10.46,3.89,4.86,12.41c0,0-3.89,8.27,2.68,10.95c6.57,2.68,14.11-8.76,14.11-8.76"></path>
@@ -474,7 +474,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="icon4">
+<g id="icon4" data-layer="content" data-beat="5" data-cue="buy-in" data-t="538" data-enter="pop" data-cx="1336" data-cy="738">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#18469D" d="M1342.02,630.88c0.28,0,0.5-0.22,0.5-0.5v-6.85c0-0.28-0.22-0.5-0.5-0.5s-0.5,0.22-0.5,0.5v6.85&#xA;&#x9;&#x9;&#x9;&#x9;C1341.52,630.65,1341.74,630.88,1342.02,630.88z"></path>
@@ -695,7 +695,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="icon1">
+<g id="icon1" data-layer="content" data-beat="2" data-cue="calm and rational" data-t="520" data-enter="pop" data-cx="570" data-cy="371">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -740,7 +740,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="icon2">
+<g id="icon2" data-layer="content" data-beat="3" data-cue="actively listen" data-t="526" data-enter="pop" data-cx="578" data-cy="694">
 &#x9;<g>
 &#x9;&#x9;<defs>
 &#x9;&#x9;&#x9;<path id="SVGID_00000163766888343579740240000018193754906227356572_" d="M588.41,615.41c57.7,12.76,93.97,69.17,81.01,125.99&#xA;&#x9;&#x9;&#x9;&#x9;c-12.95,56.82-70.23,92.55-127.92,79.79s-93.97-69.17-81.01-125.99C473.44,638.37,530.71,602.65,588.41,615.41z"></path>
@@ -762,7 +762,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_7">
+<g id="part_7" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<path fill="none" stroke="#253761" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="M758.51,390.11&#xA;&#x9;&#x9;c0,0,1.54,14.45,12.3,17.23s20.07-1.41,26.57,2.1c8.67,4.69,9.63,19.33,16.2,23.8c13.66,9.31,25-3.78,24.44-3.79"></path>
 &#x9;<path fill="none" stroke="#253761" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="M1146.92,375.8&#xA;&#x9;&#x9;c0,0-0.49,14.52-11.01,18.08c-10.53,3.56-20.12,0.06-26.34,4.03c-8.31,5.31-8.2,19.98-14.42,24.92c-12.94,10.28-25.21-1.95-24.65-2&#xA;&#x9;&#x9;"></path>
 &#x9;<path fill="none" stroke="#253761" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="M758.51,637.27&#xA;&#x9;&#x9;c0,0,1.54-14.45,12.3-17.23s20.07,1.41,26.57-2.1c8.67-4.69,9.63-19.33,16.2-23.8c13.66-9.31,25,3.78,24.44,3.79"></path>
@@ -792,7 +792,7 @@
 &#x9;
 &#x9;&#x9;<path fill="url(#SVGID_00000157278783447225251270000008383090042769399991_)" stroke="#0840A5" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="&#xA;&#x9;&#x9;M1050.32,513.16l-64.7-56.11c0,0,7.83-38.41,32.98-35.13l45.87,58.06"></path>
 </g>
-<g id="arm2">
+<g id="arm2" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;
@@ -826,7 +826,7 @@
 &#x9;&#x9;&#x9;<path fill="url(#SVGID_00000034086988546797769230000006686028627527600559_)" stroke="#0840A5" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="&#xA;&#x9;&#x9;&#x9;M1053.24,481.01c5-2.13,10.75-1.63,10.75-1.63l67.73,21.56l-3.54,29.3c0,0-52.82-1.96-77.15-16.93"></path>
 &#x9;</g>
 </g>
-<g id="arm1">
+<g id="arm1" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;
@@ -860,7 +860,7 @@
 &#x9;&#x9;&#x9;<path fill="url(#SVGID_00000116927419659677169680000002912935201953703071_)" stroke="#0840A5" stroke-width="1.6896" stroke-linecap="round" stroke-miterlimit="10" d="&#xA;&#x9;&#x9;&#x9;M855.17,481.31c-4.69-1.62-9.6-1.19-9.6-1.19l-67.73,21.56l3.54,29.3c0,0,54.59-2.02,78.35-17.69"></path>
 &#x9;</g>
 </g>
-<g id="part_8">
+<g id="part_8" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<ellipse opacity="0.17" fill="#18469D" cx="949.34" cy="923.13" rx="154.72" ry="7.66"></ellipse>
 &#x9;</g>
@@ -877,7 +877,7 @@
 &#x9;&#x9;<path fill="#18469D" d="M1038.61,880.51c-12.13,12.13-52.32,12.87-52.32,12.87L973.4,779.67l-16.57-93.42&#xA;&#x9;&#x9;&#x9;c1.39-15.86-18.77-42.24-17.32-59.45l78.63,4.26l7.58,134.96L1038.61,880.51z"></path>
 &#x9;</g>
 </g>
-<g id="torso">
+<g id="torso" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -1017,7 +1017,7 @@
 &#x9;
 &#x9;&#x9;<line fill="none" stroke="#0840A5" stroke-width="1.6896" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="955.82" y1="653.6" x2="954.39" y2="509.5"></line>
 </g>
-<g id="head">
+<g id="head" data-layer="content" data-beat="1" data-cue="persuasive leader" data-t="515" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<path fill="#F4F6F9" stroke="#0840A5" stroke-width="1.6896" stroke-miterlimit="10" d="M920.89,329.36c0,0-17.56-5.02-18.1-14.34&#xA;&#x9;&#x9;&#x9;c-0.54-9.32,12.9-19.71,22.4-24.91c9.5-5.2,17.02-8.06,24.73-9.86c7.71-1.79,17.14,0.18,23.53,3.05&#xA;&#x9;&#x9;&#x9;c6.39,2.87,35.42,17.2,38.82,25.27c3.4,8.06-1.79,13.22-5.73,16.56c-3.94,3.33-18.28,4.23-18.28,4.23H920.89z"></path>
 &#x9;&#x9;<path fill="#1B1959" d="M997.42,327.74c0,0,2.13,10.93,1.59,19.53c-0.54,8.6-7.71,15.77-7.71,15.77v-23.89L997.42,327.74z"></path>

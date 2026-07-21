@@ -21,41 +21,41 @@ ELEMENTS (31, in the order motion.ts wraps them)
   part_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_3 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 526.00s on the narration beat "actively listen" (beat 3), pop; default idle 2.0px / 5.4s.
   part_4 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 532.00s on the narration beat "common ground" (beat 4), pop; default idle 2.0px / 5.4s.
   part_5 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 520.00s on the narration beat "calm and rational" (beat 2), pop; default idle 2.0px / 5.4s.
   part_6 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 538.00s on the narration beat "buy-in" (beat 5), pop; default idle 2.0px / 5.4s.
   icon3 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 532.00s on the narration beat "common ground" (beat 4), pop; default idle 2.2px / 5.0s.
   icon4 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 538.00s on the narration beat "buy-in" (beat 5), pop; default idle 2.2px / 5.0s.
   icon1 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 520.00s on the narration beat "calm and rational" (beat 2), pop; default idle 2.2px / 5.0s.
   icon2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 526.00s on the narration beat "actively listen" (beat 3), pop; default idle 2.2px / 5.0s.
   part_7 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   bisep2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   bisep1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   arm2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   arm1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   part_8 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   leg2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   leg1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   torso [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   head [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 515.00s on the narration beat "persuasive leader" (beat 1), slide; default idle 2.0px / 5.4s.
   eyebrow1 [card]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
   eyebrow2 [card]
@@ -93,7 +93,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 14 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

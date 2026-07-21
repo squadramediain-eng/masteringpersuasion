@@ -191,7 +191,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_4">
+<g id="part_4" data-layer="content" data-beat="2" data-cue="spare-part" data-t="444" data-enter="pop" data-cx="409" data-cy="334">
 &#x9;<g>
 &#x9;&#x9;<g id="c1">
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.7098" stroke-miterlimit="10" cx="340.2" cy="348.91" r="99.47"></circle>
@@ -251,7 +251,7 @@
 &#x9;&#x9;<path fill="none" stroke="#19489B" stroke-width="1.1868" stroke-linecap="round" stroke-miterlimit="10" d="M328.7,392.59&#xA;&#x9;&#x9;&#x9;c-4.63,0.52-9.44,0.05-14.14-1.57c-16.85-5.82-25.79-24.19-19.97-41.04c0.24-0.7,0.51-1.39,0.79-2.07"></path>
 &#x9;</g>
 </g>
-<g id="part_7">
+<g id="part_7" data-layer="content" data-beat="3" data-cue="reports" data-t="452" data-enter="pop" data-cx="1650" data-cy="334">
 &#x9;<g>
 &#x9;&#x9;<g id="c1_2">
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.7098" stroke-miterlimit="10" cx="1581" cy="348.47" r="99.47"></circle>
@@ -460,7 +460,7 @@
 &#x9;&#x9;<path fill="none" stroke="#3F6EB6" stroke-width="0.4852" stroke-linecap="round" stroke-miterlimit="10" d="M1631.9,348.86&#xA;&#x9;&#x9;&#x9;c0.01-0.25,0.06-0.5,0.13-0.76c0.52-1.82,2.42-2.87,4.23-2.35c1.4,0.4,2.34,1.61,2.47,2.97"></path>
 &#x9;</g>
 </g>
-<g id="part_10">
+<g id="part_10" data-layer="content" data-beat="4" data-cue="30 minutes" data-t="460" data-enter="pop" data-cx="408" data-cy="693">
 &#x9;<g>
 &#x9;&#x9;<g id="c1_3">
 &#x9;&#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.7098" stroke-miterlimit="10" cx="338.58" cy="707.96" r="99.47"></circle>
@@ -921,7 +921,7 @@
 &#x9;&#x9;<polygon fill="#18469D" points="1288.16,391.54 1264.49,378.91 1287.25,365.6 &#x9;&#x9;"></polygon>
 &#x9;</g>
 </g>
-<g id="part_26">
+<g id="part_26" data-layer="content" data-beat="1" data-cue="tablet" data-t="438" data-enter="pop" data-cx="952" data-cy="515">
 &#x9;<g>
 &#x9;&#x9;<path fill="#71AFD8" stroke="#2D5FBB" stroke-miterlimit="10" d="M1137.91,458.4c1.18,0,2.13-0.96,2.13-2.13v-15.82&#xA;&#x9;&#x9;&#x9;c0-1.18-0.96-2.13-2.13-2.13h-2.03c-1.14-9.48-9.19-16.83-18.97-16.83H887.75v-3.64c0-1.18-0.96-2.13-2.13-2.13h-15.82&#xA;&#x9;&#x9;&#x9;c-1.18,0-2.13,0.96-2.13,2.13v3.64h-4.77v-3.64c0-1.18-0.96-2.13-2.13-2.13h-15.82c-1.18,0-2.13,0.96-2.13,2.13v3.64h-37.26&#xA;&#x9;&#x9;&#x9;c-10.56,0-19.12,8.56-19.12,19.12v199.85c0,10.56,8.56,19.12,19.12,19.12h311.37c10.56,0,19.12-8.56,19.12-19.12V483.27h1.88&#xA;&#x9;&#x9;&#x9;c1.18,0,2.13-0.96,2.13-2.13v-15.82c0-1.18-0.96-2.13-2.13-2.13h-1.88v-4.77H1137.91z"></path>
 &#x9;&#x9;<g>

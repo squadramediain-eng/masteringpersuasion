@@ -27,23 +27,23 @@ ELEMENTS (30, in the order motion.ts wraps them)
   white_box [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   icon4_2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 276.00s on the narration beat "passive" (beat 4), pop; default idle 2.2px / 5.0s.
   icon3 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 268.00s on the narration beat "rational buy-in" (beat 3), pop; default idle 2.2px / 5.0s.
   icon4_2_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   icon2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters 260.00s on the narration beat "aggressive push" (beat 2), pop; default idle 2.2px / 5.0s.
   icon1 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   line [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   texts [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 260.00s on the narration beat "aggressive push" (beat 2), fade; default idle 2.0px / 5.4s.
   blue_box [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   h1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 255.00s on the narration beat "strategy" (beat 1), fade; default idle 2.0px / 5.4s.
   text_0 "N"
       enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.07s (1 chars @ 14/s, 1 line) with a caret.
   text_1 "S"
@@ -91,7 +91,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

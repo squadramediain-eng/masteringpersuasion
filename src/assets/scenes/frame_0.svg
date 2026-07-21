@@ -105,7 +105,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="art_1">
+<g id="art_1" data-layer="content" data-beat="3" data-cue="pillar" data-t="7" data-enter="pop" data-cx="443" data-cy="823">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -427,12 +427,12 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="lines">
+<g id="lines" data-layer="content" data-beat="1" data-cue="persuasion" data-t="2" data-enter="typewriter">
 &#x9;<text transform="matrix(1 0 0 1 169.0746 522.3351)"><tspan x="0" y="0" fill="#6084F0" font-family="DM Sans" font-size="100px">Mastering</tspan><tspan x="0" y="98" fill="#0840A5" font-family="DM Sans" font-size="100px">Persuasion</tspan></text>
 </g>
 <g id="art_3">
 </g>
-<g id="art_4">
+<g id="art_4" data-layer="content" data-beat="3" data-cue="pillar" data-t="7" data-enter="pop" data-cx="444" data-cy="158">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -544,7 +544,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="art_5">
+<g id="art_5" data-layer="content" data-beat="3" data-cue="pillar" data-t="7" data-enter="pop" data-cx="907" data-cy="383">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -617,7 +617,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="art_6">
+<g id="art_6" data-layer="content" data-beat="3" data-cue="pillar" data-t="7" data-enter="pop" data-cx="925" data-cy="647">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -682,7 +682,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="art_7">
+<g id="art_7" data-layer="content" data-beat="3" data-cue="pillar" data-t="7" data-enter="pop" data-cx="1495" data-cy="582">
 &#x9;<g>
 &#x9;&#x9;<path fill="none" stroke="#71AFD8" stroke-width="2" stroke-miterlimit="10" d="M1531.53,718.76h-7.36&#xA;&#x9;&#x9;&#x9;c-2.71,0-4.92-2.21-4.92-4.92v-16.55c0-2.71,2.21-4.92,4.92-4.92h7.36c2.71,0,4.92,2.21,4.92,4.92v16.55&#xA;&#x9;&#x9;&#x9;C1536.45,716.54,1534.23,718.76,1531.53,718.76z"></path>
 &#x9;&#x9;<path fill="none" stroke="#71AFD8" stroke-width="2" stroke-miterlimit="10" d="M1532.91,673.47h-7.36&#xA;&#x9;&#x9;&#x9;c-2.71,0-4.92-2.21-4.92-4.92V652c0-2.71,2.21-4.92,4.92-4.92h7.36c2.71,0,4.92,2.21,4.92,4.92v16.55&#xA;&#x9;&#x9;&#x9;C1537.83,671.26,1535.61,673.47,1532.91,673.47z"></path>

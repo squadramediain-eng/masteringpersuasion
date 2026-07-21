@@ -19,7 +19,7 @@
 <g id="bubble_x5f_1">
 &#x9;<path fill="#6084F0" d="M1267.63,300.53h24.78h36.3c15.55,0,28.15-12.6,28.15-28.15c0-15.55-12.6-28.15-28.15-28.15h-78.97h-3.85&#xA;&#x9;&#x9;c-15.55,0-28.15,12.6-28.15,28.15c0,15.08,11.85,27.38,26.74,28.12l10.01,21.47L1267.63,300.53z M1267,272.38&#xA;&#x9;&#x9;c0,4.06-3.29,7.35-7.35,7.35s-7.35-3.29-7.35-7.35c0-4.06,3.29-7.35,7.35-7.35S1267,268.32,1267,272.38z M1307.6,272.38&#xA;&#x9;&#x9;c0-4.06,3.29-7.35,7.35-7.35c4.06,0,7.35,3.29,7.35,7.35c0,4.06-3.29,7.35-7.35,7.35C1310.89,279.73,1307.6,276.44,1307.6,272.38z&#xA;&#x9;&#x9; M1279.95,272.38c0-4.06,3.29-7.35,7.35-7.35c4.06,0,7.35,3.29,7.35,7.35c0,4.06-3.29,7.35-7.35,7.35&#xA;&#x9;&#x9;C1283.24,279.73,1279.95,276.44,1279.95,272.38z"></path>
 </g>
-<g id="person_x5f_2">
+<g id="person_x5f_2" data-layer="content" data-beat="2" data-cue="internal resistance" data-t="416" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<path fill="#C2E5F7" stroke="#0840A5" stroke-linecap="round" stroke-miterlimit="10" d="M1645.9,579.5l-26.61,25.37&#xA;&#x9;&#x9;&#x9;c-9.57,6.42-17.71,7.16-23.98,5.79c-9.31-2.03-15.6-10.53-15.4-20.06c0.25-12.01,5.86-17.96,12.69-25.5l53.57-59.17L1645.9,579.5z&#xA;&#x9;&#x9;&#x9;"></path>
 &#x9;&#x9;<g>
@@ -378,7 +378,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="person_x5f_1">
+<g id="person_x5f_1" data-layer="content" data-beat="2" data-cue="internal resistance" data-t="416" data-enter="slide">
 &#x9;<path fill="#C2E5F7" stroke="#0840A5" stroke-linecap="round" stroke-miterlimit="10" d="M1233.83,575.49l26.61,25.37&#xA;&#x9;&#x9;c9.57,6.42,17.71,7.16,23.98,5.79c9.31-2.03,15.6-10.53,15.4-20.06c-0.25-12.01-5.86-17.96-12.69-25.5l-53.57-59.17L1233.83,575.49&#xA;&#x9;&#x9;z"></path>
 &#x9;<g>
 &#x9;&#x9;<defs>
@@ -599,7 +599,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="ship">
+<g id="ship" data-layer="content" data-beat="2" data-cue="internal resistance" data-t="416" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -818,17 +818,17 @@
 &#x9;&#x9;<path fill="#ACC0C9" d="M319.78,459.19c12.61,0.32,25.74,8.66,33.75,18.12c0,0-1.63,0.05-1.63,0.05&#xA;&#x9;&#x9;&#x9;c7.52-10.34,19.39-19.73,32.82-18.45c-12.97,0.31-23.88,9.52-31.16,19.56c0,0-0.78,1.13-0.78,1.13l-0.84-1.08&#xA;&#x9;&#x9;&#x9;C344.22,469.38,331.79,460.96,319.78,459.19L319.78,459.19z"></path>
 &#x9;</g>
 </g>
-<g id="num">
+<g id="num" data-layer="content" data-beat="1" data-cue="section five" data-t="411" data-enter="typewriter">
 &#x9;<g id="heading">
 &#x9;&#x9;<text transform="matrix(1 0 0 1 80.1909 357.9594)" fill="#6084F0" font-family="DM Sans" font-size="361.5142px">5</text>
 &#x9;</g>
 </g>
-<g id="text">
+<g id="text" data-layer="content" data-beat="1" data-cue="section five" data-t="411" data-enter="typewriter">
 &#x9;<g id="first">
 &#x9;&#x9;<text transform="matrix(1 0 0 1 309.4163 356.5226)" fill="#0840A5" font-family="DM Sans" font-size="45.73px">Engine Room Resistance</text>
 &#x9;</g>
 </g>
-<g id="h1">
+<g id="h1" data-layer="content" data-beat="1" data-cue="section five" data-t="411" data-enter="typewriter">
 &#x9;<g id="heading_2">
 &#x9;&#x9;<text transform="matrix(1 0 0 1 299.3363 285.9326)" fill="#0840A5" font-family="DM Sans" font-size="110.96px">New Procedure</text>
 &#x9;</g>

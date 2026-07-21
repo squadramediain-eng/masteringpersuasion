@@ -592,7 +592,7 @@
 &#x9;&#x9;<rect x="563.33" y="879.58" fill="none" stroke="#55A6D8" stroke-miterlimit="10" width="5.93" height="5.76"></rect>
 &#x9;</g>
 </g>
-<g id="part_6">
+<g id="part_6" data-layer="content" data-beat="1" data-cue="cite the facts" data-t="116" data-enter="pop" data-cx="540" data-cy="336">
 &#x9;<g id="c1_3">
 &#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.003" stroke-miterlimit="10" cx="514.88" cy="345.74" r="109.14"></circle>
 &#x9;&#x9;<g>
@@ -650,7 +650,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_7">
+<g id="part_7" data-layer="content" data-beat="2" data-cue="state the risk" data-t="122" data-enter="pop" data-cx="1031" data-cy="331">
 &#x9;<g id="c1_4">
 &#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.003" stroke-miterlimit="10" cx="963.91" cy="345.74" r="109.14"></circle>
 &#x9;&#x9;<g>
@@ -826,7 +826,7 @@
 &#x9;</g>
 &#x9;<polyline fill="none" stroke="#0840A5" stroke-width="8" stroke-linecap="round" stroke-miterlimit="10" points="1440.34,892.1 &#xA;&#x9;&#x9;1470.18,910.64 1514.11,839.41 &#x9;"></polyline>
 </g>
-<g id="part_10">
+<g id="part_10" data-layer="content" data-beat="3" data-cue="clear solution" data-t="130" data-enter="pop" data-cx="1465" data-cy="328">
 &#x9;<g id="c1_6">
 &#x9;&#x9;<circle fill="#F3F4FA" stroke="#71AFD8" stroke-width="2.003" stroke-miterlimit="10" cx="1422.78" cy="345.74" r="109.14"></circle>
 &#x9;&#x9;<g>
@@ -1082,7 +1082,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="part_13">
+<g id="part_13" data-layer="content" data-beat="1" data-cue="cite the facts" data-t="116" data-enter="typewriter">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<text transform="matrix(1 0 0 1 403.7473 596.0068)" fill="#0840A5" font-family="DM Sans" font-size="40px">Clear Facts</text>

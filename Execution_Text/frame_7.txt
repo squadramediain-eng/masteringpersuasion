@@ -21,49 +21,49 @@ ELEMENTS (25, in the order motion.ts wraps them)
   spark [alert]
       enters on the fallback recipe (no spec entry — role-based stagger).
   ch4rh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch4l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch4b [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch4lh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch4h [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3lh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3b [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3rh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3h [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 214.00s on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2rh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch2l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch2b [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch2lh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch2h [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch1l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch1lh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch1b [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch1rh [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   ch1h [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
   correct [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 214.00s on the narration beat "assertive" (beat 2), pop; default idle 2.0px / 5.4s.
   wrong [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 202.00s on the narration beat "aggressive" (beat 1), pop; default idle 2.0px / 5.4s.
 
 HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
   bubbles keep running. The frame is never completely still.
@@ -81,7 +81,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 22 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

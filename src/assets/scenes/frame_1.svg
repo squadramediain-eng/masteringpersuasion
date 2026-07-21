@@ -612,7 +612,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="text">
+<g id="text" data-layer="content" data-beat="1" data-cue="safety tool" data-t="37" data-enter="typewriter">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<text transform="matrix(1 0 0 1 679.0647 490.0347)"><tspan x="0" y="0" fill="#0840A5" font-family="DM Sans" font-size="44px">Using clear </tspan><tspan x="234.91" y="0" fill="#6084F0" font-family="DM Sans" font-size="44px">communication,</tspan><tspan x="32.8" y="52.8" fill="#6084F0" font-family="DM Sans" font-size="44px">logic,</tspan><tspan x="136.99" y="52.8" fill="#0840A5" font-family="DM Sans" font-size="44px"> and </tspan><tspan x="237.18" y="52.8" fill="#6084F0" font-family="DM Sans" font-size="44px">respect</tspan><tspan x="395.53" y="52.8" fill="#0840A5" font-family="DM Sans" font-size="44px"> to get</tspan><tspan x="45.25" y="105.6" fill="#0840A5" font-family="DM Sans" font-size="44px">cooperation for a safe, </tspan><tspan x="141.26" y="158.4" fill="#6084F0" font-family="DM Sans" font-size="44px">effective plan</tspan></text>
@@ -648,7 +648,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="icon_3">
+<g id="icon_3" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="1301" data-cy="812">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M1257.56,809.21c-12.33,14.7-17.13,35.23-12.42,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C1239.92,844.43,1244.97,823.84,1257.56,809.21L1257.56,809.21z"></path>
@@ -796,7 +796,7 @@
 &#x9;<line fill="#71AFD8" stroke="#18469D" stroke-miterlimit="10" x1="600.57" y1="860.32" x2="600.57" y2="879.32"></line>
 &#x9;<line fill="#71AFD8" stroke="#18469D" stroke-miterlimit="10" x1="580.79" y1="860.32" x2="647.13" y2="860.32"></line>
 </g>
-<g id="icon_2">
+<g id="icon_2" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="392" data-cy="514">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -857,7 +857,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="scene_6">
+<g id="scene_6" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="612" data-cy="185">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<g>
@@ -918,7 +918,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="scene_7">
+<g id="scene_7" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="960" data-cy="177">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<rect x="955.37" y="187.51" fill="#386EC1" width="8.91" height="48.5"></rect>
@@ -970,7 +970,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="scene_8">
+<g id="scene_8" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="1301" data-cy="181">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M1254.39,169.35c-12.33,14.7-17.13,35.23-12.41,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C1236.75,204.57,1241.81,183.97,1254.39,169.35L1254.39,169.35z"></path>
@@ -1062,7 +1062,7 @@
 &#x9;&#x9;<polygon fill="#253761" points="869.31,845.35 869.31,861.18 881.36,854.16 &#x9;&#x9;"></polygon>
 &#x9;</g>
 </g>
-<g id="scene_9">
+<g id="scene_9" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="389" data-cy="697">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M345.08,686.42c-12.33,14.7-17.13,35.23-12.41,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C327.44,721.64,332.5,701.05,345.08,686.42L345.08,686.42z"></path>
@@ -1107,7 +1107,7 @@
 &#x9;&#x9;<path fill="none" stroke="#1266C9" stroke-miterlimit="10" d="M380.69,736.99h24.58c2.98,0,5.69,1.71,6.96,4.4l7.36,15.47h-51.71&#xA;&#x9;&#x9;&#x9;l5.51-14.8C374.53,739.02,377.44,736.99,380.69,736.99z"></path>
 &#x9;</g>
 </g>
-<g id="scene_10">
+<g id="scene_10" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="391" data-cy="315">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M346.07,308.43c-12.33,14.7-17.13,35.23-12.41,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C328.43,343.65,333.49,323.06,346.07,308.43L346.07,308.43z"></path>
@@ -1151,7 +1151,7 @@
 &#x9;&#x9;<path fill="#6497E0" d="M376.94,351.83h33.28c4.03,0,7.7,2.32,9.43,5.96l9.97,20.96H359.6l7.46-20.04&#xA;&#x9;&#x9;&#x9;C368.59,354.57,372.53,351.83,376.94,351.83z"></path>
 &#x9;</g>
 </g>
-<g id="scene_11">
+<g id="scene_11" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="1572" data-cy="697">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M1527.64,686.42c-12.33,14.7-17.13,35.23-12.41,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C1509.99,721.64,1515.05,701.05,1527.64,686.42L1527.64,686.42z"></path>
@@ -1196,7 +1196,7 @@
 &#x9;&#x9;<path fill="none" stroke="#1266C9" stroke-miterlimit="10" d="M1563.25,736.99h24.58c2.98,0,5.69,1.71,6.96,4.4l7.36,15.47h-51.71&#xA;&#x9;&#x9;&#x9;l5.51-14.8C1557.08,739.02,1559.99,736.99,1563.25,736.99z"></path>
 &#x9;</g>
 </g>
-<g id="scene_12">
+<g id="scene_12" data-layer="content" data-beat="3" data-cue="cooperate" data-t="44" data-enter="pop" data-cx="1573" data-cy="315">
 &#x9;<g>
 &#x9;&#x9;<g>
 &#x9;&#x9;&#x9;<path fill="#9ac7fd" d="M1527.75,308.43c-12.33,14.7-17.13,35.23-12.41,53.83c1.52,6.17,3.99,12.09,7.33,17.48l-0.85,0.52&#xA;&#x9;&#x9;&#x9;&#x9;c-3.32-5.52-5.75-11.56-7.2-17.82C1510.11,343.65,1515.17,323.06,1527.75,308.43L1527.75,308.43z"></path>

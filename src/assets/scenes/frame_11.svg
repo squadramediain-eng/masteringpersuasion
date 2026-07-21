@@ -100,7 +100,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="ship_x5f_1">
+<g id="ship_x5f_1" data-layer="content" data-beat="2" data-cue="terminal conflicts" data-t="321" data-enter="slide">
 &#x9;<g>
 &#x9;&#x9;<g id="x36_1">
 &#x9;&#x9;&#x9;<path fill="#93BFE9" d="M1490.7,248.31h-13.27l-48.09-32.34c-0.12-1.35-1.07-2.4-2.25-2.4c-1.07,0-1.97,0.87-2.21,2.05&#xA;&#x9;&#x9;&#x9;&#x9;l-30.41,22.24h-0.04v10.46h-11.68l-9.97,11.02v2.32h21.65v75.86h-2.22v3.91h8.87v-3.91h-2.1v-20.28h25.83v20.28h-1.77v3.91h8.87&#xA;&#x9;&#x9;&#x9;&#x9;v-3.91h-2.54v-75.86h15.3v4.26h1.98v-4.26h10.44v4.71h1.98v-4.71h41.83v-2.32L1490.7,248.31z M1424.82,288.94h-21.9l21.34-17.95&#xA;&#x9;&#x9;&#x9;&#x9;h0.56V288.94z M1424.82,252.2v7.13h-6.48L1424.82,252.2z M1416.09,259.33h-1.15l-7.91-8.7H1424L1416.09,259.33z M1398.99,240.85&#xA;&#x9;&#x9;&#x9;&#x9;l25.83-19.87v20.93h-25.83V240.85z M1398.99,243.88h25.83v1.35h-25.83V243.88z M1398.99,247.21h25.83v1.1h-25.83V247.21z&#xA;&#x9;&#x9;&#x9;&#x9; M1398.99,250.63h3.67l-3.67,4.04V250.63z M1398.99,257.14l5.85-6.43l-0.07-0.08h0.15l-0.07,0.08l7.84,8.62h-13.69V257.14z&#xA;&#x9;&#x9;&#x9;&#x9; M1398.99,261.65h25.83v6.67h-25.83V261.65z M1398.99,270.99h21.36l-21.34,17.95h-0.02V270.99z M1398.99,291.61h23.36&#xA;&#x9;&#x9;&#x9;&#x9;l-23.36,19.65V291.61z M1375.67,259.33l7.84-8.62l-0.07-0.08h0.15l-0.07,0.08l7.84,8.62H1375.67z M1393.6,259.33l-7.91-8.7h8.75&#xA;&#x9;&#x9;&#x9;&#x9;v8.7H1393.6z M1402.16,311.88l22.66-19.06v19.06H1402.16z M1475.05,248.31h-5.46l-28.06-22.55L1475.05,248.31z M1429.37,217.71&#xA;&#x9;&#x9;&#x9;&#x9;l38.1,30.61h-38.1V217.71z M1429.37,259.33v-5.11l4.64,5.11H1429.37z M1436.27,259.33l-6.9-7.59v-1.12h15.96l-7.91,8.7H1436.27z&#xA;&#x9;&#x9;&#x9;&#x9; M1439.68,259.33l7.84-8.62l-0.07-0.08h0.15l-0.07,0.08l7.84,8.62H1439.68z M1458.76,259.33h-1.15l-7.91-8.7h16.98&#xA;&#x9;&#x9;&#x9;&#x9;L1458.76,259.33z M1461.01,259.33l7.84-8.62l-0.07-0.08h0.15l-0.07,0.08l7.84,8.62H1461.01z M1478.94,259.33l-7.91-8.7H1488&#xA;&#x9;&#x9;&#x9;&#x9;l-7.91,8.7H1478.94z M1482.35,259.33l7.84-8.62l-0.07-0.08h0.15l-0.07,0.08l7.84,8.62H1482.35z"></path>
@@ -627,7 +627,7 @@
 &#x9;&#x9;</g>
 &#x9;</g>
 </g>
-<g id="person_x5f_2">
+<g id="person_x5f_2" data-layer="content" data-beat="2" data-cue="terminal conflicts" data-t="321" data-enter="slide">
 &#x9;<path fill="#C2E5F7" stroke="#0840A5" stroke-width="0.5" stroke-linecap="round" stroke-miterlimit="10" d="M383.76,586.05&#xA;&#x9;&#x9;c0,0,6.36-7.81,19.17,3c12.81,10.81,49.43,40.56,49.43,40.56s10.42,10.01,8.54,25.41c-1.88,15.4-9.82,16.65-9.82,16.65&#xA;&#x9;&#x9;c-20.83-8.53-41.67-17.06-62.5-25.6C386.98,626.06,385.37,606.05,383.76,586.05z"></path>
 &#x9;<g>
 &#x9;&#x9;<g>
@@ -732,7 +732,7 @@
 &#x9;&#x9;<path fill="#C2E5F7" stroke="#0840A5" stroke-width="0.5" stroke-miterlimit="10" d="M371.34,572.82l-6.9,59.23l14.83-18.28&#xA;&#x9;&#x9;&#x9;l-5.52-13.28l10-1.21C383.76,599.28,376.17,571.09,371.34,572.82z"></path>
 &#x9;</g>
 </g>
-<g id="person_x5f_1">
+<g id="person_x5f_1" data-layer="content" data-beat="2" data-cue="terminal conflicts" data-t="321" data-enter="slide">
 &#x9;
 &#x9;&#x9;<linearGradient id="SVGID_00000071540665725621393340000004051629650340869771_" gradientUnits="userSpaceOnUse" x1="389.106" y1="725.5855" x2="389.106" y2="932.4173" gradientTransform="matrix(-1 0 0 1 1015.4105 0)">
 &#x9;&#x9;<stop offset="0.2314" style="stop-color:#C5E2F9"></stop>
@@ -840,17 +840,17 @@
 &#x9;<circle fill="#9CBBF1" cx="536.72" cy="479.73" r="5.34"></circle>
 &#x9;<path fill="#D9E4F9" d="M529.85,506.46c0,0-3.05,18.32,27.49,19.85c0,0-19.94-4.78-13.78-24.53L529.85,506.46z"></path>
 </g>
-<g id="number">
+<g id="number" data-layer="content" data-beat="1" data-cue="section four" data-t="317" data-enter="typewriter">
 &#x9;<g>
 &#x9;&#x9;<text transform="matrix(1 0 0 1 86.5444 312.9577)" fill="#6084F0" font-family="DM Sans" font-size="300px">4</text>
 &#x9;</g>
 </g>
-<g id="sub_x5f_text">
+<g id="sub_x5f_text" data-layer="content" data-beat="1" data-cue="section four" data-t="317" data-enter="typewriter">
 &#x9;<g>
 &#x9;&#x9;<text transform="matrix(1 0 0 1 291.6207 312.9577)" fill="#0840A5" font-family="DM Sans" font-size="40px">Terminal Conflicts</text>
 &#x9;</g>
 </g>
-<g id="main_x5f_text">
+<g id="main_x5f_text" data-layer="content" data-beat="1" data-cue="section four" data-t="317" data-enter="typewriter">
 &#x9;<g>
 &#x9;&#x9;<text transform="matrix(1 0 0 1 292.7807 256.7819)" fill="#0840A5" font-family="DM Sans" font-size="90px">Resolving Disputes</text>
 &#x9;</g>

@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
 <defs></defs>
 <g isolation="isolate">
 <g id="bg" data-layer="world"><rect width="1920" height="1080" fill="#f5f6fa"></rect></g>
@@ -10,7 +9,7 @@
 &#x9;</radialGradient>
 &#x9;<rect fill="url(#SVGID_1_)" width="1920" height="1080"></rect>
 </g>
-<g id="scene_2">
+<g id="scene_2" data-layer="content" data-beat="4" data-cue="disputes" data-t="68" data-enter="pop" data-cx="423" data-cy="667">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;
@@ -44,7 +43,7 @@
 &#x9;
 &#x9;&#x9;<line fill="none" stroke="url(#SVGID_00000029766708481422519980000000045527199045169342_)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="442.1" y1="840.47" x2="357.38" y2="840.47"></line>
 </g>
-<g id="scene_3">
+<g id="scene_3" data-layer="content" data-beat="5" data-cue="procedures" data-t="70" data-enter="pop" data-cx="1009" data-cy="667">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;
@@ -78,7 +77,7 @@
 &#x9;
 &#x9;&#x9;<line fill="none" stroke="url(#SVGID_00000129923061883278944700000017857499256021936773_)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1011.98" y1="840.47" x2="927.26" y2="840.47"></line>
 </g>
-<g id="scene_4">
+<g id="scene_4" data-layer="content" data-beat="6" data-cue="behaviours" data-t="72" data-enter="pop" data-cx="1579" data-cy="667">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;
@@ -112,7 +111,7 @@
 &#x9;
 &#x9;&#x9;<line fill="none" stroke="url(#SVGID_00000054949899082185769130000018435858790381737622_)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1579.97" y1="840.47" x2="1495.26" y2="840.47"></line>
 </g>
-<g id="scene_5">
+<g id="scene_5" data-layer="content" data-beat="3" data-cue="habits" data-t="66" data-enter="pop" data-cx="1552" data-cy="285">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;
@@ -146,7 +145,7 @@
 &#x9;
 &#x9;&#x9;<line fill="none" stroke="url(#SVGID_00000137851894264437633070000007503706392537904513_)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="1574.19" y1="458.51" x2="1489.47" y2="458.51"></line>
 </g>
-<g id="scene_6">
+<g id="scene_6" data-layer="content" data-beat="2" data-cue="master" data-t="64" data-enter="pop" data-cx="984" data-cy="285">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;
@@ -182,7 +181,7 @@
 </g>
 <g id="scene_7">
 </g>
-<g id="scene_8">
+<g id="scene_8" data-layer="content" data-beat="1" data-cue="safety tool" data-t="62" data-enter="pop" data-cx="421" data-cy="291">
 &#x9;<g>
 &#x9;&#x9;
 &#x9;&#x9;&#x9;

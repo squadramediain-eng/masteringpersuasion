@@ -15,17 +15,17 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (14, in the order motion.ts wraps them)
 
   shipwave [ambient]
-      enters on the fallback recipe (no spec entry — role-based stagger).
+      enters 169.00s on the narration beat "sail area" (beat 1), slide.
   ship [ship]
-      enters 0.56s (guider spec, sail-in); idle loop from the guider spec.
+      enters 169.00s on the narration beat "sail area" (beat 1), slide; idle loop from the guider spec.
   arrow_text [arrow]
-      enters on the fallback recipe (no spec entry — role-based stagger).
+      enters 182.00s on the narration beat "swing the stern" (beat 3), pop.
   plant [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   textbox [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 174.00s on the narration beat "sail area aft" (beat 2), fade; default idle 2.0px / 5.4s.
   text [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 174.00s on the narration beat "sail area aft" (beat 2), typewriter; default idle 2.0px / 5.4s.
   icon4_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   icon3 [icon]
@@ -59,7 +59,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

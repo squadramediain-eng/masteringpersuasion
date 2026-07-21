@@ -27,15 +27,15 @@ ELEMENTS (20, in the order motion.ts wraps them)
   fish [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   number [numeral]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.8px / 6.6s.
+      enters 289.00s on the narration beat "specific metric" (beat 1), pop; default idle 1.8px / 6.6s.
   circle_x5f_1 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
+      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_2 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
+      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_3 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
+      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_4 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
+      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   family_x5f_icon [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   chart [prop]
@@ -71,7 +71,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

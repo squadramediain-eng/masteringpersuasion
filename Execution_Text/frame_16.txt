@@ -19,7 +19,7 @@ ELEMENTS (44, in the order motion.ts wraps them)
   part_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_4 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 471.00s on the narration beat "section six" (beat 1), typewriter; default idle 2.0px / 5.4s.
   part_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_6 [prop]
@@ -31,55 +31,55 @@ ELEMENTS (44, in the order motion.ts wraps them)
   part_9 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch1_x5f_bisep [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_lip [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_eye1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_eye2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_eyebrow2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_eyebrow [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_nose [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_hand [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_arm [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   part_10 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), fade; default idle 2.0px / 5.4s.
   part_11 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch2_x5f_bisep2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_palm1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_palm2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_bisep1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_arm2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_arm1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1_x5f_head_2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_eyebrow2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_eyebrow1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_eye2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_eye1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_lip [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2_x5f_nose [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 476.00s on the narration beat "key behaviours" (beat 2), slide; default idle 3.0px / 4.6s.
   part_12 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_13 [prop]
@@ -119,7 +119,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 25 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.

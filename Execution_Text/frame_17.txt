@@ -23,13 +23,13 @@ ELEMENTS (81, in the order motion.ts wraps them)
   digit_x5f_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_3 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), fade; default idle 2.0px / 5.4s.
   nmbr [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   nmbr_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_4 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), fade; default idle 2.0px / 5.4s.
   digit_x5f_2_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   digit_x5f_2_3 [prop]
@@ -39,11 +39,11 @@ ELEMENTS (81, in the order motion.ts wraps them)
   digit_x5f_2_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_5 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 486.00s on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
   location [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_6 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 486.00s on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
   observation [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   observation_2 [prop]
@@ -51,53 +51,53 @@ ELEMENTS (81, in the order motion.ts wraps them)
   part_7 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch4_x5f_bg [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_leg2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_leg1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_bisep2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_palm2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_palm1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_arm2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_arm1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_bisep1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_hand [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_leg2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_leg1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_pelvis [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_bisep1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_arm1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_nose [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eyebrow [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eye1 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eye2 [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_mouth [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   part_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_9 [prop]
@@ -105,51 +105,51 @@ ELEMENTS (81, in the order motion.ts wraps them)
   part_10 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch_x5f_2shadow [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2bisep2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2leg2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2leg1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2torso [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2arm2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2_head [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2bisep1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2arm1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1shadow [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1leg1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1leg2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1hand1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1torso [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1bisep1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1arm1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1_head [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eye1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eye2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eyebrow1 [card]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
   ch_x5f_1eyebrow2 [card]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
   ch_x5f_1nose [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1lip [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   icon3 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   icon2 [icon]
@@ -193,7 +193,8 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
-  redesign renamed every element, so all 133 cues were orphaned (preserved in
-  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
-  spec or the fallback stagger, NOT from the words that name them.
+- NARRATION TIMING: 51 element(s) in this frame carry data-t authored into
+  the artwork by the design project. That timing travels WITH the element, so a
+  future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
+  entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
+  To retime one, prefer data-t upstream; frame-overrides.json "at" wins locally.
