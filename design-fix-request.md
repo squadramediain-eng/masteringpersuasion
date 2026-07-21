@@ -6,18 +6,30 @@ pipeline consumes the SVGs directly, so local patches get overwritten by the nex
 
 ---
 
+> **Round 2 status (mp_v1.zip).** §1 is fixed for frame_1 and frame_15 — both now hold a
+> single filled icon inside the disc, verified in the render. Two things still open:
+> **§0 got worse, not better** (frame_1's ids were reverted this round — see below), and
+> **§1 has a fourth instance in frame_9** that the first pass missed.
+
+---
+
 ## 0. The one that matters most: id stability
 
 The film pipeline animates **by SVG element id**. `public/animation/animation.json` and
 `public/animation/audio-cues.json` name ids explicitly, and an id that changes or disappears
 does **not** throw — the element silently never animates. The last export did both:
 
-| frame | change | effect if unnoticed |
-|---|---|---|
-| frame_1 | `mind_left_1..3` → `node_person_l1..l3`, `mind_right_1..3` → `node_person_r1..r3` | 6 elements stop animating |
-| frame_18 | `ring_1..4` deleted from the artwork | 4 cues point at nothing |
+| export | frame | change | effect if unnoticed |
+|---|---|---|---|
+| round 1 | frame_1 | `mind_left_1..3` → `node_person_l1..l3`, `mind_right_1..3` → `node_person_r1..r3` | 6 elements stop animating |
+| round 1 | frame_18 | `ring_1..4` deleted from the artwork | 4 cues point at nothing |
+| **round 2** | **frame_1** | **`node_person_l/r*` → `mind_left/right_*` — the round-1 rename REVERTED** | **the same 6 elements stop animating** |
 
-Both were caught and repaired by hand this round. Please adopt one of these going forward:
+This is the part that has not improved. Round 2 fixed the composition problems in §1, but
+it also changed frame_1's ids a second time, in the opposite direction — so the rebinding
+done for round 1 had to be undone again by hand. Two exports, two id churns, both silent.
+
+Please adopt one of these going forward:
 
 - **Preferred:** treat ids on animated elements as a stable contract — renaming one is a
   breaking change.
@@ -37,18 +49,22 @@ A wide composite illustration (~2:1) is being placed inside a circular spotlight
 art breaks the dashed orbit ring instead of sitting inside it. Measured rendered size vs
 the disc's own orbit radius:
 
-| frame | element | rendered size | orbit r | reach | overflow |
-|---|---|---|---|---|---|
-| frame_1 | `input_bottom_3` | 233.4 × 120.2 | 65 | 117.3 | **+80%** |
-| frame_15 | `benefit_survey` | 323.2 × 166.5 | 90 | 162.4 | **+80%** |
-| frame_15 | `benefit_cargo_calc` | 306.1 × 166.6 | 90 | 153.5 | **+71%** |
+| frame | element | rendered size | orbit r | reach | overflow | status |
+|---|---|---|---|---|---|---|
+| frame_1 | `input_bottom_3` | 233.4 × 120.2 | 65 | 117.3 | +80% | **fixed in mp_v1** |
+| frame_15 | `benefit_survey` | 323.2 × 166.5 | 90 | 162.4 | +80% | **fixed in mp_v1** |
+| frame_15 | `benefit_cargo_calc` | 306.1 × 166.6 | 90 | 153.5 | +71% | **fixed in mp_v1** |
+| **frame_9** | **`icon_ship`** | **314.2 × 161.9** | **87.5** | **157.9** | **+80%** | **STILL OPEN** |
 
-What it looks like in the render:
-- **frame_1 `input_bottom_3`** — a cargo ship, a network graph and a magnifying glass are
-  stacked in one disc; the bow crosses the orbit ring on the right.
-- **frame_15 `benefit_cargo_calc`** — the calculator sits *entirely outside* the ring and
-  the ship's hull breaks the disc's lower edge.
-- **frame_15 `benefit_survey`** — same ship+magnifier cluster as frame_1.
+The three fixed ones are now exactly right — a single filled icon (lightbulb, scales)
+centred in the disc. That is the target for frame_9 too.
+
+**frame_9 `icon_ship` is the same defect and the same artwork** — the cargo ship + network
+graph + magnifying glass cluster, with the bow and hull breaking the dashed ring on both
+sides. It sits above the Aggressive/Rational/Passive strategy table and cues at 3.99s into
+the scene. It was missed in round 1 because the first sweep matched discs to contents *by
+id name*, and frame_9's names did not pair the way the others did; re-running the sweep
+matched by geometry found it. Please apply the same fix used for frame_1 and frame_15.
 
 **Please don't fix this by scaling down.** Making `input_bottom_3` fit its ring needs
 `scale(0.8176)` → about `0.47`, a 43% shrink that leaves it tiny next to its siblings
