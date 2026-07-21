@@ -5,9 +5,9 @@
   "scripts": {
     "start": "remotion studio",
     "prebuild": "node scripts/qa-review-gate.js",
-    "build": "remotion render src/index.ts MainComposition out/mastering_persuasion_v5.mp4",
+    "build": "remotion render src/index.ts MainComposition out/mastering_persuasion_v6.mp4",
     "prerender": "node scripts/qa-review-gate.js",
-    "render": "remotion render src/index.ts MainComposition out/mastering_persuasion_v5.mp4 --codec=h264 --jpeg-quality=80 --concurrency=4",
+    "render": "remotion render src/index.ts MainComposition out/mastering_persuasion_v6.mp4 --codec=h264 --jpeg-quality=80 --concurrency=4",
     "check-audio": "node scripts/check-audio-durations.js",
     "qa-review": "node scripts/qa-review-gate.js"
   },
