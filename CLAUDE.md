@@ -174,6 +174,32 @@ Rules when adding/editing a cue:
 - Watch the tail: a cue inside a scene's last second enters straight into SceneWrapper's
   fade-out. The script warns; pull the cue to an earlier clause instead.
 
+## Frame Overrides — local control over any frame
+`public/animation/frame-overrides.json` is the LAST layer applied and always wins.
+Precedence: `animation.json` (spec) → `audio-cues.json` (cue overrides `start` only) →
+`frame-overrides.json` (overrides anything).
+
+It exists for two reasons: any frame can be corrected here in minutes without a Claude
+Design round-trip, and — critically — those corrections **survive the next export**. The
+SVGs are overwritten wholesale each round; this file is not.
+
+```jsonc
+"frame_9.svg": {
+  "_frame":  { "x": 0, "y": -12, "scale": 1.0 },   // nudge the WHOLE composition
+  "icon_ship": { "scale": 0.55, "y": 6 },          // per-element
+  "table_strategy": { "at": 2.1 },                 // retime (seconds from scene start)
+  "spot_helm": { "orbit": { "period": 26000, "deg": 360 } },
+  "some_element": { "hide": true }                 // remove artwork entirely
+}
+```
+Per-element fields: `at` `dur` `x` `y` `scale` `rotate` `opacity` `hide` `idle` `orbit`.
+`idle: false` / `orbit: false` stop a loop the spec added. `_note` is free text, ignored.
+
+- Run `node scripts/audit-overrides.js` after any frame re-export — an override naming a
+  renamed id does NOTHING and says nothing. It is in the QA gate.
+- Prefer fixing artwork upstream when it is genuinely an artwork bug; use an override to
+  unblock, and record in `_note` what was reported so the entry can be dropped later.
+
 ## Audio Pipeline
 - Voiceover file(s) live in `public/audio/`
 - Each scene seeks into the track via `startFrom={scene.audioStartSec * 30}` (if using one

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCurrentFrame, useVideoConfig } from 'remotion';
 import { SVG_MAP } from '../assets/scenes/svgMap';
-import { planAndWrap, styleFor } from '../utils/motion';
+import { planAndWrap, styleFor, frameOverride } from '../utils/motion';
 
 /**
  * FrameScene — data-driven renderer.
@@ -32,9 +32,23 @@ export const FrameScene: React.FC<{ svgFile: string; durationFrames: number }> =
   // No background here — WorldLayer paints the canvas + wave band behind every scene and
   // never fades. A background on the scene would hide the water and re-create the blank
   // transitions this was built to remove.
+  // Whole-frame nudge from frame-overrides.json ("_frame": { x, y, scale }) — for
+  // when a whole composition sits too high or too large against the persistent world.
+  const fo = frameOverride(svgFile);
+  const frameTransform = fo
+    ? `translate(${fo.x ?? 0}px, ${fo.y ?? 0}px) scale(${fo.scale ?? 1})`
+    : undefined;
+
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <div style={{ position: 'absolute', inset: 0 }} dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          ...(frameTransform ? { transform: frameTransform, transformOrigin: 'center' } : {}),
+        }}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 };

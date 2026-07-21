@@ -90,6 +90,9 @@ function main() {
     // and committed. A frame re-export changes glyph advances, so stale metrics put the caret
     // in the wrong place and clip mid-glyph — silently, since nothing else reads this file.
     runAudit('Text metrics freshness', 'build-text-metrics.js', ['--check']),
+    // Hand-corrections in frame-overrides.json are the one thing a design re-export
+    // cannot carry forward. An override naming a renamed id does nothing, silently.
+    runAudit('Frame overrides resolve', 'audit-overrides.js'),
   ];
   for (const a of audits) {
     console.log(`  ${a.pass ? 'PASS' : 'FAIL'}  ${a.label}`);

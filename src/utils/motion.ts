@@ -11,6 +11,7 @@
 import specJson from '../../public/animation/animation.json';
 import cuesJson from '../../public/animation/audio-cues.json';
 import metricsJson from '../../public/animation/text-metrics.json';
+import overridesJson from '../../public/animation/frame-overrides.json';
 
 // Shapes that carry a stroke, for the arrow draw-on. pathLength=1 normalises every
 // path to unit length so the spec's strokeDashoffset 1 -> 0 draws it regardless of size.
@@ -118,6 +119,49 @@ const DEFAULT_IDLE: Record<string, { amp: number; period: number; rot?: number }
 // anchored to what they point at, and background/ambient is the world layer's job.
 const NO_IDLE = new Set(['text', 'background', 'ambient', 'arrow', 'alert']);
 
+// ─── FRAME OVERRIDES — the local control layer ───────────────────────────────
+// public/animation/frame-overrides.json is applied LAST and always wins, over both
+// the guider spec and the narration cues. Two reasons it exists:
+//   1. any frame can be corrected here in minutes, without a Claude Design round-trip
+//   2. those corrections SURVIVE the next export — the SVGs get overwritten wholesale
+//      every round, this file does not
+// Run scripts/audit-overrides.js (wired into the QA gate) to catch an override whose
+// id no longer exists; otherwise a renamed element silently drops its override, which
+// is exactly how this project has lost work on every export so far.
+export interface ElOverride {
+  at?: number; dur?: number;
+  x?: number; y?: number; scale?: number; rotate?: number; opacity?: number;
+  hide?: boolean;
+  idle?: { amp: number; period: number; rot?: number } | false;
+  orbit?: { period: number; deg: number } | false;
+}
+export interface FrameOverride { _frame?: { x?: number; y?: number; scale?: number } }
+const OVERRIDES = (overridesJson as { frames?: Record<string, Record<string, ElOverride>> }).frames || {};
+
+export const frameOverride = (svgFile: string): { x?: number; y?: number; scale?: number } | undefined =>
+  (OVERRIDES[svgFile] as unknown as FrameOverride | undefined)?._frame;
+
+const overrideFor = (svgFile: string, id: string): ElOverride | undefined =>
+  id === '_frame' ? undefined : OVERRIDES[svgFile]?.[id];
+
+// Returns null when the override asks for the element to be removed entirely.
+function withOverride(rec: Rec, svgFile: string, id: string): Rec | null {
+  const o = overrideFor(svgFile, id);
+  if (!o) return rec;
+  if (o.hide) return null;
+  const next: Rec = { ...rec };
+  if (o.at !== undefined) next.start = o.at * 1000;
+  if (o.dur !== undefined) next.dur = o.dur;
+  if (o.idle !== undefined) next.idle = o.idle === false ? undefined : o.idle;
+  if (o.orbit !== undefined) next.orbit = o.orbit === false ? undefined : o.orbit;
+  // Offsets/scale ride on top of whatever the entrance already animates, so they are
+  // kept separate from from/to rather than folded in — see styleFor.
+  if (o.x !== undefined || o.y !== undefined || o.scale !== undefined || o.rotate !== undefined || o.opacity !== undefined) {
+    next.adjust = { x: o.x, y: o.y, scale: o.scale, rotate: o.rotate, opacity: o.opacity };
+  }
+  return next;
+}
+
 // Give every element its own phase so they breathe independently — a shared phase
 // makes a frame pulse as one block, which reads as mechanical rather than alive.
 function withIdle(rec: Rec, role: string, idx: number): Rec {
@@ -197,6 +241,9 @@ interface Rec {
   // Set for <text> that has measured metrics — drives the character-exact
   // clip reveal and the caret. See TYPE-ON above.
   type?: TextMetric;
+  // Static nudge from frame-overrides.json, applied ON TOP of whatever the
+  // entrance animates, so hand-correcting a position never disturbs its motion.
+  adjust?: { x?: number; y?: number; scale?: number; rotate?: number; opacity?: number };
 }
 
 // Spec element -> Rec. The spec's `easing` is a raw cubic-bezier string for the brand
@@ -347,7 +394,11 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     // Cue applies to whatever recipe was built — spec OR fallback. frame_13 has no spec
     // elements at all, so gating this on the spec would leave the longest scene uncued.
     const rec = withCue(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), svgFile, id);
-    wrap(el, id, role, idx, withIdle(withType(rec, svgFile, id), role, idx));
+    const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id);
+    // hide: true — drop the element from the DOM entirely rather than animating it to
+    // opacity 0, so it costs nothing to render and cannot be caught mid-transition.
+    if (!finalRec) { el.parentNode!.removeChild(el); continue; }
+    wrap(el, id, role, idx, finalRec);
   }
 
   // Divider frames nest their 3 label texts inside #divider_head; the first <text> is
@@ -418,6 +469,16 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     // group about its own centre travels the dashes and carries the bead round; the
     // icon is a sibling group, so it stays upright.
     if (r.orbit) rot += (ms / r.orbit.period) * r.orbit.deg;
+
+    // Hand adjustments from frame-overrides.json ride ON TOP of the animated values,
+    // so nudging a position never disturbs the entrance or the idle it already has.
+    if (r.adjust) {
+      tx += r.adjust.x ?? 0;
+      ty += r.adjust.y ?? 0;
+      if (r.adjust.scale !== undefined) scale *= r.adjust.scale;
+      rot += r.adjust.rotate ?? 0;
+      if (r.adjust.opacity !== undefined) opacity *= r.adjust.opacity;
+    }
 
     const parts: string[] = [];
     if (tx || ty) parts.push(`translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px)`);

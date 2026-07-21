@@ -1,0 +1,52 @@
+{
+ "_readme": [
+  "FRAME OVERRIDES — local control over any element in any frame.",
+  "",
+  "This is the LAST layer applied. Precedence, lowest to highest:",
+  "  1. public/animation/animation.json   the Animation Guider's spec (from/to, easing, idle, orbit)",
+  "  2. public/animation/audio-cues.json  narration cues — overrides `start` only",
+  "  3. THIS FILE                         overrides anything, and always wins",
+  "",
+  "It exists so a frame can be corrected HERE, in minutes, without waiting for a",
+  "Claude Design re-export — and, critically, so those corrections SURVIVE the next",
+  "export. The SVGs are overwritten wholesale each round; this file is not.",
+  "",
+  "Keys are the SVG basename, then the element id exactly as it appears in the SVG.",
+  "Run `node scripts/audit-overrides.js` to verify every id here still exists — a",
+  "typo or a renamed element is otherwise silent, which is the failure mode that has",
+  "bitten this project on every export so far.",
+  "",
+  "PER-ELEMENT FIELDS (all optional — set only what you want to change):",
+  "  at      number   seconds from SCENE start when the element enters (overrides cue+spec)",
+  "  dur     number   ms the entrance takes",
+  "  x, y    number   px offset applied on top of the element's own placement",
+  "  scale   number   multiplier, 1 = unchanged",
+  "  rotate  number   degrees",
+  "  opacity number   final opacity, 0-1",
+  "  hide    boolean  true removes the element entirely (artwork you do not want)",
+  "  idle    object   { amp, period, rot } gentle loop after it settles, or false to stop it",
+  "  orbit   object   { period, deg } continuous rotation, or false to stop it",
+  "",
+  "PER-FRAME FIELDS (under \"_frame\"):",
+  "  x, y    number   nudge the WHOLE frame's contents",
+  "  scale   number   scale the whole frame about its centre",
+  "",
+  "EXAMPLE — everything below is commented out by being under _example;",
+  "copy the shape, not the key:",
+  "  \"frame_9.svg\": {",
+  "    \"_frame\": { \"y\": -12 },",
+  "    \"icon_ship\": { \"scale\": 0.55, \"y\": 8 },",
+  "    \"table_strategy\": { \"at\": 2.1 },",
+  "    \"spot_helm\": { \"orbit\": { \"period\": 26000, \"deg\": 360 } }",
+  "  }"
+ ],
+ "frames": {
+  "frame_9.svg": {
+   "icon_ship": {
+    "_note": "Reported to Claude Design as an open disc-overflow (design-fix-request.md §1): the ship+network+magnifier cluster measured 314.2x161.9 inside an r=87.5 orbit ring — 80% over, bow and hull breaking the ring on both sides. Same defect they fixed in frame_1 and frame_15. Corrected here so it is not blocked on their next export; drop this entry once they ship a proper single-subject icon.",
+    "scale": 0.55,
+    "y": 6
+   }
+  }
+ }
+}
