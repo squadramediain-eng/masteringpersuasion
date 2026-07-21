@@ -29,6 +29,35 @@ const SCENES = path.join(ROOT, 'src', 'assets', 'scenes');
 const OUT = path.join(ROOT, 'public', 'animation', 'text-metrics.json');
 const CHECK = process.argv.includes('--check');
 
+/* Measure against the EXACT font files the render uses.
+   Earlier this page pulled DM Sans with an @import from fonts.googleapis.com.
+   That silently never loaded — an https @import from a file:// origin does not
+   resolve in the headless launch — so every advance width was measured against a
+   fallback face. The clip rects came out too narrow and the frame_0 title
+   rendered permanently as "Masterin/Persuasio", its last glyph cut off on every
+   line, in every frame of the film.
+   So: pull the woff2 URLs straight out of @remotion/google-fonts (the same
+   package Root.tsx loads), fetch them here in Node, and inline them as data URIs.
+   Identical bytes to the render, and the page needs no network at all. */
+async function inlineFontFace() {
+  const pkg = path.join(ROOT, 'node_modules', '@remotion', 'google-fonts', 'dist', 'cjs', 'DMSans.js');
+  const src = fs.readFileSync(pkg, 'utf8');
+  const urls = [...new Set([...src.matchAll(/https:\/\/fonts\.gstatic\.com\/[^\s"')]+\.woff2/g)].map((m) => m[0]))];
+  if (!urls.length) throw new Error('no DM Sans woff2 urls found in @remotion/google-fonts');
+  const faces = [];
+  for (const url of urls) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`font fetch ${res.status} for ${url}`);
+    const b64 = Buffer.from(await res.arrayBuffer()).toString('base64');
+    // Weight range covers the variable axis; the frames use 400-800.
+    faces.push(
+      `@font-face{font-family:"DM Sans";font-style:normal;font-weight:100 1000;` +
+      `src:url(data:font/woff2;base64,${b64}) format("woff2");font-display:block;}`
+    );
+  }
+  return faces.join('');
+}
+
 // Mirrors motion.ts planAndWrap(): text_N is assigned by walking the same root's
 // direct children in document order. If those yield nothing, divider frames nest
 // their labels in #divider_head and the FIRST <text> there is the big numeral,
@@ -91,6 +120,7 @@ const COLLECT = `(() => {
 })()`;
 
 async function main() {
+  const fontCss = await inlineFontFace();
   const browser = await openBrowser('chrome');
   const page = await browser.newPage({ context: undefined });
   await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
@@ -104,14 +134,33 @@ async function main() {
     const svg = fs.readFileSync(path.join(SCENES, file), 'utf8');
     // DM Sans must be loaded or every advance width is measured against a
     // fallback face and the caret lands in the wrong place.
-    const html = `<!DOCTYPE html><html><head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Mono:wght@300;400;500&display=swap');</style>
-</head><body style="margin:0">${svg.replace('<svg ', '<svg width="1920" height="1080" ')}</body></html>`;
+    const html = `<!DOCTYPE html><html><head><style>${fontCss}</style></head>` +
+      `<body style="margin:0">${svg.replace('<svg ', '<svg width="1920" height="1080" ')}</body></html>`;
     const tmpFile = path.join(tmpDir, file.replace('.svg', '.html'));
     fs.writeFileSync(tmpFile, html);
     await page.goto({ url: 'file://' + tmpFile.replace(/\\/g, '/'), timeout: 30000 });
-    await page.evaluate('document.fonts.ready');
+    // Fonts load lazily — document.fonts.ready can resolve before anything has
+    // asked for the face, so load it explicitly across the weights the frames use
+    // and only then wait for quiescence.
+    await page.evaluate(
+      `Promise.all(['400','500','700','800'].map(w => document.fonts.load(w + ' 130px "DM Sans"')))` +
+      `.then(() => document.fonts.ready)`
+    );
+    // HARD GATE. These advances are only valid if the page measured the SAME face
+    // the Remotion render uses. If the webfont did not actually arrive (no network
+    // in this environment, Google Fonts blocked, a typo in the @import) the browser
+    // silently measures a fallback — narrower or wider — and every clip rect is
+    // built to the wrong width. That shipped once: the frame_0 title rendered
+    // permanently as "Masterin/Persuasio", the last glyph of each line cut off,
+    // and it looked like a typewriter still running rather than a metrics bug.
+    const fontOk = await page.evaluate(`document.fonts.check('130px "DM Sans"')`);
+    if (!fontOk) {
+      console.error('text-metrics: ABORT — "DM Sans" is not loaded in the measuring page.');
+      console.error('Every advance width would be measured against a fallback face and');
+      console.error('every type-on clip would cut its line short. Check network access to');
+      console.error('fonts.googleapis.com, or point the @import at a local copy.');
+      process.exit(1);
+    }
     const metrics = await page.evaluate(COLLECT);
     if (metrics && Object.keys(metrics).length) result[file] = metrics;
   }
