@@ -36,7 +36,7 @@ for (const [svgFile, els] of Object.entries(frames)) {
   const textCount = (svg.match(/<text[\s>]/g) || []).length;
 
   for (const id of Object.keys(els)) {
-    if (id === '_frame') continue;
+    if (id === '_frame' || id === '_transition') continue;
     checked++;
     if (ids.has(id)) continue;
     const m = /^text_(\d+)$/.exec(id);

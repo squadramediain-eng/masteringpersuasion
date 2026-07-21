@@ -174,7 +174,7 @@ Rules when adding/editing a cue:
 - Watch the tail: a cue inside a scene's last second enters straight into SceneWrapper's
   fade-out. The script warns; pull the cue to an earlier clause instead.
 
-## Frame Overrides — local control over any frame
+## Tweak Any Frame — full local control
 `public/animation/frame-overrides.json` is the LAST layer applied and always wins.
 Precedence: `animation.json` (spec) → `audio-cues.json` (cue overrides `start` only) →
 `frame-overrides.json` (overrides anything).
@@ -183,22 +183,46 @@ It exists for two reasons: any frame can be corrected here in minutes without a 
 Design round-trip, and — critically — those corrections **survive the next export**. The
 SVGs are overwritten wholesale each round; this file is not.
 
+### The workflow
+1. **See what you can target.** Since mp_v2 the ids carry no meaning (`art_1`, `scene_7`,
+   `XMLID_0000006361…`), so reading the SVG tells you nothing:
+   ```
+   node scripts/inspect-frame.js frame_9        # or omit the name for all 20
+   ```
+   Open `frame-inspector/frame_9.inspect.svg` in a browser — every targetable element is
+   boxed and labelled with the exact id. Blue = element, red = text (`text_0`, `text_1`, …
+   in document order, duplicates removed). `frame-inspector/INDEX.txt` is the same as a
+   plain list with positions.
+2. **Edit** `frame-overrides.json` (schema in its own `_readme`).
+3. **Check** `node scripts/audit-overrides.js` — also in the QA gate.
+4. **Preview one scene** without a 12-minute full render:
+   ```
+   npx remotion still src/index.ts MainComposition out/probe.png --frame=7740
+   npx remotion render src/index.ts MainComposition out/probe.mp4 --frames=7560-7800
+   ```
+   Scene start frame = `audioStartSec × 30` from sceneRegistry.ts.
+
 ```jsonc
 "frame_9.svg": {
-  "_frame":  { "x": 0, "y": -12, "scale": 1.0 },   // nudge the WHOLE composition
-  "icon_ship": { "scale": 0.55, "y": 6 },          // per-element
-  "table_strategy": { "at": 2.1 },                 // retime (seconds from scene start)
-  "spot_helm": { "orbit": { "period": 26000, "deg": 360 } },
-  "some_element": { "hide": true }                 // remove artwork entirely
+  "_transition": { "inFrom": "bottom", "outTo": "left", "distance": 300, "frames": 24 },
+  "_frame":      { "x": 0, "y": -12, "scale": 1.0 },   // the WHOLE composition
+  "ship":        { "scale": 0.7, "y": 10 },            // per-element
+  "compass":     { "orbit": { "period": 24000, "deg": 360 } },
+  "text_4":      { "at": 2.1, "cps": 26 },             // retime + typing speed
+  "h1":          { "hide": true }                      // remove artwork entirely
 }
 ```
-Per-element fields: `at` `dur` `x` `y` `scale` `rotate` `opacity` `hide` `idle` `orbit`.
-`idle: false` / `orbit: false` stop a loop the spec added. `_note` is free text, ignored.
+- **Element:** `at` `dur` `x` `y` `scale` `rotate` `opacity` `hide` `idle` `orbit`.
+  `idle: false` / `orbit: false` stop a loop the spec added.
+- **Text only:** `cps` (typing speed, default 14), `type: false` (show whole, no typing),
+  `caret: false` (type without the cursor).
+- **Frame:** `_frame` nudges/scales everything; `_transition` sets that scene's own
+  entrance/exit (`inFrom`/`outTo` of `right|left|top|bottom|none`). `none` holds position
+  and lets opacity carry it — right when two scenes should read as one continuous board.
+- `_note` is free text, ignored by the renderer.
 
-- Run `node scripts/audit-overrides.js` after any frame re-export — an override naming a
-  renamed id does NOTHING and says nothing. It is in the QA gate.
-- Prefer fixing artwork upstream when it is genuinely an artwork bug; use an override to
-  unblock, and record in `_note` what was reported so the entry can be dropped later.
+Prefer fixing genuine artwork bugs upstream; use an override to unblock, and record in
+`_note` what was reported so the entry can be dropped later.
 
 ## Audio Pipeline
 - Voiceover file(s) live in `public/audio/`

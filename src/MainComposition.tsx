@@ -4,6 +4,7 @@ import { SCENE_REGISTRY, FPS, TRANSITION_FRAMES } from './utils/sceneRegistry';
 import { PALETTE } from './utils/palette';
 import { FrameScene } from './scenes/FrameScene';
 import { WorldLayer } from './scenes/WorldLayer';
+import { transitionOverride } from './utils/motion';
 
 // ─── SCENE COMPONENT MAP ─────────────────────────────────────────
 // Every slot renders through the baseline FrameScene until a bespoke SceneXX.tsx
@@ -30,44 +31,65 @@ const SCENE_COMPONENTS: Record<string, React.FC> = {
  * wrapper and never fades, which is what keeps a transition from going blank.
  * See knowledge-vault/12 - Motion & Frame Construction Spec §4.
  */
-const SLIDE_OUT_PX = 260;   // how far the outgoing content travels left
-const SLIDE_IN_PX = 300;    // how far the incoming content starts to the right
+const SLIDE_OUT_PX = 260;   // how far the outgoing content travels
+const SLIDE_IN_PX = 300;    // how far the incoming content starts away
 
-const SceneWrapper: React.FC<{ durationFrames: number; children: React.ReactNode }> = ({ durationFrames, children }) => {
+// Direction -> unit vector. "none" holds position and lets opacity alone carry it,
+// which is what you want for a scene that should not appear to move (a stat hold,
+// or a pair of scenes meant to read as one continuous board).
+const DIRS: Record<string, [number, number]> = {
+  right: [1, 0], left: [-1, 0], top: [0, -1], bottom: [0, 1], none: [0, 0],
+};
+
+const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children: React.ReactNode }> = ({
+  durationFrames, svgFile, children,
+}) => {
   const frame = useCurrentFrame();
 
-  // IN: starts offset right, decelerates to rest. Brand curve — the same
+  // Per-scene overrides from frame-overrides.json "_transition"; otherwise the
+  // film-wide default measured off the reference (out left, in from right).
+  const t = transitionOverride(svgFile);
+  const tf = Math.max(1, t?.frames ?? TRANSITION_FRAMES);
+  const dist = t?.distance ?? SLIDE_IN_PX;
+  const outDist = t?.distance ?? SLIDE_OUT_PX;
+  const [ivx, ivy] = DIRS[t?.inFrom ?? 'right'] ?? DIRS.right;
+  const [ovx, ovy] = DIRS[t?.outTo ?? 'left'] ?? DIRS.left;
+
+  // IN: starts offset, decelerates to rest. Brand curve — the same
   // cubic-bezier(0.16,1,0.3,1) the guider uses for element entrances.
-  const inX = interpolate(frame, [0, TRANSITION_FRAMES], [SLIDE_IN_PX, 0], {
+  const inP = interpolate(frame, [0, tf], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
-  const inOpacity = interpolate(frame, [0, TRANSITION_FRAMES * 0.55], [0, 1], {
+  const inOpacity = interpolate(frame, [0, tf * 0.55], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
-  // OUT: accelerates away to the left over the last TRANSITION_FRAMES.
-  const outStart = durationFrames - TRANSITION_FRAMES;
-  const outX = interpolate(frame, [outStart, durationFrames], [0, -SLIDE_OUT_PX], {
+  // OUT: accelerates away over the last `tf` frames.
+  const outStart = durationFrames - tf;
+  const outP = interpolate(frame, [outStart, durationFrames], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.in(Easing.cubic),
   });
   // Fade only over the BACK HALF of the exit, so the eye reads travel first and
   // the frame is genuinely clear before the next subject arrives.
-  const outOpacity = interpolate(frame, [outStart + TRANSITION_FRAMES * 0.45, durationFrames], [1, 0], {
+  const outOpacity = interpolate(frame, [outStart + tf * 0.45, durationFrames], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.inOut(Easing.sin),
   });
 
+  const tx = inP * dist * ivx + outP * outDist * ovx;
+  const ty = inP * dist * ivy + outP * outDist * ovy;
+
   return (
     <AbsoluteFill
       style={{
         opacity: inOpacity * outOpacity,
-        transform: `translateX(${(inX + outX).toFixed(2)}px)`,
+        transform: `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px)`,
       }}
     >
       {children}
@@ -87,7 +109,7 @@ export const MainComposition: React.FC = () => {
         const Bespoke = SCENE_COMPONENTS[scene.id];
         return (
           <Sequence key={scene.id} from={scene.audioStartSec * FPS} durationInFrames={scene.durationFrames}>
-            <SceneWrapper durationFrames={scene.durationFrames}>
+            <SceneWrapper durationFrames={scene.durationFrames} svgFile={scene.svgFile}>
               {Bespoke ? <Bespoke /> : <FrameScene svgFile={scene.svgFile} durationFrames={scene.durationFrames} />}
             </SceneWrapper>
           </Sequence>

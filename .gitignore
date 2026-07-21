@@ -23,6 +23,11 @@ extras/ballast-reference-keyframes.zip
 # the delivery vehicle — re-download from Claude Design if you need it again.
 extras/*.zip
 
+# Regenerated from the frames by `node scripts/inspect-frame.js` whenever they
+# change — annotated copies of artwork already tracked, so committing them would
+# just duplicate ~2 MB per round.
+frame-inspector/
+
 # ─── Scratch ─────────────────────────────────────────────────────────────────
 *.log
 .DS_Store

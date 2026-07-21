@@ -135,15 +135,33 @@ export interface ElOverride {
   hide?: boolean;
   idle?: { amp: number; period: number; rot?: number } | false;
   orbit?: { period: number; deg: number } | false;
+  // text only — cps retimes the type-on, type:false shows it instantly,
+  // caret:false types without the cursor.
+  cps?: number; type?: false; caret?: false;
 }
-export interface FrameOverride { _frame?: { x?: number; y?: number; scale?: number } }
+export interface TransitionOverride {
+  inFrom?: 'right' | 'left' | 'top' | 'bottom' | 'none';
+  outTo?: 'left' | 'right' | 'top' | 'bottom' | 'none';
+  distance?: number;   // px travelled
+  frames?: number;     // length of each half, overrides TRANSITION_FRAMES
+}
+export interface FrameOverride {
+  _frame?: { x?: number; y?: number; scale?: number };
+  _transition?: TransitionOverride;
+}
 const OVERRIDES = (overridesJson as { frames?: Record<string, Record<string, ElOverride>> }).frames || {};
 
 export const frameOverride = (svgFile: string): { x?: number; y?: number; scale?: number } | undefined =>
   (OVERRIDES[svgFile] as unknown as FrameOverride | undefined)?._frame;
 
+// Per-scene transition, read by MainComposition's SceneWrapper. Undefined means
+// the film-wide default (slide out left / in from right) applies.
+export const transitionOverride = (svgFile: string): TransitionOverride | undefined =>
+  (OVERRIDES[svgFile] as unknown as FrameOverride | undefined)?._transition;
+
+const RESERVED = new Set(['_frame', '_transition']);
 const overrideFor = (svgFile: string, id: string): ElOverride | undefined =>
-  id === '_frame' ? undefined : OVERRIDES[svgFile]?.[id];
+  RESERVED.has(id) ? undefined : OVERRIDES[svgFile]?.[id];
 
 // Returns null when the override asks for the element to be removed entirely.
 function withOverride(rec: Rec, svgFile: string, id: string): Rec | null {
@@ -178,7 +196,11 @@ function withIdle(rec: Rec, role: string, idx: number): Rec {
 function withType(rec: Rec, svgFile: string, id: string): Rec {
   const m = metricFor(svgFile, id);
   if (!m || !m.lines?.length || !m.chars) return rec;
-  return { ...rec, type: m, dur: typeDurationMs(m.chars) };
+  const o = overrideFor(svgFile, id);
+  if (o?.type === false) return rec;                    // show it whole, no typing
+  const cps = o?.cps && o.cps > 0 ? o.cps : TYPE_CPS;
+  const dur = Math.min((m.chars / cps) * 1000, TYPE_MAX_MS);
+  return { ...rec, type: m, dur, noCaret: o?.caret === false };
 }
 
 const EASE_SINE = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
@@ -242,6 +264,7 @@ interface Rec {
   // Set for <text> that has measured metrics — drives the character-exact
   // clip reveal and the caret. See TYPE-ON above.
   type?: TextMetric;
+  noCaret?: boolean;
   // Static nudge from frame-overrides.json, applied ON TOP of whatever the
   // entrance animates, so hand-correcting a position never disturbs its motion.
   adjust?: { x?: number; y?: number; scale?: number; rotate?: number; opacity?: number };
@@ -594,7 +617,7 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
       const sinceDone = ms - (r.start + r.dur);
       const blinkOn = Math.floor(Math.max(0, ms - r.start) / CARET_BLINK_MS) % 2 === 0;
       const alive = ms >= r.start && sinceDone < CARET_HOLD_MS;
-      const caretOp = alive && (tp < 1 || blinkOn) ? opacity : 0;
+      const caretOp = !r.noCaret && alive && (tp < 1 || blinkOn) ? opacity : 0;
       out.push(
         `#caret_${p.sel.slice(6)}{opacity:${caretOp.toFixed(3)};` +
         `transform:translate(${(edgeX - m.lines[0].x0).toFixed(2)}px, ${(edgeY - m.lines[0].y).toFixed(2)}px);}`
