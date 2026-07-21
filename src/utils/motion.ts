@@ -83,7 +83,8 @@ const CARET_BLINK_MS = 500;
 // Keep the caret alive briefly after the last glyph, the way a real cursor rests.
 const CARET_HOLD_MS = 700;
 
-interface TextMetric { charX: number[]; x0: number; x1: number; y: number; h: number; transform: string }
+interface TextLine { y: number; x0: number; x1: number; xs: number[] }
+interface TextMetric { lines: TextLine[]; chars: number; x0: number; x1: number; y: number; h: number; transform: string }
 const METRICS = metricsJson as unknown as Record<string, Record<string, TextMetric>>;
 const metricFor = (svgFile: string, id: string): TextMetric | undefined =>
   METRICS[svgFile]?.[id];
@@ -176,8 +177,8 @@ function withIdle(rec: Rec, role: string, idx: number): Rec {
 // glyphs take to arrive, so existing VO sync is untouched.
 function withType(rec: Rec, svgFile: string, id: string): Rec {
   const m = metricFor(svgFile, id);
-  if (!m || m.charX.length < 2) return rec;
-  return { ...rec, type: m, dur: typeDurationMs(m.charX.length - 1) };
+  if (!m || !m.lines?.length || !m.chars) return rec;
+  return { ...rec, type: m, dur: typeDurationMs(m.chars) };
 }
 
 const EASE_SINE = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
@@ -331,9 +332,35 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   const spec = SPEC_BY_FILE[svgFile];
 
   const plan: PlanItem[] = [];
-  let textIdx = 0;
   const roleCount: Record<string, number> = {};
   let dividerHead: Element | null = null;
+
+  // text_N is assigned over EVERY <text> in the document, in document order —
+  // not just root children. The mp_v2 export nests its text inside group
+  // hierarchies, and a root-children-only walk found zero text in all 20 frames,
+  // which silently disabled the type-on entirely (and produced an empty
+  // text-metrics.json). Walking the whole tree keeps the ids stable regardless of
+  // how deeply a given export decides to nest.
+  // scripts/build-text-metrics.js walks identically — keep the two in step.
+  // Drop stacked duplicates first. The mp_v2 export ships some titles 2-3x —
+  // byte-identical content at an identical transform (frame_2 alone has "04" three
+  // times and six doubled card titles; audit-fonts counts 13 across the film). Left
+  // in, each copy types on its own schedule and they ghost through one another.
+  // Matching on content+transform is exact, so this can never merge two genuinely
+  // different labels that happen to read the same.
+  // scripts/build-text-metrics.js dedupes identically — keep the two in step or
+  // text_N indices diverge and every caret lands on the wrong element.
+  const allTexts: Element[] = [];
+  const seenText = new Set<string>();
+  for (const t of Array.from(svg.querySelectorAll('text'))) {
+    const key = (t.textContent || '').replace(/\s+/g, ' ').trim() + '|' + (t.getAttribute('transform') || '');
+    if (seenText.has(key)) { t.parentNode?.removeChild(t); continue; }
+    seenText.add(key);
+    allTexts.push(t);
+  }
+  const textId = new Map<Element, string>();
+  allTexts.forEach((t, i) => textId.set(t, 'text_' + i));
+  const wrappedTexts = new Set<Element>();
 
   const wrap = (el: Element, id: string, role: string, idx: number, rec: Rec) => {
     const g = doc.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -353,16 +380,38 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
       // and the per-frame slide on one node throws the caret off-screen. Outer <g>
       // holds the text's placement (attribute, never touched); the rect inside takes
       // only the CSS translateX along the line.
+      // One clip rect per LINE, unioned by <clipPath>. A CSS polygon() cannot do
+      // this — it is a single closed path, so disjoint per-line regions (which is
+      // what centred multi-line text produces) get joined into one wrong shape.
+      // Each rect is drawn at full line width and revealed by CSS scaleX from its
+      // own left edge, so the reveal snaps to measured character boundaries.
+      const lineH = m.h / Math.max(1, m.lines.length);
+      const cp = doc.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
+      cp.setAttribute('id', 'typeclip_' + id);
+      cp.setAttribute('clipPathUnits', 'userSpaceOnUse');
+      m.lines.forEach((ln, li) => {
+        const r = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        r.setAttribute('id', 'typeclip_' + id + '_' + li);
+        r.setAttribute('x', String(ln.x0));
+        r.setAttribute('y', String(ln.y - lineH * 0.85));
+        r.setAttribute('width', String(Math.max(1, ln.x1 - ln.x0)));
+        r.setAttribute('height', String(lineH * 1.15));
+        cp.appendChild(r);
+      });
+      g.appendChild(cp);
+      el.setAttribute('clip-path', 'url(#typeclip_' + id + ')');
+
       const caretG = doc.createElementNS('http://www.w3.org/2000/svg', 'g');
       if (m.transform) caretG.setAttribute('transform', m.transform);
       const caret = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
       caret.setAttribute('id', 'caret_' + id);
-      // Bbox height includes descenders, which makes a full-height bar read as too
-      // tall next to the caps. Inset it toward cap height, as the reference's does.
-      caret.setAttribute('x', String(m.charX[0]));
-      caret.setAttribute('y', String(m.y + m.h * 0.1));
-      caret.setAttribute('width', String(Math.max(2, m.h * 0.045)));
-      caret.setAttribute('height', String(m.h * 0.8));
+      // Sized and placed against ONE line, not the whole block: for multi-line text
+      // the bbox height covers every line, and a caret that tall reads as a rule
+      // through the paragraph. The per-frame transform then walks it across and down.
+      caret.setAttribute('x', String(m.lines[0].x0));
+      caret.setAttribute('y', String(m.lines[0].y - lineH * 0.78));
+      caret.setAttribute('width', String(Math.max(2, lineH * 0.05)));
+      caret.setAttribute('height', String(lineH * 0.85));
       caret.setAttribute('fill', el.getAttribute('fill') || '#0840a5');
       caretG.appendChild(caret);
       g.appendChild(caretG);
@@ -375,7 +424,9 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     if (tag === 'defs') continue;
     let id: string | null, role: string, anchorX = 960;
     if (tag === 'text') {
-      id = 'text_' + textIdx++;
+      id = textId.get(el) || null;
+      if (!id) continue;
+      wrappedTexts.add(el);
       role = 'text';
       anchorX = readAnchor(el);
     } else if (tag === 'g' || ROOT_SHAPES.has(tag)) {
@@ -401,14 +452,20 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     wrap(el, id, role, idx, finalRec);
   }
 
-  // Divider frames nest their 3 label texts inside #divider_head; the first <text> is
-  // the big numeral, which rides the group. The spec addresses the labels as text_0..2,
-  // so they are unreachable from the root loop above.
-  if (dividerHead && textIdx === 0 && spec?.has('text_0')) {
-    Array.from(dividerHead.querySelectorAll('text')).slice(1).forEach((t, i) => {
-      const se = spec.get('text_' + i);
-      if (se) wrap(t, 'text_' + i, 'text', i, withType(withCue(fromSpec(se), svgFile, 'text_' + i), svgFile, 'text_' + i));
-    });
+  // Any <text> the root loop did not reach — nested inside a group, which is how
+  // divider frames have always carried their labels and how the whole mp_v2 export
+  // is built. Wrapping them here is what keeps type-on working no matter how deep
+  // the artwork nests. A text inside an already-wrapped group still gets its own
+  // wrapper: the group animates the block, this animates the glyphs.
+  for (const t of allTexts) {
+    if (wrappedTexts.has(t)) continue;
+    const id = textId.get(t)!;
+    const idx = Number(id.slice(5));
+    const se = spec?.get(id);
+    const base = se ? fromSpec(se) : recipe('text', idx, readAnchor(t), frameMs);
+    const rec = withOverride(withType(withCue(base, svgFile, id), svgFile, id), svgFile, id);
+    if (!rec) { t.parentNode!.removeChild(t); continue; }
+    wrap(t, id, 'text', idx, rec);
   }
 
   const skeleton = new XMLSerializer().serializeToString(svg);
@@ -493,27 +550,54 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     // Manag|g", a sliver of the next letter leaking past the cursor).
     if (r.type) {
       const m = r.type;
-      const chars = m.charX.length - 1;
       const tp = Math.max(0, Math.min(1, (ms - r.start) / Math.max(1, r.dur)));
-      const shown = Math.round(tp * chars);           // whole characters only
-      const edge = m.charX[shown];
-      const span = m.x1 - m.x0 || 1;
-      // inset() percentages resolve against the element's own bounding box.
-      const rightPct = Math.max(0, Math.min(100, (1 - (edge - m.x0) / span) * 100));
-      // Clip the <text> ITSELF, not the wrapper: the caret is a sibling inside that
-      // wrapper and sits exactly on the reveal edge, so clipping the group would eat
-      // the caret at every frame. Percentages resolve against the text's own bbox,
-      // which is what x0/x1 measure.
-      out.push(`${p.sel} text{clip-path:inset(-25% ${rightPct.toFixed(3)}% -25% -25%);}`);
+      let shown = Math.round(tp * m.chars);           // whole characters only
 
-      // Caret rides the same edge, blinks, and retires shortly after the last glyph.
+      // Walk the staircase: find which LINE the reveal is on and how far along it.
+      // A single horizontal inset() cannot do this — it cuts every line at the same
+      // width, so on line 2 the edge jumps back left and eats line 1. That is the
+      // bug this replaced (mp_v2's two-line card titles rendered as "Master-l Rel.",
+      // "Correctin Habits"). Same reason animationUtils.typewriterReveal builds a
+      // staircase polygon rather than an inset.
+      const W = (m.x1 - m.x0) || 1;
+      const H = (m.y + m.h - m.y) || 1;
+      const pctX = (x: number) => ((x - m.x0) / W) * 100;
+      const pctY = (y: number) => ((y - m.y) / (m.h || 1)) * 100;
+
+      let li = 0, edgeX = m.lines[0].x0, edgeY = m.lines[0].y;
+      for (let i = 0; i < m.lines.length; i++) {
+        const cnt = m.lines[i].xs.length - 1;
+        if (shown > cnt) { shown -= cnt; li = Math.min(i + 1, m.lines.length - 1); continue; }
+        li = i;
+        edgeX = m.lines[i].xs[Math.max(0, Math.min(shown, cnt))];
+        edgeY = m.lines[i].y;
+        shown = 0;
+        break;
+      }
+      if (tp >= 1) { li = m.lines.length - 1; edgeX = m.lines[li].x1; edgeY = m.lines[li].y; }
+
+      // Drive each line's clip rect: fully open for lines already typed, partially
+      // for the current one, closed for the rest. scaleX from the rect's own left
+      // edge (transform-box:fill-box) means no coordinate maths here and no
+      // dependence on how the browser resolves percentage reference boxes.
+      for (let i = 0; i < m.lines.length; i++) {
+        const ln = m.lines[i];
+        const span = Math.max(1, ln.x1 - ln.x0);
+        const k = i < li ? 1 : i > li ? 0 : Math.max(0, Math.min(1, (edgeX - ln.x0) / span));
+        out.push(
+          `#typeclip_${p.sel.slice(6)}_${i}{transform-box:fill-box;transform-origin:left center;` +
+          `transform:scaleX(${(tp >= 1 ? 1 : k).toFixed(4)});}`
+        );
+      }
+
+      // Caret rides the reveal edge — across AND down, so it follows the line break.
       const sinceDone = ms - (r.start + r.dur);
       const blinkOn = Math.floor(Math.max(0, ms - r.start) / CARET_BLINK_MS) % 2 === 0;
       const alive = ms >= r.start && sinceDone < CARET_HOLD_MS;
       const caretOp = alive && (tp < 1 || blinkOn) ? opacity : 0;
       out.push(
         `#caret_${p.sel.slice(6)}{opacity:${caretOp.toFixed(3)};` +
-        `transform:translateX(${(edge - m.charX[0]).toFixed(2)}px);}`
+        `transform:translate(${(edgeX - m.lines[0].x0).toFixed(2)}px, ${(edgeY - m.lines[0].y).toFixed(2)}px);}`
       );
     }
 

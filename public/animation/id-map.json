@@ -1,0 +1,29 @@
+{
+ "_readme": "old id -> new id, matched geometrically by build-id-map.js",
+ "frames": {
+  "frame_0.svg": {
+   "helm": "art_1"
+  },
+  "frame_1.svg": {
+   "definition_card": "scene_1"
+  },
+  "frame_10.svg": {
+   "bg": "guide"
+  },
+  "frame_16.svg": {
+   "bg": "part_18"
+  },
+  "frame_17.svg": {
+   "bg": "bg_2"
+  },
+  "frame_18.svg": {
+   "spot_trait_2": "part_4",
+   "spot_trait_4": "part_6",
+   "trait_2": "icon3"
+  },
+  "frame_3.svg": {
+   "guides": "waves",
+   "divider_head": "scene_9"
+  }
+ }
+}

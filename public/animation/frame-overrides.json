@@ -40,13 +40,5 @@
   "    \"spot_helm\": { \"orbit\": { \"period\": 26000, \"deg\": 360 } }",
   "  }"
  ],
- "frames": {
-  "frame_9.svg": {
-   "icon_ship": {
-    "_note": "Reported to Claude Design as an open disc-overflow (design-fix-request.md §1): the ship+network+magnifier cluster measured 314.2x161.9 inside an r=87.5 orbit ring — 80% over, bow and hull breaking the ring on both sides. Same defect they fixed in frame_1 and frame_15. Corrected here so it is not blocked on their next export; drop this entry once they ship a proper single-subject icon.",
-    "scale": 0.55,
-    "y": 6
-   }
-  }
- }
+ "frames": {}
 }

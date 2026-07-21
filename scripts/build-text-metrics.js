@@ -36,22 +36,50 @@ const CHECK = process.argv.includes('--check');
 // motion.ts or the ids will not line up.
 const COLLECT = `(() => {
   const svg = document.querySelector('svg');
-  const root = svg.querySelector('g[isolation]') || svg;
-  let texts = Array.from(root.children).filter((el) => el.tagName.toLowerCase() === 'text');
-  if (!texts.length) {
-    const head = svg.querySelector('#divider_head');
-    if (head) texts = Array.from(head.querySelectorAll('text')).slice(1);
+  // EVERY <text> in document order — must match motion.ts planAndWrap exactly.
+  // A root-children-only walk found zero text in all 20 mp_v2 frames (its text is
+  // nested inside groups), which silently disabled type-on and wrote an empty
+  // metrics file. Keep these two walks identical or the caret lands on the wrong
+  // element.
+  // Dedupe stacked duplicates on content+transform — must match motion.ts
+  // planAndWrap exactly, or text_N indices diverge between the two walks.
+  const texts = [];
+  const seen = new Set();
+  for (const t of Array.from(svg.querySelectorAll('text'))) {
+    const key = (t.textContent || '').replace(/\\s+/g, ' ').trim() + '|' + (t.getAttribute('transform') || '');
+    if (seen.has(key)) continue;
+    seen.add(key);
+    texts.push(t);
   }
   const out = {};
   texts.forEach((el, i) => {
     const n = el.getNumberOfChars();
     if (!n) return;
-    const charX = [];
-    for (let c = 0; c < n; c++) charX.push(+el.getStartPositionOfChar(c).x.toFixed(2));
-    charX.push(+el.getEndPositionOfChar(n - 1).x.toFixed(2));
+    // Group characters into LINES by their baseline y. A multi-line block's x
+    // positions restart on every line, so a single horizontal sweep is wrong —
+    // reveal has to be a per-line staircase (see animationUtils.typewriterReveal).
+    const lines = [];
+    let cur = null;
+    for (let c = 0; c < n; c++) {
+      const p = el.getStartPositionOfChar(c);
+      const e = el.getEndPositionOfChar(c);
+      if (!cur || Math.abs(p.y - cur.y) > 1) {
+        cur = { y: p.y, x0: p.x, x1: e.x, xs: [p.x] };
+        lines.push(cur);
+      }
+      cur.xs.push(e.x);
+      cur.x1 = Math.max(cur.x1, e.x);
+      cur.x0 = Math.min(cur.x0, p.x);
+    }
     const b = el.getBBox();
     out['text_' + i] = {
-      charX,
+      lines: lines.map((l) => ({
+        y: +l.y.toFixed(2),
+        x0: +l.x0.toFixed(2),
+        x1: +l.x1.toFixed(2),
+        xs: l.xs.map((x) => +x.toFixed(2)),
+      })),
+      chars: n,
       x0: +b.x.toFixed(2),
       x1: +(b.x + b.width).toFixed(2),
       y: +b.y.toFixed(2),
