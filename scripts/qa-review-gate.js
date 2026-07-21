@@ -93,6 +93,10 @@ function main() {
     // Hand-corrections in frame-overrides.json are the one thing a design re-export
     // cannot carry forward. An override naming a renamed id does nothing, silently.
     runAudit('Frame overrides resolve', 'audit-overrides.js'),
+    // The per-scene choreography record is derived from the frames + timing files.
+    // A re-export silently invalidates it — this is how it came to still describe
+    // mp_v1 artwork ("ICON — helm") long after those elements stopped existing.
+    runAudit('Execution_Text as-built', 'build-execution-text.js', ['--check']),
   ];
   for (const a of audits) {
     console.log(`  ${a.pass ? 'PASS' : 'FAIL'}  ${a.label}`);

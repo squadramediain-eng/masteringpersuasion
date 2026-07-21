@@ -1,49 +1,95 @@
 FRAME_04 — Persuasion Steps
 Appears in the video at: 1:52
 Scene length: 1080 frames = 36.0 seconds (30fps)
-Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Archetype: F · Step flow
 Beat: Three steps pop left-to-right, arrows draw between them.
 
-────────────────────────────────────────
-OCEAN WAVES / WAVE BAND
-Appears: eases up into place frame 0–24 (settles), then drifts side-to-side + slight sway continuously (organic, non-repeating). Never fully stops.
+WORLD — never enters, never exits
+  The canvas, the wave band and the rising bubbles are drawn once by
+  src/scenes/WorldLayer.tsx and run continuously behind every scene. This
+  frame's own #bg and #waves are stripped by motion.ts (SKIP_IDS) so the
+  water never doubles or restarts at a cut.
 
-BACKGROUND DECOR (guides / grid / dots)
-Appears: fades + scales up frame 7–22. Motion: none once set.
+ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-TEXT ("Persuasion Steps")
-Appears: rises (26px) + fades in frame 13–28 (0.4s–0.9s). Motion: none once set.
+ELEMENTS (29, in the order motion.ts wraps them)
 
-STEP LABEL 1
-Appears: fades + rises in frame 21–35. Motion: none once set.
+  part_1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  line [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  h1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_5 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_6 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_7 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_8 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_9 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1_5 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_10 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  c1_6 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_12 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_13 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_14 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_15 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  text_0 "Clear Facts"
+      enters 0.42s (guider spec, rise-fade); types on over 0.79s (11 chars @ 14/s, 1 line) with a caret.
+  text_1 "Cite the procedure directly"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.93s (27 chars @ 14/s, 1 line) with a caret.
+  text_2 "State Risk"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.71s (10 chars @ 14/s, 1 line) with a caret.
+  text_3 "Identify the dangers calmly."
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 2.00s (28 chars @ 14/s, 1 line) with a caret.
+  text_4 "Offer Solution"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.00s (14 chars @ 14/s, 1 line) with a caret.
+  text_5 "Propose a clear alternative."
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 2.00s (28 chars @ 14/s, 1 line) with a caret.
+  text_6 "Persuasion Steps"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.14s (16 chars @ 14/s, 1 line) with a caret.
 
-STEP LABEL 2
-Appears: fades + rises in frame 24–38. Motion: none once set.
+HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
+  bubbles keep running. The frame is never completely still.
 
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 24–38. Motion: none (orbit ring may spin).
+EXIT — contents slide out to the left over the last 30 frames and fade
+  over the back half of that travel, so the frame is clear before the next
+  subject arrives. The world does NOT fade — that is what stops a transition
+  going blank.
 
-STEP LABEL 3
-Appears: fades + rises in frame 26–41. Motion: none once set.
-
-ICON — 1
-Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 27–40 (0.9s–1.3s). Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 29–43. Motion: none (orbit ring may spin).
-
-ICON — 2
-Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 30–44 (1.0s–1.5s). Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 33–47. Motion: none (orbit ring may spin).
-
-ICON — 3
-Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 34–47 (1.1s–1.6s). Motion: none once set.
-
-Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
-Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
-
-## Notes for the animator
-- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene04.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
-- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.
+## Notes
+- Generated by scripts/build-execution-text.js from sceneRegistry.ts, the frame
+  SVG, animation.json, audio-cues.json, text-metrics.json and
+  frame-overrides.json. Re-run it after any frame re-export rather than
+  hand-editing, or this record drifts from what actually renders.
+- To change any element here, edit public/animation/frame-overrides.json
+  (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
+  id is which on screen.
+- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
+  redesign renamed every element, so all 133 cues were orphaned (preserved in
+  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
+  spec or the fallback stagger, NOT from the words that name them.

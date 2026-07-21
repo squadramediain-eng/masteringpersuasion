@@ -1,25 +1,199 @@
 FRAME_17 — Behaviour & Influence Table
 Appears in the video at: 8:03
 Scene length: 870 frames = 29.0 seconds (30fps)
-Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Archetype: C · Table
 Beat: Behaviour rows build; positive cyan, negative alert.
 
-────────────────────────────────────────
-TEXT ("DEBRIEF, DON'T DETONATE")
-Appears: rises (26px) + fades in frame 13–28 (0.4s–0.9s). Motion: none once set.
+WORLD — never enters, never exits
+  The canvas, the wave band and the rising bubbles are drawn once by
+  src/scenes/WorldLayer.tsx and run continuously behind every scene. This
+  frame's own #bg and #waves are stripped by motion.ts (SKIP_IDS) so the
+  water never doubles or restarts at a cut.
 
-PANEL / CARD
-Appears: rises + scales in frame 16–32. Motion: none once set.
+ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-PANEL / CARD
-Appears: rises + scales in frame 18–35. Motion: none once set.
+ELEMENTS (81, in the order motion.ts wraps them)
 
-PANEL / CARD
-Appears: rises + scales in frame 21–37. Motion: none once set.
+  bg_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  digit_x5f_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  nmbr [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  nmbr_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  digit_x5f_2_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  digit_x5f_2_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  digit_x5f_2_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  digit_x5f_2_5 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_5 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  location [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_6 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  observation [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  observation_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_7 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch4_x5f_bg [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_leg2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_leg1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_bisep2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_palm2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_palm1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_arm2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_arm1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch4_x5f_bisep1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_hand [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_leg2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_leg1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_pelvis [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_bisep1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_arm1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_nose [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_eyebrow [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_eye1 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_eye2 [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  ch3_x5f_mouth [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  part_8 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_9 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  part_10 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2shadow [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2bisep2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2leg2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2leg1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2torso [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2arm2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2_head [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2bisep1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_2arm1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1shadow [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1leg1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1leg2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1hand1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1torso [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1bisep1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1arm1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1_head [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1eye1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1eye2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1eyebrow1 [card]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+  ch_x5f_1eyebrow2 [card]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+  ch_x5f_1nose [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch_x5f_1lip [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  icon3 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  icon2 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  icon1 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  part_11 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  text_0 "Wait to debrief"
+      enters 0.42s (guider spec, rise-fade); types on over 1.07s (15 chars @ 14/s, 1 line) with a caret.
+  text_1 "Shout at crew"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.93s (13 chars @ 14/s, 1 line) with a caret.
+  text_2 "Positive (+)"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.86s (12 chars @ 14/s, 1 line) with a caret.
+  text_3 "Negative (-)"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.86s (12 chars @ 14/s, 1 line) with a caret.
+  text_4 "Rational solving"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.14s (16 chars @ 14/s, 1 line) with a caret.
+  text_5 "Aggressive push"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.07s (15 chars @ 14/s, 1 line) with a caret.
+  text_6 "Action"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.43s (6 chars @ 14/s, 1 line) with a caret.
+  text_7 "Behaviour Type"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.00s (14 chars @ 14/s, 1 line) with a caret.
+  text_8 "Influence style"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 1.07s (15 chars @ 14/s, 1 line) with a caret.
 
-Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
-Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
+HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
+  bubbles keep running. The frame is never completely still.
 
-## Notes for the animator
-- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene17.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
-- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.
+EXIT — contents slide out to the left over the last 30 frames and fade
+  over the back half of that travel, so the frame is clear before the next
+  subject arrives. The world does NOT fade — that is what stops a transition
+  going blank.
+
+## Notes
+- Generated by scripts/build-execution-text.js from sceneRegistry.ts, the frame
+  SVG, animation.json, audio-cues.json, text-metrics.json and
+  frame-overrides.json. Re-run it after any frame re-export rather than
+  hand-editing, or this record drifts from what actually renders.
+- To change any element here, edit public/animation/frame-overrides.json
+  (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
+  id is which on screen.
+- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
+  redesign renamed every element, so all 133 cues were orphaned (preserved in
+  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
+  spec or the fallback stagger, NOT from the words that name them.

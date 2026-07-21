@@ -1,53 +1,115 @@
 FRAME_03 — Section 1 — Safety Tool · AB & Bosun
 Appears in the video at: 1:29
 Scene length: 690 frames = 23.0 seconds (30fps)
-Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Archetype: A · Divider
 Beat: Numeral scales up, AB & bosun scene enters, hazard cue pops.
 
-────────────────────────────────────────
-OCEAN WAVES / WAVE BAND
-Appears: eases up into place frame 0–24 (settles), then drifts side-to-side + slight sway continuously (organic, non-repeating). Never fully stops.
+WORLD — never enters, never exits
+  The canvas, the wave band and the rising bubbles are drawn once by
+  src/scenes/WorldLayer.tsx and run continuously behind every scene. This
+  frame's own #bg and #waves are stripped by motion.ts (SKIP_IDS) so the
+  water never doubles or restarts at a cut.
 
-BACKGROUND DECOR (guides / grid / dots)
-Appears: fades + scales up frame 7–22. Motion: none once set.
+ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-BACKGROUND DECOR (guides / grid / dots)
-Appears: fades + scales up frame 8–24. Motion: none once set.
+ELEMENTS (39, in the order motion.ts wraps them)
 
-SECTION HEADER (numeral + kicker + title)
-Appears: scales up (0.82→1) + fades in frame 9–28 (0.3s–0.9s). Motion: none once set.
-The big numeral rides this group; the three label texts below stagger in on top of it.
+  scene_1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_6 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_7 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_8 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_9 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  first [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  heading [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  heading_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_10 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_11 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_12 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_13 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_14 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_15 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_16 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_17 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_18 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_19 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_20 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_21 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_22 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_23 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_24 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_25 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_26 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_27 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_28 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_29 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_30 [stat]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.8px / 6.0s.
+  scene_31 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_32 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_33 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_34 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  text_0 "AB &amp; Bosun Scenario"
+      enters 0.42s (guider spec, rise-fade); types on over 1.36s (19 chars @ 14/s, 1 line) with a caret.
+  text_1 "1"
+      enters 0.55s (guider spec, rise-fade); types on over 0.07s (1 chars @ 14/s, 1 line) with a caret.
+  text_2 "Safety Tool"
+      enters 0.68s (guider spec, rise-fade); types on over 0.79s (11 chars @ 14/s, 1 line) with a caret.
 
-TEXT ("SECTION 01")
-Appears: rises (26px) + fades in frame 13–28 (0.4s–0.9s). Motion: none once set.
+HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
+  bubbles keep running. The frame is never completely still.
 
-TEXT ("Safety Tool")
-Appears: rises (26px) + fades in frame 17–32 (0.6s–1.1s). Motion: none once set.
+EXIT — contents slide out to the left over the last 30 frames and fade
+  over the back half of that travel, so the frame is clear before the next
+  subject arrives. The world does NOT fade — that is what stops a transition
+  going blank.
 
-TEXT ("AB & Bosun Scenario")
-Appears: rises (26px) + fades in frame 20–36 (0.7s–1.2s). Motion: none once set.
-
-CHARACTER(S)
-Appears: slides + fades in from right frame 20–39 (0.7s–1.3s). Motion: gentle idle float once settled.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 24–38. Motion: none (orbit ring may spin).
-
-ICON — hazmat
-Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 27–40 (0.9s–1.3s). Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 29–43. Motion: none (orbit ring may spin).
-
-ICON — lifering
-Appears: pops in (scale 0.8→1 + fade, slight overshoot) frame 30–44 (1.0s–1.5s). Motion: none once set.
-
-CONNECTOR ARROW
-Appears: draws on / fades in frame 32–46. Motion: arrowhead settles at the end.
-
-Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
-Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
-
-## Notes for the animator
-- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene03.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
-- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.
+## Notes
+- Generated by scripts/build-execution-text.js from sceneRegistry.ts, the frame
+  SVG, animation.json, audio-cues.json, text-metrics.json and
+  frame-overrides.json. Re-run it after any frame re-export rather than
+  hand-editing, or this record drifts from what actually renders.
+- To change any element here, edit public/animation/frame-overrides.json
+  (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
+  id is which on screen.
+- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
+  redesign renamed every element, so all 133 cues were orphaned (preserved in
+  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
+  spec or the fallback stagger, NOT from the words that name them.

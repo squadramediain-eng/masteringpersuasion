@@ -1,88 +1,79 @@
 FRAME_01 — What is Persuasion — Definition
 Appears in the video at: 0:34
 Scene length: 750 frames = 25.0 seconds (30fps)
-Background: light canvas #f5f6fa — #bg fades in first, then holds for the whole scene.
+Archetype: E · Convergence
 Beat: Definition card sets, inputs converge from all sides.
 
-────────────────────────────────────────
-PANEL / CARD
-Appears: rises + scales in frame 16–32. Motion: none once set.
+WORLD — never enters, never exits
+  The canvas, the wave band and the rising bubbles are drawn once by
+  src/scenes/WorldLayer.tsx and run continuously behind every scene. This
+  frame's own #bg and #waves are stripped by motion.ts (SKIP_IDS) so the
+  water never doubles or restarts at a cut.
 
-MIND LEFT 1
-Appears: fades + rises in frame 21–35. Motion: none once set.
+ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-MIND LEFT 2
-Appears: fades + rises in frame 24–38. Motion: none once set.
+ELEMENTS (21, in the order motion.ts wraps them)
 
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 24–38. Motion: none (orbit ring may spin).
+  bg_elements [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  bobbles [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_1 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_2 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  text [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_3 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  icon_3 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  scene_4 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_5 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  icon_2 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  scene_6 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_7 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_8 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  ch [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_9 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_10 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_11 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_12 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scene_13 [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  text_0 "Using clear communication,logic, and respect t"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 2.50s (89 chars @ 14/s, 4 lines) with a caret.
+  text_1 "Persuasion"
+      enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.71s (10 chars @ 14/s, 1 line) with a caret.
 
-MIND LEFT 3
-Appears: fades + rises in frame 26–41. Motion: none once set.
+HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
+  bubbles keep running. The frame is never completely still.
 
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 29–43. Motion: none (orbit ring may spin).
+EXIT — contents slide out to the left over the last 30 frames and fade
+  over the back half of that travel, so the frame is clear before the next
+  subject arrives. The world does NOT fade — that is what stops a transition
+  going blank.
 
-MIND RIGHT 1
-Appears: fades + rises in frame 29–44. Motion: none once set.
-
-MIND RIGHT 2
-Appears: fades + rises in frame 32–46. Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 33–47. Motion: none (orbit ring may spin).
-
-MIND RIGHT 3
-Appears: fades + rises in frame 35–49. Motion: none once set.
-
-INPUT TOP 1
-Appears: fades + rises in frame 37–52. Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 38–52. Motion: none (orbit ring may spin).
-
-INPUT TOP 2
-Appears: fades + rises in frame 40–54. Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 42–56. Motion: none (orbit ring may spin).
-
-INPUT TOP 3
-Appears: fades + rises in frame 43–57. Motion: none once set.
-
-INPUT BOTTOM 1
-Appears: fades + rises in frame 45–60. Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 47–61. Motion: none (orbit ring may spin).
-
-INPUT BOTTOM 2
-Appears: fades + rises in frame 48–62. Motion: none once set.
-
-INPUT BOTTOM 3
-Appears: fades + rises in frame 51–65. Motion: none once set.
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 51–65. Motion: none (orbit ring may spin).
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 56–70. Motion: none (orbit ring may spin).
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 60–74. Motion: none (orbit ring may spin).
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 65–79. Motion: none (orbit ring may spin).
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 69–83. Motion: none (orbit ring may spin).
-
-CONCEPT CIRCLE
-Appears: pops in (scale 0.6→1 + fade) frame 74–88. Motion: none (orbit ring may spin).
-
-Hold: once everything is in, all loops (waves, idle bobs/floats, any orbit rings, watermark pulse) keep running quietly.
-Exit: SceneWrapper cross-fades the whole scene out over its last 30 frames into the next scene.
-
-## Notes for the animator
-- This file is the AUTHORED choreography — the src/utils/motion.ts interpreter approximates it generically; refine per-element timing here, then build a bespoke src/scenes/Scene01.tsx if a beat needs more than the recipe (arrows stroke-draw, stat count-up).
-- Timings above are seeded from the Animation Guider; adjust against the actual voiceover once voiceover.mp3 is in place.
+## Notes
+- Generated by scripts/build-execution-text.js from sceneRegistry.ts, the frame
+  SVG, animation.json, audio-cues.json, text-metrics.json and
+  frame-overrides.json. Re-run it after any frame re-export rather than
+  hand-editing, or this record drifts from what actually renders.
+- To change any element here, edit public/animation/frame-overrides.json
+  (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
+  id is which on screen.
+- NARRATION SYNC IS CURRENTLY OFF: audio-cues.json is empty because the mp_v2
+  redesign renamed every element, so all 133 cues were orphaned (preserved in
+  audio-cues.pre-mp_v2.json). Entrances above therefore come from the guider
+  spec or the fallback stagger, NOT from the words that name them.
