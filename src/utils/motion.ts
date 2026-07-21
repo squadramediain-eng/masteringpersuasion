@@ -89,6 +89,44 @@ const metricFor = (svgFile: string, id: string): TextMetric | undefined =>
 
 const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TYPE_MAX_MS);
 
+// ─── DEFAULT IDLE — "the frame is never still" (spec 12 §6) ──────────────────
+// Only 23 of the guider's 242 elements (10%) carry an idle loop, and 8 frames
+// carry none at all — so once a scene's entrances finish, ~90% of it freezes.
+// Measured consequence: v3 sat near-still 71% of the time against the reference
+// film's 50%, and adding type-on + slide transitions moved the MEAN (+25%) while
+// leaving the MEDIAN almost untouched (0.2884 -> 0.2999) — because the holds,
+// which are most of the runtime, were still frozen.
+//
+// The approved film never holds on a dead frame: its vessels bob, its characters
+// float, its decorative arcs turn. So anything the spec does not already animate
+// gets a gentle default breathe. Amplitudes are deliberately small — this is
+// ambient life, not a bounce, and the conventions still ban decorative spin on
+// content.
+const DEFAULT_IDLE: Record<string, { amp: number; period: number; rot?: number }> = {
+  ship:      { amp: 4.5, period: 5200, rot: 0.5 },
+  character: { amp: 3.0, period: 4600 },
+  icon:      { amp: 2.2, period: 5000 },
+  card:      { amp: 1.6, period: 6400 },
+  circle:    { amp: 2.0, period: 5800 },
+  prop:      { amp: 2.0, period: 5400 },
+  decor:     { amp: 1.4, period: 7200 },
+  stat:      { amp: 1.8, period: 6000 },
+  numeral:   { amp: 1.8, period: 6600 },
+  watermark: { amp: 2.4, period: 8000 },
+};
+// Roles that must NOT drift: text would blur against its own caret, arrows are
+// anchored to what they point at, and background/ambient is the world layer's job.
+const NO_IDLE = new Set(['text', 'background', 'ambient', 'arrow', 'alert']);
+
+// Give every element its own phase so they breathe independently — a shared phase
+// makes a frame pulse as one block, which reads as mechanical rather than alive.
+function withIdle(rec: Rec, role: string, idx: number): Rec {
+  if (rec.idle || rec.loop || NO_IDLE.has(role)) return rec;
+  const d = DEFAULT_IDLE[role];
+  if (!d) return rec;
+  return { ...rec, idle: { ...d, phase: ((idx * 137.508) % 360) * (Math.PI / 180) } };
+}
+
 // Attach measured metrics to a text record and retime it to the typing rate.
 // The element keeps its cued/spec START — only the duration becomes the time the
 // glyphs take to arrive, so existing VO sync is untouched.
@@ -152,7 +190,7 @@ interface Rec {
   ease?: string;
   loop?: boolean;
   overshoot?: number;
-  idle?: { amp: number; period: number; rot?: number };
+  idle?: { amp: number; period: number; rot?: number; phase?: number };
   shake?: boolean;
   orbit?: { period: number; deg: number };
   draw?: boolean;
@@ -309,7 +347,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     // Cue applies to whatever recipe was built — spec OR fallback. frame_13 has no spec
     // elements at all, so gating this on the spec would leave the longest scene uncued.
     const rec = withCue(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), svgFile, id);
-    wrap(el, id, role, idx, withType(rec, svgFile, id));
+    wrap(el, id, role, idx, withIdle(withType(rec, svgFile, id), role, idx));
   }
 
   // Divider frames nest their 3 label texts inside #divider_head; the first <text> is
@@ -367,9 +405,12 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
       // idle loop once the entrance has settled
       if (r.idle && ms > r.start + r.dur) {
         const idleF = (localFrame / fps) * 1000 - (r.start + r.dur);
-        const ph = (2 * Math.PI * idleF) / r.idle.period;
-        ty += Math.sin(ph) * r.idle.amp;
-        if (r.idle.rot) rot += Math.sin(ph) * r.idle.rot;
+        const ph = (2 * Math.PI * idleF) / r.idle.period + (r.idle.phase ?? 0);
+        // Ease the loop in over its first cycle so an element never jerks from a
+        // dead stop into full amplitude the instant its entrance finishes.
+        const ramp = Math.min(1, idleF / r.idle.period);
+        ty += Math.sin(ph) * r.idle.amp * ramp;
+        if (r.idle.rot) rot += Math.sin(ph) * r.idle.rot * ramp;
       }
     }
 
