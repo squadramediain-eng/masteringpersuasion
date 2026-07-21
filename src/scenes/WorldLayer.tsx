@@ -77,10 +77,39 @@ export const WorldLayer: React.FC = () => {
   const tx = Math.sin((2 * Math.PI * t) / 33) * 14;
   const ty = Math.sin((2 * Math.PI * t) / 52) * 3;
 
+  // ── Ambient: rising bubbles ──────────────────────────────────────────────
+  // The approved film's holds are never dead — sampled at 3:10 it carries a small
+  // cluster of bubbles rising through the wave band. Deliberately restrained: at
+  // 1:00 that film shows ship + water and NO fauna at all, so blanket sea life
+  // would overshoot the reference, not match it. Fish/seaweed/coral appear there
+  // only where the CONTENT is about the ocean.
+  //
+  // Generated rather than imported so they exist in every scene without touching
+  // the frame artwork (which the design project owns and re-exports over).
+  // Deterministic: position is a pure function of `frame`, no randomness, so the
+  // render stays reproducible.
+  const BUBBLES = 9;
+  const bubbles = Array.from({ length: BUBBLES }, (_, i) => {
+    // Deterministic pseudo-scatter — a fixed irrational stride keeps them from
+    // landing on a visible grid without needing Math.random().
+    const seedX = ((i * 137.508) % 100) / 100;
+    const period = 9 + (i % 4) * 2.5;                 // seconds for one full rise
+    const phase = (t / period + seedX) % 1;           // 0 → 1 up the band
+    const x = 120 + seedX * 1680;
+    const yBase = 1010;
+    const y = yBase - phase * 190;
+    const r = 3 + (i % 3) * 1.6;
+    // fade in at the bottom, out at the top — never a hard pop
+    const o = Math.sin(phase * Math.PI) * 0.42;
+    const sway = Math.sin((2 * Math.PI * t) / 5 + i) * 5;
+    return `<circle cx="${(x + sway).toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#71afd8" opacity="${o.toFixed(3)}"/>`;
+  }).join('');
+
   const html =
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
     defs +
     `<g transform="translate(${tx.toFixed(2)}, ${ty.toFixed(2)})">${waves}</g>` +
+    bubbles +
     `</svg>`;
 
   return (

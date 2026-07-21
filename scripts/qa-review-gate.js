@@ -86,6 +86,10 @@ function main() {
     // Every cue must still resolve and its 'at' be current — otherwise motion.ts silently
     // animates to a stale time after someone edits a cue phrase without rebuilding.
     runAudit('Narration cue freshness', 'build-audio-cues.js', ['--check']),
+    // Character positions for the type-on caret are MEASURED (headless getStartPositionOfChar)
+    // and committed. A frame re-export changes glyph advances, so stale metrics put the caret
+    // in the wrong place and clip mid-glyph — silently, since nothing else reads this file.
+    runAudit('Text metrics freshness', 'build-text-metrics.js', ['--check']),
   ];
   for (const a of audits) {
     console.log(`  ${a.pass ? 'PASS' : 'FAIL'}  ${a.label}`);

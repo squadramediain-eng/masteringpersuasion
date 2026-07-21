@@ -10,6 +10,7 @@
 
 import specJson from '../../public/animation/animation.json';
 import cuesJson from '../../public/animation/audio-cues.json';
+import metricsJson from '../../public/animation/text-metrics.json';
 
 // Shapes that carry a stroke, for the arrow draw-on. pathLength=1 normalises every
 // path to unit length so the spec's strokeDashoffset 1 -> 0 draws it regardless of size.
@@ -62,6 +63,39 @@ const cueFor = (svgFile: string, id: string): number | undefined =>
 function withCue(rec: Rec, svgFile: string, id: string): Rec {
   const at = cueFor(svgFile, id);
   return at === undefined ? rec : { ...rec, start: at * 1000 };
+}
+
+// ─── TYPE-ON ────────────────────────────────────────────────────────────────
+// Titles and body copy type on with a visible caret — the house signature.
+// (knowledge-vault/12 §5; the old "no typewriter on text" convention was
+// reversed 2026-07-17 against the approved reference film.)
+//
+// Measured off that film, 4 samples/sec through the 0:55-0:59 transition:
+// the caret appears, then "B" -> "Ballast" -> "Ballast/W" -> "Ballast Water"
+// lands in ~1.0s — about 12 chars/sec. But its body paragraphs type far
+// faster (~150 chars inside ~3s at 1:00, ~50 cps), so a single cps is wrong:
+// short titles want deliberate typing, long paragraphs must not crawl. Hence
+// a nominal rate with a hard ceiling — long copy speeds up automatically.
+const TYPE_CPS = 14;
+const TYPE_MAX_MS = 2500;
+const CARET_BLINK_MS = 500;
+// Keep the caret alive briefly after the last glyph, the way a real cursor rests.
+const CARET_HOLD_MS = 700;
+
+interface TextMetric { charX: number[]; x0: number; x1: number; y: number; h: number; transform: string }
+const METRICS = metricsJson as unknown as Record<string, Record<string, TextMetric>>;
+const metricFor = (svgFile: string, id: string): TextMetric | undefined =>
+  METRICS[svgFile]?.[id];
+
+const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TYPE_MAX_MS);
+
+// Attach measured metrics to a text record and retime it to the typing rate.
+// The element keeps its cued/spec START — only the duration becomes the time the
+// glyphs take to arrive, so existing VO sync is untouched.
+function withType(rec: Rec, svgFile: string, id: string): Rec {
+  const m = metricFor(svgFile, id);
+  if (!m || m.charX.length < 2) return rec;
+  return { ...rec, type: m, dur: typeDurationMs(m.charX.length - 1) };
 }
 
 const EASE_SINE = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
@@ -122,6 +156,9 @@ interface Rec {
   shake?: boolean;
   orbit?: { period: number; deg: number };
   draw?: boolean;
+  // Set for <text> that has measured metrics — drives the character-exact
+  // clip reveal and the caret. See TYPE-ON above.
+  type?: TextMetric;
 }
 
 // Spec element -> Rec. The spec's `easing` is a raw cubic-bezier string for the brand
@@ -221,6 +258,30 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     if (rec.draw) {
       g.querySelectorAll(DRAW_SHAPES.join(',')).forEach((s) => s.setAttribute('pathLength', '1'));
     }
+    // Type-on: give the text a caret sibling. It carries the <text>'s OWN transform so
+    // both share one local space — text-metrics.json records charX in exactly that space,
+    // so the caret can be placed by translateX with no further conversion.
+    if (rec.type) {
+      const m = rec.type;
+      // Two nested nodes on purpose, same reason the anim_* wrapper exists: a CSS
+      // `transform` REPLACES the SVG transform attribute, so putting the placement
+      // and the per-frame slide on one node throws the caret off-screen. Outer <g>
+      // holds the text's placement (attribute, never touched); the rect inside takes
+      // only the CSS translateX along the line.
+      const caretG = doc.createElementNS('http://www.w3.org/2000/svg', 'g');
+      if (m.transform) caretG.setAttribute('transform', m.transform);
+      const caret = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      caret.setAttribute('id', 'caret_' + id);
+      // Bbox height includes descenders, which makes a full-height bar read as too
+      // tall next to the caps. Inset it toward cap height, as the reference's does.
+      caret.setAttribute('x', String(m.charX[0]));
+      caret.setAttribute('y', String(m.y + m.h * 0.1));
+      caret.setAttribute('width', String(Math.max(2, m.h * 0.045)));
+      caret.setAttribute('height', String(m.h * 0.8));
+      caret.setAttribute('fill', el.getAttribute('fill') || '#0840a5');
+      caretG.appendChild(caret);
+      g.appendChild(caretG);
+    }
     plan.push({ sel: '#anim_' + id, role, idx, rec });
   };
 
@@ -247,7 +308,8 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     const se = spec?.get(id);
     // Cue applies to whatever recipe was built — spec OR fallback. frame_13 has no spec
     // elements at all, so gating this on the spec would leave the longest scene uncued.
-    wrap(el, id, role, idx, withCue(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), svgFile, id));
+    const rec = withCue(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), svgFile, id);
+    wrap(el, id, role, idx, withType(rec, svgFile, id));
   }
 
   // Divider frames nest their 3 label texts inside #divider_head; the first <text> is
@@ -256,7 +318,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   if (dividerHead && textIdx === 0 && spec?.has('text_0')) {
     Array.from(dividerHead.querySelectorAll('text')).slice(1).forEach((t, i) => {
       const se = spec.get('text_' + i);
-      if (se) wrap(t, 'text_' + i, 'text', i, withCue(fromSpec(se), svgFile, 'text_' + i));
+      if (se) wrap(t, 'text_' + i, 'text', i, withType(withCue(fromSpec(se), svgFile, 'text_' + i), svgFile, 'text_' + i));
     });
   }
 
@@ -321,6 +383,38 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     if (scale !== 1) parts.push(`scale(${scale.toFixed(4)})`);
     if (rot) parts.push(`rotate(${rot.toFixed(3)}deg)`);
     const transform = parts.length ? `transform:${parts.join(' ')};transform-box:fill-box;transform-origin:center;` : '';
+
+    // ── Type-on ──────────────────────────────────────────────────────────
+    // Reveal by clipping to a real character boundary. charX holds the measured
+    // start-x of every glyph (plus the end), so the clip edge NEVER lands inside a
+    // glyph — the failure mode a naive width-percentage wipe produces ("Ballast
+    // Manag|g", a sliver of the next letter leaking past the cursor).
+    if (r.type) {
+      const m = r.type;
+      const chars = m.charX.length - 1;
+      const tp = Math.max(0, Math.min(1, (ms - r.start) / Math.max(1, r.dur)));
+      const shown = Math.round(tp * chars);           // whole characters only
+      const edge = m.charX[shown];
+      const span = m.x1 - m.x0 || 1;
+      // inset() percentages resolve against the element's own bounding box.
+      const rightPct = Math.max(0, Math.min(100, (1 - (edge - m.x0) / span) * 100));
+      // Clip the <text> ITSELF, not the wrapper: the caret is a sibling inside that
+      // wrapper and sits exactly on the reveal edge, so clipping the group would eat
+      // the caret at every frame. Percentages resolve against the text's own bbox,
+      // which is what x0/x1 measure.
+      out.push(`${p.sel} text{clip-path:inset(-25% ${rightPct.toFixed(3)}% -25% -25%);}`);
+
+      // Caret rides the same edge, blinks, and retires shortly after the last glyph.
+      const sinceDone = ms - (r.start + r.dur);
+      const blinkOn = Math.floor(Math.max(0, ms - r.start) / CARET_BLINK_MS) % 2 === 0;
+      const alive = ms >= r.start && sinceDone < CARET_HOLD_MS;
+      const caretOp = alive && (tp < 1 || blinkOn) ? opacity : 0;
+      out.push(
+        `#caret_${p.sel.slice(6)}{opacity:${caretOp.toFixed(3)};` +
+        `transform:translateX(${(edge - m.charX[0]).toFixed(2)}px);}`
+      );
+    }
+
     out.push(`${p.sel}{opacity:${opacity.toFixed(3)};${transform}}`);
     if (dash !== null) {
       const sel = DRAW_SHAPES.map((s) => `${p.sel} ${s}`).join(',');
