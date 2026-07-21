@@ -113,7 +113,7 @@ function elementsOf(svgFile) {
   return out;
 }
 
-function describe(el, svgFile, specEls) {
+function describe(el, svgFile, specEls, sceneStartSec) {
   const ov = OVERRIDES[svgFile]?.[el.id];
   if (ov?.hide) return `  ${el.id} — REMOVED by frame-overrides.json (hide: true).`;
 
@@ -126,8 +126,14 @@ function describe(el, svgFile, specEls) {
   else if (cue?.at !== undefined) bits.push(`enters ${cue.at.toFixed(2)}s on the narration cue "${cue.cue}"`);
   else if (el.dataLayer === 'world') bits.push('WORLD — on from frame 0, never enters or exits');
   else if (el.dataT !== null && el.dataT !== undefined) {
+    // data-t is ABSOLUTE film time; show both clocks so it can never be misread
+    // the way motion.ts first misread it (treating it as scene-relative silently
+    // dropped every element whose t exceeded the scene length).
+    const abs = Number(el.dataT);
+    const rel = Math.max(0, abs - sceneStartSec);
     bits.push(
-      `enters ${Number(el.dataT).toFixed(2)}s on the narration beat` +
+      `enters at ${clock(abs)} (${abs.toFixed(1)}s film time = ${rel.toFixed(1)}s into this scene)` +
+      ` on the narration beat` +
       (el.dataCue ? ` "${el.dataCue}"` : '') +
       (el.dataBeat ? ` (beat ${el.dataBeat})` : '') +
       (el.dataEnter ? `, ${el.dataEnter}` : '')
@@ -192,7 +198,7 @@ function build(scene) {
   L.push('');
   L.push(`ELEMENTS (${els.length}, in the order motion.ts wraps them)`);
   L.push('');
-  for (const el of els) L.push(describe(el, scene.svgFile, specEls));
+  for (const el of els) L.push(describe(el, scene.svgFile, specEls, scene.audioStartSec));
   L.push('');
   if (ov._frame) {
     const f = ov._frame;

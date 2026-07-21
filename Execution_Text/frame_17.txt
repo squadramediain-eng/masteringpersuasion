@@ -23,13 +23,13 @@ ELEMENTS (81, in the order motion.ts wraps them)
   digit_x5f_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_3 [prop]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), fade; default idle 2.0px / 5.4s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), fade; default idle 2.0px / 5.4s.
   nmbr [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   nmbr_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_4 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), fade; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), fade; default idle 2.0px / 5.4s.
   digit_x5f_2_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   digit_x5f_2_3 [prop]
@@ -39,11 +39,11 @@ ELEMENTS (81, in the order motion.ts wraps them)
   digit_x5f_2_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_5 [prop]
-      enters 486.00s on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
+      enters at 8:06 (486.0s film time = 3.0s into this scene) on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
   location [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_6 [prop]
-      enters 486.00s on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
+      enters at 8:06 (486.0s film time = 3.0s into this scene) on the narration beat "influence styles" (beat 1), fade; default idle 2.0px / 5.4s.
   observation [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   observation_2 [prop]
@@ -51,53 +51,53 @@ ELEMENTS (81, in the order motion.ts wraps them)
   part_7 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch4_x5f_bg [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_leg2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_leg1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_torso [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_bisep2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_head [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_palm2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_palm1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_arm2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_arm1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch4_x5f_bisep1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_hand [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_leg2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_leg1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_pelvis [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_torso [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_bisep1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_head [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_arm1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_nose [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eyebrow [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eye1 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_eye2 [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   ch3_x5f_mouth [character]
-      enters 500.00s on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
+      enters at 8:20 (500.0s film time = 17.0s into this scene) on the narration beat "aggressively shouting" (beat 3), slide; default idle 3.0px / 4.6s.
   part_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_9 [prop]
@@ -105,51 +105,51 @@ ELEMENTS (81, in the order motion.ts wraps them)
   part_10 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ch_x5f_2shadow [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2bisep2 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2leg2 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2leg1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2torso [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2arm2 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2_head [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2bisep1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_2arm1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1shadow [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1leg1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1leg2 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1hand1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1torso [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1bisep1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1arm1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1_head [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eye1 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eye2 [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1eyebrow1 [card]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
   ch_x5f_1eyebrow2 [card]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 1.6px / 6.4s.
   ch_x5f_1nose [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   ch_x5f_1lip [prop]
-      enters 492.00s on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
+      enters at 8:12 (492.0s film time = 9.0s into this scene) on the narration beat "calmly propose" (beat 2), slide; default idle 2.0px / 5.4s.
   icon3 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   icon2 [icon]

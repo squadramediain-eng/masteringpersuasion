@@ -29,7 +29,7 @@ ELEMENTS (39, in the order motion.ts wraps them)
   scene_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   scene_9 [prop]
-      enters 91.00s on the narration beat "section one" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 1:31 (91.0s film time = 2.0s into this scene) on the narration beat "section one" (beat 1), typewriter; default idle 2.0px / 5.4s.
   first [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   heading [prop]

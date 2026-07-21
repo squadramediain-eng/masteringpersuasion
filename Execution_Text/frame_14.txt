@@ -25,11 +25,11 @@ ELEMENTS (21, in the order motion.ts wraps them)
   bubble_x5f_1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   person_x5f_2 [character]
-      enters 416.00s on the narration beat "internal resistance" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 6:56 (416.0s film time = 7.0s into this scene) on the narration beat "internal resistance" (beat 2), slide; default idle 3.0px / 4.6s.
   person_x5f_1 [character]
-      enters 416.00s on the narration beat "internal resistance" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 6:56 (416.0s film time = 7.0s into this scene) on the narration beat "internal resistance" (beat 2), slide; default idle 3.0px / 4.6s.
   ship [ship]
-      enters 416.00s on the narration beat "internal resistance" (beat 2), slide; default idle 4.5px / 5.2s.
+      enters at 6:56 (416.0s film time = 7.0s into this scene) on the narration beat "internal resistance" (beat 2), slide; default idle 4.5px / 5.2s.
   ocean [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   cloud [prop]
@@ -37,15 +37,15 @@ ELEMENTS (21, in the order motion.ts wraps them)
   birds [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   num [numeral]
-      enters 411.00s on the narration beat "section five" (beat 1), typewriter; default idle 1.8px / 6.6s.
+      enters at 6:51 (411.0s film time = 2.0s into this scene) on the narration beat "section five" (beat 1), typewriter; default idle 1.8px / 6.6s.
   heading [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text [prop]
-      enters 411.00s on the narration beat "section five" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 6:51 (411.0s film time = 2.0s into this scene) on the narration beat "section five" (beat 1), typewriter; default idle 2.0px / 5.4s.
   first [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   h1 [prop]
-      enters 411.00s on the narration beat "section five" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 6:51 (411.0s film time = 2.0s into this scene) on the narration beat "section five" (beat 1), typewriter; default idle 2.0px / 5.4s.
   heading_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   gird [prop]

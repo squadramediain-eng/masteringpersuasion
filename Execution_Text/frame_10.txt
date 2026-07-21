@@ -27,15 +27,15 @@ ELEMENTS (20, in the order motion.ts wraps them)
   fish [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   number [numeral]
-      enters 289.00s on the narration beat "specific metric" (beat 1), pop; default idle 1.8px / 6.6s.
+      enters at 4:49 (289.0s film time = 3.0s into this scene) on the narration beat "specific metric" (beat 1), pop; default idle 1.8px / 6.6s.
   circle_x5f_1 [circle]
-      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
+      enters at 5:00 (300.0s film time = 14.0s into this scene) on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_2 [circle]
-      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
+      enters at 5:00 (300.0s film time = 14.0s into this scene) on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_3 [circle]
-      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
+      enters at 5:00 (300.0s film time = 14.0s into this scene) on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   circle_x5f_4 [circle]
-      enters 300.00s on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
+      enters at 5:00 (300.0s film time = 14.0s into this scene) on the narration beat "worth a life" (beat 3), pop; default idle 2.0px / 5.8s.
   family_x5f_icon [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   chart [prop]

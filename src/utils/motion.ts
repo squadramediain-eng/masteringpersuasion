@@ -42,14 +42,19 @@ export interface SpecEl {
   overshoot?: number; direction?: string; note?: string;
   idle?: SpecIdle; orbit?: SpecOrbit;
 }
-interface Spec { frames: { index: number; file: string; elements: SpecEl[] }[] }
+interface Spec { frames: { index: number; file: string; startSec: number; elements: SpecEl[] }[] }
 
 const SPEC = specJson as unknown as Spec;
 
 // keyed by SVG basename, matching sceneRegistry's svgFile ("frame_0.svg")
 const SPEC_BY_FILE: Record<string, Map<string, SpecEl>> = {};
+// Where each scene opens on the film timeline — needed to convert the artwork's
+// ABSOLUTE data-t into this scene's local clock. See withData().
+const START_BY_FILE: Record<string, number> = {};
 for (const f of SPEC.frames) {
-  SPEC_BY_FILE[f.file.split('/').pop()!] = new Map(f.elements.map((e) => [e.id, e]));
+  const base = f.file.split('/').pop()!;
+  SPEC_BY_FILE[base] = new Map(f.elements.map((e) => [e.id, e]));
+  START_BY_FILE[base] = f.startSec ?? 0;
 }
 
 // Narration cues (public/animation/audio-cues.json, resolved by scripts/build-audio-cues.js).
@@ -102,7 +107,16 @@ const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TY
 // WITH the element, so a rename cannot orphan it — which is what killed all 133
 // cues when mp_v2 renamed everything.
 //
-//   data-t      seconds from the SCENE's start when the element lands
+//   data-t      ABSOLUTE seconds on the film timeline when the element lands —
+//               NOT seconds from the scene's start. Verified across all 20
+//               frames: every data-t falls inside its own scene's absolute
+//               window (frame_9 spans 252-286s and carries t=255..276).
+//               Reading it as scene-relative silently drops every element whose
+//               t exceeds the scene length — frame_9's table rendered as an
+//               empty header for its whole 34s, and the film came out at half
+//               the file size because most content never appeared. frame_0
+//               hides the bug perfectly: its scene starts at 0, so both
+//               readings agree there.
 //   data-enter  slide | pop | typewriter | fade
 //   data-layer  world = always on, never enters (WorldLayer's rule, per spec 12 §2)
 //
@@ -117,7 +131,7 @@ const ENTER_FROM: Record<string, Record<string, number>> = {
 };
 const ENTER_DUR: Record<string, number> = { slide: 700, pop: 520, fade: 600, typewriter: 200 };
 
-function withData(rec: Rec, el: Element, role: string): Rec {
+function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): Rec {
   const layer = el.getAttribute('data-layer');
   const tRaw = el.getAttribute('data-t');
   const enter = el.getAttribute('data-enter') || '';
@@ -127,8 +141,11 @@ function withData(rec: Rec, el: Element, role: string): Rec {
     return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 } };
   }
   if (tRaw === null) return rec;
-  const t = Number(tRaw);
-  if (!isFinite(t)) return rec;
+  const abs = Number(tRaw);
+  if (!isFinite(abs)) return rec;
+  // Absolute film time -> this scene's local clock. Clamp at 0 so a beat authored
+  // slightly before its scene opens lands with the frame rather than never.
+  const t = Math.max(0, abs - sceneStartSec);
 
   const from = ENTER_FROM[enter];
   if (!from) return { ...rec, start: t * 1000 };
@@ -410,6 +427,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   svg.setAttribute('height', '1080');
   const root = (svg.querySelector('g[isolation]') as Element) || svg;
   const spec = SPEC_BY_FILE[svgFile];
+  const sceneStartSec = START_BY_FILE[svgFile] ?? 0;
 
   const plan: PlanItem[] = [];
   const roleCount: Record<string, number> = {};
@@ -524,7 +542,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     const se = spec?.get(id);
     // Cue applies to whatever recipe was built — spec OR fallback. frame_13 has no spec
     // elements at all, so gating this on the spec would leave the longest scene uncued.
-    const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role);
+    const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role, sceneStartSec);
     const rec = withCue(base, svgFile, id);
     const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id);
     // hide: true — drop the element from the DOM entirely rather than animating it to

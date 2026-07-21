@@ -27,49 +27,49 @@ ELEMENTS (32, in the order motion.ts wraps them)
   bird [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ship [ship]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 4.5px / 5.2s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 4.5px / 5.2s.
   sea [ambient]
       enters on the fallback recipe (no spec entry — role-based stagger).
   circle [circle]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   ch3rh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3b [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3lh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch3h [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2rh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2b [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2lh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch2h [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1lh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1b [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1rh [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   ch1h [character]
-      enters 237.00s on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 3.0px / 4.6s.
   double_arrow [arrow]
       enters on the fallback recipe (no spec entry — role-based stagger).
   wavves [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text [prop]
-      enters 233.00s on the narration beat "section three" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 3:53 (233.0s film time = 2.0s into this scene) on the narration beat "section three" (beat 1), typewriter; default idle 2.0px / 5.4s.
   first [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   h1 [prop]
-      enters 233.00s on the narration beat "section three" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 3:53 (233.0s film time = 2.0s into this scene) on the narration beat "section three" (beat 1), typewriter; default idle 2.0px / 5.4s.
   heading [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   num [numeral]
-      enters 233.00s on the narration beat "section three" (beat 1), typewriter; default idle 1.8px / 6.6s.
+      enters at 3:53 (233.0s film time = 2.0s into this scene) on the narration beat "section three" (beat 1), typewriter; default idle 1.8px / 6.6s.
   heading_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text_0 "Securing Buy-In"

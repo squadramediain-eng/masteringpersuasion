@@ -23,33 +23,33 @@ ELEMENTS (21, in the order motion.ts wraps them)
   scene_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text [prop]
-      enters 37.00s on the narration beat "safety tool" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 0:37 (37.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), typewriter; default idle 2.0px / 5.4s.
   scene_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   icon_3 [icon]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.2px / 5.0s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.2px / 5.0s.
   scene_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   scene_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   icon_2 [icon]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.2px / 5.0s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.2px / 5.0s.
   scene_6 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_7 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_8 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   ch [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   scene_9 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_10 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_11 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_12 [prop]
-      enters 44.00s on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_13 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text_0 "Using clear communication,logic, and respect t"

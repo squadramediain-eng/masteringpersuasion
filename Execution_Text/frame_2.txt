@@ -15,19 +15,19 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (22, in the order motion.ts wraps them)
 
   scene_2 [prop]
-      enters 68.00s on the narration beat "disputes" (beat 4), pop; default idle 2.0px / 5.4s.
+      enters at 1:08 (68.0s film time = 9.0s into this scene) on the narration beat "disputes" (beat 4), pop; default idle 2.0px / 5.4s.
   scene_3 [prop]
-      enters 70.00s on the narration beat "procedures" (beat 5), pop; default idle 2.0px / 5.4s.
+      enters at 1:10 (70.0s film time = 11.0s into this scene) on the narration beat "procedures" (beat 5), pop; default idle 2.0px / 5.4s.
   scene_4 [prop]
-      enters 72.00s on the narration beat "behaviours" (beat 6), pop; default idle 2.0px / 5.4s.
+      enters at 1:12 (72.0s film time = 13.0s into this scene) on the narration beat "behaviours" (beat 6), pop; default idle 2.0px / 5.4s.
   scene_5 [prop]
-      enters 66.00s on the narration beat "habits" (beat 3), pop; default idle 2.0px / 5.4s.
+      enters at 1:06 (66.0s film time = 7.0s into this scene) on the narration beat "habits" (beat 3), pop; default idle 2.0px / 5.4s.
   scene_6 [prop]
-      enters 64.00s on the narration beat "master" (beat 2), pop; default idle 2.0px / 5.4s.
+      enters at 1:04 (64.0s film time = 5.0s into this scene) on the narration beat "master" (beat 2), pop; default idle 2.0px / 5.4s.
   scene_7 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   scene_8 [prop]
-      enters 62.00s on the narration beat "safety tool" (beat 1), pop; default idle 2.0px / 5.4s.
+      enters at 1:02 (62.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), pop; default idle 2.0px / 5.4s.
   scene_9 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   scene_10 [prop]
