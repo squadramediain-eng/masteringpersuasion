@@ -162,6 +162,11 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
     ease: 'brand',
     from: resolved,
     to: { opacity: 1, scale: 1, translateX: 0 },
+    // The reference's icon "pops" scale slightly PAST 1 then settle — a lively
+    // overshoot (knowledge-vault 14 §2.4). The recipe pop already does this
+    // (overshoot 1.06); the data-t pop path was a plain scale, so pops read flatter
+    // than the source. Match it for the 57 data-enter="pop" elements.
+    ...(enter === 'pop' ? { overshoot: 1.06 } : {}),
   };
 }
 
@@ -374,6 +379,18 @@ function fromSpec(e: SpecEl): Rec {
 // ─── recipe by role (ported; idle/shake simplified for the interpreter) ────────
 function recipe(role: string, idx: number, anchorX: number, frameMs: number): Rec {
   const stag = (n: number, g: number) => Math.round(n) * g;
+  const r = recipeRaw(role, idx, anchorX, frameMs, stag);
+  // "Base lands <=2s, then content builds" (knowledge-vault 14 §2.1, §4.2). recipe() is
+  // the fallback for elements the design did NOT tag with data-t — i.e. base/structure,
+  // since it tags real narrated content explicitly. The role stagger (e.g. default
+  // 700 + idx*90) can push the 9th+ untagged element past 2s, leaving base structure
+  // arriving late. Cap the fallback start so base establishes fast, together, never
+  // lagging. Looping ambients (start 0) and data-t content (own start via withData)
+  // are untouched — only the untagged fallback is clamped.
+  if (!r.loop && r.start > 1400) r.start = 1400;
+  return r;
+}
+function recipeRaw(role: string, idx: number, anchorX: number, frameMs: number, stag: (n: number, g: number) => number): Rec {
   switch (role) {
     case 'background': return { anim: 'fade', from: { opacity: 0 }, to: { opacity: 1 }, start: 0, dur: 400 };
     case 'ambient':    return { anim: 'wave-drift', from: { translateX: -14 }, to: { translateX: 14 }, start: 0, dur: Math.min(frameMs, 9000), ease: 'ease-in-out', loop: true };
