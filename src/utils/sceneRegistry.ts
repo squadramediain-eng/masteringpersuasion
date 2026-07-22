@@ -6,7 +6,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const FPS = 30;
-export const TRANSITION_FRAMES = 30;
+// Length of a scene's OUTGOING slide, in frames. Measured off the reference film
+// at 0:56 (frame-accurate, 30fps): the outgoing content slides in 14 frames
+// (0.47s) and the incoming settles in 9 (0.30s) — the incoming is faster. Ours
+// was 30 (1.0s each), 2-3x too slow, so the handover lingered and read as a
+// separate event rather than a quick swap. This is the outgoing figure; the
+// incoming is derived faster in SceneWrapper. Does NOT affect scene durations or
+// element data-t timing — only slide speed.
+export const TRANSITION_FRAMES = 15;
 // Scenes now run BACK-TO-BACK: each scene's durationFrames carries it to the next scene's
 // audioStartSec, so the timeline has no dead slot. It used to leave a 1s hole (567f total)
 // in which nothing rendered at all — a full second of flat light with the VO still

@@ -50,6 +50,9 @@ const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children
   // film-wide default measured off the reference (out left, in from right).
   const t = transitionOverride(svgFile);
   const tf = Math.max(1, t?.frames ?? TRANSITION_FRAMES);
+  // Incoming slide is faster than outgoing, matching the reference (out 14f /
+  // in 9f at 0:56 — a ~0.65 ratio). The subject snaps into place, then holds.
+  const inTf = Math.max(1, Math.round(tf * 0.65));
   const dist = t?.distance ?? SLIDE_IN_PX;
   const outDist = t?.distance ?? SLIDE_OUT_PX;
   const [ivx, ivy] = DIRS[t?.inFrom ?? 'right'] ?? DIRS.right;
@@ -57,7 +60,7 @@ const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children
 
   // IN: starts offset, decelerates to rest. Brand curve — the same
   // cubic-bezier(0.16,1,0.3,1) the guider uses for element entrances.
-  const inP = interpolate(frame, [0, tf], [1, 0], {
+  const inP = interpolate(frame, [0, inTf], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.bezier(0.16, 1, 0.3, 1),
@@ -68,7 +71,7 @@ const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children
   // against the near-white canvas while their darker text and underline still
   // showed, so text appeared to float on blank water during every entrance. The
   // reference slides its subjects in solid; it does not dissolve them up.
-  const inOpacity = interpolate(frame, [0, tf * 0.25], [0, 1], {
+  const inOpacity = interpolate(frame, [0, inTf * 0.5], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
