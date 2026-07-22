@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastering Persuasion — Animation Guider</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html,body { margin:0; }
+  body { background:#eef2f9; font-family:'DM Sans',system-ui,sans-serif; color:#17325f; line-height:1.5; }
+  header { padding:26px 44px 18px; border-bottom:1px solid #d3e0f2; position:sticky; top:0; background:rgba(238,242,249,.95); backdrop-filter:blur(6px); z-index:20; }
+  h1 { font-size:26px; font-weight:800; margin:0 0 3px; letter-spacing:-0.02em; color:#0840a5; }
+  .sub { font-family:'DM Mono',monospace; font-size:12px; color:#6685e8; letter-spacing:0.05em; }
+  .toolbar { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center; }
+  button { font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px; border:1.5px solid #6084f0; background:#6084f0; color:#fff; padding:8px 16px; border-radius:999px; cursor:pointer; transition:transform .16s cubic-bezier(.16,1,.3,1),box-shadow .16s; }
+  button:hover { transform:translateY(-2px); box-shadow:0 6px 14px rgba(96,132,240,.3); }
+  button:active { transform:translateY(1px) scale(.98); }
+  button.ghost { background:#fff; color:#3761b6; }
+  .runtime { font-family:'DM Mono',monospace; font-size:12px; color:#3761b6; margin-left:auto; }
+  .runtime b { color:#0840a5; font-size:15px; }
+  .runtime .warn { color:#ac4f55; }
+  main { padding:22px 44px 90px; max-width:1320px; }
+  h2 { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#6685e8; margin:34px 0 14px; }
+  .card { background:#fff; border:1px solid #d3e0f2; border-radius:14px; padding:18px 22px; box-shadow:0 6px 18px rgba(8,64,165,.05); }
+  .rules { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+  .rule { }
+  .rule h4 { margin:0 0 5px; font-size:12px; font-weight:700; color:#0840a5; }
+  .rule p { margin:0; font-size:12.5px; color:#3a4a6b; }
+  .rule code { font-family:'DM Mono',monospace; font-size:11.5px; background:#f2f5fb; padding:1px 5px; border-radius:4px; color:#2d5fbb; }
+  /* master timeline */
+  .master { margin-top:4px; }
+  .mrow { display:flex; align-items:center; gap:0; height:34px; }
+  .mstrip { position:relative; width:100%; height:26px; border-radius:6px; overflow:hidden; border:1px solid #d3e0f2; background:#eef2f9; }
+  .mseg { position:absolute; top:0; height:100%; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:10px; color:#fff; overflow:hidden; cursor:pointer; box-shadow:inset -1px 0 0 rgba(255,255,255,.35); }
+  .mseg:last-child { border-right:none; }
+  .mseg span { white-space:nowrap; padding:0 3px; }
+  .mcue { position:absolute; top:0; height:100%; width:1.5px; background:rgba(255,255,255,.72); pointer-events:none; }
+  .mticks { display:flex; justify-content:space-between; font-family:'DM Mono',monospace; font-size:10px; color:#8a99bd; margin-top:4px; }
+  /* frame block */
+  .frames { display:flex; flex-direction:column; gap:16px; }
+  .fr { background:#fff; border:1px solid #d3e0f2; border-radius:16px; overflow:hidden; scroll-margin-top:150px; box-shadow:0 6px 18px rgba(8,64,165,.05); }
+  .fr .top { display:flex; align-items:center; gap:12px; padding:14px 22px; border-bottom:1px solid #eef2f9; flex-wrap:wrap; }
+  .badge { font-family:'DM Mono',monospace; font-weight:500; font-size:13px; color:#fff; background:#6084f0; padding:3px 11px; border-radius:999px; }
+  .arch { font-family:'DM Mono',monospace; font-size:11px; padding:3px 10px; border-radius:999px; background:#eaf1fb; color:#3761b6; }
+  .ttl { font-size:17px; font-weight:700; color:#0840a5; }
+  .tc { margin-left:auto; display:flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:12px; color:#3761b6; }
+  .tc input { width:56px; font-family:'DM Mono',monospace; font-size:12px; text-align:right; border:1px solid #c5d4ee; border-radius:6px; padding:4px 6px; color:#0840a5; }
+  .tc .rng { color:#8a99bd; }
+  .body { display:grid; grid-template-columns:320px 1fr; gap:0; }
+  @media(max-width:1000px){ .body{ grid-template-columns:1fr; } }
+  .thumbcell { padding:16px 20px; border-right:1px solid #eef2f9; }
+  @media(max-width:1000px){ .thumbcell{ border-right:none; } }
+  .thumb { width:100%; aspect-ratio:16/9; border:1px solid #e2eaf5; border-radius:8px; background:#f4f6f9; object-fit:contain; display:block; }
+  .thumbcell .beat { margin-top:10px; font-size:12.5px; color:#3a4a6b; }
+  .thumbcell .beat b { color:#0840a5; }
+  .thumbcell .vo { margin-top:10px; font-size:12.5px; color:#274063; font-style:italic; line-height:1.45; }
+  .thumbcell .vo b { color:#0840a5; font-style:normal; }
+  .cues { display:flex; flex-wrap:wrap; gap:5px; margin-top:9px; }
+  .cuechip { font-family:'DM Mono',monospace; font-size:10px; background:#eaf1fb; color:#2d5fbb; border:1px solid #cfe0f6; padding:2px 8px; border-radius:999px; }
+  .cuechip b { color:#0840a5; }
+  .cuechip.unb { background:#fdeede; color:#b9791f; border-color:#f2d9b8; }
+  .timeline { padding:14px 22px; }
+  .gantt { display:flex; flex-direction:column; gap:5px; }
+  .grow { display:grid; grid-template-columns:180px 1fr; align-items:center; gap:10px; }
+  .glabel { font-family:'DM Mono',monospace; font-size:11px; color:#17325f; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .glabel .role { color:#8a99bd; }
+  .glabel .cw { color:#0840a5; font-weight:500; }
+  .gtrack { position:relative; height:20px; background:#f4f6f9; border-radius:5px; overflow:hidden; }
+  .gbar { position:absolute; top:2px; height:16px; border-radius:4px; display:flex; align-items:center; padding:0 6px; font-family:'DM Mono',monospace; font-size:9.5px; color:#fff; white-space:nowrap; overflow:hidden; }
+  .gbar.loop { background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 5px,transparent 5px 10px); }
+  .gbar.startb { background:#42bcc0; } .gbar.endb { background:#9990f1; }
+  .tx { display:flex; flex-direction:column; gap:4px; margin-bottom:11px; }
+  .txrow { font-size:12px; color:#3a4a6b; }
+  .txlab { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:700; padding:1px 8px; border-radius:999px; margin-right:7px; }
+  .txlab.in { background:#e2f5f1; color:#2a8f86; } .txlab.out { background:#efeafb; color:#6a5acd; }
+  .gaxis { display:flex; justify-content:space-between; font-family:'DM Mono',monospace; font-size:9.5px; color:#8a99bd; margin:6px 0 0 190px; }
+  details.tbl { margin-top:12px; }
+  details.tbl summary { font-family:'DM Mono',monospace; font-size:11px; color:#3761b6; cursor:pointer; }
+  table { width:100%; border-collapse:collapse; margin-top:8px; font-size:11.5px; }
+  th,td { text-align:left; padding:5px 8px; border-bottom:1px solid #eef2f9; font-family:'DM Mono',monospace; }
+  th { color:#6685e8; font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:.04em; }
+  td { color:#3a4a6b; }
+  td .rl { display:inline-block; width:9px; height:9px; border-radius:3px; margin-right:5px; vertical-align:middle; }
+  .legend { display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; font-family:'DM Mono',monospace; font-size:10.5px; color:#5a6b93; }
+  .legend span { display:flex; align-items:center; gap:5px; }
+  .legend i { width:11px; height:11px; border-radius:3px; }
+  .loading { font-family:'DM Mono',monospace; font-size:12px; color:#8a99bd; }
+  dialog { border:none; border-radius:16px; padding:0; max-width:900px; width:90vw; box-shadow:0 20px 60px rgba(8,64,165,.25); }
+  dialog::backdrop { background:rgba(23,50,95,.35); }
+  .dlg-head { display:flex; align-items:center; padding:16px 22px; border-bottom:1px solid #eef2f9; }
+  .dlg-head b { font-size:15px; color:#0840a5; }
+  .dlg-head button { margin-left:auto; }
+  pre { margin:0; padding:18px 22px; max-height:64vh; overflow:auto; font-family:'DM Mono',monospace; font-size:11.5px; line-height:1.5; color:#17325f; background:#f7f9fd; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Animation Guider</h1>
+  <div class="sub">MASTERING PERSUASION · 20 FRAMES · 1920×1080 · 30FPS · AUDIO-LOCKED 0:00–9:46 · CUE-SYNCED REMOTION MANIFEST</div>
+  <div class="toolbar">
+    <button id="btnJson">Export Remotion JSON</button>
+    <button class="ghost" id="btnCopy">Copy manifest</button>
+    <button class="ghost" id="btnReset">Reset timings</button>
+    <span class="runtime" id="runtime">…</span>
+  </div>
+</header>
+<main>
+
+  <h2>Master timeline — segments = frames (audio-locked); white ticks = narration cue words</h2>
+  <div class="card master">
+    <div class="mrow"><div class="mstrip" id="mstrip"></div></div>
+    <div class="mticks" id="mticks"></div>
+    <div class="legend" id="rolelegend"></div>
+  </div>
+
+  <h2>Motion language — the studio's animation rules (applied to every frame &amp; embedded in the manifest)</h2>
+  <div class="card rules">
+    <div class="rule"><h4>Cue-synced to narration</h4><p>Every content element enters on its <b>VO cue word</b> — the SVG carries <code>data-cue</code> / <code>data-t</code> (absolute sec) / <code>data-relt</code> (sec into the scene) / <code>data-enter</code>. Source of truth: <code>motion/cue-bindings.json</code>. The gantt below plots each entrance at its real time in the scene.</p></div>
+    <div class="rule"><h4>Signature easing</h4><p>All content entrances use the brand curve <code>cubic-bezier(0.16,1,0.3,1)</code>. Ambient loops use <code>sine-in-out</code>; continuous wave/orbit use <code>linear</code>. Typewriter runs <code>linear</code>.</p></div>
+    <div class="rule"><h4>Entrance rhythm</h4><p>Layers reveal back-to-front by <code>data-layer</code>: <code>bg → env → waves → decor → scene → char → icon → card → text</code>. World layers (bg/env/waves) are present at <code>t=0</code>; everything above enters on its cue.</p></div>
+    <div class="rule"><h4>Text — titles type on</h4><p>Headlines <b>typewriter</b> per-char with a visible caret (~22 cps), two-tone: head <code>#0840a5</code> + emphasis <code>#6084f0</code>. Body copy fades/rises (<code>translateY 26→0</code>), never types.</p></div>
+    <div class="rule"><h4>Numerals</h4><p>Section numeral scales up — <code>scale 0.82→1</code> + fade, 640ms — a confident hero beat, no bounce.</p></div>
+    <div class="rule"><h4>Concept &amp; spotlight discs</h4><p>Disc pops from centre <code>scale 0.6→1</code> with a 1.06 overshoot; where a dashed orbit exists it rotates <code>0→360°</code> on a 24s linear loop; glow fades in behind.</p></div>
+    <div class="rule"><h4>Characters</h4><p>Grouped one figure per person (<code>ab</code>, <code>bosun</code>, <code>leader</code>, <code>officer_*</code>, <code>crew_*</code>) with named limbs. Slide in from the nearest edge + fade, 640ms, then a slow idle float <code>±6px</code>.</p></div>
+    <div class="rule"><h4>Ship &amp; water</h4><p>Ship (<code>scene</code>) sails in along the waterline (900ms) then bobs <code>±8px</code> / <code>±1°</code>. Wave layers drift horizontally <code>±14px</code>, back layers slower — the water signature, looping the whole frame.</p></div>
+    <div class="rule"><h4>Arrows &amp; connectors</h4><p>Draw on via <code>stroke-dashoffset</code> in flow direction, ~520ms, staggered along the path; arrowheads pop at the end.</p></div>
+    <div class="rule"><h4>Stat number</h4><p>Count-up + scale pop <code>0.7→1</code>, ~950ms, with the sanctioned top-lit gradient shimmer. It owns the frame; icons orbit quietly.</p></div>
+    <div class="rule"><h4>Alert cue</h4><p>The only non-blue beat: hazard-X / spark / cross-badge pops in late <code>scale 0→1</code> with a 2-cycle shake, drawing the eye to the risk. Never decorative.</p></div>
+    <div class="rule"><h4>One continuous world</h4><p>The film never cuts — the <code>waves</code> band &amp; <code>env</code> sea life persist across every frame; only the furniture above changes. Transitions <b>slide/fade over the shared water</b>, through a ~0.5–1.5s <b>breath</b> where the outgoing furniture clears and the next title types on.</p></div>
+    <div class="rule"><h4>Ghost placeholders</h4><p>Every frame is complete at <code>t=0</code>: low-opacity ghost slots reserve every space content will fill, so the screen is never blank while it waits. Content enters into its ghost on its VO cue word; the ghost fades as it lands.</p></div>
+    <div class="rule"><h4>Lag budget</h4><p>Transform &amp; opacity only; <b>≤3 concurrent entrances</b> (stagger the rest); world layers are drawn once and never re-rendered; heavy donor art is flattened.</p></div>
+    <div class="rule"><h4>Frame transitions</h4><p>No cut, no wipe, no full-frame cross-dissolve. Outgoing furniture slides/fades out as incoming slides in <b>over the unbroken wave band</b>; section numerals wipe in as chapter markers. Connectors draw to a slot <i>before</i> its content lands.</p></div>
+  </div>
+
+  <h2>Per-frame animation spec — cue timings parsed live from each SVG's named groups + the narration manifest</h2>
+  <div class="frames" id="frames"><div class="loading">Parsing 20 frames…</div></div>
+</main>
+
+<dialog id="jsonDlg">
+  <div class="dlg-head"><b>Remotion animation manifest · animation.json</b><button class="ghost" id="dlDownload">Download .json</button><button id="dlClose" style="margin-left:8px">Close</button></div>
+  <pre id="jsonOut"></pre>
+</dialog>
+
+<script>
+const FPS = 30;
+// ---- AUTHORITATIVE per-frame times from the audio (seconds) — video runs 0 → 9:46 ----
+const FRAME_START = [0,34,59,89,112,148,166,199,231,252,286,315,335,364,409,435,469,483,512,547];
+const FRAME_END   = [33,58,88,111,147,165,198,230.1,251,285,314,334,363,408,434,468,482,511,546,586];
+const TOTAL = FRAME_END[FRAME_END.length-1]; // 586s = 9:46 (audio-locked)
+const REAL_DUR = FRAME_START.map((s,i)=>Math.round((FRAME_END[i]-s)*10)/10);
+
+// ---- per-frame meta (archetype + one-line beat) ----
+const META = [
+  {arch:'Cover',            beat:'Title lands, library icons pop in, ship sails onto the wave band.'},
+  {arch:'E · Convergence',  beat:'Definition card sets, inputs converge from all sides.'},
+  {arch:'Icon grid',        beat:'Six tiles reveal in sequence, each with its icon.'},
+  {arch:'A · Divider',      beat:'Numeral scales up, AB & bosun scene enters, hazard cue pops.'},
+  {arch:'F · Step flow',    beat:'Three steps pop left-to-right, arrows draw between them.'},
+  {arch:'A · Divider',      beat:'Numeral + title, master & pilot scene settles.'},
+  {arch:'H · Scenario',     beat:'Ship sails in, quote sets, swing arrow draws, highlight lifts.'},
+  {arch:'B · Compare',      beat:'Two panels reveal; alert-X vs blue-✓ pop in contrast.'},
+  {arch:'A · Divider',      beat:'Numeral + title, crew-lightering scene enters.'},
+  {arch:'C · Table',        beat:'Table builds row by row; results colour in.'},
+  {arch:'D · Stat',         beat:'"30" counts up and pops; icons orbit in quietly.'},
+  {arch:'A · Divider',      beat:'Numeral + title, container ship + officer enter.'},
+  {arch:'H · Scenario',     beat:'Cranes rise, ship sets, stress marker pulses alert.'},
+  {arch:'B · Compare',      beat:'Escalate vs commit panels reveal; check pops.'},
+  {arch:'A · Divider',      beat:'Numeral + title, engine-room resistance beat.'},
+  {arch:'E · Convergence',  beat:'Benefit discs converge with arrows onto the glowing tablet.'},
+  {arch:'A · Divider',      beat:'Numeral + title, leader vs negative officer.'},
+  {arch:'C · Table',        beat:'Behaviour rows build; positive cyan, negative alert.'},
+  {arch:'G · Circle cluster',beat:'Hero leader sets centre; four trait circles pop around.'},
+  {arch:'E · Convergence',  beat:'Closing question sets over the "?" watermark; icons orbit.'},
+];
+const TITLES = ['Cover — Mastering Persuasion','What is Persuasion — Definition','Six Key Areas','Section 1 — Safety Tool','Persuasion Steps','Section 2 — Master-Pilot','Bridge Scenario — Sail Area','Aggressive vs Assertive','Section 3 — Correcting Habits','Strategy Table','The 30-Second Metric','Section 4 — Resolving Disputes','Terminal Conflict','Escalate vs Compromise','Section 5 — New Procedures',"What's In It For Me",'Section 6 — Key Behaviours','Behaviour & Influence Table','Persuasive Leader Traits','Why Influencing Is Vital'];
+
+let CUES=null; // motion/cue-bindings.json — audio-locked VO + cue timings (source of truth)
+
+const EASE_BRAND='cubic-bezier(0.16,1,0.3,1)', EASE_SINE='ease-in-out', EASE_LIN='linear';
+
+// ---- role = data-layer (with a couple text sub-roles); colour per role ----
+const ROLE_COLORS = {
+  bg:'#c5d4ee', env:'#7fb0d8', waves:'#42bcc0', decor:'#9ac7fd', scene:'#234a86',
+  character:'#8172fd', icon:'#5c8ed9', card:'#3761b6', text:'#2d5fbb', numeral:'#6084f0',
+  stat:'#6451ea', alert:'#ac4f55'
+};
+const TIER = { bg:0, env:1, waves:2, decor:3, scene:4, character:5, card:6, text:7, numeral:7, stat:7, icon:8, alert:9 };
+const LAYER_ORDER = ['bg','env','waves','decor','scene','char','icon','card','text','fx'];
+
+// fallback for a group with no data-layer
+function classifyId(id){
+  const s=(id||'').toLowerCase();
+  if(/^bg$|background|backdrop/.test(s)) return 'bg';
+  if(/wave|foam/.test(s)) return 'waves';
+  if(/ocean|sea|coral|fish|stone|plant|sky|floor|env_/.test(s)) return 'env';
+  if(/guide|grid|bubble|star|cloud|bird|spark|deco|ring|helm|anchor|lifering|compass/.test(s)) return 'decor';
+  if(/ship|vessel|hull|boat|crane|tablet|console|cargo|port/.test(s)) return 'scene';
+  if(/officer|crew|ab|bosun|master|pilot|engineer|fitter|leader|figure|mariner|person|rep|negative|positive|char/.test(s)) return 'character';
+  if(/stat|thirty|count/.test(s)) return 'stat';
+  if(/numeral|^num|section_num/.test(s)) return 'numeral';
+  if(/title|heading|subhead|body|label|quote|question|text|kicker/.test(s)) return 'text';
+  if(/disc|icon|glyph|orbit|spot|circle/.test(s)) return 'icon';
+  if(/card|panel|tile|table|row|box|bubble|arrow|connector|badge|marker|divider/.test(s)) return 'card';
+  return 'decor';
+}
+function roleFor(layer,id){
+  const s=(id||'').toLowerCase();
+  if(layer==='fx') return 'alert';
+  if(layer==='char') return 'character';
+  if(layer==='text'){ if(/stat|thirty|count/.test(s))return 'stat'; if(/numeral|^num|section_num/.test(s))return 'numeral'; return 'text'; }
+  if(['bg','env','waves','decor','scene','icon','card'].includes(layer)){
+    if(layer==='card' && /cross|alert|hazard|spark|stress|danger/.test(s)) return 'alert';
+    return layer;
+  }
+  return classifyId(id);
+}
+
+// ---- entrance recipe keyed off the cue's data-enter (when cued) or the role (when static) ----
+const ENTER = {
+  typewriter:{anim:'typewriter',dur:1000}, fade:{anim:'fade-rise',dur:620}, pop:{anim:'pop-scale',dur:480},
+  slide:{anim:'slide-fade',dur:720}, draw:{anim:'draw',dur:520}, count:{anim:'count-scale',dur:950}, iris:{anim:'iris-open',dur:560}
+};
+function recipe(role, cue, anchorX, frameMs, idx){
+  const stag=(n,g)=>Math.round(n)*g;
+  if(cue){ // cued — start locked to the narration
+    const e=ENTER[cue.enter]||{anim:(cue.enter||'fade-rise'),dur:600};
+    const r={anim:e.anim,start:Math.max(0,Math.round(cue.relt*1000)),dur:e.dur,ease:(e.anim==='typewriter'?EASE_LIN:EASE_BRAND),loop:false,cued:true,cueWord:cue.word,cueAtSec:cue.t,beat:cue.beat};
+    if(role==='character') r.idle={anim:'float',translateY:[-6,6],dur:3800,ease:EASE_SINE,loop:true};
+    else if(role==='scene') r.idle={anim:'bob',translateY:[-8,8],rotate:[-1,1],dur:4200,ease:EASE_SINE,loop:true};
+    else if(role==='icon') r.overshoot=1.06;
+    else if(role==='stat') r.note='top-lit gradient shimmer';
+    if(cue.enter==='typewriter') r.cps=22;
+    return r;
+  }
+  switch(role){ // static / ambient — no narration cue on this group
+    case 'bg':    return {anim:'fade',start:0,dur:400,ease:EASE_BRAND,loop:false};
+    case 'env':   return {anim:'fade',start:0,dur:600,ease:EASE_BRAND,loop:false,note:'scene depth — drawn once, static'};
+    case 'waves': return {anim:'wave-drift',start:0,dur:Math.min(frameMs,9000),ease:EASE_SINE,loop:true,note:'persistent water signature'};
+    case 'decor': return {anim:'fade-scale',start:200+stag(idx,60),dur:520,ease:EASE_BRAND,loop:false};
+    case 'numeral': return {anim:'scale-fade',start:300,dur:640,ease:EASE_BRAND,loop:false};
+    case 'stat':  return {anim:'count-scale',start:400,dur:950,ease:EASE_BRAND,loop:false,note:'top-lit gradient shimmer'};
+    case 'alert': return {anim:'pop-shake',start:900,dur:520,ease:EASE_BRAND,loop:false,shake:{rotate:[-4,4],cycles:2}};
+    case 'character': return {anim:'slide-fade',start:400+stag(idx,120),dur:640,ease:EASE_BRAND,loop:false,idle:{anim:'float',translateY:[-6,6],dur:3800,ease:EASE_SINE,loop:true}};
+    case 'scene': return {anim:'sail-in',start:400,dur:900,ease:EASE_BRAND,loop:false,idle:{anim:'bob',translateY:[-8,8],dur:4200,ease:EASE_SINE,loop:true}};
+    case 'icon':  return {anim:'pop',start:600+stag(idx,110),dur:440,ease:EASE_BRAND,loop:false,overshoot:1.06};
+    case 'card':  return {anim:'rise-scale',start:500+stag(idx,90),dur:540,ease:EASE_BRAND,loop:false};
+    default:      return {anim:'fade-rise',start:300+stag(idx,90),dur:520,ease:EASE_BRAND,loop:false};
+  }
+}
+
+const SHAPE_SEL='path,line,polyline,polygon,circle,ellipse,rect,use,image';
+function anchorXOf(g){
+  const t=g.getAttribute('transform')||'';
+  const m=t.match(/translate\(\s*(-?\d+(?:\.\d+)?)/); if(m) return parseFloat(m[1]);
+  const el=g.querySelector('[cx],[x]'); if(el){ const v=el.getAttribute('cx')||el.getAttribute('x'); if(v) return parseFloat(v); }
+  return 960;
+}
+
+let FRAMES=[]; // parsed data
+let DURS = REAL_DUR.slice(); // per-frame durations, seeded from the real audio times
+
+async function loadCues(){ try{ CUES=await (await fetch('motion/cue-bindings.json')).json(); }catch(e){ CUES=null; } }
+function sceneOf(i){ return (CUES&&CUES.scenes)? CUES.scenes.find(s=>s.n===i) : null; }
+
+async function parseFrame(i){
+  const path='frames/frame_'+i+'.svg';
+  let txt=''; try{ txt=await (await fetch(path)).text(); }catch(e){ return {i,path,ok:false,els:[]}; }
+  if(!txt) return {i,path,ok:false,els:[]};
+  const doc=new DOMParser().parseFromString(txt,'image/svg+xml');
+  const svg=doc.querySelector('svg'); const root=svg&&(svg.querySelector('g[isolation]')||svg);
+  const els=[]; let textIdx=0; const layerTally={};
+  if(root){
+    for(const el of root.children){
+      const tag=el.tagName.toLowerCase();
+      if(tag==='defs') continue;
+      if(tag==='text'){ const s=el.textContent.replace(/\s+/g,' ').trim(); els.push({id:'text_'+(textIdx++),role:'text',label:(s.slice(0,26)||'text'),anchorX:960,cue:null}); continue; }
+      if(tag!=='g') continue;
+      const id=el.getAttribute('id')||('.'+(el.getAttribute('class')||'group'));
+      if(/__|clip|grad|mask|filter/i.test(id)) continue;
+      const layer=el.getAttribute('data-layer')||'';
+      if(layer) layerTally[layer]=(layerTally[layer]||0)+1;
+      if(el.children.length===0 && !el.textContent.trim()) continue; // skip empty spare groups
+      const role=roleFor(layer,id);
+      const cueW=el.getAttribute('data-cue');
+      let cue=null;
+      if(cueW!=null){ cue={word:cueW,t:parseFloat(el.getAttribute('data-t')),relt:parseFloat(el.getAttribute('data-relt')||'0'),enter:el.getAttribute('data-enter')||'fade',beat:parseInt(el.getAttribute('data-beat')||'0',10)}; }
+      const el2={id,role,label:id,layer,anchorX:anchorXOf(el),shapes:el.querySelectorAll(SHAPE_SEL).length,cue};
+      const animEl=el.matches('[data-anim]')?el:el.querySelector('[data-anim]');
+      if(animEl){ el2.dataAnim=animEl.getAttribute('data-anim'); el2.dataTweak=animEl.getAttribute('data-tweak'); }
+      els.push(el2);
+    }
+  }
+  const frameMs=DURS[i]*1000;
+  const roleCount={};
+  for(const e of els){ const idx=(roleCount[e.role]=(roleCount[e.role]||0)); roleCount[e.role]++; e.rec=recipe(e.role,e.cue,e.anchorX,frameMs,idx); e.tier=TIER[e.role]??5; }
+  const sc=sceneOf(i);
+  const cueList = sc? sc.cues.map(c=>({word:c.cue,t:c.t,relt:c.relT,enter:c.enter,bound:!!c.target})) : [];
+  return {i,path,ok:true,els,layerTally,vo:sc?sc.vo:'',cues:cueList,archetype:sc?sc.archetype:''};
+}
+
+function starts(){ return FRAME_START.slice(); }
+function fmt(s){ if(s==null||isNaN(s)) return '—'; const m=Math.floor(s/60), ss=Math.round(s%60); return m+':'+String(ss).padStart(2,'0'); }
+
+function renderMaster(){
+  const st=starts(); const total=TOTAL;
+  const strip=document.getElementById('mstrip'); strip.innerHTML='';
+  DURS.forEach((d,i)=>{
+    const seg=document.createElement('div'); seg.className='mseg';
+    const col=i%2?'#3761b6':'#5c8ed9';
+    seg.style.left=(st[i]/total*100)+'%';
+    seg.style.width=(d/total*100)+'%';
+    seg.style.background=META[i].arch.includes('Divider')?'#6084f0':col;
+    seg.innerHTML=`<span>${String(i).padStart(2,'0')}</span>`;
+    seg.title=`${String(i).padStart(2,'0')} · ${TITLES[i]} · ${fmt(st[i])}–${fmt(st[i]+d)} (${d}s)`;
+    seg.onclick=()=>document.getElementById('agf'+i).scrollIntoView({block:'start'});
+    strip.appendChild(seg);
+  });
+  // narration cue ticks
+  if(CUES&&CUES.scenes){ CUES.scenes.forEach(s=>s.cues.forEach(c=>{ const t=document.createElement('div'); t.className='mcue'; t.style.left=(c.t/total*100)+'%'; t.title=`${c.cue} · ${fmt(c.t)}`; strip.appendChild(t); })); }
+  const ticks=document.getElementById('mticks'); ticks.innerHTML='';
+  [0,.25,.5,.75,1].forEach(f=>{ const s=document.createElement('span'); s.textContent=fmt(total*f); ticks.appendChild(s); });
+  const nCues = CUES&&CUES.scenes? CUES.scenes.reduce((a,s)=>a+s.cues.length,0):0;
+  const nBound = CUES&&CUES.scenes? CUES.scenes.reduce((a,s)=>a+s.cues.filter(c=>c.target).length,0):0;
+  const rt=document.getElementById('runtime');
+  rt.innerHTML=`audio-locked <b>0:00–${fmt(TOTAL)}</b> <span style="color:#1f8a5b">✓ 20 frames</span> · <b>${nBound}/${nCues}</b> cues bound`;
+  const lg=document.getElementById('rolelegend'); lg.innerHTML='';
+  Object.entries(ROLE_COLORS).forEach(([r,c])=>{ const s=document.createElement('span'); s.innerHTML=`<i style="background:${c}"></i>${r}`; lg.appendChild(s); });
+}
+
+// ---- per-frame transitions (continuous-world doctrine; END[i] = START[i+1]) ----
+const TR={ start:[
+  'Cold open — the wave world fades up; the ship sails onto the crest; “Mastering Persuasion” types on.',
+  'Cover title slides up and clears; the definition card rises and the rim icons converge over the same water.',
+  'Card recedes; six ghost tiles lay down on the wave band, ready to fill one per cue.',
+  'Tiles clear; the “1” numeral wipes in as the first chapter marker; AB & bosun slide up.',
+  'Numeral clears; three ghost step-discs and their dashed connectors pre-draw across the frame.',
+  'Steps recede; the “2” numeral wipes in; the bridge scene settles on the water.',
+  'Numeral clears; the ship sails in and the quote card opens beside it.',
+  'Ship recedes; two dashed compare panels reveal over the wave band.',
+  'Panels clear; the “3” numeral wipes in; the mooring crew slide up.',
+  'Crew clear; the strategy table header lays down, rows waiting as ghosts.',
+  'Table recedes; the world dims to the seabed as the giant “30” counts up.',
+  'Stat dissolves; the “4” numeral wipes in; ship + crane slide in.',
+  'Numeral clears; the gantry cranes rise over the ship; the rep’s demand bubble pops.',
+  'Cranes recede; two dashed panels (escalate vs compromise) reveal.',
+  'Panels clear; the “5” numeral wipes in; the engine-room pair slide up.',
+  'Numeral clears; the tablet settles glowing; benefit discs pre-form on their arrows.',
+  'Tablet recedes; the “6” numeral wipes in; leader vs negative officer set.',
+  'Figures ease back; the behaviour table header lays down, rows waiting.',
+  'Table clears; the hero leader sets centre; four trait ghost-rings hold the orbit.',
+  'Leader recedes; the “?” watermark fades up; the closing question types on and recap icons orbit in.'
+], tail:'Question holds; recap icons complete the orbit; the film settles to the bare wave world and closes.' };
+function fromTo(a){ switch(a){
+  case 'typewriter': return 'chars 0 → all · caret';
+  case 'fade': return 'opacity 0 → 1';
+  case 'fade-rise': return 'op 0 · y +18 → op 1 · y 0';
+  case 'fade-scale': return 'op 0 · scale .96 → 1';
+  case 'scale-fade': return 'op 0 · scale .82 → scale 1';
+  case 'rise-scale': return 'op 0 · y +30 · scale .96 → settled';
+  case 'pop': case 'pop-scale': return 'op 0 · scale .8 @cx,cy → op 1 · scale 1 (1.06 overshoot)';
+  case 'slide-fade': return 'op 0 · off-edge → op 1 · settled';
+  case 'sail-in': return 'op 0 · x ±90 → x 0 (then bob)';
+  case 'count-scale': return 'value 0 · scale .7 → target · scale 1';
+  case 'iris-open': return 'clip iris 0 → open';
+  case 'draw': return 'dashoffset 1 → 0';
+  case 'wave-drift': return 'drift −14px → +14px';
+  case 'pop-shake': return 'scale 0 → 1 + 2× shake';
+  default: return '—'; } }
+function easeShort(e){ return e===EASE_LIN?'linear':e===EASE_SINE?'sine':'brand curve'; }
+// intrinsic perpetual idle — what each element does, on loop, from entrance to scene end
+function idleFor(role,id,label){
+  const s=((id||'')+' '+(label||'')).toLowerCase();
+  if(role==='bg') return null;
+  if(role==='stat'||/\bstat\b|thirty|count-up/.test(s)) return {anim:'shimmer',detail:'top-lit gradient sweep',dur:2600,ease:'sine'};
+  if(role==='text'||role==='numeral'||/title|heading|subhead|\bbody\b|label|kicker|question|quote/.test(s)) return null; // text settles
+  if(/gear/.test(s)) return {anim:'spin',detail:'0→360° slow',dur:9000,ease:'linear'};
+  if(/fan|ventil/.test(s)) return {anim:'spin',detail:'0→360° fast',dur:2400,ease:'linear'};
+  if(/clock|stopwatch|timer|watch/.test(s)) return {anim:'tick',detail:'second-hand steps',dur:2000,ease:'steps'};
+  if(/bell|alarm/.test(s)) return {anim:'shake',detail:'±8° periodic ring',dur:1600,ease:'sine'};
+  if(/shield/.test(s)) return {anim:'glint',detail:'pulse + sheen sweep',dur:3000,ease:'sine'};
+  if(/anchor/.test(s)) return {anim:'sway',detail:'±3° pendulum',dur:3400,ease:'sine'};
+  if(/megaphone|radio|sound|speak/.test(s)) return {anim:'pulse',detail:'sound-ring pulse',dur:1800,ease:'sine'};
+  if(/helm|wheel/.test(s)) return {anim:'spin',detail:'0→360° very slow',dur:14000,ease:'linear'};
+  if(/chart|growth|graph/.test(s)) return {anim:'bar-pulse',detail:'bars breathe',dur:2800,ease:'sine'};
+  if(/handshake|people|crew|family|team/.test(s)) return {anim:'nudge',detail:'gentle up-down',dur:2600,ease:'sine'};
+  if(/arrow|connector|\bline\b|flow/.test(s)) return {anim:'dash-march',detail:'dashoffset marches',dur:1400,ease:'linear'};
+  if(role==='scene'||/ship|vessel|boat|crane|tug|tablet/.test(s)) return {anim:'bob',detail:'±8px / ±1° buoy',dur:4200,ease:'sine'};
+  if(role==='character') return {anim:'float',detail:'±6px breath + micro-sway',dur:3800,ease:'sine'};
+  if(role==='card'||/card|panel|tile|table|row|\bbox\b|badge|marker|bubble|speech/.test(s)) return {anim:'hover',detail:'±3px settle-hover',dur:3200,ease:'sine'};
+  if(role==='icon'||role==='disc'||/disc|orbit|spotlight|icon|glyph/.test(s)) return {anim:'breathe',detail:'scale 1↔1.02 + orbit-ring drift',dur:3600,ease:'sine'};
+  if(role==='env') return {anim:'drift',detail:'slow parallax sway',dur:9000,ease:'sine'};
+  if(role==='decor') return {anim:'drift',detail:'ambient drift / twinkle',dur:6000,ease:'sine'};
+  return {anim:'breathe',detail:'scale 1↔1.02',dur:3600,ease:'sine'};
+}
+
+function renderFrames(){
+  const wrap=document.getElementById('frames'); wrap.innerHTML='';
+  const st=starts();
+  FRAMES.forEach(f=>{
+    const i=f.i; const dur=DURS[i]; const frameMs=dur*1000;
+    const card=document.createElement('div'); card.className='fr'; card.id='agf'+i;
+    if(!f.ok){ card.innerHTML=`<div class="top"><span class="badge">${String(i).padStart(2,'0')}</span><span class="ttl">${TITLES[i]}</span></div><div class="timeline loading">frame not found</div>`; wrap.appendChild(card); return; }
+    // order: loops first, then by start time, then tier
+    const els=f.els.slice().sort((a,b)=> (b.rec.loop?1:0)-(a.rec.loop?1:0) || a.rec.start-b.rec.start || a.tier-b.tier);
+    const trStart=TR.start[i]||'Furniture slides in over the continuous wave band.';
+    const trEnd=(i+1<TR.start.length?TR.start[i+1]:TR.tail);
+    const cuedStarts=els.filter(e=>e.rec.cued).map(e=>e.rec.start);
+    const settleMs=cuedStarts.length?Math.min.apply(null,cuedStarts):Math.min(1200,frameMs*0.15);
+    const startW=Math.max(3,Math.min(50,settleMs/frameMs*100));
+    const endW=Math.max(3,Math.min(30,800/frameMs*100)), endLeft=Math.max(0,100-endW);
+    const startRow=`<div class="grow"><div class="glabel" style="color:#2a8f86">◜ start-in</div><div class="gtrack"><div class="gbar startb" style="left:0;width:${startW}%" title="${trStart.replace(/"/g,'')}">settle</div></div></div>`;
+    const endRow=`<div class="grow"><div class="glabel" style="color:#6a5acd">end-out ◞</div><div class="gtrack"><div class="gbar endb" style="left:${endLeft}%;width:${endW}%" title="${trEnd.replace(/"/g,'')}">clear</div></div></div>`;
+    els.forEach(e=>{ e.idleLoop = e.rec.loop? null : idleFor(e.role,e.id,e.label); });
+    const rows=els.map(e=>{
+      const r=e.rec; const col=ROLE_COLORS[e.role]||'#847cd2';
+      const cw=r.cued?`<span class="cw">▸${r.cueWord}</span> `:'';
+      let track;
+      if(r.loop){ track=`<div class="gbar loop" style="left:0;width:100%;background:${col}">${r.anim} · loop</div>`; }
+      else { const eL=Math.min(97,r.start/frameMs*100), eW=Math.max(2.5,r.dur/frameMs*100);
+        track=`<div class="gbar" style="left:${eL}%;width:${eW}%;background:${col}">${r.anim}</div>`;
+        if(e.idleLoop){ const iL=Math.min(98,eL+eW); track+=`<div class="gbar loop" style="left:${iL}%;width:${Math.max(2,100-iL)}%;background:${col};opacity:.5" title="idle: ${e.idleLoop.anim} — ${e.idleLoop.detail}">↻ ${e.idleLoop.anim}</div>`; } }
+      return `<div class="grow"><div class="glabel" title="${e.id}${e.layer?' · data-layer='+e.layer:''}">${cw}${e.label} <span class="role">· ${e.role}</span></div>
+        <div class="gtrack">${track}</div></div>`;
+    }).join('');
+    const trows=els.map(e=>{ const r=e.rec; const col=ROLE_COLORS[e.role];
+      const loopCell=r.loop?('∞ '+r.anim):(e.idleLoop?('↻ '+e.idleLoop.anim):'—');
+      return `<tr><td><span class="rl" style="background:${col}"></span>${e.id}</td><td>${e.role}${e.layer?' <span style="color:#8a99bd">/'+e.layer+'</span>':''}</td><td>${r.anim}${r.cued?' <span style="color:#6451ea">▸'+r.cueWord+'</span>':''}</td>
+        <td>${fromTo(r.anim)}</td>
+        <td>${r.loop?'0.0s':(r.start/1000).toFixed(1)+'s'}${r.cued?' · '+fmt(r.cueAtSec):''}</td><td>${r.loop?'scene':r.dur+'ms'}</td><td>${easeShort(r.ease)}</td><td title="${e.idleLoop?e.idleLoop.detail:''}">${loopCell}</td></tr>`; }).join('');
+    const chips=f.cues.map(c=>`<span class="cuechip${c.bound?'':' unb'}" title="${c.enter}${c.bound?'':' · no element'}"><b>▸${c.word}</b> · ${fmt(c.t)}</span>`).join('');
+    const lc=LAYER_ORDER.filter(k=>f.layerTally[k]).map(k=>`${f.layerTally[k]} ${k}`).join(' · ');
+    card.innerHTML=`
+      <div class="top">
+        <span class="badge">${String(i).padStart(2,'0')}</span>
+        <span class="arch">${META[i].arch}</span>
+        <span class="ttl">${TITLES[i]}</span>
+        <span class="tc">${fmt(st[i])}–${fmt(st[i]+dur)} <input type="number" min="1" step="1" value="${dur}" data-i="${i}"> s <span class="rng">· ${f.els.length} layers</span></span>
+      </div>
+      <div class="body">
+        <div class="thumbcell">
+          <img class="thumb" src="${f.path}" alt="frame ${i}" loading="lazy">
+          <div class="vo"><b>VO:</b> ${f.vo? '“'+f.vo+'”' : META[i].beat}</div>
+          <div class="cues">${chips||'<span class="cuechip">no cues</span>'}</div>
+          <div class="beat" style="margin-top:9px"><b>Layers:</b> ${lc||'<span style="color:#ac4f55">no data-layer</span>'}</div>
+        </div>
+        <div class="timeline">
+          <div class="tx">
+            <div class="txrow"><span class="txlab in">START</span>${trStart}</div>
+            <div class="txrow"><span class="txlab out">END</span>${trEnd}</div>
+          </div>
+          <div class="gantt">${startRow}${rows}${endRow}</div>
+          <div class="gaxis"><span>0s</span><span>${(dur/2).toFixed(0)}s</span><span>${dur}s (scene)</span></div>
+          <details class="tbl"><summary>▸ Element animation recipes (${f.els.length}) — from → to · start · duration · easing · loop  ·  pure Remotion input</summary>
+            <table><thead><tr><th>element id</th><th>role / layer</th><th>motion</th><th>from → to</th><th>start</th><th>dur</th><th>easing</th><th>loop</th></tr></thead><tbody>${trows}</tbody></table>
+          </details>
+        </div>
+      </div>`;
+    wrap.appendChild(card);
+  });
+  wrap.querySelectorAll('input[type=number]').forEach(inp=>{
+    inp.onchange=()=>{ const i=+inp.dataset.i; DURS[i]=Math.max(1,+inp.value||1); reassign(); renderMaster(); renderFrames(); };
+  });
+}
+
+function reassign(){ FRAMES.forEach(f=>{ if(!f.ok) return; const frameMs=DURS[f.i]*1000; const rc={}; f.els.forEach(e=>{ const idx=(rc[e.role]=(rc[e.role]||0)); rc[e.role]++; e.rec=recipe(e.role,e.cue,e.anchorX,frameMs,idx); }); }); }
+
+// ---- JSON manifest ----
+function buildManifest(){
+  const st=starts();
+  return {
+    project:'Mastering Persuasion', style:'STS Motion — Persuasion',
+    width:1920, height:1080, fps:FPS, totalDurationSec:TOTAL, totalDurationFrames:Math.round(TOTAL*FPS),
+    audio:'uploads/Mastering_Persuasion.mp3',
+    cueSource:'motion/cue-bindings.json',
+    easings:{ brand:EASE_BRAND, ambient:EASE_SINE, continuous:EASE_LIN },
+    layerOrder:LAYER_ORDER,
+    conventions:{
+      law:'ONE continuous world the camera never leaves — bg/env/waves persist; only scene/char/icon/card/text change. No hard cuts.',
+      cueSync:'Every content element enters on its narration cue word. The SVG element carries data-cue (VO word), data-t (absolute sec), data-relt (sec into the scene), data-beat, data-enter. Source of truth: motion/cue-bindings.json.',
+      frameTransition:{type:'slide-over-continuous-world',breathMs:[500,1500],note:'outgoing furniture clears to the bare wave world, next title types on; section numerals wipe in as chapter markers'},
+      rules:[
+        'content easing = brand curve cubic-bezier(0.16,1,0.3,1); typewriter is linear',
+        'NOTHING GOES STATIC: every illustrative element enters on its cue then keeps its intrinsic idle loop to scene end (gears spin, clock ticks, bell shakes, disc breathes, character floats, ship bobs, ambient drifts); only text settles',
+        'titles TYPE ON per-char with a caret, two-tone (blue head + periwinkle emphasis); body fades/rises',
+        'world layers (bg/env/waves) present at t=0; waves loop; everything above enters on its data-cue',
+        'ghost placeholders reserve every content slot at t=0 — a frame is never blank',
+        '≤3 concurrent entrances; transform/opacity only; world drawn once, never re-rendered',
+        'alert #ac4f55 is the only non-blue beat (hazard-X / spark / cross-badge)',
+        'characters are one group per figure with named limbs; move the whole figure',
+        'data-anim + data-tweak sub-elements are live-tweakable in Remotion Studio'
+      ]
+    },
+    frames: FRAMES.map(f=>({
+      index:f.i, title:TITLES[f.i], archetype:META[f.i].arch, file:f.path,
+      startSec:st[f.i], durationSec:DURS[f.i], endSec:st[f.i]+DURS[f.i],
+      startFrame:Math.round(st[f.i]*FPS), durationFrames:Math.round(DURS[f.i]*FPS),
+      vo:f.vo, beat:META[f.i].beat,
+      transitionIn:TR.start[f.i], transitionOut:(f.i+1<TR.start.length?TR.start[f.i+1]:TR.tail),
+      cues:f.cues, layers:f.layerTally,
+      elements: f.ok? f.els.map(e=>{ const r=e.rec; const o={
+          id:e.id, role:e.role, layer:e.layer||undefined, anim:r.anim, fromTo:fromTo(r.anim),
+          startMs:r.loop?0:r.start, durationMs:r.loop?DURS[f.i]*1000:r.dur, easing:r.ease, loop:!!r.loop
+        };
+        if(r.cued){ o.cue={word:r.cueWord, atSec:r.cueAtSec, relSec:+(r.start/1000).toFixed(2), enter:e.cue.enter, beat:r.beat}; }
+        if(r.overshoot) o.overshoot=r.overshoot;
+        if(r.shake) o.shake=r.shake;
+        if(e.idleLoop){ o.idle={anim:e.idleLoop.anim, detail:e.idleLoop.detail, durationMs:e.idleLoop.dur, ease:e.idleLoop.ease, loop:true, note:'perpetual — runs from entrance to scene end'}; }
+        else if(r.idle) o.idle=r.idle;
+        if(r.note) o.note=r.note;
+        if(e.dataAnim){ o.tweak={anim:e.dataAnim, name:e.dataTweak}; }
+        return o;
+      }):[]
+    }))
+  };
+}
+function showJson(){ document.getElementById('jsonOut').textContent=JSON.stringify(buildManifest(),null,2); document.getElementById('jsonDlg').showModal(); }
+
+document.getElementById('btnJson').onclick=showJson;
+document.getElementById('btnCopy').onclick=async()=>{ try{ await navigator.clipboard.writeText(JSON.stringify(buildManifest(),null,2)); document.getElementById('btnCopy').textContent='Copied ✓'; setTimeout(()=>document.getElementById('btnCopy').textContent='Copy manifest',1400);}catch(e){ showJson(); } };
+document.getElementById('btnReset').onclick=()=>{ DURS=REAL_DUR.slice(); reassign(); renderMaster(); renderFrames(); };
+document.getElementById('dlClose').onclick=()=>document.getElementById('jsonDlg').close();
+document.getElementById('dlDownload').onclick=()=>{ const blob=new Blob([JSON.stringify(buildManifest(),null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='animation.json'; a.click(); };
+
+async function run(){
+  await loadCues();
+  renderMaster();
+  for(let i=0;i<20;i++){ FRAMES.push(await parseFrame(i)); }
+  renderMaster(); renderFrames();
+}
+run();
+</script>
+</body>
+</html>

@@ -14,30 +14,30 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
 ELEMENTS (14, in the order motion.ts wraps them)
 
-  shipwave [ambient]
-      enters at 2:49 (169.0s film time = 3.0s into this scene) on the narration beat "sail area" (beat 1), slide.
+  ship_wake [ship]
+      enters at 2:49 (169.0s film time = 3.0s into this scene) on the narration beat "sail area" (beat 1), slide; default idle 4.5px / 5.2s.
   ship [ship]
       enters at 2:49 (169.0s film time = 3.0s into this scene) on the narration beat "sail area" (beat 1), slide; idle loop from the guider spec.
-  arrow_text [arrow]
+  kick_ahead_arrow [arrow]
       enters at 3:02 (182.0s film time = 16.0s into this scene) on the narration beat "swing the stern" (beat 3), pop.
-  plant [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  textbox [prop]
-      enters at 2:54 (174.0s film time = 8.0s into this scene) on the narration beat "sail area aft" (beat 2), fade; default idle 2.0px / 5.4s.
-  text [prop]
-      enters at 2:54 (174.0s film time = 8.0s into this scene) on the narration beat "sail area aft" (beat 2), typewriter; default idle 2.0px / 5.4s.
-  icon4_2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  icon3 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+  env_seaweed [ambient]
+      enters on the fallback recipe (no spec entry — role-based stagger).
+  quote_card [card]
+      enters at 2:54 (174.0s film time = 8.0s into this scene) on the narration beat "sail area aft" (beat 2), typewriter; default idle 1.6px / 6.4s.
+  quote [card]
+      enters at 2:54 (174.0s film time = 8.0s into this scene) on the narration beat "sail area aft" (beat 2), typewriter; default idle 1.6px / 6.4s.
+  concept_icon_1 [icon]
+      enters at 3:10 (190.0s film time = 24.0s into this scene) on the narration beat "second tug" (beat 4), slide; default idle 2.2px / 5.0s.
+  concept_icon_2 [icon]
+      enters at 3:10 (190.0s film time = 24.0s into this scene) on the narration beat "second tug" (beat 4), slide; default idle 2.2px / 5.0s.
   icon4_2_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  icon2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  icon1 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  round [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  concept_icon_3 [icon]
+      enters at 3:10 (190.0s film time = 24.0s into this scene) on the narration beat "second tug" (beat 4), slide; default idle 2.2px / 5.0s.
+  concept_icon_4 [icon]
+      enters at 3:10 (190.0s film time = 24.0s into this scene) on the narration beat "second tug" (beat 4), slide; default idle 2.2px / 5.0s.
+  deco_disc [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   text_0 "Kick-ahead"
       enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.71s (10 chars @ 14/s, 1 line) with a caret.
   text_1 "She has a large sail area aft... I am not comf"
@@ -59,7 +59,7 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
+- NARRATION TIMING: 9 element(s) in this frame carry data-t authored into
   the artwork by the design project. That timing travels WITH the element, so a
   future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
   entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).

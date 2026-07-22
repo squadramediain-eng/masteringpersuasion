@@ -12,57 +12,65 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (25, in the order motion.ts wraps them)
+ELEMENTS (29, in the order motion.ts wraps them)
 
-  box [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  ships [ship]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 5.2s.
-  spark [alert]
-      enters on the fallback recipe (no spec entry — role-based stagger).
-  ch4rh [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch4l [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch4b [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch4lh [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch4h [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch3lh [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch3l [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch3b [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch3rh [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch3h [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), slide; default idle 3.0px / 4.6s.
-  ch2rh [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch2l [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch2b [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch2lh [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch2h [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch1l [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch1lh [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch1b [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch1rh [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  ch1h [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), slide; default idle 3.0px / 4.6s.
-  correct [prop]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), pop; default idle 2.0px / 5.4s.
-  wrong [prop]
+  panels [card]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+  ship_diagram [ship]
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 4.5px / 5.2s.
+  conflict_sparks [alert]
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop.
+  officer_r2 [character]
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 3.0px / 4.6s.
+  officer_r2_hand_r [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r2_leg [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r2_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r2_hand_l [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r2_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r1 [character]
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 3.0px / 4.6s.
+  officer_r1_hand_l [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r1_leg [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r1_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r1_hand_r [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_r1_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l2 [character]
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 3.0px / 4.6s.
+  officer_l2_hand_r [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l2_leg [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l2_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l2_hand_l [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l2_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l1 [character]
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 3.0px / 4.6s.
+  officer_l1_leg [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l1_hand_l [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l1_torso [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l1_hand_r [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  officer_l1_head [character]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+  check_badge [prop]
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 2.0px / 5.4s.
+  cross_badge [prop]
       enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 2.0px / 5.4s.
 
 HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
@@ -81,7 +89,7 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION TIMING: 22 element(s) in this frame carry data-t authored into
+- NARRATION TIMING: 8 element(s) in this frame carry data-t authored into
   the artwork by the design project. That timing travels WITH the element, so a
   future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
   entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).

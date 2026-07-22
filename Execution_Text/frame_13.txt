@@ -12,44 +12,48 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (22, in the order motion.ts wraps them)
+ELEMENTS (24, in the order motion.ts wraps them)
 
   ref [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  sky [prop]
+  env_sky [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  box_x5f_1 [prop]
-      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 2.0px / 5.4s.
-  clock [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  floor_x5f_2 [prop]
+  panel_wrong [card]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 1.6px / 6.4s.
+  clock_zzz [icon]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 2.2px / 5.0s.
+  env_floor_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  ship_x5f_2 [ship]
-      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), slide; default idle 4.5px / 5.2s.
-  box_x5f_2 [prop]
-      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), pop; default idle 2.0px / 5.4s.
+  ship_left [ship]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 4.5px / 5.2s.
+  ship_left_wake [ship]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 4.5px / 5.2s.
+  panel_correct [card]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 1.6px / 6.4s.
   crane [ship]
-      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), slide; default idle 4.5px / 5.2s.
-  floor_x5f_1 [prop]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 4.5px / 5.2s.
+  env_floor_1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  ship_x5f_2_2 [ship]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 5.2s.
-  person_x5f_4 [character]
-      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), slide; default idle 3.0px / 4.6s.
-  person_x5f_3 [character]
-      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), slide; default idle 3.0px / 4.6s.
-  person_x5f_2 [character]
-      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), slide; default idle 3.0px / 4.6s.
-  person_x5f_1 [character]
-      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), slide; default idle 3.0px / 4.6s.
-  signs [prop]
+  ship_right [ship]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 4.5px / 5.2s.
+  ship_right_wake [ship]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 4.5px / 5.2s.
+  officer_r2 [character]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 3.0px / 4.6s.
+  officer_r1 [character]
+      enters at 6:26 (386.0s film time = 22.0s into this scene) on the narration beat "compromise" (beat 2), draw; default idle 3.0px / 4.6s.
+  officer_l2 [character]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 3.0px / 4.6s.
+  officer_l1 [character]
+      enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 3.0px / 4.6s.
+  compare_marks [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  cloud_x5f_1 [prop]
+  deco_cloud [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  birds [prop]
+  deco_birds [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  giude [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  guide_grid [decor]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.4px / 7.2s.
   text_0 "Z"
       enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.07s (1 chars @ 14/s, 1 line) with a caret.
   text_1 "Z"
@@ -75,7 +79,7 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION TIMING: 8 element(s) in this frame carry data-t authored into
+- NARRATION TIMING: 12 element(s) in this frame carry data-t authored into
   the artwork by the design project. That timing travels WITH the element, so a
   future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
   entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).

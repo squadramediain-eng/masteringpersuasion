@@ -16,66 +16,66 @@ ELEMENTS (31, in the order motion.ts wraps them)
 
   part_1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_3 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_4 [prop]
-      enters at 7:24 (444.0s film time = 9.0s into this scene) on the narration beat "spare-part" (beat 2), pop; default idle 2.0px / 5.4s.
+  env_backdrop [background]
+      enters on the fallback recipe (no spec entry — role-based stagger).
+  tablet_glow [card]
+      enters at 7:18 (438.0s film time = 3.0s into this scene) on the narration beat "tablet" (beat 1), iris; default idle 1.6px / 6.4s.
+  benefit_disc_1 [circle]
+      enters at 7:24 (444.0s film time = 9.0s into this scene) on the narration beat "spare-part" (beat 2), pop; default idle 2.0px / 5.8s.
   c1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_5 [prop]
+  bg_detail_1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_6 [prop]
+  bg_detail_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_7 [prop]
-      enters at 7:32 (452.0s film time = 17.0s into this scene) on the narration beat "reports" (beat 3), pop; default idle 2.0px / 5.4s.
+  benefit_disc_2 [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   c1_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_8 [prop]
+  bg_detail_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_9 [prop]
+  bg_detail_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_10 [prop]
-      enters at 7:40 (460.0s film time = 25.0s into this scene) on the narration beat "30 minutes" (beat 4), pop; default idle 2.0px / 5.4s.
+  benefit_disc_3 [circle]
+      enters at 7:32 (452.0s film time = 17.0s into this scene) on the narration beat "reports" (beat 3), pop; default idle 2.0px / 5.8s.
   c1_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_11 [prop]
+  bg_detail_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_12 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  benefit_disc_4 [circle]
+      enters at 7:40 (460.0s film time = 25.0s into this scene) on the narration beat "30 minutes" (beat 4), pop; default idle 2.0px / 5.8s.
   c1_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_13 [prop]
+  bg_detail_6 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_14 [prop]
+  bg_detail_7 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_15 [prop]
+  bg_detail_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_16 [prop]
+  bg_detail_9 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_17 [prop]
+  bg_detail_10 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_18 [prop]
+  bg_detail_11 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_19 [prop]
+  bg_detail_12 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_20 [prop]
+  bg_detail_13 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_21 [prop]
+  bg_detail_14 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_22 [prop]
+  bg_detail_15 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_23 [prop]
+  bg_detail_16 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_24 [prop]
+  bg_detail_17 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_25 [prop]
+  bg_detail_18 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_26 [prop]
-      enters at 7:18 (438.0s film time = 3.0s into this scene) on the narration beat "tablet" (beat 1), pop; default idle 2.0px / 5.4s.
-  part_27 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  tablet [card]
+      enters at 7:18 (438.0s film time = 3.0s into this scene) on the narration beat "tablet" (beat 1), iris; default idle 1.6px / 6.4s.
+  guide_grid [decor]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.4px / 7.2s.
 
 HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
   bubbles keep running. The frame is never completely still.
@@ -93,7 +93,7 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION TIMING: 4 element(s) in this frame carry data-t authored into
+- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
   the artwork by the design project. That timing travels WITH the element, so a
   future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
   entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).

@@ -14,26 +14,26 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
 ELEMENTS (13, in the order motion.ts wraps them)
 
-  element [character]
-      enters at 2:34 (154.0s film time = 6.0s into this scene) on the narration beat "master-pilot" (beat 2), pop; default idle 3.0px / 4.6s.
-  round [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  sea [ambient]
+  bridge_console [prop]
+      enters at 2:34 (154.0s film time = 6.0s into this scene) on the narration beat "master–pilot" (beat 2), slide; default idle 2.0px / 5.4s.
+  deco_disc [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
+  env_sea [ambient]
       enters on the fallback recipe (no spec entry — role-based stagger).
-  text [prop]
+  subhead [prop]
       enters at 2:30 (150.0s film time = 2.0s into this scene) on the narration beat "section two" (beat 1), typewriter; default idle 2.0px / 5.4s.
   first [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  h1 [prop]
-      enters at 2:30 (150.0s film time = 2.0s into this scene) on the narration beat "section two" (beat 1), typewriter; default idle 2.0px / 5.4s.
   heading [prop]
+      enters at 2:30 (150.0s film time = 2.0s into this scene) on the narration beat "section two" (beat 1), typewriter; default idle 2.0px / 5.4s.
+  heading_n1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  num [numeral]
+  numeral [numeral]
       enters at 2:30 (150.0s film time = 2.0s into this scene) on the narration beat "section two" (beat 1), typewriter; default idle 1.8px / 6.6s.
   heading_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   ships [ship]
-      enters at 2:34 (154.0s film time = 6.0s into this scene) on the narration beat "master-pilot" (beat 2), slide; default idle 4.5px / 5.2s.
+      enters at 2:34 (154.0s film time = 6.0s into this scene) on the narration beat "master–pilot" (beat 2), slide; default idle 4.5px / 5.2s.
   text_0 "Bridge Operations"
       enters 0.42s (guider spec, rise-fade); types on over 1.21s (17 chars @ 14/s, 1 line) with a caret.
   text_1 "Master-Pilot Rel."

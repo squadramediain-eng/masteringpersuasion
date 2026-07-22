@@ -18,46 +18,46 @@ ELEMENTS (29, in the order motion.ts wraps them)
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_3 [prop]
+  bubbles [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   line [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   h1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_4 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scenario_disc_1 [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   c1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_5 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scenario_disc_2 [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   c1_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_6 [prop]
-      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), pop; default idle 2.0px / 5.4s.
+  step_1_disc [circle]
+      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), pop; default idle 2.0px / 5.8s.
   c1_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_7 [prop]
-      enters at 2:02 (122.0s film time = 10.0s into this scene) on the narration beat "state the risk" (beat 2), pop; default idle 2.0px / 5.4s.
+  step_2_disc [circle]
+      enters at 2:02 (122.0s film time = 10.0s into this scene) on the narration beat "state the risk" (beat 2), pop; default idle 2.0px / 5.8s.
   c1_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   part_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_9 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  scenario_disc_3 [circle]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.8s.
   c1_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_10 [prop]
-      enters at 2:10 (130.0s film time = 18.0s into this scene) on the narration beat "clear solution" (beat 3), pop; default idle 2.0px / 5.4s.
+  step_3_disc [circle]
+      enters at 2:10 (130.0s film time = 18.0s into this scene) on the narration beat "clear solution" (beat 3), pop; default idle 2.0px / 5.8s.
   c1_6 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_12 [prop]
+  connectors [arrow]
+      enters on the fallback recipe (no spec entry — role-based stagger).
+  step_labels [prop]
+      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), pop; default idle 2.0px / 5.4s.
+  title [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_13 [prop]
-      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), typewriter; default idle 2.0px / 5.4s.
-  part_14 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  part_15 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+  env_backdrop [background]
+      enters on the fallback recipe (no spec entry — role-based stagger).
   text_0 "Clear Facts"
       enters 0.42s (guider spec, rise-fade); types on over 0.79s (11 chars @ 14/s, 1 line) with a caret.
   text_1 "Cite the procedure directly"

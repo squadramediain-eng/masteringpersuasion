@@ -123,13 +123,45 @@ const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TY
 // Precedence: guider spec -> THIS -> audio-cues.json -> frame-overrides.json.
 // It outranks the spec because it was authored against the artwork as it now
 // exists, while 84% of the spec's ids no longer resolve at all.
+// The mp_v5 entrance vocabulary (motion/layer-spec.md §3 + cue-bindings.json `enter`
+// descriptions). Each maps a data-enter code to a from-state; `draw` is special
+// (stroke draw-on, handled by the `draw` flag not a transform).
+//   slide  60px from the element's near edge, settle       (34)
+//   pop    scale 0.8->1 with overshoot — "circle/tile pops" (48)
+//   draw   stroke reveals along its length — arrows/ticks   (22)
+//   typewriter  glyph reveal is the entrance                (20)
+//   row    drops in from just above — table rows            (10)
+//   stagger  pop, phase-offset per index                    (5)
+//   header   lays down from above with a settle — header bar(4)
+//   iris   opens from scale 0 — "iris-open + glow bloom"     (2)
+//   count  number scales up from small — "count 0->30"      (1)
+//   marker scale-0 pop with a shake pulse — "marker pulses" (1)
+//   fade   opacity only                                     (1)
 const ENTER_FROM: Record<string, Record<string, number>> = {
   slide: { translateX: 60, opacity: 0 },
   pop: { scale: 0.8, opacity: 0 },
+  stagger: { scale: 0.8, opacity: 0 },
   fade: { opacity: 0 },
   typewriter: { opacity: 1 },   // the glyph reveal is the entrance; see TYPE-ON
+  draw: { opacity: 1 },         // stroke draws on; see draw flag below
+  row: { translateY: -22, opacity: 0 },
+  header: { translateY: -40, opacity: 0 },
+  iris: { scale: 0.0, opacity: 0 },
+  count: { scale: 0.7, opacity: 0 },
+  marker: { scale: 0.0, opacity: 0 },
 };
-const ENTER_DUR: Record<string, number> = { slide: 700, pop: 520, fade: 600, typewriter: 200 };
+const ENTER_DUR: Record<string, number> = {
+  slide: 700, pop: 520, stagger: 520, fade: 600, typewriter: 200,
+  draw: 620, row: 420, header: 560, iris: 640, count: 900, marker: 500,
+};
+// Entrances that scale PAST 1 then settle (kv14 §2.4) — the lively pop family.
+const OVERSHOOT_ENTERS = new Set(['pop', 'stagger', 'iris', 'marker']);
+
+// World-like layers are on from frame 0 and never enter on a cue (motion/layer-spec.md
+// §2). mp_v5 split the old single "world" into bg/env/waves/decor; keep "world" too for
+// back-compat. bg/waves are additionally stripped by SKIP_IDS (WorldLayer paints them);
+// env/decor stay in the frame but must not animate in — they are ambient base.
+const WORLD_LAYERS = new Set(['bg', 'env', 'waves', 'decor', 'world']);
 
 function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): Rec {
   const layer = el.getAttribute('data-layer');
@@ -137,7 +169,7 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
   const enter = el.getAttribute('data-enter') || '';
 
   // WORLD never enters — it is on from frame 0 and only ever idles.
-  if (layer === 'world') {
+  if (layer && WORLD_LAYERS.has(layer)) {
     return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 } };
   }
   if (tRaw === null) return rec;
@@ -154,6 +186,7 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
   const cx = Number(el.getAttribute('data-cx'));
   const dir = isFinite(cx) && cx > 960 ? 1 : -1;
   const resolved = enter === 'slide' ? { ...from, translateX: (from.translateX ?? 60) * dir } : from;
+  const beat = Number(el.getAttribute('data-beat'));
   return {
     ...rec,
     anim: enter,
@@ -161,12 +194,16 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
     dur: ENTER_DUR[enter] ?? rec.dur,
     ease: 'brand',
     from: resolved,
-    to: { opacity: 1, scale: 1, translateX: 0 },
-    // The reference's icon "pops" scale slightly PAST 1 then settle — a lively
-    // overshoot (knowledge-vault 14 §2.4). The recipe pop already does this
-    // (overshoot 1.06); the data-t pop path was a plain scale, so pops read flatter
-    // than the source. Match it for the 57 data-enter="pop" elements.
-    ...(enter === 'pop' ? { overshoot: 1.06 } : {}),
+    to: { opacity: 1, scale: 1, translateX: 0, translateY: 0 },
+    // draw = the stroke reveals along its own length (arrows, ticks, connectors).
+    ...(enter === 'draw' ? { draw: true } : {}),
+    // The lively pop family scales slightly PAST 1 then settles (kv14 §2.4).
+    ...(OVERSHOOT_ENTERS.has(enter) ? { overshoot: 1.06 } : {}),
+    // marker "pulses alert" — a brief shake on top of its pop.
+    ...(enter === 'marker' ? { shake: true } : {}),
+    // stagger elements share a cue but must not land in lockstep — nudge each a
+    // little later by its beat index so they cascade.
+    ...(enter === 'stagger' && isFinite(beat) ? { start: t * 1000 + beat * 90 } : {}),
   };
 }
 

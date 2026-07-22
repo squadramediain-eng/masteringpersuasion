@@ -1,0 +1,921 @@
+{
+  "module": "Mastering Persuasion",
+  "runtime": 586,
+  "note": "Narration-cue binding manifest. Each cue = an element that ENTERS on VO word `cue` at absolute time `t` (sec); `relT` = sec after the scene's own start. `target` names the semantic id(s) in frames/frame_<n>.svg — a string, an array for multi-element beats, or null when the produced frame has no distinct element for that beat. The frame SVG also carries these on the element as data-cue/-t/-relt/-beat/-enter. Layer/naming scheme: motion/layer-spec.md.",
+  "scenes": [
+    {
+      "n": 0,
+      "srcSvg": "frame_0.svg",
+      "startSec": 0,
+      "endSec": 33,
+      "archetype": "cover",
+      "vo": "Today we're going through a foundational pillar of effective communication on board — persuasion.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "persuasion",
+          "t": 2,
+          "relT": 2,
+          "enter": "typewriter, per-word, visible caret",
+          "el": "Title ‘Mastering Persuasion’ (two-tone: blue + lavender)",
+          "target": "title"
+        },
+        {
+          "beat": 2,
+          "cue": "communication",
+          "t": 5,
+          "relT": 5,
+          "enter": "fade + rise 8px",
+          "el": "Kicker ‘MARITIME SAFETY COMMUNICATION’",
+          "target": null
+        },
+        {
+          "beat": 3,
+          "cue": "pillar",
+          "t": 7,
+          "relT": 7,
+          "enter": "staggered pop into ghost discs",
+          "el": "Library disc-icons settle inside discs (anchor·helm·gears·shield)",
+          "target": [
+            "pillar_disc_1",
+            "pillar_disc_2",
+            "pillar_disc_3",
+            "pillar_disc_4",
+            "pillar_disc_5",
+            "anchor_hero"
+          ]
+        },
+        {
+          "beat": 4,
+          "cue": "on board",
+          "t": 9,
+          "relT": 9,
+          "enter": "slide up from wave + settle bob",
+          "el": "Ship sails onto the wave band",
+          "target": "boat"
+        }
+      ]
+    },
+    {
+      "n": 1,
+      "srcSvg": "frame_1.svg",
+      "startSec": 34,
+      "endSec": 58,
+      "archetype": "convergence",
+      "vo": "In our maritime context, persuasion is a critical safety tool — the art of using clear communication, logic, and respect to get others to cooperate.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "safety tool",
+          "t": 37,
+          "relT": 3,
+          "enter": "typewriter",
+          "el": "Kicker ‘WHAT IS PERSUASION’ + card heading",
+          "target": "card_center"
+        },
+        {
+          "beat": 2,
+          "cue": "communication",
+          "t": 40,
+          "relT": 6,
+          "enter": "fade + rise",
+          "el": "Body — clear communication + logic + respect → cooperation",
+          "target": "body"
+        },
+        {
+          "beat": 3,
+          "cue": "cooperate",
+          "t": 44,
+          "relT": 10,
+          "enter": "connectors draw → icons iris-open",
+          "el": "Concept icons converge inward on their arrows",
+          "target": [
+            "concept_icon_1",
+            "concept_icon_2",
+            "concept_icon_3",
+            "concept_icon_4",
+            "concept_icon_5",
+            "concept_icon_6",
+            "connectors",
+            "person_1",
+            "person_2",
+            "person_3",
+            "person_4",
+            "person_5"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "srcSvg": "frame_2.svg",
+      "startSec": 59,
+      "endSec": 88,
+      "archetype": "icongrid",
+      "vo": "We'll break things down into six key areas — safety tool, master–pilot, correcting habits, resolving disputes, new procedures, and key behaviours.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "safety tool",
+          "t": 62,
+          "relT": 3,
+          "enter": "tile fills ghost, badge pops",
+          "el": "Tile 1 · Safety Tool",
+          "target": "tile_safety_tool"
+        },
+        {
+          "beat": 2,
+          "cue": "master",
+          "t": 64,
+          "relT": 5,
+          "enter": "stagger",
+          "el": "Tile 2 · Master–Pilot",
+          "target": "tile_master_pilot"
+        },
+        {
+          "beat": 3,
+          "cue": "habits",
+          "t": 66,
+          "relT": 7,
+          "enter": "stagger",
+          "el": "Tile 3 · Correcting Habits",
+          "target": "tile_correcting_habits"
+        },
+        {
+          "beat": 4,
+          "cue": "disputes",
+          "t": 68,
+          "relT": 9,
+          "enter": "stagger",
+          "el": "Tile 4 · Resolving Disputes",
+          "target": "tile_resolving_disputes"
+        },
+        {
+          "beat": 5,
+          "cue": "procedures",
+          "t": 70,
+          "relT": 11,
+          "enter": "stagger",
+          "el": "Tile 5 · New Procedures",
+          "target": "tile_new_procedures"
+        },
+        {
+          "beat": 6,
+          "cue": "behaviours",
+          "t": 72,
+          "relT": 13,
+          "enter": "stagger",
+          "el": "Tile 6 · Key Behaviours",
+          "target": "tile_key_behaviours"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "srcSvg": "frame_3.svg",
+      "startSec": 89,
+      "endSec": 111,
+      "archetype": "divider",
+      "vo": "Let's start with section one — persuasion as a safety tool, focusing on an AB and a bosun near a paint locker.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section one",
+          "t": 91,
+          "relT": 2,
+          "enter": "numeral slides in, title typewriter",
+          "el": "Numeral ‘1’ wipes in + title",
+          "target": "section_title"
+        },
+        {
+          "beat": 2,
+          "cue": "AB and a bosun",
+          "t": 94,
+          "relT": 5,
+          "enter": "slide up + settle",
+          "el": "AB (calm, gesturing) + Bosun (rushing) mariner pair",
+          "target": [
+            "mariner_officer",
+            "mariner_2",
+            "ab_bosun_pair",
+            "mariner_extra"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "paint locker",
+          "t": 97,
+          "relT": 8,
+          "enter": "free-float pop; ✗ draws on",
+          "el": "Hazmat doc + life-ring scenario icons + hazard-✗ (alert)",
+          "target": "helmet_disc"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "srcSvg": "frame_4.svg",
+      "startSec": 112,
+      "endSec": 147,
+      "archetype": "stepflow",
+      "vo": "The AB influences the bosun with three steps — cite the facts, state the risk calmly, then offer a clear solution: wait five minutes for the second mate.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "cite the facts",
+          "t": 116,
+          "relT": 4,
+          "enter": "circle pops into ghost, badge 1",
+          "el": "Step 1 — Clear facts (cite the procedure)",
+          "target": [
+            "step_1_disc",
+            "step_labels"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "state the risk",
+          "t": 122,
+          "relT": 10,
+          "enter": "connector draws → circle pops",
+          "el": "Step 2 — State the risk (calmly, fumes near an arc)",
+          "target": "step_2_disc"
+        },
+        {
+          "beat": 3,
+          "cue": "clear solution",
+          "t": 130,
+          "relT": 18,
+          "enter": "connector draws → circle pops",
+          "el": "Step 3 — Offer a solution (wait five minutes)",
+          "target": "step_3_disc"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "srcSvg": "frame_5.svg",
+      "startSec": 148,
+      "endSec": 165,
+      "archetype": "divider",
+      "vo": "Section two — the master–pilot relationship during high-stakes operations.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section two",
+          "t": 150,
+          "relT": 2,
+          "enter": "numeral slide + typewriter",
+          "el": "Numeral ‘2’ wipes in + title",
+          "target": [
+            "numeral",
+            "heading",
+            "subhead"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "master–pilot",
+          "t": 154,
+          "relT": 6,
+          "enter": "slide in + settle bob",
+          "el": "Bridge scene settles (ship + helm disc)",
+          "target": [
+            "ships",
+            "bridge_console"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "srcSvg": "frame_6.svg",
+      "startSec": 166,
+      "endSec": 198,
+      "archetype": "scenario",
+      "vo": "The master notes the very large sail area aft — a kick ahead could swing the stern too fast — and offers a second tug to the port quarter.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "sail area",
+          "t": 169,
+          "relT": 3,
+          "enter": "slide up + settle",
+          "el": "Ship rises into frame (large sail area aft)",
+          "target": [
+            "ship",
+            "ship_wake"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "sail area aft",
+          "t": 174,
+          "relT": 8,
+          "enter": "typewriter, keyword wash",
+          "el": "Quote ‘the large sail area aft’ (inline blue-wash highlight)",
+          "target": [
+            "quote",
+            "quote_card"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "swing the stern",
+          "t": 182,
+          "relT": 16,
+          "enter": "arrow draws + arrowhead pop",
+          "el": "Swing arrow draws (stern swings too fast)",
+          "target": "kick_ahead_arrow"
+        },
+        {
+          "beat": 4,
+          "cue": "second tug",
+          "t": 190,
+          "relT": 24,
+          "enter": "tug icon slides to quarter",
+          "el": "Alternative — second tug to the port quarter",
+          "target": [
+            "concept_icon_1",
+            "concept_icon_2",
+            "concept_icon_3",
+            "concept_icon_4"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "srcSvg": "frame_7.svg",
+      "startSec": 199,
+      "endSec": 230,
+      "archetype": "compare",
+      "vo": "An aggressive approach escalates the conflict. Instead the master is assertive — he offers a viable, slower, safer alternative.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "aggressive",
+          "t": 202,
+          "relT": 3,
+          "enter": "panel reveals, alert-✗ pops + shake",
+          "el": "Panel ✗ — Aggressive (shout, pull rank) → escalation",
+          "target": [
+            "cross_badge",
+            "officer_l1",
+            "officer_l2",
+            "conflict_sparks"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "assertive",
+          "t": 214,
+          "relT": 15,
+          "enter": "panel reveals, blue-✓ draws on",
+          "el": "Panel ✓ — Assertive (facts + safer alternative)",
+          "target": [
+            "check_badge",
+            "officer_r1",
+            "officer_r2",
+            "ship_diagram"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "srcSvg": "frame_8.svg",
+      "startSec": 231,
+      "endSec": 251,
+      "archetype": "divider",
+      "vo": "Section three — correcting unsafe habits at the mooring station and securing buy-in.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section three",
+          "t": 233,
+          "relT": 2,
+          "enter": "numeral slide + typewriter",
+          "el": "Numeral ‘3’ wipes in + title",
+          "target": [
+            "numeral",
+            "heading",
+            "subhead"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "mooring station",
+          "t": 237,
+          "relT": 6,
+          "enter": "slide up + settle",
+          "el": "Crew at mooring station + snapback-zone markings",
+          "target": [
+            "ship",
+            "crew_1",
+            "crew_2",
+            "crew_3",
+            "deco_ring",
+            "buyin_arrow"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "srcSvg": "frame_9.svg",
+      "startSec": 252,
+      "endSec": 285,
+      "archetype": "table",
+      "vo": "An aggressive push breeds resentment; a passive ignore leaves danger. The winning strategy is rational buy-in.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "strategy",
+          "t": 255,
+          "relT": 3,
+          "enter": "header lays down + sheen",
+          "el": "Header bar (Strategy · Approach · Result)",
+          "target": [
+            "header_bar",
+            "header_labels"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "aggressive push",
+          "t": 260,
+          "relT": 8,
+          "enter": "row drops in, result colours alert",
+          "el": "Row · Aggressive → Resentment (alert)",
+          "target": [
+            "result_icon_aggressive",
+            "row_labels"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "rational buy-in",
+          "t": 268,
+          "relT": 16,
+          "enter": "row drops in, result colours blue",
+          "el": "Row · Rational → Persuasion (blue)",
+          "target": "result_icon_rational"
+        },
+        {
+          "beat": 4,
+          "cue": "passive",
+          "t": 276,
+          "relT": 24,
+          "enter": "row drops in, result colours alert",
+          "el": "Row · Passive → Danger (alert)",
+          "target": "result_icon_passive"
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "srcSvg": "frame_10.svg",
+      "startSec": 286,
+      "endSec": 314,
+      "archetype": "stat",
+      "vo": "It comes down to a specific metric — 30. Standing in the safe zone adds 30 seconds. A 30-second shortcut is never worth a life.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "specific metric",
+          "t": 289,
+          "relT": 3,
+          "enter": "count 0→30 + scale settle",
+          "el": "Stat ‘30’ (oversized top-lit gradient) counts up",
+          "target": "stat"
+        },
+        {
+          "beat": 2,
+          "cue": "30 seconds",
+          "t": 293,
+          "relT": 7,
+          "enter": "typewriter + fade",
+          "el": "‘seconds’ + supporting line (never worth a life)",
+          "target": null
+        },
+        {
+          "beat": 3,
+          "cue": "worth a life",
+          "t": 300,
+          "relT": 14,
+          "enter": "pop onto orbit, staggered",
+          "el": "Orbiting concept icons (safe-zone · clock · family)",
+          "target": [
+            "orbit_disc_1",
+            "orbit_disc_2",
+            "orbit_disc_3",
+            "orbit_disc_4"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "srcSvg": "frame_11.svg",
+      "startSec": 315,
+      "endSec": 334,
+      "archetype": "divider",
+      "vo": "Section four — cargo operations, resolving disputes during terminal conflicts on deck.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section four",
+          "t": 317,
+          "relT": 2,
+          "enter": "numeral slide + typewriter",
+          "el": "Numeral ‘4’ wipes in + title",
+          "target": [
+            "numeral",
+            "heading",
+            "subhead"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "terminal conflicts",
+          "t": 321,
+          "relT": 6,
+          "enter": "slide in + settle",
+          "el": "Terminal scene settles (ship + crane + officer)",
+          "target": [
+            "ship",
+            "officer_1",
+            "officer_2",
+            "speech_bubble"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "srcSvg": "frame_12.svg",
+      "startSec": 335,
+      "endSec": 363,
+      "archetype": "scenario",
+      "vo": "The terminal rep demands two gantry cranes on a single hatch. But that's a heavy-lift area — two cranes would put too much stress on the ship's structure.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "two gantry cranes",
+          "t": 339,
+          "relT": 4,
+          "enter": "cranes slide in, bubble pops",
+          "el": "Two gantry cranes over one hatch + rep demand bubble",
+          "target": [
+            "cranes",
+            "ship",
+            "bubble_ship",
+            "rep_right",
+            "officer_left"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "too much stress",
+          "t": 350,
+          "relT": 15,
+          "enter": "marker pulses alert",
+          "el": "Heavy-lift ‘stress’ marker on the hatch (alert)",
+          "target": "stress_marker"
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "srcSvg": "frame_13.svg",
+      "startSec": 364,
+      "endSec": 408,
+      "archetype": "compare",
+      "vo": "Escalating — ‘my ship, my rules!’ — just breeds resistance; giving in risks the ship. The persuasion technique is compromise: one crane now, ready the next hatch.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "escalating",
+          "t": 368,
+          "relT": 4,
+          "enter": "panel reveals, alert-✗ pops",
+          "el": "Panel ✗ — Rush & Escalate (‘my ship, my rules’)",
+          "target": [
+            "panel_wrong",
+            "ship_left",
+            "ship_left_wake",
+            "officer_l1",
+            "officer_l2",
+            "clock_zzz"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "compromise",
+          "t": 386,
+          "relT": 22,
+          "enter": "panel reveals, blue-✓ draws on",
+          "el": "Panel ✓ — Compromise & Commit (one crane, prep next hatch)",
+          "target": [
+            "panel_correct",
+            "crane",
+            "ship_right",
+            "ship_right_wake",
+            "officer_r1",
+            "officer_r2"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "srcSvg": "frame_14.svg",
+      "startSec": 409,
+      "endSec": 434,
+      "archetype": "divider",
+      "vo": "In section five, head down to the engine room — adopting new procedures and overcoming internal resistance.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section five",
+          "t": 411,
+          "relT": 2,
+          "enter": "numeral slide + typewriter",
+          "el": "Numeral ‘5’ wipes in + title",
+          "target": [
+            "numeral",
+            "heading",
+            "subhead"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "internal resistance",
+          "t": 416,
+          "relT": 7,
+          "enter": "slide up + settle",
+          "el": "Engine-room resistance scene (2nd engineer + sceptical fitter)",
+          "target": [
+            "engineer_1",
+            "engineer_2",
+            "ship",
+            "speech_bubble_1",
+            "speech_bubble_2"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "srcSvg": "frame_15.svg",
+      "startSec": 435,
+      "endSec": 468,
+      "archetype": "convergence",
+      "vo": "He uses the ‘what's in it for me’ strategy — the tablet auto-finds the spare-part number, auto-files reports, and saves them 30 minutes of paperwork.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "tablet",
+          "t": 438,
+          "relT": 3,
+          "enter": "iris-open + glow bloom",
+          "el": "Central tablet settles (glowing)",
+          "target": [
+            "tablet",
+            "tablet_glow"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "spare-part",
+          "t": 444,
+          "relT": 9,
+          "enter": "arrow draws → disc pops",
+          "el": "Benefit — auto spare-part lookup",
+          "target": "benefit_disc_1"
+        },
+        {
+          "beat": 3,
+          "cue": "reports",
+          "t": 452,
+          "relT": 17,
+          "enter": "arrow draws → disc pops",
+          "el": "Benefit — auto reports for the office",
+          "target": "benefit_disc_3"
+        },
+        {
+          "beat": 4,
+          "cue": "30 minutes",
+          "t": 460,
+          "relT": 25,
+          "enter": "arrow draws → disc pops, ‘30’ emphasis",
+          "el": "Benefit — saves 30 minutes",
+          "target": "benefit_disc_4"
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "srcSvg": "frame_16.svg",
+      "startSec": 469,
+      "endSec": 482,
+      "archetype": "divider",
+      "vo": "Finally, section six — key behaviours and reflection.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "section six",
+          "t": 471,
+          "relT": 2,
+          "enter": "numeral slide + typewriter",
+          "el": "Numeral ‘6’ wipes in + title",
+          "target": "section_title"
+        },
+        {
+          "beat": 2,
+          "cue": "key behaviours",
+          "t": 476,
+          "relT": 7,
+          "enter": "slide up + settle",
+          "el": "Leader vs negative-officer scene settles",
+          "target": [
+            "leader",
+            "negative_officer",
+            "scene_disc_1",
+            "scene_disc_2",
+            "label_leader"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "srcSvg": "frame_17.svg",
+      "startSec": 483,
+      "endSec": 511,
+      "archetype": "table",
+      "vo": "True persuasion is built on positive influence styles — calmly proposing a safer idea is positive; aggressively shouting shuts down understanding.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "influence styles",
+          "t": 486,
+          "relT": 3,
+          "enter": "header lays down + sheen",
+          "el": "Header bar (Behaviour · Style · Outcome)",
+          "target": [
+            "header_action",
+            "header_labels"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "calmly propose",
+          "t": 492,
+          "relT": 9,
+          "enter": "row drops, outcome colours teal",
+          "el": "Row · Calmly propose → positive (teal ✓)",
+          "target": [
+            "positive_1",
+            "positive_2",
+            "row_values"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "aggressively shouting",
+          "t": 500,
+          "relT": 17,
+          "enter": "row drops, outcome colours alert",
+          "el": "Row · Aggressively shout → negative (alert ✗)",
+          "target": [
+            "negative_1",
+            "negative_2",
+            "row_actions"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "srcSvg": "frame_18.svg",
+      "startSec": 512,
+      "endSec": 546,
+      "archetype": "cluster",
+      "vo": "The profile of a persuasive leader — stay calm and rational, actively listen, find common ground and offer solutions, and gain buy-in.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "persuasive leader",
+          "t": 515,
+          "relT": 3,
+          "enter": "slide up + settle, arms open",
+          "el": "Hero master figure sets centre",
+          "target": "leader"
+        },
+        {
+          "beat": 2,
+          "cue": "calm and rational",
+          "t": 520,
+          "relT": 8,
+          "enter": "circle pops on orbit",
+          "el": "Trait · Calm & rational (scales)",
+          "target": [
+            "trait_disc_1",
+            "glyph_calm"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "actively listen",
+          "t": 526,
+          "relT": 14,
+          "enter": "circle pops",
+          "el": "Trait · Actively listen (ear)",
+          "target": [
+            "trait_disc_3",
+            "glyph_listen"
+          ]
+        },
+        {
+          "beat": 4,
+          "cue": "common ground",
+          "t": 532,
+          "relT": 20,
+          "enter": "circle pops",
+          "el": "Trait · Common ground / solutions (puzzle)",
+          "target": [
+            "trait_disc_2",
+            "glyph_common"
+          ]
+        },
+        {
+          "beat": 5,
+          "cue": "buy-in",
+          "t": 538,
+          "relT": 26,
+          "enter": "circle pops",
+          "el": "Trait · Gain buy-in (people)",
+          "target": [
+            "trait_disc_4",
+            "glyph_buyin"
+          ]
+        }
+      ]
+    },
+    {
+      "n": 19,
+      "srcSvg": "frame_19.svg",
+      "startSec": 547,
+      "endSec": 586,
+      "archetype": "convergence",
+      "vo": "Why influence rather than order? You can't order a pilot to be safe, a terminal to cooperate, or a crew to be motivated — you have to persuade them. Master this, and you master the safety of your vessel.",
+      "cues": [
+        {
+          "beat": 1,
+          "cue": "why influence",
+          "t": 550,
+          "relT": 3,
+          "enter": "typewriter, two-tone",
+          "el": "Question ‘Why influence rather than order?’ (two-tone)",
+          "target": [
+            "question",
+            "question_card"
+          ]
+        },
+        {
+          "beat": 2,
+          "cue": "persuade them",
+          "t": 560,
+          "relT": 13,
+          "enter": "pop onto orbit, staggered",
+          "el": "Recap icons orbit in (pilot · terminal · crew)",
+          "target": [
+            "recap_icon_1",
+            "recap_icon_2",
+            "recap_icon_3",
+            "recap_icon_4",
+            "recap_icon_5"
+          ]
+        },
+        {
+          "beat": 3,
+          "cue": "safety of your vessel",
+          "t": 572,
+          "relT": 25,
+          "enter": "fade + rise, keyword wash",
+          "el": "Closing line ‘Master this, and you master the safety of your vessel.’",
+          "target": null
+        }
+      ]
+    }
+  ],
+  "totalCues": 61,
+  "bound": 58,
+  "unbound": [
+    "f0:communication (no kicker element)",
+    "f10:30 seconds (no caption element)",
+    "f19:safety of your vessel (no closing-line element)"
+  ]
+}

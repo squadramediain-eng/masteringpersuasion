@@ -14,36 +14,36 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
 ELEMENTS (30, in the order motion.ts wraps them)
 
-  hand [prop]
+  env_hand [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  anchor [icon]
+  env_anchor [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  life [icon]
+  env_lifering [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  compass [icon]
+  env_compass [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
   ship [ship]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 5.2s.
-  white_box [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  icon4_2 [icon]
-      enters at 4:36 (276.0s film time = 24.0s into this scene) on the narration beat "passive" (beat 4), pop; default idle 2.2px / 5.0s.
-  icon3 [icon]
-      enters at 4:28 (268.0s film time = 16.0s into this scene) on the narration beat "rational buy-in" (beat 3), pop; default idle 2.2px / 5.0s.
+  table_body [card]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+  result_icon_passive [icon]
+      enters at 4:36 (276.0s film time = 24.0s into this scene) on the narration beat "passive" (beat 4), row; default idle 2.2px / 5.0s.
+  result_icon_rational [icon]
+      enters at 4:28 (268.0s film time = 16.0s into this scene) on the narration beat "rational buy-in" (beat 3), row; default idle 2.2px / 5.0s.
   icon4_2_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  icon2 [icon]
-      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), pop; default idle 2.2px / 5.0s.
-  icon1 [icon]
+  result_icon_aggressive [icon]
+      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 2.2px / 5.0s.
+  result_icon_extra [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
-  line [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  texts [prop]
-      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), fade; default idle 2.0px / 5.4s.
-  blue_box [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
-  h1 [prop]
-      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), fade; default idle 2.0px / 5.4s.
+  row_divider [numeral]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.8px / 6.6s.
+  row_labels [card]
+      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 1.6px / 6.4s.
+  header_bar [prop]
+      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 2.0px / 5.4s.
+  header_labels [prop]
+      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 2.0px / 5.4s.
   text_0 "N"
       enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.07s (1 chars @ 14/s, 1 line) with a caret.
   text_1 "S"
@@ -91,7 +91,7 @@ EXIT — contents slide out to the left over the last 30 frames and fade
 - To change any element here, edit public/animation/frame-overrides.json
   (see CLAUDE.md "Tweak Any Frame"). Run scripts/inspect-frame.js to see which
   id is which on screen.
-- NARRATION TIMING: 5 element(s) in this frame carry data-t authored into
+- NARRATION TIMING: 6 element(s) in this frame carry data-t authored into
   the artwork by the design project. That timing travels WITH the element, so a
   future rename cannot orphan it the way the mp_v2 redesign orphaned all 133
   entries in audio-cues.json (those are preserved in audio-cues.pre-mp_v2.json).
