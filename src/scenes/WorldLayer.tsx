@@ -77,6 +77,32 @@ export const WorldLayer: React.FC = () => {
   const tx = Math.sin((2 * Math.PI * t) / 33) * 14;
   const ty = Math.sin((2 * Math.PI * t) / 52) * 3;
 
+  // ── Atmosphere: soft drifting gradient blobs ─────────────────────────────
+  // The one item from the design critique that is genuinely the pipeline's, not
+  // the artwork's (#5): the canvas behind every scene was a flat #f5f6fa. The
+  // reference sits on a subtly atmospheric ground, not a dead fill. These are big,
+  // very low-opacity blue washes drifting slowly behind everything — depth without
+  // competing with the foreground. Built from radial gradients (soft to
+  // transparent), not feGaussianBlur, which is unreliable in headless Chromium.
+  // Deterministic in `frame`, so the render stays reproducible.
+  const BLOBS = [
+    { bx: 380, by: 300, r: 620, c: '#dbe9f7', per: 71, amp: 90 },
+    { bx: 1580, by: 240, r: 560, c: '#e3edf8', per: 89, amp: 70 },
+    { bx: 1180, by: 820, r: 680, c: '#d7e6f5', per: 103, amp: 110 },
+    { bx: 520, by: 760, r: 480, c: '#e6eff9', per: 61, amp: 80 },
+  ];
+  const blobDefs = BLOBS.map((b, i) =>
+    `<radialGradient id="blob${i}" cx="50%" cy="50%" r="50%">` +
+    `<stop offset="0%" stop-color="${b.c}" stop-opacity="0.9"/>` +
+    `<stop offset="100%" stop-color="${b.c}" stop-opacity="0"/>` +
+    `</radialGradient>`
+  ).join('');
+  const blobs = BLOBS.map((b, i) => {
+    const dx = Math.sin((2 * Math.PI * t) / b.per + i) * b.amp;
+    const dy = Math.cos((2 * Math.PI * t) / (b.per * 1.3) + i) * b.amp * 0.5;
+    return `<circle cx="${(b.bx + dx).toFixed(1)}" cy="${(b.by + dy).toFixed(1)}" r="${b.r}" fill="url(#blob${i})"/>`;
+  }).join('');
+
   // ── Ambient: rising bubbles ──────────────────────────────────────────────
   // The approved film's holds are never dead — sampled at 3:10 it carries a small
   // cluster of bubbles rising through the wave band. Deliberately restrained: at
@@ -139,6 +165,8 @@ export const WorldLayer: React.FC = () => {
 
   const html =
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
+    `<defs>${blobDefs}</defs>` +
+    blobs +                       // atmosphere first — everything else sits over it
     defs +
     `<g transform="translate(${tx.toFixed(2)}, ${ty.toFixed(2)})">${waves}</g>` +
     fish +

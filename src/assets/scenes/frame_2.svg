@@ -1,5 +1,5 @@
 <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
-<defs></defs>
+<defs><filter id="card_sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="11" flood-color="#253761" flood-opacity="0.14"></feDropShadow></filter></defs>
 <g isolation="isolate">
 <g id="bg" data-layer="world"><rect width="1920" height="1080" fill="#f5f6fa"></rect></g>
 <g id="waves" data-layer="world">
@@ -21,11 +21,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000091707083431341743530000005620489878311295654_)" d="M593.13,577.88H194.79&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C610.18,584.72,602.55,577.88,593.13,577.88z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000091707083431341743530000005620489878311295654_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M593.13,577.88H194.79&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C610.18,584.72,602.55,577.88,593.13,577.88z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 363.4312 681.0337)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">04</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 363.4312 681.0337)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">04</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
@@ -55,11 +55,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000141420427828852378590000011646821409187446204_)" d="M1163,577.88H764.66&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1163c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C1180.05,584.72,1172.42,577.88,1163,577.88z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000141420427828852378590000011646821409187446204_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M1163,577.88H764.66&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1163c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C1180.05,584.72,1172.42,577.88,1163,577.88z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 933.8728 681.0337)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">05</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 933.8728 681.0337)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">05</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
@@ -89,11 +89,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000027577621669320499670000003146659849162855813_)" d="M1731,577.88h-398.34&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1731c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C1748.05,584.72,1740.42,577.88,1731,577.88z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000027577621669320499670000003146659849162855813_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M1731,577.88h-398.34&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1731c9.42,0,17.05-6.84,17.05-15.28V593.15&#xA;&#x9;&#x9;&#x9;&#x9;C1748.05,584.72,1740.42,577.88,1731,577.88z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 1501.4453 681.0337)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">06</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 1501.4453 681.0337)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">06</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
@@ -123,11 +123,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000018935418779677873660000004821958405206828712_)" d="M1725.21,195.92h-398.34&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C1742.27,202.76,1734.63,195.92,1725.21,195.92z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000018935418779677873660000004821958405206828712_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M1725.21,195.92h-398.34&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C1742.27,202.76,1734.63,195.92,1725.21,195.92z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 1496.6266 299.0763)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">03</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 1496.6266 299.0763)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">03</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
@@ -157,11 +157,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000177459961681773636100000011046371964818321326_)" d="M1163,195.92H764.66&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1163c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C1180.05,202.76,1172.42,195.92,1163,195.92z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000177459961681773636100000011046371964818321326_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M1163,195.92H764.66&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28H1163c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C1180.05,202.76,1172.42,195.92,1163,195.92z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 935.0398 299.0763)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">02</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 935.0398 299.0763)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">02</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
@@ -193,11 +193,11 @@
 &#x9;&#x9;&#x9;&#x9;<stop offset="0.7317" style="stop-color:#EDEEFB"></stop>
 &#x9;&#x9;&#x9;&#x9;<stop offset="1" style="stop-color:#DDDFF9"></stop>
 &#x9;&#x9;&#x9;</linearGradient>
-&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000101788903176674108800000011224197903113700755_)" d="M593.13,195.92H194.79&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C610.18,202.76,602.55,195.92,593.13,195.92z"></path>
+&#x9;&#x9;&#x9;<path fill="url(#SVGID_00000101788903176674108800000011224197903113700755_)" stroke="#71afd8" stroke-width="2.5" filter="url(#card_sh)" d="M593.13,195.92H194.79&#xA;&#x9;&#x9;&#x9;&#x9;c-9.42,0-17.05,6.84-17.05,15.27v272.98c0,8.45,7.64,15.28,17.05,15.28h398.34c9.42,0,17.05-6.84,17.05-15.28V211.19&#xA;&#x9;&#x9;&#x9;&#x9;C610.18,202.76,602.55,195.92,593.13,195.92z"></path>
 &#x9;&#x9;</g>
 &#x9;</g>
 &#x9;<g>
-&#x9;&#x9;<text transform="matrix(1 0 0 1 371.6851 299.0763)" fill="#57B5FF" font-family="DM Sans" font-size="56.9261px">01</text>
+&#x9;&#x9;<text transform="matrix(1 0 0 1 371.6851 299.0763)" fill="#6084f0" font-family="DM Sans" font-weight="700" font-size="66px">01</text>
 &#x9;&#x9;
 &#x9;&#x9;
 &#x9;</g>
