@@ -88,27 +88,60 @@ export const WorldLayer: React.FC = () => {
   // the frame artwork (which the design project owns and re-exports over).
   // Deterministic: position is a pure function of `frame`, no randomness, so the
   // render stays reproducible.
-  const BUBBLES = 9;
+  // Why more than the old 9: measured against the reference, every one of our 19
+  // cuts washed to YAVG ~245 (emptiest the film gets) while the reference never
+  // passes 229.65. The per-frame ambient slides out WITH its scene at a cut, so
+  // for ~1s only the world layer holds the screen — and a wave band plus 9 near-
+  // invisible bubbles is too thin to carry it. This layer never slides, so
+  // enriching it fills exactly the content-absent moment without touching the art.
+  // Everything stays in the lower water band (y > ~830); these are above-water
+  // scenes, so fish/bubbles in the sky would be wrong — they live in the water.
+  const BAND_TOP = 830;
+  const FLOOR = 1035;
+
+  const BUBBLES = 22;
   const bubbles = Array.from({ length: BUBBLES }, (_, i) => {
-    // Deterministic pseudo-scatter — a fixed irrational stride keeps them from
-    // landing on a visible grid without needing Math.random().
     const seedX = ((i * 137.508) % 100) / 100;
-    const period = 9 + (i % 4) * 2.5;                 // seconds for one full rise
-    const phase = (t / period + seedX) % 1;           // 0 → 1 up the band
-    const x = 120 + seedX * 1680;
-    const yBase = 1010;
-    const y = yBase - phase * 190;
-    const r = 3 + (i % 3) * 1.6;
-    // fade in at the bottom, out at the top — never a hard pop
-    const o = Math.sin(phase * Math.PI) * 0.42;
-    const sway = Math.sin((2 * Math.PI * t) / 5 + i) * 5;
-    return `<circle cx="${(x + sway).toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#71afd8" opacity="${o.toFixed(3)}"/>`;
+    const period = 8 + (i % 5) * 2.2;                 // seconds for one full rise
+    const phase = (t / period + seedX) % 1;           // 0 → 1 up through the band
+    const x = 60 + seedX * 1800;
+    const y = FLOOR - phase * (FLOOR - BAND_TOP);
+    const r = 2.5 + (i % 4) * 1.5;
+    const o = Math.sin(phase * Math.PI) * 0.5;        // fade in low, out high
+    const sway = Math.sin((2 * Math.PI * t) / 5 + i) * 6;
+    return `<circle cx="${(x + sway).toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#8fc0e8" opacity="${o.toFixed(3)}"/>`;
+  }).join('');
+
+  // A few fish drifting across the band, continuously, never restarting at a cut —
+  // the reference's water is never empty of life. Light tint and small, so they
+  // read as depth, not as characters competing with the content.
+  const FISH = 5;
+  const fish = Array.from({ length: FISH }, (_, i) => {
+    const seed = ((i * 97.13) % 100) / 100;
+    const span = 2160;                                // travel wider than the frame
+    const period = 26 + (i % 3) * 9;                  // slow
+    const dir = i % 2 === 0 ? 1 : -1;
+    const p = ((t / period + seed) % 1);
+    const x = dir === 1 ? -120 + p * span : 2040 - p * span;
+    const y = BAND_TOP + 40 + seed * (FLOOR - BAND_TOP - 70);
+    const bob = Math.sin((2 * Math.PI * t) / 4 + i) * 5;
+    const s = 0.5 + (i % 3) * 0.18;
+    const flip = dir === 1 ? 1 : -1;
+    // Simple filled fish: body ellipse + triangular tail, in the palette's light blue.
+    return (
+      `<g transform="translate(${x.toFixed(1)},${(y + bob).toFixed(1)}) scale(${(s * flip).toFixed(3)},${s.toFixed(3)})" ` +
+      `fill="#a9d0ee" opacity="0.5">` +
+      `<ellipse cx="0" cy="0" rx="22" ry="9"/>` +
+      `<path d="M18,0 L34,-9 L34,9 Z"/>` +
+      `</g>`
+    );
   }).join('');
 
   const html =
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
     defs +
     `<g transform="translate(${tx.toFixed(2)}, ${ty.toFixed(2)})">${waves}</g>` +
+    fish +
     bubbles +
     `</svg>`;
 

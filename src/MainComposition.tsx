@@ -62,7 +62,13 @@ const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children
     extrapolateRight: 'clamp',
     easing: Easing.bezier(0.16, 1, 0.3, 1),
   });
-  const inOpacity = interpolate(frame, [0, tf * 0.55], [0, 1], {
+  // Reach full opacity FAST (first ~25% of the slide), so content enters
+  // essentially solid and arrives by TRAVEL, not by fading up. The long 55% fade
+  // this replaced left near-white cards under ~50% opacity for ~0.5s — invisible
+  // against the near-white canvas while their darker text and underline still
+  // showed, so text appeared to float on blank water during every entrance. The
+  // reference slides its subjects in solid; it does not dissolve them up.
+  const inOpacity = interpolate(frame, [0, tf * 0.25], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -74,9 +80,11 @@ const SceneWrapper: React.FC<{ durationFrames: number; svgFile: string; children
     extrapolateRight: 'clamp',
     easing: Easing.in(Easing.cubic),
   });
-  // Fade only over the BACK HALF of the exit, so the eye reads travel first and
-  // the frame is genuinely clear before the next subject arrives.
-  const outOpacity = interpolate(frame, [outStart + tf * 0.45, durationFrames], [1, 0], {
+  // Stay solid through most of the exit travel, then clear over the last ~30%,
+  // so content reads as sliding AWAY rather than dissolving in place — same reason
+  // as the entrance. The eye follows the motion off-frame instead of watching it
+  // ghost.
+  const outOpacity = interpolate(frame, [outStart + tf * 0.7, durationFrames], [1, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
     easing: Easing.inOut(Easing.sin),
@@ -107,9 +115,21 @@ export const MainComposition: React.FC = () => {
       <WorldLayer />
       {SCENE_REGISTRY.map((scene) => {
         const Bespoke = SCENE_COMPONENTS[scene.id];
+        // Scenes hand over end-to-end, NOT overlapped. Overlapping them was tried
+        // and reverted: extending each scene by TRANSITION_FRAMES so its exit ran
+        // under the next scene's entrance put two scenes on screen semi-transparent
+        // at once, and the outgoing title ghosted straight through the incoming
+        // card. That reads as a cross-dissolve. The reference never dissolves one
+        // composition into another — content leaves decisively, there is a brief
+        // clear beat over an unbroken world, then the next subject arrives.
+        // It also barely helped the number it was aimed at (peak emptiness at the
+        // 0:34 cut went 244.83 -> 243.62, against the reference's 229.65), which
+        // is the tell that the emptiness gap is about how much the WORLD carries
+        // during the handover, not about the handover's timing.
+        const held = scene.durationFrames;
         return (
-          <Sequence key={scene.id} from={scene.audioStartSec * FPS} durationInFrames={scene.durationFrames}>
-            <SceneWrapper durationFrames={scene.durationFrames} svgFile={scene.svgFile}>
+          <Sequence key={scene.id} from={scene.audioStartSec * FPS} durationInFrames={held}>
+            <SceneWrapper durationFrames={held} svgFile={scene.svgFile}>
               {Bespoke ? <Bespoke /> : <FrameScene svgFile={scene.svgFile} durationFrames={scene.durationFrames} />}
             </SceneWrapper>
           </Sequence>
