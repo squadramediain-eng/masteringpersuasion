@@ -63,5 +63,20 @@
   "override naming a renamed id does NOTHING and says nothing, which is how this",
   "project has lost work on every export so far."
  ],
- "frames": {}
+ "frames": {
+  "frame_0.svg": {
+   "_note": "MOTION-DIRECTION PASS (worked example). Design cued all 5 pillar discs + the hero anchor to pop together at 7s — the hero lands in the crowd. Re-choreographed: the 5 pillars cascade one-by-one, then the anchor lands LAST as the payoff with weight and a single punch, then breathes.",
+   "pillar_disc_1": { "at": 7.0 },
+   "pillar_disc_2": { "at": 7.16 },
+   "pillar_disc_3": { "at": 7.32 },
+   "pillar_disc_4": { "at": 7.48 },
+   "pillar_disc_5": { "at": 7.64 },
+   "anchor_hero": {
+    "at": 8.1,
+    "scale": 1.04,
+    "idle": { "amp": 4.5, "period": 4600, "rot": 0.5 },
+    "emphasis": { "scale": 1.07, "dur": 460, "at": 0.0 }
+   }
+  }
+ }
 }

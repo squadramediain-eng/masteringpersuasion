@@ -254,6 +254,11 @@ export interface ElOverride {
   // text only — cps retimes the type-on, type:false shows it instantly,
   // caret:false types without the cursor.
   cps?: number; type?: false; caret?: false;
+  // Motion-direction accents:
+  //   emphasis — a one-time punch-and-settle scale bump AFTER the element lands,
+  //     for the beat the VO stresses a word. { scale peak, dur ms, at = sec after
+  //     entrance ends }.
+  emphasis?: { scale?: number; dur?: number; at?: number };
 }
 export interface TransitionOverride {
   inFrom?: 'right' | 'left' | 'top' | 'bottom' | 'none';
@@ -293,6 +298,9 @@ function withOverride(rec: Rec, svgFile: string, id: string): Rec | null {
   // kept separate from from/to rather than folded in — see styleFor.
   if (o.x !== undefined || o.y !== undefined || o.scale !== undefined || o.rotate !== undefined || o.opacity !== undefined) {
     next.adjust = { x: o.x, y: o.y, scale: o.scale, rotate: o.rotate, opacity: o.opacity };
+  }
+  if (o.emphasis) {
+    next.emphasis = { scale: o.emphasis.scale ?? 1.08, dur: o.emphasis.dur ?? 400, at: o.emphasis.at ?? 0 };
   }
   return next;
 }
@@ -381,6 +389,8 @@ interface Rec {
   // clip reveal and the caret. See TYPE-ON above.
   type?: TextMetric;
   noCaret?: boolean;
+  // One-time punch-and-settle after the entrance, from frame-overrides.json emphasis.
+  emphasis?: { scale: number; dur: number; at: number };
   // Static nudge from frame-overrides.json, applied ON TOP of whatever the
   // entrance animates, so hand-correcting a position never disturbs its motion.
   adjust?: { x?: number; y?: number; scale?: number; rotate?: number; opacity?: number };
@@ -679,6 +689,17 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     // group about its own centre travels the dashes and carries the bead round; the
     // icon is a sibling group, so it stays upright.
     if (r.orbit) rot += (ms / r.orbit.period) * r.orbit.deg;
+
+    // Emphasis punch — a one-time scale bump after the element lands, on the beat
+    // the VO stresses it. A single sine hump (up then back to 1), so it reads as an
+    // accent, not a bounce.
+    if (r.emphasis) {
+      const t0 = r.start + r.dur + r.emphasis.at * 1000;
+      if (ms >= t0 && ms < t0 + r.emphasis.dur) {
+        const e = (ms - t0) / r.emphasis.dur;             // 0..1
+        scale *= 1 + (r.emphasis.scale - 1) * Math.sin(e * Math.PI);
+      }
+    }
 
     // Hand adjustments from frame-overrides.json ride ON TOP of the animated values,
     // so nudging a position never disturbs the entrance or the idle it already has.
