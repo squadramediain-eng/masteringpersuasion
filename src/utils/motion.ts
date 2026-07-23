@@ -293,6 +293,9 @@ export interface ElOverride {
   hide?: boolean;
   idle?: { amp: number; period: number; rot?: number } | false;
   orbit?: { period: number; deg: number } | false;
+  // Ambient-life loop for an element the artwork mislabelled (e.g. a fish school in a
+  // generic "decor" group): "fish-swim" | "plant-warp" | "coral-sway" | "bubble-rise".
+  life?: string;
   // text only — cps retimes the type-on, type:false shows it instantly,
   // caret:false types without the cursor.
   cps?: number; type?: false; caret?: false;
@@ -339,6 +342,9 @@ function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: numb
   if (o.dur !== undefined) next.dur = o.dur;
   if (o.idle !== undefined) next.idle = o.idle === false ? undefined : o.idle;
   if (o.orbit !== undefined) next.orbit = o.orbit === false ? undefined : o.orbit;
+  // Force an ambient-life loop (fish/plant/coral/bubble) onto an element whose id the
+  // engine could not classify — the whole group animates smoothly, never frozen.
+  if (o.life) { next.anim = o.life; next.loop = true; next.world = true; next.from = {}; next.to = {}; next.start = 0; next.dur = 1; next.lifePhase = hashPhase(id); }
   // Offsets/scale ride on top of whatever the entrance already animates, so they are
   // kept separate from from/to rather than folded in — see styleFor.
   if (o.x !== undefined || o.y !== undefined || o.scale !== undefined || o.rotate !== undefined || o.opacity !== undefined) {
@@ -758,6 +764,24 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   for (const { p } of heads) {
     if (p.rec.start < prevEnd + HEAD_GAP) p.rec.start = prevEnd + HEAD_GAP;
     prevEnd = p.rec.start + p.rec.dur;
+  }
+
+  // ORPHAN OVERRIDE TARGETS. A review region often points at a NESTED shape (the helm
+  // glyph inside a pillar, a mislabelled plant deep in a decor group) whose id we learn
+  // from scripts/resolve-comment-targets.js. The main walk only wrapped ROOT children,
+  // so those nested ids carry no plan item and their override silently did nothing. Wrap
+  // any override id we did not already reach, so spin/idle/life/hide on an inner shape
+  // actually applies. It rides INSIDE its animated parent, so it still enters on the
+  // parent's cue and only adds its own motion.
+  for (const oid of Object.keys(OVERRIDES[svgFile] || {})) {
+    if (RESERVED.has(oid)) continue;
+    if (plan.some((p) => p.sel === '#anim_' + oid)) continue;      // already wrapped
+    const el = svg.querySelector('[id="' + oid.replace(/(["\\])/g, '\\$1') + '"]') as Element | null;
+    if (!el || el.tagName.toLowerCase() === 'text') continue;
+    const base: Rec = { anim: 'hold', from: { opacity: 1 }, to: { opacity: 1 }, start: 0, dur: 1 };
+    const rec = withOverride(base, svgFile, oid, sceneStartSec);
+    if (!rec) { el.parentNode?.removeChild(el); continue; }
+    wrap(el, oid, classify(oid), 0, rec);
   }
 
   // Dotted rings/rectangles: mark and schedule their continuous march. Done last so

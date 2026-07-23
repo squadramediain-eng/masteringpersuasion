@@ -20,28 +20,36 @@
  ],
  "frames": {
   "frame_0.svg": {
-   "_note": "COVER. Design popped 5 pillars + hero anchor together at 7s. Cascade the pillars, land the anchor LAST as the payoff with weight + one punch, then breathe (kv14 s1 hero establish).",
-   "pillar_disc_1": { "at": 7.0 },
-   "pillar_disc_2": { "at": 7.16 },
-   "pillar_disc_3": { "at": 7.32 },
+   "_note": "COVER. Cascade the pillars, land the anchor LAST. INNER LIFE after appearing (Comments c1-c6): pillar_disc_4=helm spins slow clockwise; pillar_disc_1=gears turn; pillar_disc_2=stopwatch shakes; pillar_disc_3=shield breathes; anchor sways. (helm/wheel are single centred shapes so whole-group rotation spins them true; the multi-part gears + shield reflection + clock needle + soundwave need per-shape ids from Design to do fully.)",
+   "pillar_disc_1": { "at": 7.0, "orbit": { "period": 9000, "deg": 360 } },
+   "pillar_disc_2": { "at": 7.16, "idle": { "amp": 1, "period": 1500, "rot": 3.5 } },
+   "pillar_disc_3": { "at": 7.32, "idle": { "amp": 3, "period": 4200 } },
    "pillar_disc_4": { "at": 7.48 },
+   "xmlid_472_": { "orbit": { "period": 12000, "deg": 360 } },
    "pillar_disc_5": { "at": 7.64 },
-   "anchor_hero": { "at": 8.1, "scale": 1.04, "idle": { "amp": 4.5, "period": 4600, "rot": 0.5 }, "emphasis": { "scale": 1.07, "dur": 460, "at": 0.0 } }
+   "anchor_hero": { "at": 8.1, "scale": 1.04, "idle": { "amp": 4, "period": 4600, "rot": 1.6 }, "emphasis": { "scale": 1.07, "dur": 460, "at": 0.0 } }
+  },
+  "frame_2.svg": {
+   "_note": "SIX KEY AREAS. Targets resolved from the reviewer's regions (resolve-comment-targets.js), since the ids are mislabelled: env_seaweed (bottom-left) is actually the FISH school -> swim (c12); the real bottom-right plant is xmlid_...876128_ -> wave-warp (c13); tile_master_pilot carries a spec bob the reviewer wants gone -> idle off (c14).",
+   "env_seaweed": { "life": "fish-swim" },
+   "xmlid_00000130606129687701142840000007576372393725876128_": { "life": "plant-warp" },
+   "tile_master_pilot": { "idle": false }
   },
   "frame_1.svg": {
-   "_note": "CONVERGENCE. 12 elements were cued to one beat (44s). The reference draws connectors first, then pops the nodes one at a time (kv14 s3 hub-and-spoke). Connectors draw → 6 concept icons iris-open in a cascade → 5 people settle in. HOLD LIFE: the ring of icons + people breathe gently on their own (the scene is content-heavy with no visible background for the world blobs to show through, so it needs a touch of hero motion — a simple bob, the low-jitter spec-idle kind, not a drift).",
-   "connectors": { "at": 44.0 },
-   "concept_icon_1": { "at": 44.3, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
-   "concept_icon_2": { "at": 44.5, "idle": { "amp": 5, "period": 4600, "rot": 0.5 } },
-   "concept_icon_3": { "at": 44.7, "idle": { "amp": 5, "period": 4000, "rot": 0.5 } },
+   "_note": "CONVERGENCE — build one-by-one in SETS, not all at once (Comments c8-c11), and the magnifier (card_center) lands LAST (c7). Columns/rows resolved from the review regions: Set A = left column (centre concept_icon_3 first, then top person_3 + bottom person_2); Set B = top row (concept_icon_4/5/6); Set C = bottom row (concept_icon_2/1 + centre person_1); Set D = right column (person_5/4). Timing kept inside the original ~44-47s window so VO sync holds; reviewer can nudge. Idle keeps them alive on the hold.",
+   "connectors": { "at": 43.8 },
+   "concept_icon_3": { "at": 44.0, "idle": { "amp": 5, "period": 4000, "rot": 0.5 } },
+   "person_3": { "at": 44.25, "idle": { "amp": 4.5, "period": 5000 } },
+   "person_2": { "at": 44.45, "idle": { "amp": 4.5, "period": 4200 } },
    "concept_icon_4": { "at": 44.9, "idle": { "amp": 5, "period": 4400, "rot": 0.5 } },
-   "concept_icon_5": { "at": 45.1, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
-   "concept_icon_6": { "at": 45.3, "idle": { "amp": 5, "period": 4800, "rot": 0.5 } },
-   "person_1": { "at": 45.0, "idle": { "amp": 4.5, "period": 4600 } },
-   "person_2": { "at": 45.2, "idle": { "amp": 4.5, "period": 4200 } },
-   "person_3": { "at": 45.4, "idle": { "amp": 4.5, "period": 5000 } },
-   "person_4": { "at": 45.6, "idle": { "amp": 4.5, "period": 4400 } },
-   "person_5": { "at": 45.8, "idle": { "amp": 4.5, "period": 4800 } }
+   "concept_icon_6": { "at": 45.1, "idle": { "amp": 5, "period": 4800, "rot": 0.5 } },
+   "concept_icon_5": { "at": 45.3, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
+   "concept_icon_2": { "at": 45.8, "idle": { "amp": 5, "period": 4600, "rot": 0.5 } },
+   "concept_icon_1": { "at": 46.0, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
+   "person_1": { "at": 46.2, "idle": { "amp": 4.5, "period": 4600 } },
+   "person_5": { "at": 46.7, "idle": { "amp": 4.5, "period": 4800 } },
+   "person_4": { "at": 46.9, "idle": { "amp": 4.5, "period": 4400 } },
+   "card_center": { "at": 47.4 }
   },
   "frame_3.svg": {
    "_note": "SCENARIO. Content-heavy (title + mariner + 3 dashed-ring icons + AB/Bosun pair), no visible background for the world blobs, so it read frozen. Give the two mariner groups and the helmet badge a gentle breathe, and let the gear icon spin — the reference keeps a full scene like this alive with ring/gear motion, not a dead hold.",

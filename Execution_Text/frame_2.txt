@@ -23,7 +23,7 @@ ELEMENTS (22, in the order motion.ts wraps them)
   tile_correcting_habits [card]
       enters at 1:06 (66.0s film time = 7.0s into this scene) on the narration beat "habits" (beat 3), stagger; default idle 2.6px / 6.0s.
   tile_master_pilot [character]
-      enters at 1:04 (64.0s film time = 5.0s into this scene) on the narration beat "master" (beat 2), stagger; idle loop from the guider spec.
+      enters at 1:04 (64.0s film time = 5.0s into this scene) on the narration beat "master" (beat 2), stagger; idle disabled (override).
   scene_7 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   tile_safety_tool [card]

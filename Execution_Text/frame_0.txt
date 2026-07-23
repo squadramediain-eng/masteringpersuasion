@@ -17,17 +17,17 @@ ELEMENTS (14, in the order motion.ts wraps them)
   deco_card [card]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.6px / 6.0s.
   pillar_disc_1 [circle]
-      enters 7.00s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 7.00s (frame-overrides); orbit 360deg / 9.0s (override); default idle 4.0px / 5.2s.
   anchor_hero [character]
-      enters 8.10s (frame-overrides); idle 4.5px / 4.6s (override); scale x1.04 (override).
+      enters 8.10s (frame-overrides); idle 4px / 4.6s (override); scale x1.04 (override).
   title [prop]
       enters at 0:02 (2.0s film time = 2.0s into this scene) on the narration beat "persuasion" (beat 1), typewriter; default idle 4.0px / 5.0s.
   art_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   pillar_disc_2 [circle]
-      enters 7.16s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 7.16s (frame-overrides); idle 1px / 1.5s (override).
   pillar_disc_3 [circle]
-      enters 7.32s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 7.32s (frame-overrides); idle 3px / 4.2s (override).
   pillar_disc_4 [circle]
       enters 7.48s (frame-overrides); default idle 4.0px / 5.2s.
   pillar_disc_5 [circle]
