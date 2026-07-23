@@ -25,29 +25,29 @@ ELEMENTS (20, in the order motion.ts wraps them)
   card_center [card]
       enters at 0:37 (37.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), typewriter; default idle 2.6px / 6.0s.
   concept_icon_1 [icon]
-      enters 44.30s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 44.30s (frame-overrides); idle 5px / 4.2s (override).
   person_1 [character]
-      enters 45.00s (frame-overrides); default idle 5.0px / 4.2s.
+      enters 45.00s (frame-overrides); idle 4.5px / 4.6s (override).
   concept_icon_2 [icon]
-      enters 44.50s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 44.50s (frame-overrides); idle 5px / 4.6s (override).
   concept_icon_3 [icon]
-      enters 44.70s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 44.70s (frame-overrides); idle 5px / 4.0s (override).
   concept_icon_4 [icon]
-      enters 44.90s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 44.90s (frame-overrides); idle 5px / 4.4s (override).
   concept_icon_5 [icon]
-      enters 45.10s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 45.10s (frame-overrides); idle 5px / 4.2s (override).
   concept_icon_6 [icon]
-      enters 45.30s (frame-overrides); default idle 4.5px / 4.6s.
+      enters 45.30s (frame-overrides); idle 5px / 4.8s (override).
   connectors [arrow]
       enters 44.00s (frame-overrides).
   person_2 [character]
-      enters 45.20s (frame-overrides); default idle 5.0px / 4.2s.
+      enters 45.20s (frame-overrides); idle 4.5px / 4.2s (override).
   person_3 [character]
-      enters 45.40s (frame-overrides); default idle 5.0px / 4.2s.
+      enters 45.40s (frame-overrides); idle 4.5px / 5.0s (override).
   person_4 [character]
-      enters 45.60s (frame-overrides); default idle 5.0px / 4.2s.
+      enters 45.60s (frame-overrides); idle 4.5px / 4.4s (override).
   person_5 [character]
-      enters 45.80s (frame-overrides); default idle 5.0px / 4.2s.
+      enters 45.80s (frame-overrides); idle 4.5px / 4.8s (override).
   deco_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   text_0 "Using clear communication,logic, and respect t"

@@ -29,19 +29,34 @@
    "anchor_hero": { "at": 8.1, "scale": 1.04, "idle": { "amp": 4.5, "period": 4600, "rot": 0.5 }, "emphasis": { "scale": 1.07, "dur": 460, "at": 0.0 } }
   },
   "frame_1.svg": {
-   "_note": "CONVERGENCE. 12 elements were cued to one beat (44s). The reference draws connectors first, then pops the nodes one at a time (kv14 s3 hub-and-spoke). Connectors draw → 6 concept icons iris-open in a cascade → 5 people settle in.",
+   "_note": "CONVERGENCE. 12 elements were cued to one beat (44s). The reference draws connectors first, then pops the nodes one at a time (kv14 s3 hub-and-spoke). Connectors draw → 6 concept icons iris-open in a cascade → 5 people settle in. HOLD LIFE: the ring of icons + people breathe gently on their own (the scene is content-heavy with no visible background for the world blobs to show through, so it needs a touch of hero motion — a simple bob, the low-jitter spec-idle kind, not a drift).",
    "connectors": { "at": 44.0 },
-   "concept_icon_1": { "at": 44.3 },
-   "concept_icon_2": { "at": 44.5 },
-   "concept_icon_3": { "at": 44.7 },
-   "concept_icon_4": { "at": 44.9 },
-   "concept_icon_5": { "at": 45.1 },
-   "concept_icon_6": { "at": 45.3 },
-   "person_1": { "at": 45.0 },
-   "person_2": { "at": 45.2 },
-   "person_3": { "at": 45.4 },
-   "person_4": { "at": 45.6 },
-   "person_5": { "at": 45.8 }
+   "concept_icon_1": { "at": 44.3, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
+   "concept_icon_2": { "at": 44.5, "idle": { "amp": 5, "period": 4600, "rot": 0.5 } },
+   "concept_icon_3": { "at": 44.7, "idle": { "amp": 5, "period": 4000, "rot": 0.5 } },
+   "concept_icon_4": { "at": 44.9, "idle": { "amp": 5, "period": 4400, "rot": 0.5 } },
+   "concept_icon_5": { "at": 45.1, "idle": { "amp": 5, "period": 4200, "rot": 0.5 } },
+   "concept_icon_6": { "at": 45.3, "idle": { "amp": 5, "period": 4800, "rot": 0.5 } },
+   "person_1": { "at": 45.0, "idle": { "amp": 4.5, "period": 4600 } },
+   "person_2": { "at": 45.2, "idle": { "amp": 4.5, "period": 4200 } },
+   "person_3": { "at": 45.4, "idle": { "amp": 4.5, "period": 5000 } },
+   "person_4": { "at": 45.6, "idle": { "amp": 4.5, "period": 4400 } },
+   "person_5": { "at": 45.8, "idle": { "amp": 4.5, "period": 4800 } }
+  },
+  "frame_3.svg": {
+   "_note": "SCENARIO. Content-heavy (title + mariner + 3 dashed-ring icons + AB/Bosun pair), no visible background for the world blobs, so it read frozen. Give the two mariner groups and the helmet badge a gentle breathe, and let the gear icon spin — the reference keeps a full scene like this alive with ring/gear motion, not a dead hold.",
+   "mariner_officer": { "idle": { "amp": 4.5, "period": 4400 } },
+   "mariner_2": { "idle": { "amp": 4.5, "period": 4800 } },
+   "mariner_extra": { "idle": { "amp": 4.5, "period": 4000 } },
+   "ab_bosun_pair": { "idle": { "amp": 5, "period": 5000, "rot": 0.4 } },
+   "helmet_disc": { "idle": { "amp": 4, "period": 4600, "rot": 0.6 } }
+  },
+  "frame_14.svg": {
+   "_note": "SCENARIO. The container ship rocks (vessel idle), but the two engineers dominate the frame and held it static. Float the two speech bubbles (natural for a chat bubble) and let the engineers shift gently, so the exchange reads as live conversation, not a freeze-frame.",
+   "speech_bubble_1": { "idle": { "amp": 7, "period": 3800 } },
+   "speech_bubble_2": { "idle": { "amp": 7, "period": 4200 } },
+   "engineer_1": { "idle": { "amp": 4, "period": 4600 } },
+   "engineer_2": { "idle": { "amp": 4, "period": 4000 } }
   },
   "frame_6.svg": {
    "_note": "SCENARIO. The 4 tug/concept icons clumped on one beat (190s). Cascade them left-to-right as the reference builds a list one item at a time.",

@@ -8,6 +8,7 @@
 // a group's own placement transform="translate(...) scale(...)".
 // ────────────────────────────────────────────────────────────────────────────
 
+import { spring } from 'remotion';
 import specJson from '../../public/animation/animation.json';
 import cuesJson from '../../public/animation/audio-cues.json';
 import metricsJson from '../../public/animation/text-metrics.json';
@@ -82,7 +83,7 @@ function withCue(rec: Rec, svgFile: string, id: string): Rec {
 // faster (~150 chars inside ~3s at 1:00, ~50 cps), so a single cps is wrong:
 // short titles want deliberate typing, long paragraphs must not crawl. Hence
 // a nominal rate with a hard ceiling — long copy speeds up automatically.
-const TYPE_CPS = 14;
+const TYPE_CPS = 22;   // the reference's rate (FrameStage/SvgFrame Typewriter)
 const TYPE_MAX_MS = 2500;
 const CARET_BLINK_MS = 500;
 // Keep the caret alive briefly after the last glyph, the way a real cursor rests.
@@ -137,11 +138,14 @@ const typeDurationMs = (chars: number) => Math.min((chars / TYPE_CPS) * 1000, TY
 //   count  number scales up from small — "count 0->30"      (1)
 //   marker scale-0 pop with a shake pulse — "marker pulses" (1)
 //   fade   opacity only                                     (1)
+// Reference entrance shapes (SvgFrame.enterTransform): pop/iris/scale = scale
+// 0.9→1, slide = translateX 40→0, everything else = rise translateY 24→0, all on
+// the buoy. Values match the source exactly.
 const ENTER_FROM: Record<string, Record<string, number>> = {
-  slide: { translateX: 60, opacity: 0 },
-  pop: { scale: 0.8, opacity: 0 },
-  stagger: { scale: 0.8, opacity: 0 },
-  fade: { opacity: 0 },
+  slide: { translateX: 40, opacity: 0 },
+  pop: { scale: 0.9, opacity: 0 },
+  stagger: { scale: 0.9, opacity: 0 },
+  fade: { opacity: 0, translateY: 24 },
   typewriter: { opacity: 1 },   // the glyph reveal is the entrance; see TYPE-ON
   // draw must be HIDDEN before its cue. It was opacity 1 (right for a stroke that
   // draws on), but mp_v5 tags FILLED icons "draw" too — with opacity 1 those show
@@ -149,18 +153,16 @@ const ENTER_FROM: Record<string, Record<string, number>> = {
   // "everything at once" bug). From opacity 0, the element stays hidden until its
   // cue, then fades in as its stroke draws. Correct for both stroke and fill.
   draw: { opacity: 0 },
-  row: { translateY: -22, opacity: 0 },
-  header: { translateY: -40, opacity: 0 },
-  iris: { scale: 0.0, opacity: 0 },
-  count: { scale: 0.7, opacity: 0 },
-  marker: { scale: 0.0, opacity: 0 },
+  row: { translateY: 24, opacity: 0 },
+  header: { translateY: 24, opacity: 0 },
+  iris: { scale: 0.9, opacity: 0 },
+  count: { scale: 0.9, opacity: 0 },
+  marker: { scale: 0.9, opacity: 0 },
 };
 const ENTER_DUR: Record<string, number> = {
   slide: 700, pop: 520, stagger: 520, fade: 600, typewriter: 200,
   draw: 620, row: 420, header: 560, iris: 640, count: 900, marker: 500,
 };
-// Entrances that scale PAST 1 then settle (kv14 §2.4) — the lively pop family.
-const OVERSHOOT_ENTERS = new Set(['pop', 'stagger', 'iris', 'marker']);
 
 // World-like layers are on from frame 0 and never enter on a cue (motion/layer-spec.md
 // §2). mp_v5 split the old single "world" into bg/env/waves/decor; keep "world" too for
@@ -201,13 +203,10 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
     anim: enter,
     start: t * 1000,
     dur: ENTER_DUR[enter] ?? rec.dur,
-    ease: 'brand',
     from: resolved,
     to: { opacity: 1, scale: 1, translateX: 0, translateY: 0 },
     // draw = the stroke reveals along its own length (arrows, ticks, connectors).
     ...(enter === 'draw' ? { draw: true } : {}),
-    // The lively pop family scales slightly PAST 1 then settles (kv14 §2.4).
-    ...(OVERSHOOT_ENTERS.has(enter) ? { overshoot: 1.06 } : {}),
     // marker "pulses alert" — a brief shake on top of its pop.
     ...(enter === 'marker' ? { shake: true } : {}),
     // stagger elements share a cue but must not land in lockstep — nudge each a
@@ -229,22 +228,23 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
 // gets a gentle default breathe. Amplitudes are deliberately small — this is
 // ambient life, not a bounce, and the conventions still ban decorative spin on
 // content.
-// Amplitudes roughly DOUBLED from the first pass. At 1080p a 2px bob is invisible;
-// the reference's life is clearly readable — vessels rock ~8-10px, icons breathe
-// ~4-5px. Review verdict was "static / PowerPoint" (CLAUDE.md RULE 0), and the
-// measured hold motion was ~0.10 (frozen). These are the visible-but-gentle values.
-const DEFAULT_IDLE: Record<string, { amp: number; period: number; rot?: number }> = {
-  ship:      { amp: 9.0, period: 4800, rot: 1.0 },
-  character: { amp: 5.0, period: 4200 },
-  icon:      { amp: 4.5, period: 4600 },
-  card:      { amp: 2.6, period: 6000 },
-  circle:    { amp: 4.0, period: 5200 },
-  prop:      { amp: 4.0, period: 5000 },
-  decor:     { amp: 3.0, period: 6600 },
-  stat:      { amp: 3.4, period: 5400 },
-  numeral:   { amp: 3.0, period: 6000 },
-  watermark: { amp: 3.4, period: 8000 },
-};
+// ─── SELECTIVE LIFE, not blanket idle ────────────────────────────────────────
+// The reference's rule is literal: "Elements NOT tagged are static — nothing
+// animates by accident" (SvgFrame.applyAnims). Its aliveness comes from (a) the
+// persistent WORLD behind every scene and (b) a FEW logo sub-elements the artist
+// tags data-anim (bell shake, fan spin, thunder blink). Our mp_v5 frames carry
+// zero data-anim tags, so the WorldLayer atmosphere is our channel for that life.
+//
+// Blanket content drift was tried and rejected: CSS-transforming many edged content
+// groups a few pixels re-rasterises their anti-aliased edges into a choppy aggregate
+// (measured 37-52% frame-diff jitter at every amplitude/rate tested), whereas the
+// reference and our WorldLayer move smoothly. So content HOLDS after its entrance and
+// the WorldLayer atmosphere carries the ambient — the reference's "content still,
+// water alive". The one exception is genuine VESSELS, which rock: it's the film's
+// maritime signature, they are large smooth shapes, and one-per-scene keeps the
+// aggregate clean (vessel scenes measured 12-14% jitter).
+const VESSEL_RE = /^(ship|ships|boat|vessel|tug|barge|ferry|tanker|hull)(_|$)/i;
+const DRIFT = { ship: { amp: 7.0, period: 4200, rot: 1.2 } };
 // Elements that visibly SPIN in the reference — gears turn, ship's wheels rotate,
 // fans/propellers spin. A slow continuous turn (not an oscillating bob), so the
 // frame reads as machinery running, never a still poster. Directional indicators
@@ -254,9 +254,6 @@ function withSpin(rec: Rec, id: string): Rec {
   if (rec.world || rec.orbit || rec.loop || !SPIN_RE.test(id)) return rec;
   return { ...rec, orbit: { period: 11000, deg: 360 } };
 }
-// Roles that must NOT drift: text would blur against its own caret, arrows are
-// anchored to what they point at, and background/ambient is the world layer's job.
-const NO_IDLE = new Set(['text', 'background', 'ambient', 'arrow', 'alert']);
 
 // ─── FRAME OVERRIDES — the local control layer ───────────────────────────────
 // public/animation/frame-overrides.json is applied LAST and always wins, over both
@@ -332,11 +329,24 @@ function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: numb
 
 // Give every element its own phase so they breathe independently — a shared phase
 // makes a frame pulse as one block, which reads as mechanical rather than alive.
-function withIdle(rec: Rec, role: string, idx: number): Rec {
-  if (rec.world || rec.idle || rec.loop || NO_IDLE.has(role)) return rec;
-  const d = DEFAULT_IDLE[role];
-  if (!d) return rec;
-  return { ...rec, idle: { ...d, phase: ((idx * 137.508) % 360) * (Math.PI / 180) } };
+// Gentle content drift ("characters breathe, discs drift" — kv14 §2.5). Never on
+// text/arrows/world (NO_DRIFT), never re-applied where the spec or an override
+// already set a loop/idle/orbit. Vessels use their id (VESSEL_RE) so a vessel the
+// design mislabelled by role still rocks; everything else keys on role.
+function withDrift(rec: Rec, role: string, id: string, idx: number): Rec {
+  if (rec.world || rec.idle || rec.loop || rec.orbit) return rec;
+  // Only genuine VESSELS drift (they rock — the film's maritime signature). Blanket
+  // content drift was tested at four amplitudes/rates/phasings and every one measured
+  // 37-52% frame-diff jitter, because CSS-transforming many edged content groups a
+  // sub-to-few pixels re-rasterises their anti-aliased edges into a choppy aggregate —
+  // whereas the reference (and our WorldLayer) move smoothly. The 13 diagram scenes
+  // that already pass do so WITHOUT content drift (spec idle + draw give them smooth
+  // motion); the genuinely-still scenes are lifted by the WorldLayer atmosphere, which
+  // recomputes geometry and measures 0% jitter. So content holds after entrance; the
+  // world carries the ambient — exactly the reference's "content still, water alive".
+  if (!VESSEL_RE.test(id)) return rec;
+  const phase = ((idx * 137.508) % 360) * (Math.PI / 180);
+  return { ...rec, idle: { ...DRIFT.ship, phase } };
 }
 
 // Attach measured metrics to a text record and retime it to the typing rate.
@@ -352,31 +362,22 @@ function withType(rec: Rec, svgFile: string, id: string): Rec {
   return { ...rec, type: m, dur, noCaret: o?.caret === false };
 }
 
-const EASE_SINE = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
-const EASE_LIN = (t: number) => t;
-
-// brand curve cubic-bezier(0.16, 1, 0.3, 1)
-function makeCubicBezier(x1: number, y1: number, x2: number, y2: number) {
-  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
-  const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
-  const fx = (t: number) => ((ax * t + bx) * t + cx) * t;
-  const fy = (t: number) => ((ay * t + by) * t + cy) * t;
-  const dfx = (t: number) => (3 * ax * t + 2 * bx) * t + cx;
-  return (x: number) => {
-    let t = x;
-    for (let i = 0; i < 8; i++) {
-      const e = fx(t) - x;
-      if (Math.abs(e) < 1e-4) break;
-      const d = dfx(t);
-      if (Math.abs(d) < 1e-6) break;
-      t -= e / d;
-    }
-    return fy(Math.min(1, Math.max(0, t)));
-  };
+// ─── THE HOUSE BUOY SPRING ───────────────────────────────────────────────────
+// The reference has ONE entrance curve: Remotion's spring with config
+// {damping:200, stiffness:120, mass:0.9} (reference/ballast-water/remotion/
+// SvgFrame.jsx BUOY, driven by remotion's spring()). Remotion normalises this to
+// a snappy float-in that settles ~0.7s with NO overshoot (0.32@0.1s, 0.86@0.3s,
+// 0.98@0.5s, 1.0 by 0.73s). Use Remotion's own spring() so our entrances are
+// bit-identical to the reference's — a hand-rolled ODE integrates to a different,
+// far slower curve (0.45@1s) and is not what the reference feels like. This is the
+// SOLE entrance curve now; the old cubic-bezier easeFn was retired with it, since
+// the reference has no non-spring entrance and no overshoot.
+const BUOY = { damping: 200, stiffness: 120, mass: 0.9 };
+// Spring value 0→1 for `elapsedMs` since the entrance started.
+function buoy(elapsedMs: number, fps: number): number {
+  if (elapsedMs <= 0) return 0;
+  return spring({ frame: (elapsedMs / 1000) * fps, fps, config: BUOY });
 }
-const EASE_BRAND = makeCubicBezier(0.16, 1, 0.3, 1);
-const easeFn = (name?: string) =>
-  name === 'ease-in-out' ? EASE_SINE : name === 'linear' ? EASE_LIN : EASE_BRAND;
 
 // ─── role classification (ported verbatim from Animation Guider) ───────────────
 export function classify(id: string): string {
@@ -403,9 +404,7 @@ interface Rec {
   to: Record<string, number>;
   start: number;   // ms
   dur: number;     // ms
-  ease?: string;
   loop?: boolean;
-  overshoot?: number;
   idle?: { amp: number; period: number; rot?: number; phase?: number };
   shake?: boolean;
   orbit?: { period: number; deg: number };
@@ -423,8 +422,8 @@ interface Rec {
   adjust?: { x?: number; y?: number; scale?: number; rotate?: number; opacity?: number };
 }
 
-// Spec element -> Rec. The spec's `easing` is a raw cubic-bezier string for the brand
-// curve, which easeFn() already falls through to.
+// Spec element -> Rec. The spec's `easing` is ignored now: every timed entrance
+// rides the house buoy spring (see buoy()), so there is no per-element ease curve.
 const peak = (a?: number[]) => (a ? Math.max(...a.map(Math.abs)) : undefined);
 
 function fromSpec(e: SpecEl): Rec {
@@ -441,9 +440,7 @@ function fromSpec(e: SpecEl): Rec {
     to,
     start: e.startMs,
     dur: e.durationMs,
-    ease: e.easing,
     loop: Boolean(e.loop),
-    overshoot: e.overshoot,
     idle: e.idle ? { amp: peak(e.idle.translateY)!, period: e.idle.dur, rot: peak(e.idle.rotate) } : undefined,
     orbit: e.orbit ? { period: e.orbit.dur, deg: e.orbit.rotate[1] - e.orbit.rotate[0] } : undefined,
     draw,
@@ -467,7 +464,7 @@ function recipe(role: string, idx: number, anchorX: number, frameMs: number): Re
 function recipeRaw(role: string, idx: number, anchorX: number, frameMs: number, stag: (n: number, g: number) => number): Rec {
   switch (role) {
     case 'background': return { anim: 'fade', from: { opacity: 0 }, to: { opacity: 1 }, start: 0, dur: 400 };
-    case 'ambient':    return { anim: 'wave-drift', from: { translateX: -14 }, to: { translateX: 14 }, start: 0, dur: Math.min(frameMs, 9000), ease: 'ease-in-out', loop: true };
+    case 'ambient':    return { anim: 'wave-drift', from: { translateX: -14 }, to: { translateX: 14 }, start: 0, dur: Math.min(frameMs, 9000), loop: true };
     case 'decor':      return { anim: 'fade-scale', from: { opacity: 0, scale: 0.96 }, to: { opacity: 1, scale: 1 }, start: 220 + stag(idx, 60), dur: 520 };
     case 'numeral':    return { anim: 'scale-fade', from: { opacity: 0, scale: 0.82 }, to: { opacity: 1, scale: 1 }, start: 300, dur: 640 };
     case 'text':       return { anim: 'rise-fade', from: { opacity: 0, translateY: 26 }, to: { opacity: 1, translateY: 0 }, start: 420 + stag(idx, 130), dur: 520 };
@@ -480,14 +477,15 @@ function recipeRaw(role: string, idx: number, anchorX: number, frameMs: number, 
       let from: Record<string, number> = { opacity: 0, translateY: 52 };
       if (anchorX < 640) from = { opacity: 0, translateX: -60 };
       else if (anchorX > 1280) from = { opacity: 0, translateX: 60 };
-      return { anim: 'slide-fade', from, to: { opacity: 1, translateX: 0, translateY: 0 }, start: 660 + stag(idx, 120), dur: 640, idle: { amp: 6, period: 3800 } };
+      // People hold after landing (reference: only tagged things move); no idle.
+      return { anim: 'slide-fade', from, to: { opacity: 1, translateX: 0, translateY: 0 }, start: 660 + stag(idx, 120), dur: 640 };
     }
     case 'circle':     return { anim: 'pop-scale', from: { opacity: 0, scale: 0.6 }, to: { opacity: 1, scale: 1 }, start: 800 + stag(idx, 150), dur: 480 };
-    case 'icon':       return { anim: 'pop', from: { opacity: 0, scale: 0.8 }, to: { opacity: 1, scale: 1 }, start: 900 + stag(idx, 110), dur: 440, overshoot: 1.06 };
+    case 'icon':       return { anim: 'pop', from: { opacity: 0, scale: 0.8 }, to: { opacity: 1, scale: 1 }, start: 900 + stag(idx, 110), dur: 440 };
     case 'arrow':      return { anim: 'draw', from: { opacity: 0 }, to: { opacity: 1 }, start: 1060 + stag(idx, 120), dur: 460 };
     case 'stat':       return { anim: 'count-scale', from: { opacity: 0, scale: 0.7 }, to: { opacity: 1, scale: 1 }, start: 500, dur: 950 };
     case 'alert':      return { anim: 'pop-shake', from: { opacity: 0, scale: 0 }, to: { opacity: 1, scale: 1 }, start: 1250, dur: 520, shake: true };
-    case 'watermark':  return { anim: 'fade-pulse', from: { opacity: 0 }, to: { opacity: 0.12 }, start: 250, dur: 800, ease: 'ease-in-out', loop: true };
+    case 'watermark':  return { anim: 'fade-pulse', from: { opacity: 0 }, to: { opacity: 0.12 }, start: 250, dur: 800, loop: true };
     default:           return { anim: 'fade-rise', from: { opacity: 0, translateY: 18 }, to: { opacity: 1, translateY: 0 }, start: 700 + stag(idx, 90), dur: 480 };
   }
 }
@@ -635,7 +633,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     // elements at all, so gating this on the spec would leave the longest scene uncued.
     const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role, sceneStartSec);
     const rec = withCue(base, svgFile, id);
-    const finalRec = withOverride(withSpin(withIdle(withType(rec, svgFile, id), role, idx), id), svgFile, id, sceneStartSec);
+    const finalRec = withOverride(withSpin(withDrift(withType(rec, svgFile, id), role, id, idx), id), svgFile, id, sceneStartSec);
     // hide: true — drop the element from the DOM entirely rather than animating it to
     // opacity 0, so it costs nothing to render and cannot be caught mid-transition.
     if (!finalRec) { el.parentNode!.removeChild(el); continue; }
@@ -687,15 +685,16 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
       }
     } else {
       const p01 = Math.max(0, Math.min(1, (ms - r.start) / r.dur));
-      const e = easeFn(r.ease)(p01);
+      // The house BUOY spring drives every timed entrance (reference FrameStage).
+      // Overdamped -> a smooth float-in with no overshoot. Opacity ramps a touch
+      // faster than the transform so a card is readable before it fully settles.
+      const e = buoy(ms - r.start, fps);
+      const eOp = buoy((ms - r.start) * 1.6, fps);
       const lerp = (a = 0, b = 0) => a + (b - a) * e;
-      if ('opacity' in r.from || 'opacity' in r.to) opacity = lerp(r.from.opacity ?? 1, r.to.opacity ?? 1);
+      if ('opacity' in r.from || 'opacity' in r.to) opacity = (r.from.opacity ?? 1) + ((r.to.opacity ?? 1) - (r.from.opacity ?? 1)) * eOp;
       if ('translateX' in r.from || 'translateX' in r.to) tx = lerp(r.from.translateX ?? 0, r.to.translateX ?? 0);
       if ('translateY' in r.from || 'translateY' in r.to) ty = lerp(r.from.translateY ?? 0, r.to.translateY ?? 0);
-      if ('scale' in r.from || 'scale' in r.to) {
-        scale = lerp(r.from.scale ?? 1, r.to.scale ?? 1);
-        if (r.overshoot && p01 > 0.5 && p01 < 1) scale += (r.overshoot - 1) * Math.sin((p01 - 0.5) * Math.PI * 2) * 0.5;
-      }
+      if ('scale' in r.from || 'scale' in r.to) scale = lerp(r.from.scale ?? 1, r.to.scale ?? 1);
       // arrows draw on along their own path (unit-normalised via pathLength=1)
       if (r.draw) dash = lerp(r.from.strokeDashoffset ?? 1, r.to.strokeDashoffset ?? 0);
       // brief shake for the alert beat

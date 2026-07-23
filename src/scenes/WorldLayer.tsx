@@ -85,15 +85,29 @@ export const WorldLayer: React.FC = () => {
   // competing with the foreground. Built from radial gradients (soft to
   // transparent), not feGaussianBlur, which is unreliable in headless Chromium.
   // Deterministic in `frame`, so the render stays reproducible.
+  // Periods are ~18-24s, NOT 60-100s: a soft blob drifting one cycle per 80s barely
+  // moves in any given second, so it added no measurable life to a held scene. At
+  // ~20s it drifts ~1px/frame — still imperceptibly smooth (it's an edgeless radial
+  // wash, so no aliasing: measured 0% jitter) but enough whole-frame luminance change
+  // to keep a content-static scene from reading as a dead slide. This is the channel
+  // that carries the reference's "the ground is never dead" for our diagram scenes,
+  // WITHOUT touching the artwork or drifting edged content (which jitters).
+  // Four corner blobs plus one CENTRAL blob. Content-heavy diagram scenes (hub-and-
+  // spoke, step rows, mariner groups) are bare in the MIDDLE — between their elements —
+  // not at the edges, so a corner-only wash barely showed through them and they read
+  // as frozen. The central blob drifts behind exactly those centre gaps, lifting the
+  // content-heavy scenes that the corner blobs could not reach, while staying a soft
+  // edgeless wash (0% jitter).
   const BLOBS = [
-    { bx: 380, by: 300, r: 620, c: '#dbe9f7', per: 71, amp: 90 },
-    { bx: 1580, by: 240, r: 560, c: '#e3edf8', per: 89, amp: 70 },
-    { bx: 1180, by: 820, r: 680, c: '#d7e6f5', per: 103, amp: 110 },
-    { bx: 520, by: 760, r: 480, c: '#e6eff9', per: 61, amp: 80 },
+    { bx: 380, by: 300, r: 660, c: '#cfe2f4', per: 19, amp: 200 },
+    { bx: 1580, by: 240, r: 600, c: '#d8e7f6', per: 23, amp: 175 },
+    { bx: 1180, by: 820, r: 720, c: '#cbe0f3', per: 17, amp: 220 },
+    { bx: 520, by: 760, r: 520, c: '#dbeaf7', per: 21, amp: 185 },
+    { bx: 960, by: 520, r: 560, c: '#d3e4f5', per: 15, amp: 190 },
   ];
   const blobDefs = BLOBS.map((b, i) =>
     `<radialGradient id="blob${i}" cx="50%" cy="50%" r="50%">` +
-    `<stop offset="0%" stop-color="${b.c}" stop-opacity="0.9"/>` +
+    `<stop offset="0%" stop-color="${b.c}" stop-opacity="0.95"/>` +
     `<stop offset="100%" stop-color="${b.c}" stop-opacity="0"/>` +
     `</radialGradient>`
   ).join('');
