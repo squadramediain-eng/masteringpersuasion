@@ -173,9 +173,13 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
   const tRaw = el.getAttribute('data-t');
   const enter = el.getAttribute('data-enter') || '';
 
-  // WORLD never enters — it is on from frame 0 and only ever idles.
+  // WORLD is on from frame 0 and is STATIC ambient composition — it must NOT enter
+  // and must NOT get a per-element idle/spin. Applying idle to it made the frame's
+  // bubbles, background details, seabed and water shapes jiggle in place ("stuck
+  // bubbles / weird waves"). The only moving ambient is WorldLayer (smooth drift +
+  // rising bubbles), never these. The `world` flag makes withIdle/withSpin skip it.
   if (layer && WORLD_LAYERS.has(layer)) {
-    return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 } };
+    return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 }, world: true };
   }
   if (tRaw === null) return rec;
   const abs = Number(tRaw);
@@ -247,7 +251,7 @@ const DEFAULT_IDLE: Record<string, { amp: number; period: number; rot?: number }
 // (compass rose) and content discs are deliberately excluded.
 const SPIN_RE = /gear|cog|wheel|helm|propeller|turbine|windmill|\bfan\b/i;
 function withSpin(rec: Rec, id: string): Rec {
-  if (rec.orbit || rec.loop || !SPIN_RE.test(id)) return rec;
+  if (rec.world || rec.orbit || rec.loop || !SPIN_RE.test(id)) return rec;
   return { ...rec, orbit: { period: 11000, deg: 360 } };
 }
 // Roles that must NOT drift: text would blur against its own caret, arrows are
@@ -329,7 +333,7 @@ function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: numb
 // Give every element its own phase so they breathe independently — a shared phase
 // makes a frame pulse as one block, which reads as mechanical rather than alive.
 function withIdle(rec: Rec, role: string, idx: number): Rec {
-  if (rec.idle || rec.loop || NO_IDLE.has(role)) return rec;
+  if (rec.world || rec.idle || rec.loop || NO_IDLE.has(role)) return rec;
   const d = DEFAULT_IDLE[role];
   if (!d) return rec;
   return { ...rec, idle: { ...d, phase: ((idx * 137.508) % 360) * (Math.PI / 180) } };
@@ -412,6 +416,8 @@ interface Rec {
   noCaret?: boolean;
   // One-time punch-and-settle after the entrance, from frame-overrides.json emphasis.
   emphasis?: { scale: number; dur: number; at: number };
+  // Static ambient composition (bg/env/waves/decor) — excluded from idle and spin.
+  world?: boolean;
   // Static nudge from frame-overrides.json, applied ON TOP of whatever the
   // entrance animates, so hand-correcting a position never disturbs its motion.
   adjust?: { x?: number; y?: number; scale?: number; rotate?: number; opacity?: number };

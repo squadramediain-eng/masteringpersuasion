@@ -125,7 +125,7 @@ export const WorldLayer: React.FC = () => {
   const BAND_TOP = 830;
   const FLOOR = 1035;
 
-  const BUBBLES = 22;
+  const BUBBLES = 10;
   const bubbles = Array.from({ length: BUBBLES }, (_, i) => {
     const seedX = ((i * 137.508) % 100) / 100;
     const period = 8 + (i % 5) * 2.2;                 // seconds for one full rise
@@ -141,7 +141,7 @@ export const WorldLayer: React.FC = () => {
   // A few fish drifting across the band, continuously, never restarting at a cut —
   // the reference's water is never empty of life. Light tint and small, so they
   // read as depth, not as characters competing with the content.
-  const FISH = 5;
+  const FISH = 2;
   const fish = Array.from({ length: FISH }, (_, i) => {
     const seed = ((i * 97.13) % 100) / 100;
     const span = 2160;                                // travel wider than the frame
