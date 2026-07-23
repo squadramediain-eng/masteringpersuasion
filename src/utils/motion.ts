@@ -409,6 +409,11 @@ interface Rec {
   shake?: boolean;
   orbit?: { period: number; deg: number };
   draw?: boolean;
+  // Continuous marching of a dotted stroke (the decorative rings around icons, and
+  // dotted rectangles). The dashes travel along the stroke — for a ring that reads
+  // as rotation. Varied per element (dir + speed) so no two read the same. See the
+  // dash-ring pass in planAndWrap and the 'ring-march' branch in styleFor.
+  march?: { pxPerFrame: number; dir: number };
   // Set for <text> that has measured metrics — drives the character-exact
   // clip reveal and the caret. See TYPE-ON above.
   type?: TextMetric;
@@ -503,6 +508,53 @@ function readAnchor(el: Element): number {
 }
 
 export interface PlanItem { sel: string; role: string; idx: number; rec: Rec; }
+
+// ─── DOTTED-RING / -RECTANGLE MARCHING ───────────────────────────────────────
+// The reference never leaves a dotted ring static: once its icon lands, the ring's
+// dashes travel continuously round the stroke (which reads as a slow rotation), and
+// each ring runs at its OWN speed and direction so a cluster never marches in
+// lockstep. Our frames carry these as dashed <path> arcs (12 of 20 frames — often
+// split into several arcs per ring, which is why we march the dashes rather than
+// rotate: marching needs no centre and works on a split ring). Dashed <rect>/<circle>
+// get the identical treatment when the design uses them (there are none today — see
+// scripts/audit-ring-animation.js, which verifies coverage). Connector arrows are
+// dashed <line>s that DRAW ON as an entrance, so <line> is excluded here — marching
+// them would fight their reveal.
+// The selector shared with the audit (keep the two in step):
+export const RING_TAGS = ['path', 'circle', 'ellipse', 'rect'] as const;
+export const RING_SKIP_ANCESTOR = /connector|arrow|link|flow|\bconn\b|draw/i;
+export function isDashRing(el: Element): boolean {
+  if (!(RING_TAGS as readonly string[]).includes(el.tagName.toLowerCase())) return false;
+  const da = el.getAttribute('stroke-dasharray');
+  if (!da || da === 'none') return false;
+  if (el.hasAttribute('pathLength')) return false;              // a draw-on reveal, not a ring
+  const stroke = el.getAttribute('stroke');
+  if (!stroke || stroke === 'none') return false;
+  for (let p: Element | null = el; p; p = p.parentElement) {
+    const pid = p.getAttribute?.('id');
+    if (pid && RING_SKIP_ANCESTOR.test(pid)) return false;      // inside a connector/arrow group
+  }
+  return true;
+}
+// Deterministic per-ring speed + direction from its index. Varied, never uniform:
+// half the rings run one way, half the other, at 0.70–1.59 px/frame.
+function marchFor(n: number): { pxPerFrame: number; dir: number } {
+  const h = Math.imul(n + 1, 2654435761) >>> 0;
+  return { pxPerFrame: 0.7 + ((h >>> 3) % 90) / 100, dir: (h & 1) ? 1 : -1 };
+}
+// Give every dotted ring/rect a unique id and a continuous march. Run AFTER the main
+// wrap so draw-groups have already stamped pathLength on their shapes (excluded above).
+function markDashRings(svg: Element, plan: PlanItem[]): number {
+  let n = 0;
+  for (const el of Array.from(svg.querySelectorAll(RING_TAGS.join(',')))) {
+    if (!isDashRing(el)) continue;
+    let id = el.getAttribute('id');
+    if (!id) { id = 'dring_' + n; el.setAttribute('id', id); }
+    plan.push({ sel: '#' + id, role: 'dring', idx: n, rec: { anim: 'ring-march', from: {}, to: {}, start: 0, dur: 1000, loop: true, march: marchFor(n) } });
+    n++;
+  }
+  return n;
+}
 
 // Parse the SVG, wrap every animatable root child in <g id="anim_*">, return the
 // serialized skeleton + the per-element plan. Done ONCE per scene (memoized).
@@ -656,6 +708,10 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     wrap(t, id, 'text', idx, rec);
   }
 
+  // Dotted rings/rectangles: mark and schedule their continuous march. Done last so
+  // it sees the final tree (including pathLength stamped on any draw-group shapes).
+  markDashRings(svg, plan);
+
   const skeleton = new XMLSerializer().serializeToString(svg);
   return { skeleton, plan };
 }
@@ -667,6 +723,18 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
 
   for (const p of plan) {
     const r = p.rec;
+
+    // Dotted-ring / dotted-rectangle marching. Emits ONLY a stroke-dashoffset — the
+    // element keeps its own dasharray and its visibility/position come from the icon
+    // group it lives inside (so it appears on that icon's cue, then marches until the
+    // scene ends). A continuous linear offset makes the dashes flow round the stroke;
+    // dir and pxPerFrame are varied per element so three rings never move alike.
+    if (r.anim === 'ring-march') {
+      const off = localFrame * r.march!.pxPerFrame * r.march!.dir;
+      out.push(`${p.sel}{stroke-dashoffset:${off.toFixed(2)}px;}`);
+      continue;
+    }
+
     let opacity = 1, tx = 0, ty = 0, scale = 1, rot = 0;
     let dash: number | null = null;
 

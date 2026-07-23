@@ -152,6 +152,18 @@ Titles and body copy **type on with a visible cursor** (house signature; the old
 "no typewriter" rule was reversed 2026-07-17 against the approved reference film).
 Never withhold BASE for a VO cue — that is what produced a 9.9s blank screen at 0:39 in v1.
 
+**Dotted rings & rectangles ALWAYS march.** In the reference, the dotted ring around every
+icon (and any dotted rectangle border) is NEVER static — once it appears its dashes travel
+continuously round the stroke (which reads as a slow rotation) until the scene ends, and each
+ring runs at its OWN speed and direction so a cluster never moves in lockstep. motion.ts does
+this automatically: `markDashRings()` finds every VISIBLE dashed `<path>/<circle>/<ellipse>/
+<rect>` (stroke ≠ none) and gives it a continuous `ring-march` (varied `pxPerFrame` + `dir`).
+Dashed `<line>`s are connector ARROWS that draw-on as an entrance — they are excluded. Invisible
+`stroke="none"` dashed paths are Illustrator motion-guides and are skipped. `scripts/audit-ring-
+animation.js` (in the QA gate) fails if the artwork adds a visible dotted shape the engine would
+leave frozen. This is a creative rule, not just a technical one — a still dotted ring reads as a
+dead poster (RULE 0).
+
 ## Shared Utilities — `src/utils/animationUtils.ts`
 Never re-implement these:
 - `fadeIn(frame, delay, duration)`

@@ -81,6 +81,10 @@ function main() {
     runAudit('Font & text integrity', 'audit-fonts.js'),
     runAudit('Typewriter cursor bounds', 'audit-typewriter-bounds.js'),
     runAudit('Dasharray/opacity', 'audit-dasharray-opacity.js'),
+    // Dotted rings & rectangles must MARCH continuously (house rule, CLAUDE.md). This
+    // guards that the artwork never adds a visible dotted shape the motion engine would
+    // leave frozen (e.g. a dashed <polygon> the ring-march selector does not cover).
+    runAudit('Dotted rings/rects animate', 'audit-ring-animation.js'),
     runAudit('Execution_Text freshness', 'audit-execution-text-freshness.js'),
     runAudit('Typewriter-speed freshness', 'audit-typewriter-speed-freshness.js'),
     // Every cue must still resolve and its 'at' be current — otherwise motion.ts silently
