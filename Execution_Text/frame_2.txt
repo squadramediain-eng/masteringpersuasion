@@ -15,23 +15,23 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (22, in the order motion.ts wraps them)
 
   tile_resolving_disputes [card]
-      enters at 1:08 (68.0s film time = 9.0s into this scene) on the narration beat "disputes" (beat 4), stagger; default idle 1.6px / 6.4s.
+      enters at 1:08 (68.0s film time = 9.0s into this scene) on the narration beat "disputes" (beat 4), stagger; default idle 2.6px / 6.0s.
   tile_new_procedures [card]
-      enters at 1:10 (70.0s film time = 11.0s into this scene) on the narration beat "procedures" (beat 5), stagger; default idle 1.6px / 6.4s.
+      enters at 1:10 (70.0s film time = 11.0s into this scene) on the narration beat "procedures" (beat 5), stagger; default idle 2.6px / 6.0s.
   tile_key_behaviours [card]
-      enters at 1:12 (72.0s film time = 13.0s into this scene) on the narration beat "behaviours" (beat 6), stagger; default idle 1.6px / 6.4s.
+      enters at 1:12 (72.0s film time = 13.0s into this scene) on the narration beat "behaviours" (beat 6), stagger; default idle 2.6px / 6.0s.
   tile_correcting_habits [card]
-      enters at 1:06 (66.0s film time = 7.0s into this scene) on the narration beat "habits" (beat 3), stagger; default idle 1.6px / 6.4s.
+      enters at 1:06 (66.0s film time = 7.0s into this scene) on the narration beat "habits" (beat 3), stagger; default idle 2.6px / 6.0s.
   tile_master_pilot [character]
       enters at 1:04 (64.0s film time = 5.0s into this scene) on the narration beat "master" (beat 2), stagger; idle loop from the guider spec.
   scene_7 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   tile_safety_tool [card]
-      enters at 1:02 (62.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), pop; default idle 1.6px / 6.4s.
+      enters at 1:02 (62.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), pop; default idle 2.6px / 6.0s.
   bubbles [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   deco_1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_seaweed [ambient]
       enters on the fallback recipe (no spec entry — role-based stagger).
   text_0 "04"

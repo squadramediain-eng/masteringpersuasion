@@ -1,5 +1,23 @@
 # Mastering Persuasion — Remotion Animation Project
 
+## RULE 0 — NEVER A PRESENTATION (the one that overrides everything)
+This is MOTION GRAPHICS, not a slide deck. Two review verdicts have hit this exact
+nerve: *"looks like a PowerPoint presentation"* and *"what is the point of motion
+graphics."* Both mean the same thing — a scene that fades its elements in and then
+holds still reads as slides, not film.
+- **No element is static after it appears.** The approved Ballast Water Management
+  reference has NOTHING frozen — once a thing lands it keeps living: vessels bob,
+  gears and dashed rings rotate, characters breathe, discs drift, the water and its
+  fish/bubbles never stop. See [[knowledge-vault/14 - Reference Film Frame-by-Frame Analysis]] §2.5.
+- **No scene may read as "fully present then still."** If a viewer can pause at a
+  random second in the middle of a scene and it looks like a static poster, the
+  scene has failed. Continuous, gentle, VISIBLE, VARIED motion during every hold.
+- **The build is not the animation.** Cueing elements onto their words is necessary
+  but not sufficient — the 20+ seconds of HOLD after the build is where most of the
+  runtime lives, and it must stay alive.
+- Motion is the default state, stillness is the exception you must justify.
+
+
 ## Project Status: STAGED — ready to animate
 20 frame SVGs staged in src/assets/scenes/ (clean semantic ids, QA 100). sceneRegistry.ts
 filled with audio-locked timings from the Animation Guider. palette.ts set to the blue family.

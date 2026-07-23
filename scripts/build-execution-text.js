@@ -43,10 +43,10 @@ const SKIP_IDS = /^(bg|background)$|^wave/i;
 const JUNK = /__|clip|grad|mask|filter|linear-gradient|radial-gradient|^SVGID|^XMLID/i;
 const NO_IDLE = new Set(['text', 'background', 'ambient', 'arrow', 'alert']);
 const DEFAULT_IDLE = {
-  ship: '4.5px / 5.2s', character: '3.0px / 4.6s', icon: '2.2px / 5.0s',
-  card: '1.6px / 6.4s', circle: '2.0px / 5.8s', prop: '2.0px / 5.4s',
-  decor: '1.4px / 7.2s', stat: '1.8px / 6.0s', numeral: '1.8px / 6.6s',
-  watermark: '2.4px / 8.0s',
+  ship: '9.0px / 4.8s', character: '5.0px / 4.2s', icon: '4.5px / 4.6s',
+  card: '2.6px / 6.0s', circle: '4.0px / 5.2s', prop: '4.0px / 5.0s',
+  decor: '3.0px / 6.6s', stat: '3.4px / 5.4s', numeral: '3.0px / 6.0s',
+  watermark: '3.4px / 8.0s',
 };
 
 function classify(id) {

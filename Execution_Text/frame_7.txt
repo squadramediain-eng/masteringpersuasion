@@ -15,63 +15,63 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (29, in the order motion.ts wraps them)
 
   panels [card]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.6px / 6.0s.
   ship_diagram [ship]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 4.5px / 5.2s.
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 9.0px / 4.8s.
   conflict_sparks [alert]
       enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop.
   officer_r2 [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 3.0px / 4.6s.
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 5.0px / 4.2s.
   officer_r2_hand_r [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r2_leg [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r2_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r2_hand_l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r2_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r1 [character]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 3.0px / 4.6s.
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 5.0px / 4.2s.
   officer_r1_hand_l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r1_leg [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r1_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r1_hand_r [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_r1_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l2 [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 3.0px / 4.6s.
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 5.0px / 4.2s.
   officer_l2_hand_r [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l2_leg [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l2_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l2_hand_l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l2_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l1 [character]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 3.0px / 4.6s.
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 5.0px / 4.2s.
   officer_l1_leg [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l1_hand_l [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l1_torso [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l1_hand_r [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   officer_l1_head [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   check_badge [prop]
-      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 2.0px / 5.4s.
+      enters at 3:34 (214.0s film time = 15.0s into this scene) on the narration beat "assertive" (beat 2), draw; default idle 4.0px / 5.0s.
   cross_badge [prop]
-      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 2.0px / 5.4s.
+      enters at 3:22 (202.0s film time = 3.0s into this scene) on the narration beat "aggressive" (beat 1), pop; default idle 4.0px / 5.0s.
 
 HOLD — once everything has landed, the idle loops, orbit rings, wave drift and
   bubbles keep running. The frame is never completely still.

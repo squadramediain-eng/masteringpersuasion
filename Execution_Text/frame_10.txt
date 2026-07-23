@@ -15,43 +15,43 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (20, in the order motion.ts wraps them)
 
   sb_1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_stone [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bubbles [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_coral_1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_coral_2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_fish [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   stat [stat]
-      enters at 4:49 (289.0s film time = 3.0s into this scene) on the narration beat "specific metric" (beat 1), count; default idle 1.8px / 6.0s.
+      enters at 4:49 (289.0s film time = 3.0s into this scene) on the narration beat "specific metric" (beat 1), count; default idle 3.4px / 5.4s.
   orbit_disc_1 [circle]
-      enters 300.00s (frame-overrides); default idle 2.0px / 5.8s.
+      enters 300.00s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_2 [circle]
-      enters 300.35s (frame-overrides); default idle 2.0px / 5.8s.
+      enters 300.35s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_3 [circle]
-      enters 300.70s (frame-overrides); default idle 2.0px / 5.8s.
+      enters 300.70s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_4 [circle]
-      enters 301.05s (frame-overrides); default idle 2.0px / 5.8s.
+      enters 301.05s (frame-overrides); default idle 4.0px / 5.2s.
   icon_family [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_chart [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_mountain [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_clock_2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_shield [icon]
-      enters 1.01s (guider spec, pop); default idle 2.2px / 5.0s.
+      enters 1.01s (guider spec, pop); default idle 4.5px / 4.6s.
   icon_person [character]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 4.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   icon_clock_1 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   guide_grid [decor]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.4px / 7.2s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 6.6s.
   text_0 "30"
       enters 0.42s (guider spec, rise-fade); types on over 0.14s (2 chars @ 14/s, 1 line) with a caret.
 

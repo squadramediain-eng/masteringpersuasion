@@ -143,7 +143,12 @@ const ENTER_FROM: Record<string, Record<string, number>> = {
   stagger: { scale: 0.8, opacity: 0 },
   fade: { opacity: 0 },
   typewriter: { opacity: 1 },   // the glyph reveal is the entrance; see TYPE-ON
-  draw: { opacity: 1 },         // stroke draws on; see draw flag below
+  // draw must be HIDDEN before its cue. It was opacity 1 (right for a stroke that
+  // draws on), but mp_v5 tags FILLED icons "draw" too — with opacity 1 those show
+  // their fill from frame 0, so they appeared fully-present at scene start (the
+  // "everything at once" bug). From opacity 0, the element stays hidden until its
+  // cue, then fades in as its stroke draws. Correct for both stroke and fill.
+  draw: { opacity: 0 },
   row: { translateY: -22, opacity: 0 },
   header: { translateY: -40, opacity: 0 },
   iris: { scale: 0.0, opacity: 0 },
@@ -220,18 +225,31 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
 // gets a gentle default breathe. Amplitudes are deliberately small — this is
 // ambient life, not a bounce, and the conventions still ban decorative spin on
 // content.
+// Amplitudes roughly DOUBLED from the first pass. At 1080p a 2px bob is invisible;
+// the reference's life is clearly readable — vessels rock ~8-10px, icons breathe
+// ~4-5px. Review verdict was "static / PowerPoint" (CLAUDE.md RULE 0), and the
+// measured hold motion was ~0.10 (frozen). These are the visible-but-gentle values.
 const DEFAULT_IDLE: Record<string, { amp: number; period: number; rot?: number }> = {
-  ship:      { amp: 4.5, period: 5200, rot: 0.5 },
-  character: { amp: 3.0, period: 4600 },
-  icon:      { amp: 2.2, period: 5000 },
-  card:      { amp: 1.6, period: 6400 },
-  circle:    { amp: 2.0, period: 5800 },
-  prop:      { amp: 2.0, period: 5400 },
-  decor:     { amp: 1.4, period: 7200 },
-  stat:      { amp: 1.8, period: 6000 },
-  numeral:   { amp: 1.8, period: 6600 },
-  watermark: { amp: 2.4, period: 8000 },
+  ship:      { amp: 9.0, period: 4800, rot: 1.0 },
+  character: { amp: 5.0, period: 4200 },
+  icon:      { amp: 4.5, period: 4600 },
+  card:      { amp: 2.6, period: 6000 },
+  circle:    { amp: 4.0, period: 5200 },
+  prop:      { amp: 4.0, period: 5000 },
+  decor:     { amp: 3.0, period: 6600 },
+  stat:      { amp: 3.4, period: 5400 },
+  numeral:   { amp: 3.0, period: 6000 },
+  watermark: { amp: 3.4, period: 8000 },
 };
+// Elements that visibly SPIN in the reference — gears turn, ship's wheels rotate,
+// fans/propellers spin. A slow continuous turn (not an oscillating bob), so the
+// frame reads as machinery running, never a still poster. Directional indicators
+// (compass rose) and content discs are deliberately excluded.
+const SPIN_RE = /gear|cog|wheel|helm|propeller|turbine|windmill|\bfan\b/i;
+function withSpin(rec: Rec, id: string): Rec {
+  if (rec.orbit || rec.loop || !SPIN_RE.test(id)) return rec;
+  return { ...rec, orbit: { period: 11000, deg: 360 } };
+}
 // Roles that must NOT drift: text would blur against its own caret, arrows are
 // anchored to what they point at, and background/ambient is the world layer's job.
 const NO_IDLE = new Set(['text', 'background', 'ambient', 'arrow', 'alert']);
@@ -611,7 +629,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     // elements at all, so gating this on the spec would leave the longest scene uncued.
     const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role, sceneStartSec);
     const rec = withCue(base, svgFile, id);
-    const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id, sceneStartSec);
+    const finalRec = withOverride(withSpin(withIdle(withType(rec, svgFile, id), role, idx), id), svgFile, id, sceneStartSec);
     // hide: true — drop the element from the DOM entirely rather than animating it to
     // opacity 0, so it costs nothing to render and cannot be caught mid-transition.
     if (!finalRec) { el.parentNode!.removeChild(el); continue; }

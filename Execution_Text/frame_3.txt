@@ -15,77 +15,77 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (39, in the order motion.ts wraps them)
 
   bg_detail_1 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_3 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_4 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   helmet_disc [circle]
-      enters at 1:37 (97.0s film time = 8.0s into this scene) on the narration beat "paint locker" (beat 3), pop; default idle 2.0px / 5.8s.
+      enters at 1:37 (97.0s film time = 8.0s into this scene) on the narration beat "paint locker" (beat 3), pop; default idle 4.0px / 5.2s.
   mariner_extra [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 5.0px / 4.2s.
   mariner_officer [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 5.0px / 4.2s.
   section_title [prop]
-      enters at 1:31 (91.0s film time = 2.0s into this scene) on the narration beat "section one" (beat 1), typewriter; default idle 2.0px / 5.4s.
+      enters at 1:31 (91.0s film time = 2.0s into this scene) on the narration beat "section one" (beat 1), typewriter; default idle 4.0px / 5.0s.
   first [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   heading [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   heading_2 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   mariner_2 [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 5.0px / 4.2s.
   ab_bosun_pair [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 3.0px / 4.6s.
+      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; default idle 5.0px / 4.2s.
   bg_detail_5 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_6 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_7 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_8 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_9 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_10 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_11 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_12 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_13 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_14 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_15 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_16 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_17 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_18 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_19 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_20 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_21 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_22 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_23 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_24 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_25 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_26 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_27 [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   text_0 "AB &amp; Bosun Scenario"
       enters 0.42s (guider spec, rise-fade); types on over 1.36s (19 chars @ 14/s, 1 line) with a caret.
   text_1 "1"

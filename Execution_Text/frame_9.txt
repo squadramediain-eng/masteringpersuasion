@@ -15,35 +15,35 @@ ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 ELEMENTS (30, in the order motion.ts wraps them)
 
   env_hand [prop]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_anchor [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   env_lifering [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   env_compass [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   ship [ship]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 5.2s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 9.0px / 4.8s.
   table_body [card]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.6px / 6.4s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.6px / 6.0s.
   result_icon_passive [icon]
-      enters at 4:36 (276.0s film time = 24.0s into this scene) on the narration beat "passive" (beat 4), row; default idle 2.2px / 5.0s.
+      enters at 4:36 (276.0s film time = 24.0s into this scene) on the narration beat "passive" (beat 4), row; default idle 4.5px / 4.6s.
   result_icon_rational [icon]
-      enters at 4:28 (268.0s film time = 16.0s into this scene) on the narration beat "rational buy-in" (beat 3), row; default idle 2.2px / 5.0s.
+      enters at 4:28 (268.0s film time = 16.0s into this scene) on the narration beat "rational buy-in" (beat 3), row; default idle 4.5px / 4.6s.
   icon4_2_2 [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   result_icon_aggressive [icon]
-      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 2.2px / 5.0s.
+      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 4.5px / 4.6s.
   result_icon_extra [icon]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.2px / 5.0s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   row_divider [numeral]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.8px / 6.6s.
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 6.0s.
   row_labels [card]
-      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 1.6px / 6.4s.
+      enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 2.6px / 6.0s.
   header_bar [prop]
-      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 2.0px / 5.4s.
+      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 4.0px / 5.0s.
   header_labels [prop]
-      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 2.0px / 5.4s.
+      enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 4.0px / 5.0s.
   text_0 "N"
       enters on the fallback recipe (no spec entry — role-based stagger); types on over 0.07s (1 chars @ 14/s, 1 line) with a caret.
   text_1 "S"
