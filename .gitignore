@@ -38,3 +38,4 @@ Thumbs.db
 #   public/animation/animation.json  the timing manifest  (~0.12 MB)
 #   public/animation/audio-cues.json the narration cues
 #   public/audio/*.mp3               the voiceover        (9.3 MB, under the limit)
+.ctarget-tmp/
