@@ -24,7 +24,15 @@ const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
-const FROZEN = 0.10;   // below this, the hold is effectively static
+// Thresholds CALIBRATED to the approved reference film, measured with this exact
+// method (fps=10 tblend-difference YAVG over the whole 9:11):
+//   reference motion  median 0.248 · mean 0.491 · p10 0.062 · p90 0.764
+//   reference jitter  8%  (smooth drift barely reverses)
+// So a scene mean below ~0.08 is genuinely dead (below the reference's own quiet
+// floor), and a jitter above ~35% is well past the reference's 8% — the vibrating
+// class. These are the reference's numbers, not a guess.
+const FROZEN = 0.08;
+const JITTER_MAX = 0.35;
 const video = process.argv[2] || path.join(ROOT, 'out', 'mastering_persuasion_v8.mp4');
 
 if (!fs.existsSync(video)) {
@@ -90,7 +98,7 @@ for (const s of scenes()) {
   const ji = jitterRatio(series);
   const flags = [];
   if (mo < FROZEN) { flags.push('FROZEN'); problems.push(`scene ${String(n).padStart(2)} (${s.file}): hold is FROZEN (motion ${mo.toFixed(3)} < ${FROZEN}) — reads as a static slide (RULE 0).`); }
-  if (ji > 0.55) { flags.push('JITTER'); problems.push(`scene ${String(n).padStart(2)} (${s.file}): hold JITTERS (${(ji * 100).toFixed(0)}% frames reverse) — ambient/element vibrating in place.`); }
+  if (ji > JITTER_MAX) { flags.push('JITTER'); problems.push(`scene ${String(n).padStart(2)} (${s.file}): hold JITTERS (${(ji * 100).toFixed(0)}% frames reverse, reference is 8%) — ambient/element vibrating in place.`); }
   rows.push(`  scene ${String(n).padStart(2)}  ${s.file.padEnd(14)} motion=${mo.toFixed(3)}  jitter=${(ji * 100).toFixed(0)}%  ${flags.join(' ') || 'ok'}`);
   n++;
 }
