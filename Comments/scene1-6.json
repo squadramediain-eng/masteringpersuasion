@@ -1,0 +1,1493 @@
+[
+  {
+    "id": "c1",
+    "raw_timecode": "00:00:14:04",
+    "timecode_sec": 14.12,
+    "text": "The shape inside have to rotate clockwise slowly until the end of frame",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.426,
+      "y": 0.5324,
+      "w": 0.1141,
+      "h": 0.2266
+    }
+  },
+  {
+    "id": "c2",
+    "raw_timecode": "00:00:14:04",
+    "timecode_sec": 14.12,
+    "text": "Rotate all the gears inside not in same direction,",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.164,
+      "y": 0.6893,
+      "w": 0.1275,
+      "h": 0.2234
+    }
+  },
+  {
+    "id": "c3",
+    "raw_timecode": "00:00:14:09",
+    "timecode_sec": 14.3,
+    "text": "The Shield have to show up and a reflection on top",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4144,
+      "y": 0.2979,
+      "w": 0.1248,
+      "h": 0.225
+    }
+  },
+  {
+    "id": "c4",
+    "raw_timecode": "00:00:14:09",
+    "timecode_sec": 14.3,
+    "text": "The stopwatch have to shake a bit left and right side and the the needle of the clock have to rotate clockwise like a real clock",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1658,
+      "y": 0.0919,
+      "w": 0.1266,
+      "h": 0.2044
+    }
+  },
+  {
+    "id": "c5",
+    "raw_timecode": "00:00:14:16",
+    "timecode_sec": 14.53,
+    "text": "The Anchor has to have a slight movement and the chain has to have some small animation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6676,
+      "y": 0.3169,
+      "w": 0.2184,
+      "h": 0.4183
+    }
+  },
+  {
+    "id": "c6",
+    "raw_timecode": "00:00:14:16",
+    "timecode_sec": 14.53,
+    "text": "The outer sound wave has to move outwards, the speaker has to have a shake left and right",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7166,
+      "y": 0.1949,
+      "w": 0.0677,
+      "h": 0.0919
+    }
+  },
+  {
+    "id": "c7",
+    "raw_timecode": "00:00:35:16",
+    "timecode_sec": 35.52,
+    "text": "At the start we should not show this panel and the magnifier logo, first the white panel has to appear , after the content appears only the maginifier has to appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2576,
+      "y": 0.2377,
+      "w": 0.484,
+      "h": 0.4817
+    }
+  },
+  {
+    "id": "c8",
+    "raw_timecode": "00:00:48:17",
+    "timecode_sec": 48.58,
+    "text": "This is Set A, the center logo has to appear first [the logo has a motion of rotation], then the arrows on top and bottom the the profile logo on top and bottom appears. Overall in this frame this Set A has to appear other set's should not appear.",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1533,
+      "y": 0.233,
+      "w": 0.0971,
+      "h": 0.5118
+    }
+  },
+  {
+    "id": "c9",
+    "raw_timecode": "00:00:48:28",
+    "timecode_sec": 48.93,
+    "text": "This is Set B, the Left logo [rotates a motion clockwise] and right logo [speaker has a slight left and right rotation movement and the sound wave animations]appears, then the arrows show up and animates towards the middle logo, then the middle logo appears, after full appearing the Set C appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.279,
+      "y": 0.103,
+      "w": 0.4439,
+      "h": 0.168
+    }
+  },
+  {
+    "id": "c10",
+    "raw_timecode": "00:00:48:28",
+    "timecode_sec": 48.93,
+    "text": "This is Set C, the Left and right logo appears, then the arrows show up and animates towards the middle logo [all the gears rotate with different direction], then the middle logo appears, after full appearing the Set D appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2799,
+      "y": 0.7036,
+      "w": 0.4439,
+      "h": 0.168
+    }
+  },
+  {
+    "id": "c11",
+    "raw_timecode": "00:00:49:19",
+    "timecode_sec": 49.63,
+    "text": "Set D appears the two up and down logo, the arrows appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7718,
+      "y": 0.225,
+      "w": 0.09,
+      "h": 0.5102
+    }
+  },
+  {
+    "id": "c12",
+    "raw_timecode": "00:01:00:04",
+    "timecode_sec": 60.12,
+    "text": "The Fishes Jitter here, We need all the fishes to animate and move towards their face direction and change its position like swiming ahead",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0446,
+      "y": 0.7004,
+      "w": 0.3886,
+      "h": 0.2836
+    }
+  },
+  {
+    "id": "c13",
+    "raw_timecode": "00:01:00:08",
+    "timecode_sec": 60.27,
+    "text": "Wave Warp animation so this is the underwater plant with smooth animation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8841,
+      "y": 0.6861,
+      "w": 0.1043,
+      "h": 0.3139
+    }
+  },
+  {
+    "id": "c15",
+    "raw_timecode": "00:01:09:19",
+    "timecode_sec": 69.62,
+    "text": "After appearing only the Texts have to appear with typewrite effect and the bottom line also animates after the text animation completes, this has to be followed for all the 6 shapes in this frame",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0758,
+      "y": 0.5102,
+      "w": 0.262,
+      "h": 0.3486
+    }
+  },
+  {
+    "id": "c14",
+    "raw_timecode": "00:01:13:13",
+    "timecode_sec": 73.43,
+    "text": "This Up and Down animation is not required, let it be static like others,",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.3717,
+      "y": 0.1617,
+      "w": 0.2674,
+      "h": 0.3296
+    }
+  },
+  {
+    "id": "c16",
+    "raw_timecode": "00:01:23:17",
+    "timecode_sec": 83.57,
+    "text": "The bubbles have to animate from bottom to top by resizing from small to a 50% more that the actual size and disappears, then loop, slowly, the movement should have a slight rotation left and right, and position left and right",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8922,
+      "y": 0.0698,
+      "w": 0.082,
+      "h": 0.1553
+    }
+  },
+  {
+    "id": "c17",
+    "raw_timecode": "00:01:30:01",
+    "timecode_sec": 90.03,
+    "text": "This Cursor effect is very huge, lets fix this in every other frame, the size of the cursor has to be the height of the characters",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0348,
+      "y": 0.0159,
+      "w": 0.1025,
+      "h": 0.3866
+    }
+  },
+  {
+    "id": "c18",
+    "raw_timecode": "00:01:30:04",
+    "timecode_sec": 90.13,
+    "text": "Here Both the Text should not animate at the same time,\nFirst the Title , after it completes only the subheading has to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1221,
+      "y": 0.1743,
+      "w": 0.3146,
+      "h": 0.1965
+    }
+  },
+  {
+    "id": "c19",
+    "raw_timecode": "00:01:30:04",
+    "timecode_sec": 90.13,
+    "text": "These Characters should not appear before the text appear, The right side characters should not appear here, the left side character can appear after the subheading text appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.041,
+      "y": 0.3597,
+      "w": 0.893,
+      "h": 0.4959
+    }
+  },
+  {
+    "id": "c20",
+    "raw_timecode": "00:01:35:01",
+    "timecode_sec": 95.02,
+    "text": "These four logos animate the outer dots -perfect\nbut all four are appearing at the same time - wrong.\nThey must appear one after the other based on the voice over. after appearing the inner logo has to animate.\n1. gears rotate, the spaner shake like real spaner\n2. the shape rotates clockwise\n3. the smoke inside and the shock inside animates,\n4. the Cap has a slight animation\n[REMEMBER this is not a PRESENTATION",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "drawing": [
+      [
+        {
+          "x": 0.2398,
+          "y": 0.4104
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2424,
+          "y": 0.4088
+        },
+        {
+          "x": 0.246,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2496,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2567,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2629,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2718,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2807,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2941,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3048,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3173,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3298,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3449,
+          "y": 0.3946
+        },
+        {
+          "x": 0.3601,
+          "y": 0.3882
+        },
+        {
+          "x": 0.3752,
+          "y": 0.3851
+        },
+        {
+          "x": 0.393,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4171,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4287,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4456,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4563,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4643,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4724,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4759,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4786,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4822,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4875,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4955,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5036,
+          "y": 0.3772
+        },
+        {
+          "x": 0.516,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5241,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5267,
+          "y": 0.3772
+        },
+        {
+          "x": 0.533,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5401,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5446,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5499,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5517,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5526,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5535,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5553,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5579,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5651,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5668,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5713,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5749,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5811,
+          "y": 0.3851
+        },
+        {
+          "x": 0.5829,
+          "y": 0.3851
+        },
+        {
+          "x": 0.5909,
+          "y": 0.3867
+        },
+        {
+          "x": 0.5971,
+          "y": 0.3946
+        },
+        {
+          "x": 0.6025,
+          "y": 0.3946
+        },
+        {
+          "x": 0.6078,
+          "y": 0.3993
+        },
+        {
+          "x": 0.6105,
+          "y": 0.3993
+        },
+        {
+          "x": 0.6114,
+          "y": 0.4009
+        },
+        {
+          "x": 0.615,
+          "y": 0.4009
+        },
+        {
+          "x": 0.6159,
+          "y": 0.4025
+        },
+        {
+          "x": 0.6176,
+          "y": 0.4057
+        },
+        {
+          "x": 0.6203,
+          "y": 0.4104
+        },
+        {
+          "x": 0.6212,
+          "y": 0.4136
+        },
+        {
+          "x": 0.6239,
+          "y": 0.4247
+        },
+        {
+          "x": 0.6257,
+          "y": 0.4326
+        },
+        {
+          "x": 0.6283,
+          "y": 0.4374
+        },
+        {
+          "x": 0.6319,
+          "y": 0.4485
+        },
+        {
+          "x": 0.6337,
+          "y": 0.4611
+        },
+        {
+          "x": 0.6364,
+          "y": 0.4754
+        },
+        {
+          "x": 0.6364,
+          "y": 0.4912
+        },
+        {
+          "x": 0.6373,
+          "y": 0.5102
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5229
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5404
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5451
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5578
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5689
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5831
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5895
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5958
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6006
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6021
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6069
+        },
+        {
+          "x": 0.6373,
+          "y": 0.6117
+        },
+        {
+          "x": 0.6346,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6337,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6319,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6301,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6283,
+          "y": 0.618
+        },
+        {
+          "x": 0.6275,
+          "y": 0.618
+        },
+        {
+          "x": 0.6239,
+          "y": 0.618
+        },
+        {
+          "x": 0.6212,
+          "y": 0.6212
+        },
+        {
+          "x": 0.6132,
+          "y": 0.6243
+        },
+        {
+          "x": 0.6105,
+          "y": 0.6243
+        },
+        {
+          "x": 0.6043,
+          "y": 0.6243
+        },
+        {
+          "x": 0.5927,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5856,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5758,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5651,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5561,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5437,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5312,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5258,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5196,
+          "y": 0.6291
+        },
+        {
+          "x": 0.516,
+          "y": 0.6291
+        },
+        {
+          "x": 0.508,
+          "y": 0.6307
+        },
+        {
+          "x": 0.5009,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4938,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4866,
+          "y": 0.6307
+        },
+        {
+          "x": 0.475,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4679,
+          "y": 0.6307
+        },
+        {
+          "x": 0.459,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4483,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4385,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4296,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4207,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4171,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4127,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4064,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3939,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3859,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3806,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3743,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3645,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3574,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3485,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3422,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3378,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3316,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3271,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3209,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3111,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3048,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2977,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2941,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2879,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2834,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2807,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2772,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2736,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2709,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2692,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2701,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2683,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6291
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6275
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6259
+        },
+        {
+          "x": 0.2665,
+          "y": 0.6196
+        },
+        {
+          "x": 0.2656,
+          "y": 0.6117
+        },
+        {
+          "x": 0.2638,
+          "y": 0.6085
+        },
+        {
+          "x": 0.2629,
+          "y": 0.6021
+        },
+        {
+          "x": 0.2629,
+          "y": 0.5926
+        },
+        {
+          "x": 0.2611,
+          "y": 0.5863
+        },
+        {
+          "x": 0.2594,
+          "y": 0.58
+        },
+        {
+          "x": 0.2594,
+          "y": 0.5752
+        },
+        {
+          "x": 0.2576,
+          "y": 0.5689
+        },
+        {
+          "x": 0.2567,
+          "y": 0.5625
+        },
+        {
+          "x": 0.2567,
+          "y": 0.561
+        },
+        {
+          "x": 0.2531,
+          "y": 0.5594
+        },
+        {
+          "x": 0.2504,
+          "y": 0.553
+        },
+        {
+          "x": 0.2496,
+          "y": 0.5483
+        },
+        {
+          "x": 0.2469,
+          "y": 0.5467
+        },
+        {
+          "x": 0.246,
+          "y": 0.5419
+        },
+        {
+          "x": 0.246,
+          "y": 0.5388
+        },
+        {
+          "x": 0.246,
+          "y": 0.5356
+        },
+        {
+          "x": 0.2433,
+          "y": 0.5293
+        },
+        {
+          "x": 0.2433,
+          "y": 0.5277
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5245
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5213
+        },
+        {
+          "x": 0.2424,
+          "y": 0.515
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5071
+        },
+        {
+          "x": 0.2424,
+          "y": 0.496
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4912
+        },
+        {
+          "x": 0.2398,
+          "y": 0.477
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4754
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4691
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4643
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4595
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4532
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4516
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4453
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4421
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4358
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4342
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4294
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4247
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4231
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4184
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4168
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4136
+        },
+        {
+          "x": 0.2389,
+          "y": 0.412
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4073
+        }
+      ],
+      [
+        {
+          "x": 0.6988,
+          "y": 0.0951
+        },
+        {
+          "x": 0.705,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7193,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7451,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7736,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8217,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8619,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8886,
+          "y": 0.0951
+        },
+        {
+          "x": 0.902,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9082,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9118,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9135,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9144,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9171,
+          "y": 0.0904
+        },
+        {
+          "x": 0.918,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0951
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0999
+        },
+        {
+          "x": 0.9189,
+          "y": 0.1015
+        },
+        {
+          "x": 0.9171,
+          "y": 0.1189
+        },
+        {
+          "x": 0.91,
+          "y": 0.1347
+        },
+        {
+          "x": 0.9055,
+          "y": 0.149
+        },
+        {
+          "x": 0.9002,
+          "y": 0.1664
+        },
+        {
+          "x": 0.893,
+          "y": 0.1902
+        },
+        {
+          "x": 0.8922,
+          "y": 0.1997
+        },
+        {
+          "x": 0.8895,
+          "y": 0.2108
+        },
+        {
+          "x": 0.8895,
+          "y": 0.214
+        },
+        {
+          "x": 0.8886,
+          "y": 0.2203
+        },
+        {
+          "x": 0.8859,
+          "y": 0.2266
+        },
+        {
+          "x": 0.885,
+          "y": 0.2282
+        },
+        {
+          "x": 0.885,
+          "y": 0.2298
+        },
+        {
+          "x": 0.8841,
+          "y": 0.233
+        },
+        {
+          "x": 0.8815,
+          "y": 0.2361
+        },
+        {
+          "x": 0.877,
+          "y": 0.2425
+        },
+        {
+          "x": 0.8734,
+          "y": 0.2441
+        },
+        {
+          "x": 0.8636,
+          "y": 0.2536
+        },
+        {
+          "x": 0.8503,
+          "y": 0.2583
+        },
+        {
+          "x": 0.8485,
+          "y": 0.2583
+        },
+        {
+          "x": 0.8387,
+          "y": 0.2726
+        },
+        {
+          "x": 0.828,
+          "y": 0.2757
+        },
+        {
+          "x": 0.8155,
+          "y": 0.2805
+        },
+        {
+          "x": 0.803,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7879,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7799,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7629,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7522,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7469,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7362,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7326,
+          "y": 0.2773
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2757
+        },
+        {
+          "x": 0.7317,
+          "y": 0.271
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2647
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2504
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2314
+        },
+        {
+          "x": 0.7389,
+          "y": 0.2171
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1934
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1918
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1886
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1807
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1743
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1648
+        },
+        {
+          "x": 0.7362,
+          "y": 0.1506
+        },
+        {
+          "x": 0.7362,
+          "y": 0.1442
+        },
+        {
+          "x": 0.7344,
+          "y": 0.1347
+        },
+        {
+          "x": 0.7344,
+          "y": 0.13
+        },
+        {
+          "x": 0.7326,
+          "y": 0.1236
+        },
+        {
+          "x": 0.7317,
+          "y": 0.1189
+        },
+        {
+          "x": 0.7291,
+          "y": 0.1141
+        },
+        {
+          "x": 0.7291,
+          "y": 0.1125
+        },
+        {
+          "x": 0.7282,
+          "y": 0.1046
+        },
+        {
+          "x": 0.7255,
+          "y": 0.0999
+        }
+      ]
+    ]
+  },
+  {
+    "id": "c21",
+    "raw_timecode": "00:01:38:25",
+    "timecode_sec": 98.83,
+    "text": "When the ring appears, with it only the inner characters have to appear\nafter appearing, the voice bubble appears, then the inner lines animates, like they are talking",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6435,
+      "y": 0.2789,
+      "w": 0.2736,
+      "h": 0.507
+    }
+  },
+  {
+    "id": "c22",
+    "raw_timecode": "00:01:54:02",
+    "timecode_sec": 114.05,
+    "text": "Before title text itself the shapes and the bottom 3 logos are shown - WRONG\n\nAfter the title appear only the shapes should appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0303,
+      "y": 0.0824,
+      "w": 0.8717,
+      "h": 0.873
+    }
+  },
+  {
+    "id": "c23",
+    "raw_timecode": "00:01:56:12",
+    "timecode_sec": 116.41,
+    "text": "All three texts are appearing together - wrong\nOne by one has to animate - typewriting\nand its respecting logo has to appear with it\nThen the arrow then the next text box, then the text and its respective logo appears [ then the inner logo animates] - THIS IS A GLOBAL LOGIC - always follow it",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1061,
+      "y": 0.1854,
+      "w": 0.754,
+      "h": 0.4785
+    }
+  },
+  {
+    "id": "c24",
+    "raw_timecode": "00:02:31:18",
+    "timecode_sec": 151.6,
+    "text": "JIttering Waves, Completely Wrong",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4403,
+      "y": 0.3645,
+      "w": 0.5579,
+      "h": 0.2551
+    }
+  },
+  {
+    "id": "c25",
+    "raw_timecode": "00:02:36:19",
+    "timecode_sec": 156.65,
+    "text": "The wheel has to rotate on the left part",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6471,
+      "y": 0.2995,
+      "w": 0.2282,
+      "h": 0.2519
+    }
+  },
+  {
+    "id": "c26",
+    "raw_timecode": "00:02:36:27",
+    "timecode_sec": 156.9,
+    "text": "The ship have to animate with the waves movement below it. The waves at the bottom has to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1194,
+      "y": 0.6085,
+      "w": 0.4537,
+      "h": 0.3232
+    }
+  },
+  {
+    "id": "c27",
+    "raw_timecode": "00:02:48:17",
+    "timecode_sec": 168.56,
+    "text": "Jittering plant, as i said earlier, we need the waveswarp",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8556,
+      "y": 0.5911,
+      "w": 0.1007,
+      "h": 0.3201
+    }
+  }
+]

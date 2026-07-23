@@ -34,6 +34,23 @@ const ROOT_SHAPES = new Set(['path', 'line', 'polyline', 'polygon', 'circle', 'e
 // See src/scenes/WorldLayer.tsx and knowledge-vault/12 - Motion & Frame Construction Spec.
 const SKIP_IDS = /^(bg|background)$|^wave/i;
 
+// Ambient LIFE inside the world layer — animated smoothly instead of frozen (see
+// withData). Fish glide, seaweed/plants wave-warp, coral sways. Keyed on id.
+function lifeAnim(id: string): string | null {
+  if (/fish|shoal|school/i.test(id)) return 'fish-swim';
+  if (/seaweed|kelp|weed|plant|algae|frond/i.test(id)) return 'plant-warp';
+  if (/coral|reef|anemone/i.test(id)) return 'coral-sway';
+  // The decor "bubbles" cluster (NOT a speech/thought bubble or bubble_ship).
+  if (/^bubbles?$|water_?bubble|air_?bubble|rising_?bubble/i.test(id)) return 'bubble-rise';
+  return null;
+}
+// Stable 0..2π phase from an id, so each life element moves on its own beat.
+function hashPhase(id: string): number {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (Math.imul(h, 31) + id.charCodeAt(i)) >>> 0;
+  return (h % 1000) / 1000 * Math.PI * 2;
+}
+
 interface SpecIdle { anim: string; translateY: number[]; rotate?: number[]; dur: number; ease: string; loop: boolean }
 interface SpecOrbit { anim: string; rotate: number[]; dur: number; ease: string; loop: boolean; target: string }
 export interface SpecEl {
@@ -174,13 +191,19 @@ function withData(rec: Rec, el: Element, role: string, sceneStartSec: number): R
   const layer = el.getAttribute('data-layer');
   const tRaw = el.getAttribute('data-t');
   const enter = el.getAttribute('data-enter') || '';
+  const id = el.getAttribute('id') || '';
 
-  // WORLD is on from frame 0 and is STATIC ambient composition — it must NOT enter
-  // and must NOT get a per-element idle/spin. Applying idle to it made the frame's
-  // bubbles, background details, seabed and water shapes jiggle in place ("stuck
-  // bubbles / weird waves"). The only moving ambient is WorldLayer (smooth drift +
-  // rising bubbles), never these. The `world` flag makes withIdle/withSpin skip it.
+  // WORLD is on from frame 0 and is STATIC SCENERY — it must NOT enter and must NOT
+  // get a per-element idle/spin. Applying idle to it made the frame's background
+  // details, seabed and water shapes jiggle in place ("stuck bubbles / weird waves").
+  // EXCEPTION — ambient LIFE (fish, seaweed, coral, plants): "the water is never dead"
+  // (Comments c12/c13/c27). A frozen school of fish or a stiff seaweed reads as wrong,
+  // and giving them the generic idle made them JITTER. So they get a bespoke, SMOOTH
+  // loop instead: fish glide, seaweed/plants wave-warp (skew from the base), corals sway.
+  // They stay `world:true` (never enter/exit) but carry a `life` anim styleFor drives.
   if (layer && WORLD_LAYERS.has(layer)) {
+    const life = lifeAnim(id);
+    if (life) return { ...rec, anim: life, from: {}, to: {}, start: 0, dur: 1, loop: true, world: true, lifePhase: hashPhase(id) };
     return { ...rec, start: 0, dur: 1, from: { opacity: 1 }, to: { opacity: 1 }, world: true };
   }
   if (tRaw === null) return rec;
@@ -414,6 +437,9 @@ interface Rec {
   // as rotation. Varied per element (dir + speed) so no two read the same. See the
   // dash-ring pass in planAndWrap and the 'ring-march' branch in styleFor.
   march?: { pxPerFrame: number; dir: number };
+  // Phase (0..2π) for an ambient-life loop (fish-swim / plant-warp / coral-sway), so
+  // each element moves on its own beat rather than the whole school pulsing as one.
+  lifePhase?: number;
   // Set for <text> that has measured metrics — drives the character-exact
   // clip reveal and the caret. See TYPE-ON above.
   type?: TextMetric;
@@ -644,13 +670,17 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
       if (m.transform) caretG.setAttribute('transform', m.transform);
       const caret = doc.createElementNS('http://www.w3.org/2000/svg', 'rect');
       caret.setAttribute('id', 'caret_' + id);
-      // Sized and placed against ONE line, not the whole block: for multi-line text
-      // the bbox height covers every line, and a caret that tall reads as a rule
-      // through the paragraph. The per-frame transform then walks it across and down.
+      // Sized to the CHARACTER (cap) height, sitting on the baseline — not the full
+      // line box. lineH = m.h/lines includes ascender+descender+leading, so a caret at
+      // 0.85·lineH stood ~1.7x the cap height and dipped below the baseline: reviewed as
+      // "the cursor is very huge" (Comments c17, a global note). Cap height is ~0.55·lineH
+      // (measured: line-spacing 98 vs m.h/lines 114, caps ~59). So height=0.55·lineH with
+      // the bottom on the baseline makes the caret exactly as tall as the letters.
+      const capH = lineH * 0.55;
       caret.setAttribute('x', String(m.lines[0].x0));
-      caret.setAttribute('y', String(m.lines[0].y - lineH * 0.78));
-      caret.setAttribute('width', String(Math.max(2, lineH * 0.05)));
-      caret.setAttribute('height', String(lineH * 0.85));
+      caret.setAttribute('y', String(m.lines[0].y - capH));
+      caret.setAttribute('width', String(Math.max(2, lineH * 0.045)));
+      caret.setAttribute('height', String(capH));
       caret.setAttribute('fill', el.getAttribute('fill') || '#0840a5');
       caretG.appendChild(caret);
       g.appendChild(caretG);
@@ -708,6 +738,28 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     wrap(t, id, 'text', idx, rec);
   }
 
+  // SEQUENTIAL HEADING TEXT (Comments c18): the title and subheading must not type at
+  // the same time — the subheading types after the title finishes. Applies to a scene's
+  // HEADING texts only (not inside a card: each card's text types on its own when the
+  // card lands, per c15). Ordered top-to-bottom, each delayed to start after the one
+  // above it completes. Only ever DELAYS (never advances), so it cannot pull a caption
+  // ahead of its cue.
+  const HEAD_GAP = 140;
+  const tyOf = (m?: TextMetric) => {
+    const n = (m?.transform || '').match(/-?\d*\.?\d+/g);
+    return n && n.length >= 6 ? parseFloat(n[5]) : 0;   // matrix(a b c d e f) -> f
+  };
+  const heads = plan
+    .filter((p) => p.role === 'text' && p.rec.type)
+    .map((p) => ({ p, el: svg.querySelector(p.sel) as Element | null }))
+    .filter((x) => x.el && !x.el.closest('g[data-layer="card"]'))
+    .sort((a, b) => tyOf(a.p.rec.type) - tyOf(b.p.rec.type));
+  let prevEnd = -Infinity;
+  for (const { p } of heads) {
+    if (p.rec.start < prevEnd + HEAD_GAP) p.rec.start = prevEnd + HEAD_GAP;
+    prevEnd = p.rec.start + p.rec.dur;
+  }
+
   // Dotted rings/rectangles: mark and schedule their continuous march. Done last so
   // it sees the final tree (including pathLength stamped on any draw-group shapes).
   markDashRings(svg, plan);
@@ -732,6 +784,44 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     if (r.anim === 'ring-march') {
       const off = localFrame * r.march!.pxPerFrame * r.march!.dir;
       out.push(`${p.sel}{stroke-dashoffset:${off.toFixed(2)}px;}`);
+      continue;
+    }
+
+    // Ambient LIFE in the world layer — smooth, never jittery (Comments c12/c13/c27).
+    // Fish glide (translate), seaweed/plants wave-warp (skewX from the base, like a
+    // frond in current), coral sways (rotate from the base). Each on its own phase.
+    if (r.anim === 'bubble-rise') {
+      // The decor bubble cluster drifts UP and recycles, fading in low and out high —
+      // the reset happens while invisible, so it loops seamlessly with no teleport.
+      const t = localFrame / fps;
+      const cyc = ((t / 7) + (r.lifePhase ?? 0) / (2 * Math.PI)) % 1;
+      const up = -70 * cyc;
+      const grow = 1 + 0.4 * cyc;
+      const op = Math.sin(cyc * Math.PI);
+      out.push(`${p.sel}{transform:translateY(${up.toFixed(1)}px) scale(${grow.toFixed(3)});opacity:${op.toFixed(3)};transform-box:fill-box;transform-origin:bottom center;}`);
+      continue;
+    }
+    if (r.anim === 'fish-swim' || r.anim === 'plant-warp' || r.anim === 'coral-sway') {
+      const t = localFrame / fps;
+      const ph = r.lifePhase ?? 0;
+      let tf: string;
+      if (r.anim === 'fish-swim') {
+        // A slow horizontal glide + gentle vertical rise/fall — reads as the school
+        // swimming in the current, not vibrating in place.
+        const gx = Math.sin((2 * Math.PI * t) / 7 + ph) * 26;
+        const gy = Math.sin((2 * Math.PI * t) / 3.8 + ph * 1.3) * 6;
+        tf = `transform:translate(${gx.toFixed(2)}px, ${gy.toFixed(2)}px);transform-box:fill-box;transform-origin:center;`;
+      } else if (r.anim === 'plant-warp') {
+        // Seaweed sway: skew from the ANCHORED base so the tips move most — the "wave
+        // warp" the reviewer asked for, and inherently smooth (one slow sine).
+        const sk = Math.sin((2 * Math.PI * t) / 4.6 + ph) * 6;
+        const sw = Math.sin((2 * Math.PI * t) / 6.3 + ph) * 2;
+        tf = `transform:skewX(${sk.toFixed(2)}deg) translateX(${sw.toFixed(2)}px);transform-box:fill-box;transform-origin:bottom center;`;
+      } else {
+        const ro = Math.sin((2 * Math.PI * t) / 5.2 + ph) * 3;
+        tf = `transform:rotate(${ro.toFixed(2)}deg);transform-box:fill-box;transform-origin:bottom center;`;
+      }
+      out.push(`${p.sel}{${tf}}`);
       continue;
     }
 

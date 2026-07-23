@@ -139,17 +139,29 @@ export const WorldLayer: React.FC = () => {
   const BAND_TOP = 830;
   const FLOOR = 1035;
 
+  // Bubbles rise bottom->top, GROW from their size to +50% as they go, fade out at the
+  // top, then loop (Comments c16). Each carries a small offset highlight so the slight
+  // left/right ROTATION reads, and sways left/right in x. All smooth sines — no jitter.
   const BUBBLES = 10;
   const bubbles = Array.from({ length: BUBBLES }, (_, i) => {
     const seedX = ((i * 137.508) % 100) / 100;
-    const period = 8 + (i % 5) * 2.2;                 // seconds for one full rise
+    const period = 9 + (i % 5) * 2.4;                 // seconds for one full rise (slow)
     const phase = (t / period + seedX) % 1;           // 0 → 1 up through the band
     const x = 60 + seedX * 1800;
     const y = FLOOR - phase * (FLOOR - BAND_TOP);
-    const r = 2.5 + (i % 4) * 1.5;
+    const baseR = 3 + (i % 4) * 1.4;
+    const grow = 1 + 0.5 * phase;                     // size -> +50% as it rises
+    const r = baseR * grow;
     const o = Math.sin(phase * Math.PI) * 0.5;        // fade in low, out high
-    const sway = Math.sin((2 * Math.PI * t) / 5 + i) * 6;
-    return `<circle cx="${(x + sway).toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#8fc0e8" opacity="${o.toFixed(3)}"/>`;
+    const sway = Math.sin((2 * Math.PI * t) / 5 + i) * 9;    // left/right position
+    const rot = Math.sin((2 * Math.PI * t) / 4 + i) * 10;    // slight left/right rotation
+    const hi = baseR * 0.32;                          // highlight, so rotation is visible
+    return (
+      `<g transform="translate(${(x + sway).toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)})" opacity="${o.toFixed(3)}">` +
+      `<circle r="${r.toFixed(1)}" fill="#8fc0e8"/>` +
+      `<circle cx="${(-r * 0.35).toFixed(1)}" cy="${(-r * 0.35).toFixed(1)}" r="${hi.toFixed(1)}" fill="#eaf4fc"/>` +
+      `</g>`
+    );
   }).join('');
 
   // A few fish drifting across the band, continuously, never restarting at a cut —
