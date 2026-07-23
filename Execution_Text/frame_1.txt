@@ -25,29 +25,29 @@ ELEMENTS (20, in the order motion.ts wraps them)
   card_center [card]
       enters at 0:37 (37.0s film time = 3.0s into this scene) on the narration beat "safety tool" (beat 1), typewriter; default idle 1.6px / 6.4s.
   concept_icon_1 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 44.30s (frame-overrides); default idle 2.2px / 5.0s.
   person_1 [character]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 3.0px / 4.6s.
+      enters 45.00s (frame-overrides); default idle 3.0px / 4.6s.
   concept_icon_2 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 44.50s (frame-overrides); default idle 2.2px / 5.0s.
   concept_icon_3 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 44.70s (frame-overrides); default idle 2.2px / 5.0s.
   concept_icon_4 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 44.90s (frame-overrides); default idle 2.2px / 5.0s.
   concept_icon_5 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 45.10s (frame-overrides); default idle 2.2px / 5.0s.
   concept_icon_6 [icon]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 2.2px / 5.0s.
+      enters 45.30s (frame-overrides); default idle 2.2px / 5.0s.
   connectors [arrow]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw.
+      enters 44.00s (frame-overrides).
   person_2 [character]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 3.0px / 4.6s.
+      enters 45.20s (frame-overrides); default idle 3.0px / 4.6s.
   person_3 [character]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 3.0px / 4.6s.
+      enters 45.40s (frame-overrides); default idle 3.0px / 4.6s.
   person_4 [character]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 3.0px / 4.6s.
+      enters 45.60s (frame-overrides); default idle 3.0px / 4.6s.
   person_5 [character]
-      enters at 0:44 (44.0s film time = 10.0s into this scene) on the narration beat "cooperate" (beat 3), draw; default idle 3.0px / 4.6s.
+      enters 45.80s (frame-overrides); default idle 3.0px / 4.6s.
   deco_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   text_0 "Using clear communication,logic, and respect t"

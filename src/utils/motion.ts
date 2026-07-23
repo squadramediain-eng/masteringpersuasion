@@ -285,12 +285,15 @@ const overrideFor = (svgFile: string, id: string): ElOverride | undefined =>
   RESERVED.has(id) ? undefined : OVERRIDES[svgFile]?.[id];
 
 // Returns null when the override asks for the element to be removed entirely.
-function withOverride(rec: Rec, svgFile: string, id: string): Rec | null {
+function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: number): Rec | null {
   const o = overrideFor(svgFile, id);
   if (!o) return rec;
   if (o.hide) return null;
   const next: Rec = { ...rec };
-  if (o.at !== undefined) next.start = o.at * 1000;
+  // `at` is ABSOLUTE film time, same as data-t and cue-bindings.json — so a time
+  // copied straight from the manifest lands correctly. Converted to the scene's
+  // local clock here (clamped at 0), the same way withData converts data-t.
+  if (o.at !== undefined) next.start = Math.max(0, o.at - sceneStartSec) * 1000;
   if (o.dur !== undefined) next.dur = o.dur;
   if (o.idle !== undefined) next.idle = o.idle === false ? undefined : o.idle;
   if (o.orbit !== undefined) next.orbit = o.orbit === false ? undefined : o.orbit;
@@ -608,7 +611,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     // elements at all, so gating this on the spec would leave the longest scene uncued.
     const base = withData(se ? fromSpec(se) : recipe(role, idx, anchorX, frameMs), el, role, sceneStartSec);
     const rec = withCue(base, svgFile, id);
-    const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id);
+    const finalRec = withOverride(withIdle(withType(rec, svgFile, id), role, idx), svgFile, id, sceneStartSec);
     // hide: true — drop the element from the DOM entirely rather than animating it to
     // opacity 0, so it costs nothing to render and cannot be caught mid-transition.
     if (!finalRec) { el.parentNode!.removeChild(el); continue; }
@@ -626,7 +629,7 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
     const idx = Number(id.slice(5));
     const se = spec?.get(id);
     const base = se ? fromSpec(se) : recipe('text', idx, readAnchor(t), frameMs);
-    const rec = withOverride(withType(withCue(base, svgFile, id), svgFile, id), svgFile, id);
+    const rec = withOverride(withType(withCue(base, svgFile, id), svgFile, id), svgFile, id, sceneStartSec);
     if (!rec) { t.parentNode!.removeChild(t); continue; }
     wrap(t, id, 'text', idx, rec);
   }

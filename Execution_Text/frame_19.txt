@@ -37,15 +37,15 @@ ELEMENTS (18, in the order motion.ts wraps them)
   part_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.0px / 5.4s.
   recap_icon_1 [icon]
-      enters at 9:20 (560.0s film time = 13.0s into this scene) on the narration beat "persuade them" (beat 2), pop; default idle 2.2px / 5.0s.
+      enters 560.00s (frame-overrides); default idle 2.2px / 5.0s.
   recap_icon_2 [icon]
-      enters at 9:20 (560.0s film time = 13.0s into this scene) on the narration beat "persuade them" (beat 2), pop; default idle 2.2px / 5.0s.
+      enters 560.35s (frame-overrides); default idle 2.2px / 5.0s.
   recap_icon_3 [icon]
-      enters at 9:20 (560.0s film time = 13.0s into this scene) on the narration beat "persuade them" (beat 2), pop; default idle 2.2px / 5.0s.
+      enters 560.70s (frame-overrides); default idle 2.2px / 5.0s.
   recap_icon_4 [icon]
-      enters at 9:20 (560.0s film time = 13.0s into this scene) on the narration beat "persuade them" (beat 2), pop; default idle 2.2px / 5.0s.
+      enters 561.05s (frame-overrides); default idle 2.2px / 5.0s.
   recap_icon_5 [icon]
-      enters at 9:20 (560.0s film time = 13.0s into this scene) on the narration beat "persuade them" (beat 2), pop; default idle 2.2px / 5.0s.
+      enters 561.40s (frame-overrides); default idle 2.2px / 5.0s.
   guide_grid [decor]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 1.4px / 7.2s.
   text_0 "Why is influencing vitalduring critical operat"
