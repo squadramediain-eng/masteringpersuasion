@@ -81,6 +81,15 @@
    "f9_skull": { "pulse": { "amp": 0.12, "period": 2000 } },
    "f9_thunder": { "pulse": { "amp": 0.16, "period": 1300, "grow": true } }
   },
+  "frame_11.svg": {
+   "_note": "RESOLVING DISPUTES. Right logos animate (c53): left logo's bulb glows (pulse); right logo's stopwatch face gets a gentle life. Inner shapes tagged from the render.",
+   "f11_bulb": { "pulse": { "amp": 0.1, "period": 2000, "grow": true } },
+   "f11_stopwatch": { "pulse": { "amp": 0.05, "period": 2400 } }
+  },
+  "frame_17.svg": {
+   "_note": "ACTION TABLE. The character-set bulb glows (c65). result_icon_2 is the bulb (a named group).",
+   "result_icon_2": { "pulse": { "amp": 0.1, "period": 2000, "grow": true } }
+  },
   "frame_4.svg": {
    "_note": "PERSUASION STEPS. Build order (Comments c22/c23): the TITLE types first; only then do the step shapes appear, one after another left-to-right (disc -> connector arrow -> next disc), not all at once. (The three step LABELS share one group id 'step_labels', so they still type together until Design gives each label its own id — flagged.)",
    "step_labels": { "at": 115.0 },
