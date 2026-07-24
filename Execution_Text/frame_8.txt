@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (34, in the order motion.ts wraps them)
+ELEMENTS (35, in the order motion.ts wraps them)
 
   bg_panel [card]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 2.6px / 6.0s.
@@ -64,6 +64,8 @@ ELEMENTS (34, in the order motion.ts wraps them)
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   buyin_arrow [arrow]
       enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide.
+  f8_darrow [arrow]
+      enters on the fallback recipe (no spec entry — role-based stagger).
   subhead [prop]
       enters at 3:53 (233.0s film time = 2.0s into this scene) on the narration beat "section three" (beat 1), typewriter; default idle 4.0px / 5.0s.
   first [prop]

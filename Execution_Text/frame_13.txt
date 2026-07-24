@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (24, in the order motion.ts wraps them)
+ELEMENTS (27, in the order motion.ts wraps them)
 
   ref [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
@@ -22,6 +22,8 @@ ELEMENTS (24, in the order motion.ts wraps them)
       enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 2.6px / 6.0s.
   clock_zzz [icon]
       enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 4.5px / 4.6s.
+  f13_stopwatch [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   env_floor_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   ship_left [ship]
@@ -47,6 +49,10 @@ ELEMENTS (24, in the order motion.ts wraps them)
   officer_l1 [character]
       enters at 6:08 (368.0s film time = 4.0s into this scene) on the narration beat "escalating" (beat 1), pop; default idle 5.0px / 4.2s.
   compare_marks [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
+  f13_cross [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
+  f13_tick [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   deco_cloud [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.

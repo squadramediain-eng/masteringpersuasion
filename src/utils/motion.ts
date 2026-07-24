@@ -301,6 +301,10 @@ export interface ElOverride {
   // amp = peak extra scale (0.12 = ±12%); period ms. `grow:true` = only scale UP from 1
   // (expand+fade, for soundwave/spark/outward lines) instead of symmetric breathing.
   pulse?: { amp: number; period: number; grow?: boolean };
+  // Fade in-and-out loop AFTER the element lands — a double-arrow that shows up and
+  // disappears, a spark/thunder that flashes (Comments c36/c39/c66/c69). period ms;
+  // min = dimmest opacity in the cycle (0 = fully vanish).
+  blink?: { period: number; min?: number };
   // Ambient-life loop for an element the artwork mislabelled (e.g. a fish school in a
   // generic "decor" group): "fish-swim" | "plant-warp" | "coral-sway" | "bubble-rise".
   life?: string;
@@ -323,7 +327,7 @@ export interface FrameOverride {
   _frame?: { x?: number; y?: number; scale?: number };
   _transition?: TransitionOverride;
 }
-const OVERRIDES = (overridesJson as { frames?: Record<string, Record<string, ElOverride>> }).frames || {};
+const OVERRIDES = (overridesJson as unknown as { frames?: Record<string, Record<string, ElOverride>> }).frames || {};
 
 export const frameOverride = (svgFile: string): { x?: number; y?: number; scale?: number } | undefined =>
   (OVERRIDES[svgFile] as unknown as FrameOverride | undefined)?._frame;
@@ -351,6 +355,7 @@ function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: numb
   if (o.idle !== undefined) next.idle = o.idle === false ? undefined : o.idle;
   if (o.orbit !== undefined) next.orbit = o.orbit === false ? undefined : o.orbit;
   if (o.pulse !== undefined) next.pulse = o.pulse;
+  if (o.blink !== undefined) next.blink = o.blink;
   // Force an ambient-life loop (fish/plant/coral/bubble) onto an element whose id the
   // engine could not classify — the whole group animates smoothly, never frozen.
   if (o.life) { next.anim = o.life; next.loop = true; next.world = true; next.from = {}; next.to = {}; next.start = 0; next.dur = 1; next.lifePhase = hashPhase(id); }
@@ -447,6 +452,7 @@ interface Rec {
   shake?: boolean;
   orbit?: { period: number; deg: number; cx?: number; cy?: number };
   pulse?: { amp: number; period: number; grow?: boolean };
+  blink?: { period: number; min?: number };
   draw?: boolean;
   // Continuous marching of a dotted stroke (the decorative rings around icons, and
   // dotted rectangles). The dashes travel along the stroke — for a ring that reads
@@ -949,6 +955,13 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
       const ramp = Math.min(1, pf / r.pulse.period);
       const s = Math.sin((2 * Math.PI * pf) / r.pulse.period);
       scale *= 1 + r.pulse.amp * ramp * (r.pulse.grow ? (0.5 + 0.5 * s) : s);
+    }
+
+    // Fade in-and-out loop (a double-arrow appearing/vanishing, a spark flashing).
+    if (r.blink && ms > r.start + r.dur) {
+      const bf = ms - (r.start + r.dur);
+      const mn = r.blink.min ?? 0;
+      opacity *= mn + (1 - mn) * (0.5 + 0.5 * Math.sin((2 * Math.PI * bf) / r.blink.period - Math.PI / 2));
     }
 
     // Emphasis punch — a one-time scale bump after the element lands, on the beat

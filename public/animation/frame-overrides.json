@@ -72,8 +72,21 @@
    "f3_lifering": { "orbit": { "period": 8000, "deg": 360 } }
   },
   "frame_8.svg": {
-   "_note": "The big dotted ring around the three characters rotates CLOCKWISE (c36). Its own march is a dash flow; the orbit gives the whole ring a clear rotation. deco_ring is centred so it spins about its own centre.",
-   "deco_ring": { "orbit": { "period": 14000, "deg": 360 } }
+   "_note": "The big dotted ring rotates CLOCKWISE (c36); the double-sided arrow shows up and disappears in a loop (c36). deco_ring is centred so it spins about its own centre.",
+   "deco_ring": { "orbit": { "period": 14000, "deg": 360 } },
+   "f8_darrow": { "blink": { "period": 2200, "min": 0 } }
+  },
+  "frame_13.svg": {
+   "_note": "COMPARE. The X (wrong) and TICK (right) marks pulse (scale up-and-back), the stopwatch gets a gentle life (c60/c61). Marks tagged from the render.",
+   "f13_cross": { "pulse": { "amp": 0.15, "period": 1800 } },
+   "f13_tick": { "pulse": { "amp": 0.15, "period": 1800 } },
+   "f13_stopwatch": { "pulse": { "amp": 0.05, "period": 2400 } }
+  },
+  "frame_18.svg": {
+   "_note": "LEADER TRAITS. The scales rock so the pans lift up-and-down either side (c67); the ear's sound spark flashes (c69); the puzzle logo pulses (c68). Tagged from the render.",
+   "f18_scales": { "idle": { "amp": 0, "period": 2600, "rot": 5 } },
+   "f18_ear": { "blink": { "period": 1500, "min": 0.15 } },
+   "f18_puzzle": { "pulse": { "amp": 0.08, "period": 2200 } }
   },
   "frame_9.svg": {
    "_note": "RESULTS TABLE. Row result-logos animate after their row (c39-c42): the thunder pulses/flashes (blink); the bulb rotates left-right; the danger skull scales up-and-back in a loop. (Tagged from the render via tag-shapes.)",
