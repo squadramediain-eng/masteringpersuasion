@@ -89,12 +89,13 @@
    "concept_icon_4": { "at": 191.2 }
   },
   "frame_10.svg": {
-   "_note": "STAT. The '30' counts up (good, kv14 s10) but had no accent. Add the reference's big-stat punch as the number settles, and cascade the 4 orbit discs.",
+   "_note": "STAT. The '30' punches on settle. The four orbit logos appear AFTER the 30, one-by-one on the VO (c44/c45). env_stone is the third (right) plant that was floating up/down — give it the wave-warp like the other two (c43).",
    "stat": { "emphasis": { "scale": 1.08, "dur": 520, "at": 0.2 } },
-   "orbit_disc_1": { "at": 300.0 },
-   "orbit_disc_2": { "at": 300.35 },
-   "orbit_disc_3": { "at": 300.7 },
-   "orbit_disc_4": { "at": 301.05 }
+   "orbit_disc_1": { "at": 305.0 },
+   "orbit_disc_2": { "at": 306.2 },
+   "orbit_disc_3": { "at": 307.4 },
+   "orbit_disc_4": { "at": 308.6 },
+   "env_stone": { "life": "plant-warp" }
   },
   "frame_12.svg": {
    "_note": "SCENARIO. 5 elements clumped at 339s. Stage them: cranes slide in, then the ship, then the bubble, then the two figures — so the set reads as assembling, not appearing.",

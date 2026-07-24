@@ -605,6 +605,12 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   const spec = SPEC_BY_FILE[svgFile];
   const sceneStartSec = START_BY_FILE[svgFile] ?? 0;
 
+  // BORDER / CONSTRUCTION GUIDES must never render (Comments c50/c51: a partial border
+  // guideline showed at scene edges — "should never appear in any frame, REMOVE"). These
+  // are Illustrator artboard/guide layers (guide_grid + any *guideline*) that leaked into
+  // the export. Strip them from every frame, wherever they nest.
+  svg.querySelectorAll('[id="guide_grid"],[id*="guideline"],[id*="guide_grid"]').forEach((el) => el.parentNode?.removeChild(el));
+
   const plan: PlanItem[] = [];
   const roleCount: Record<string, number> = {};
   let dividerHead: Element | null = null;
@@ -767,6 +773,24 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   for (const { p } of heads) {
     if (p.rec.start < prevEnd + HEAD_GAP) p.rec.start = prevEnd + HEAD_GAP;
     prevEnd = p.rec.start + p.rec.dur;
+  }
+
+  // CONTENT AFTER THE TITLE (global build-order rule — Comments c19/c22/c31/c33/c37/c51/
+  // c55/c56: "before the title text appears, no elements should appear"). Once the last
+  // heading text has typed, gate every CONTENT element to start no earlier than that.
+  // Only DELAYS (never advances), so a caption already cued later than the title keeps
+  // its time; anything the export placed at t≈0 is held until the title is in. World
+  // (waves/ambient), the heading texts themselves, and looping ambience are exempt. A
+  // small per-item stagger by original order keeps the held ones from all snapping in at
+  // once — the per-scene cues then refine the one-by-one build.
+  const headSel = new Set(heads.map((h) => h.p.sel));
+  const titleEnd = heads.length ? Math.max(...heads.map((h) => h.p.rec.start + h.p.rec.dur)) : 0;
+  if (titleEnd > 0) {
+    let k = 0;
+    for (const p of plan) {
+      if (p.rec.world || p.rec.loop || headSel.has(p.sel)) continue;
+      if (p.rec.start < titleEnd) { p.rec.start = titleEnd + (k % 8) * 90; k++; }
+    }
   }
 
   // ORPHAN OVERRIDE TARGETS. A review region often points at a NESTED shape (the helm

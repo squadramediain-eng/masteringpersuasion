@@ -29,13 +29,13 @@ ELEMENTS (20, in the order motion.ts wraps them)
   stat [stat]
       enters at 4:49 (289.0s film time = 3.0s into this scene) on the narration beat "specific metric" (beat 1), count; default idle 3.4px / 5.4s.
   orbit_disc_1 [circle]
-      enters 300.00s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 305.00s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_2 [circle]
-      enters 300.35s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 306.20s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_3 [circle]
-      enters 300.70s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 307.40s (frame-overrides); default idle 4.0px / 5.2s.
   orbit_disc_4 [circle]
-      enters 301.05s (frame-overrides); default idle 4.0px / 5.2s.
+      enters 308.60s (frame-overrides); default idle 4.0px / 5.2s.
   icon_family [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_chart [icon]
