@@ -15,7 +15,7 @@
    Also reports each scene's number so a bad one is named, not just counted.
 
    Usage:  node scripts/audit-motion.js [path-to.mp4]
-           (defaults to out/mastering_persuasion_v8.mp4)
+           (defaults to out/mastering_persuasion_v9.mp4)
    Slow by design — it renders nothing, but it decodes video. Run before shipping
    a cut, or wire into `npm run qa-motion`.
    ============================================================ */
@@ -33,7 +33,7 @@ const ROOT = path.resolve(__dirname, '..');
 // class. These are the reference's numbers, not a guess.
 const FROZEN = 0.08;
 const JITTER_MAX = 0.35;
-const video = process.argv[2] || path.join(ROOT, 'out', 'mastering_persuasion_v8.mp4');
+const video = process.argv[2] || path.join(ROOT, 'out', 'mastering_persuasion_v9.mp4');
 
 if (!fs.existsSync(video)) {
   console.error(`audit-motion: no render at ${video} — render first, or pass a path.`);

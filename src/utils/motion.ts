@@ -292,7 +292,10 @@ export interface ElOverride {
   x?: number; y?: number; scale?: number; rotate?: number; opacity?: number;
   hide?: boolean;
   idle?: { amp: number; period: number; rot?: number } | false;
-  orbit?: { period: number; deg: number } | false;
+  // orbit spins the element; cx/cy (svg user-space, 0..1920 / 0..1080) pivot it about a
+  // point OTHER than its own centre — e.g. a clock hand about the dial centre, a curved
+  // arrow about the icon centre. Omit cx/cy to rotate about the element's own bbox centre.
+  orbit?: { period: number; deg: number; cx?: number; cy?: number } | false;
   // Ambient-life loop for an element the artwork mislabelled (e.g. a fish school in a
   // generic "decor" group): "fish-swim" | "plant-warp" | "coral-sway" | "bubble-rise".
   life?: string;
@@ -436,7 +439,7 @@ interface Rec {
   loop?: boolean;
   idle?: { amp: number; period: number; rot?: number; phase?: number };
   shake?: boolean;
-  orbit?: { period: number; deg: number };
+  orbit?: { period: number; deg: number; cx?: number; cy?: number };
   draw?: boolean;
   // Continuous marching of a dotted stroke (the decorative rings around icons, and
   // dotted rectangles). The dashes travel along the stroke — for a ring that reads
@@ -783,13 +786,19 @@ export function planAndWrap(svgString: string, frameMs: number, svgFile: string)
   // (waves/ambient), the heading texts themselves, and looping ambience are exempt. A
   // small per-item stagger by original order keeps the held ones from all snapping in at
   // once — the per-scene cues then refine the one-by-one build.
+  // ONE-BY-ONE BUILD (Comments c23/c39/c45/c62: "one after the other", "THIS IS A GLOBAL
+  // LOGIC - always follow it"). Held content does not snap in together — each item lands
+  // ~280ms after the previous, in document (build) order, so a viewer reads the scene
+  // assemble instead of appearing. Capped so a busy scene still finishes building in a
+  // few seconds. Per-scene cues override this with exact VO timing where authored.
   const headSel = new Set(heads.map((h) => h.p.sel));
   const titleEnd = heads.length ? Math.max(...heads.map((h) => h.p.rec.start + h.p.rec.dur)) : 0;
   if (titleEnd > 0) {
+    const STEP = 280, CAP = 14;
     let k = 0;
     for (const p of plan) {
       if (p.rec.world || p.rec.loop || headSel.has(p.sel)) continue;
-      if (p.rec.start < titleEnd) { p.rec.start = titleEnd + (k % 8) * 90; k++; }
+      if (p.rec.start < titleEnd) { p.rec.start = titleEnd + Math.min(k, CAP) * STEP; k++; }
     }
   }
 
@@ -950,7 +959,13 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     if (tx || ty) parts.push(`translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px)`);
     if (scale !== 1) parts.push(`scale(${scale.toFixed(4)})`);
     if (rot) parts.push(`rotate(${rot.toFixed(3)}deg)`);
-    const transform = parts.length ? `transform:${parts.join(' ')};transform-box:fill-box;transform-origin:center;` : '';
+    // Pivot about an explicit svg point (a clock hand about the dial, an arrow ring about
+    // the icon centre) when orbit.cx/cy is given; otherwise about the element's own centre.
+    const pv = r.orbit && r.orbit.cx !== undefined && r.orbit.cy !== undefined;
+    const originCss = pv
+      ? `transform-box:view-box;transform-origin:${r.orbit!.cx}px ${r.orbit!.cy}px;`
+      : `transform-box:fill-box;transform-origin:center;`;
+    const transform = parts.length ? `transform:${parts.join(' ')};${originCss}` : '';
 
     // ── Type-on ──────────────────────────────────────────────────────────
     // Reveal by clipping to a real character boundary. charX holds the measured

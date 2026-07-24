@@ -21,7 +21,10 @@
  "frames": {
   "frame_0.svg": {
    "_note": "COVER. Cascade the pillars, land the anchor LAST. INNER LIFE after appearing (Comments c1-c6): pillar_disc_4=helm spins slow clockwise; pillar_disc_1=gears turn; pillar_disc_2=stopwatch shakes; pillar_disc_3=shield breathes; anchor sways. (helm/wheel are single centred shapes so whole-group rotation spins them true; the multi-part gears + shield reflection + clock needle + soundwave need per-shape ids from Design to do fully.)",
-   "pillar_disc_1": { "at": 7.0, "orbit": { "period": 9000, "deg": 360 } },
+   "pillar_disc_1": { "at": 7.0 },
+   "gear_a": { "orbit": { "period": 6000, "deg": 360 } },
+   "gear_b": { "orbit": { "period": 5000, "deg": -360 } },
+   "gear_c": { "orbit": { "period": 7000, "deg": 360 } },
    "pillar_disc_2": { "at": 7.16, "idle": { "amp": 1, "period": 1500, "rot": 3.5 } },
    "pillar_disc_3": { "at": 7.32, "idle": { "amp": 3, "period": 4200 } },
    "pillar_disc_4": { "at": 7.48 },
@@ -58,6 +61,10 @@
    "mariner_extra": { "at": 93.2, "idle": { "amp": 4.5, "period": 4000 } },
    "helmet_disc": { "at": 93.0, "idle": { "amp": 4, "period": 4600, "rot": 0.6 } },
    "ab_bosun_pair": { "at": 94.5, "idle": { "amp": 5, "period": 5000, "rot": 0.4 } }
+  },
+  "frame_8.svg": {
+   "_note": "The big dotted ring around the three characters rotates CLOCKWISE (c36). Its own march is a dash flow; the orbit gives the whole ring a clear rotation. deco_ring is centred so it spins about its own centre.",
+   "deco_ring": { "orbit": { "period": 14000, "deg": 360 } }
   },
   "frame_4.svg": {
    "_note": "PERSUASION STEPS. Build order (Comments c22/c23): the TITLE types first; only then do the step shapes appear, one after another left-to-right (disc -> connector arrow -> next disc), not all at once. (The three step LABELS share one group id 'step_labels', so they still type together until Design gives each label its own id — flagged.)",

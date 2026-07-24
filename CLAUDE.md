@@ -164,6 +164,28 @@ animation.js` (in the QA gate) fails if the artwork adds a visible dotted shape 
 leave frozen. This is a creative rule, not just a technical one — a still dotted ring reads as a
 dead poster (RULE 0).
 
+## THE GLOBAL BUILD SYSTEM (reviewer-established, enforced in motion.ts)
+These are GLOBAL rules the reviewer marked "always follow" — they are engine-level in
+`planAndWrap`/`styleFor`, not per-scene hacks. Never regress them.
+1. **Nothing before the title.** The heading text (title, then subheading — sequential,
+   never simultaneous) types FIRST; every content element is gated to start no earlier
+   than the title finishes (`titleEnd`). Only ever delays, never advances. (Comments
+   c18/c19/c22/c31/c33/c51/c52/c55/c56.)
+2. **Build ONE-BY-ONE, never a clump.** Held content lands ~280ms apart in build order,
+   so the scene assembles. Per-scene audio-cues refine to exact VO timing where authored.
+   "THIS IS A GLOBAL LOGIC" (c23/c39/c45/c62).
+3. **Border / construction guides NEVER render.** `guide_grid` + any `*guideline*` are
+   stripped from every frame (c50/c51 "REMOVE {GLOBAL}").
+4. **Dotted rings/rects ALWAYS march** (above) — the reviewer confirmed this "perfect".
+5. **A logo and its BG are one set — they appear TOGETHER**, then the inner logo animates
+   (c44/c45/c54/c76). Where the artwork groups them, cue the group as one; where the inner
+   glyph is unnamed, tag it with `scripts/tag-shapes.js` (find shape by on-screen position,
+   inject a stable id) and drive it via `frame-overrides.json`. Icon internals rotate about
+   their own centre, or a pivot (`orbit.cx/cy`) for clock hands / off-centre arrows.
+6. **Icon internals live after they land**: gears spin (varied directions), clock needles
+   rotate about the dial, curved arrows rotate, bells/wings/anchors sway. "not a PRESENTATION."
+Always cross-check motion feel against the ballast reference (knowledge-vault/14).
+
 ## Shared Utilities — `src/utils/animationUtils.ts`
 Never re-implement these:
 - `fadeIn(frame, delay, duration)`

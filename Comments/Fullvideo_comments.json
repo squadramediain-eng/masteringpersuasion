@@ -1,0 +1,2320 @@
+[
+  {
+    "id": "c1",
+    "raw_timecode": "00:00:14:04",
+    "timecode_sec": 14.12,
+    "text": "The shape inside have to rotate clockwise slowly until the end of frame",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.426,
+      "y": 0.5324,
+      "w": 0.1141,
+      "h": 0.2266
+    }
+  },
+  {
+    "id": "c2",
+    "raw_timecode": "00:00:14:04",
+    "timecode_sec": 14.12,
+    "text": "Rotate all the gears inside not in same direction,",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.164,
+      "y": 0.6893,
+      "w": 0.1275,
+      "h": 0.2234
+    }
+  },
+  {
+    "id": "c3",
+    "raw_timecode": "00:00:14:09",
+    "timecode_sec": 14.3,
+    "text": "The Shield have to show up and a reflection on top",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4144,
+      "y": 0.2979,
+      "w": 0.1248,
+      "h": 0.225
+    }
+  },
+  {
+    "id": "c4",
+    "raw_timecode": "00:00:14:09",
+    "timecode_sec": 14.3,
+    "text": "The stopwatch have to shake a bit left and right side and the the needle of the clock have to rotate clockwise like a real clock",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1658,
+      "y": 0.0919,
+      "w": 0.1266,
+      "h": 0.2044
+    }
+  },
+  {
+    "id": "c5",
+    "raw_timecode": "00:00:14:16",
+    "timecode_sec": 14.53,
+    "text": "The Anchor has to have a slight movement and the chain has to have some small animation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6676,
+      "y": 0.3169,
+      "w": 0.2184,
+      "h": 0.4183
+    }
+  },
+  {
+    "id": "c6",
+    "raw_timecode": "00:00:14:16",
+    "timecode_sec": 14.53,
+    "text": "The outer sound wave has to move outwards, the speaker has to have a shake left and right",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7166,
+      "y": 0.1949,
+      "w": 0.0677,
+      "h": 0.0919
+    }
+  },
+  {
+    "id": "c7",
+    "raw_timecode": "00:00:35:16",
+    "timecode_sec": 35.52,
+    "text": "At the start we should not show this panel and the magnifier logo, first the white panel has to appear , after the content appears only the maginifier has to appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2576,
+      "y": 0.2377,
+      "w": 0.484,
+      "h": 0.4817
+    }
+  },
+  {
+    "id": "c8",
+    "raw_timecode": "00:00:48:17",
+    "timecode_sec": 48.58,
+    "text": "This is Set A, the center logo has to appear first [the logo has a motion of rotation], then the arrows on top and bottom the the profile logo on top and bottom appears. Overall in this frame this Set A has to appear other set's should not appear.",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1533,
+      "y": 0.233,
+      "w": 0.0971,
+      "h": 0.5118
+    }
+  },
+  {
+    "id": "c9",
+    "raw_timecode": "00:00:48:28",
+    "timecode_sec": 48.93,
+    "text": "This is Set B, the Left logo [rotates a motion clockwise] and right logo [speaker has a slight left and right rotation movement and the sound wave animations]appears, then the arrows show up and animates towards the middle logo, then the middle logo appears, after full appearing the Set C appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.279,
+      "y": 0.103,
+      "w": 0.4439,
+      "h": 0.168
+    }
+  },
+  {
+    "id": "c10",
+    "raw_timecode": "00:00:48:28",
+    "timecode_sec": 48.93,
+    "text": "This is Set C, the Left and right logo appears, then the arrows show up and animates towards the middle logo [all the gears rotate with different direction], then the middle logo appears, after full appearing the Set D appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2799,
+      "y": 0.7036,
+      "w": 0.4439,
+      "h": 0.168
+    }
+  },
+  {
+    "id": "c11",
+    "raw_timecode": "00:00:49:19",
+    "timecode_sec": 49.63,
+    "text": "Set D appears the two up and down logo, the arrows appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7718,
+      "y": 0.225,
+      "w": 0.09,
+      "h": 0.5102
+    }
+  },
+  {
+    "id": "c12",
+    "raw_timecode": "00:01:00:04",
+    "timecode_sec": 60.12,
+    "text": "The Fishes Jitter here, We need all the fishes to animate and move towards their face direction and change its position like swiming ahead",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0446,
+      "y": 0.7004,
+      "w": 0.3886,
+      "h": 0.2836
+    }
+  },
+  {
+    "id": "c13",
+    "raw_timecode": "00:01:00:08",
+    "timecode_sec": 60.27,
+    "text": "Wave Warp animation so this is the underwater plant with smooth animation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8841,
+      "y": 0.6861,
+      "w": 0.1043,
+      "h": 0.3139
+    }
+  },
+  {
+    "id": "c15",
+    "raw_timecode": "00:01:09:19",
+    "timecode_sec": 69.62,
+    "text": "After appearing only the Texts have to appear with typewrite effect and the bottom line also animates after the text animation completes, this has to be followed for all the 6 shapes in this frame",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0758,
+      "y": 0.5102,
+      "w": 0.262,
+      "h": 0.3486
+    }
+  },
+  {
+    "id": "c14",
+    "raw_timecode": "00:01:13:13",
+    "timecode_sec": 73.43,
+    "text": "This Up and Down animation is not required, let it be static like others,",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.3717,
+      "y": 0.1617,
+      "w": 0.2674,
+      "h": 0.3296
+    }
+  },
+  {
+    "id": "c16",
+    "raw_timecode": "00:01:23:17",
+    "timecode_sec": 83.57,
+    "text": "The bubbles have to animate from bottom to top by resizing from small to a 50% more that the actual size and disappears, then loop, slowly, the movement should have a slight rotation left and right, and position left and right",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8922,
+      "y": 0.0698,
+      "w": 0.082,
+      "h": 0.1553
+    }
+  },
+  {
+    "id": "c17",
+    "raw_timecode": "00:01:30:01",
+    "timecode_sec": 90.03,
+    "text": "This Cursor effect is very huge, lets fix this in every other frame, the size of the cursor has to be the height of the characters",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0348,
+      "y": 0.0159,
+      "w": 0.1025,
+      "h": 0.3866
+    }
+  },
+  {
+    "id": "c18",
+    "raw_timecode": "00:01:30:04",
+    "timecode_sec": 90.13,
+    "text": "Here Both the Text should not animate at the same time,\nFirst the Title , after it completes only the subheading has to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1221,
+      "y": 0.1743,
+      "w": 0.3146,
+      "h": 0.1965
+    }
+  },
+  {
+    "id": "c19",
+    "raw_timecode": "00:01:30:04",
+    "timecode_sec": 90.13,
+    "text": "These Characters should not appear before the text appear, The right side characters should not appear here, the left side character can appear after the subheading text appears",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.041,
+      "y": 0.3597,
+      "w": 0.893,
+      "h": 0.4959
+    }
+  },
+  {
+    "id": "c20",
+    "raw_timecode": "00:01:35:01",
+    "timecode_sec": 95.02,
+    "text": "These four logos animate the outer dots -perfect\nbut all four are appearing at the same time - wrong.\nThey must appear one after the other based on the voice over. after appearing the inner logo has to animate.\n1. gears rotate, the spaner shake like real spaner\n2. the shape rotates clockwise\n3. the smoke inside and the shock inside animates,\n4. the Cap has a slight animation\n[REMEMBER this is not a PRESENTATION",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "drawing": [
+      [
+        {
+          "x": 0.2398,
+          "y": 0.4104
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2424,
+          "y": 0.4088
+        },
+        {
+          "x": 0.246,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2496,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2567,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2629,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2718,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2807,
+          "y": 0.4057
+        },
+        {
+          "x": 0.2941,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3048,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3173,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3298,
+          "y": 0.3962
+        },
+        {
+          "x": 0.3449,
+          "y": 0.3946
+        },
+        {
+          "x": 0.3601,
+          "y": 0.3882
+        },
+        {
+          "x": 0.3752,
+          "y": 0.3851
+        },
+        {
+          "x": 0.393,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4171,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4287,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4456,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4563,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4643,
+          "y": 0.3803
+        },
+        {
+          "x": 0.4724,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4759,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4786,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4822,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4875,
+          "y": 0.3772
+        },
+        {
+          "x": 0.4955,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5036,
+          "y": 0.3772
+        },
+        {
+          "x": 0.516,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5241,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5267,
+          "y": 0.3772
+        },
+        {
+          "x": 0.533,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5401,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5446,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5499,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5517,
+          "y": 0.3772
+        },
+        {
+          "x": 0.5526,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5535,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5553,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5579,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5651,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5668,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5713,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5749,
+          "y": 0.3803
+        },
+        {
+          "x": 0.5811,
+          "y": 0.3851
+        },
+        {
+          "x": 0.5829,
+          "y": 0.3851
+        },
+        {
+          "x": 0.5909,
+          "y": 0.3867
+        },
+        {
+          "x": 0.5971,
+          "y": 0.3946
+        },
+        {
+          "x": 0.6025,
+          "y": 0.3946
+        },
+        {
+          "x": 0.6078,
+          "y": 0.3993
+        },
+        {
+          "x": 0.6105,
+          "y": 0.3993
+        },
+        {
+          "x": 0.6114,
+          "y": 0.4009
+        },
+        {
+          "x": 0.615,
+          "y": 0.4009
+        },
+        {
+          "x": 0.6159,
+          "y": 0.4025
+        },
+        {
+          "x": 0.6176,
+          "y": 0.4057
+        },
+        {
+          "x": 0.6203,
+          "y": 0.4104
+        },
+        {
+          "x": 0.6212,
+          "y": 0.4136
+        },
+        {
+          "x": 0.6239,
+          "y": 0.4247
+        },
+        {
+          "x": 0.6257,
+          "y": 0.4326
+        },
+        {
+          "x": 0.6283,
+          "y": 0.4374
+        },
+        {
+          "x": 0.6319,
+          "y": 0.4485
+        },
+        {
+          "x": 0.6337,
+          "y": 0.4611
+        },
+        {
+          "x": 0.6364,
+          "y": 0.4754
+        },
+        {
+          "x": 0.6364,
+          "y": 0.4912
+        },
+        {
+          "x": 0.6373,
+          "y": 0.5102
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5229
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5404
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5451
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5578
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5689
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5831
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5895
+        },
+        {
+          "x": 0.6399,
+          "y": 0.5958
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6006
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6021
+        },
+        {
+          "x": 0.6399,
+          "y": 0.6069
+        },
+        {
+          "x": 0.6373,
+          "y": 0.6117
+        },
+        {
+          "x": 0.6346,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6337,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6319,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6301,
+          "y": 0.6148
+        },
+        {
+          "x": 0.6283,
+          "y": 0.618
+        },
+        {
+          "x": 0.6275,
+          "y": 0.618
+        },
+        {
+          "x": 0.6239,
+          "y": 0.618
+        },
+        {
+          "x": 0.6212,
+          "y": 0.6212
+        },
+        {
+          "x": 0.6132,
+          "y": 0.6243
+        },
+        {
+          "x": 0.6105,
+          "y": 0.6243
+        },
+        {
+          "x": 0.6043,
+          "y": 0.6243
+        },
+        {
+          "x": 0.5927,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5856,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5758,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5651,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5561,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5437,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5312,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5258,
+          "y": 0.6291
+        },
+        {
+          "x": 0.5196,
+          "y": 0.6291
+        },
+        {
+          "x": 0.516,
+          "y": 0.6291
+        },
+        {
+          "x": 0.508,
+          "y": 0.6307
+        },
+        {
+          "x": 0.5009,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4938,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4866,
+          "y": 0.6307
+        },
+        {
+          "x": 0.475,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4679,
+          "y": 0.6307
+        },
+        {
+          "x": 0.459,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4483,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4385,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4296,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4207,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4171,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4127,
+          "y": 0.6307
+        },
+        {
+          "x": 0.4064,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3939,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3859,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3806,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3743,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3645,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3574,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3485,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3422,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3378,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3316,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3271,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3209,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3111,
+          "y": 0.6307
+        },
+        {
+          "x": 0.3048,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2977,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2941,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2879,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2834,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2807,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2772,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2736,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2709,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2692,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2701,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2683,
+          "y": 0.6307
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6291
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6275
+        },
+        {
+          "x": 0.2674,
+          "y": 0.6259
+        },
+        {
+          "x": 0.2665,
+          "y": 0.6196
+        },
+        {
+          "x": 0.2656,
+          "y": 0.6117
+        },
+        {
+          "x": 0.2638,
+          "y": 0.6085
+        },
+        {
+          "x": 0.2629,
+          "y": 0.6021
+        },
+        {
+          "x": 0.2629,
+          "y": 0.5926
+        },
+        {
+          "x": 0.2611,
+          "y": 0.5863
+        },
+        {
+          "x": 0.2594,
+          "y": 0.58
+        },
+        {
+          "x": 0.2594,
+          "y": 0.5752
+        },
+        {
+          "x": 0.2576,
+          "y": 0.5689
+        },
+        {
+          "x": 0.2567,
+          "y": 0.5625
+        },
+        {
+          "x": 0.2567,
+          "y": 0.561
+        },
+        {
+          "x": 0.2531,
+          "y": 0.5594
+        },
+        {
+          "x": 0.2504,
+          "y": 0.553
+        },
+        {
+          "x": 0.2496,
+          "y": 0.5483
+        },
+        {
+          "x": 0.2469,
+          "y": 0.5467
+        },
+        {
+          "x": 0.246,
+          "y": 0.5419
+        },
+        {
+          "x": 0.246,
+          "y": 0.5388
+        },
+        {
+          "x": 0.246,
+          "y": 0.5356
+        },
+        {
+          "x": 0.2433,
+          "y": 0.5293
+        },
+        {
+          "x": 0.2433,
+          "y": 0.5277
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5245
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5213
+        },
+        {
+          "x": 0.2424,
+          "y": 0.515
+        },
+        {
+          "x": 0.2424,
+          "y": 0.5071
+        },
+        {
+          "x": 0.2424,
+          "y": 0.496
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4912
+        },
+        {
+          "x": 0.2398,
+          "y": 0.477
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4754
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4691
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4643
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4595
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4532
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4516
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4453
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4421
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4358
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4342
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4294
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4247
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4231
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4184
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4168
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4136
+        },
+        {
+          "x": 0.2389,
+          "y": 0.412
+        },
+        {
+          "x": 0.2389,
+          "y": 0.4088
+        },
+        {
+          "x": 0.2398,
+          "y": 0.4073
+        }
+      ],
+      [
+        {
+          "x": 0.6988,
+          "y": 0.0951
+        },
+        {
+          "x": 0.705,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7193,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7451,
+          "y": 0.0904
+        },
+        {
+          "x": 0.7736,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8217,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8619,
+          "y": 0.0904
+        },
+        {
+          "x": 0.8886,
+          "y": 0.0951
+        },
+        {
+          "x": 0.902,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9082,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9118,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9135,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9144,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9171,
+          "y": 0.0904
+        },
+        {
+          "x": 0.918,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0904
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0951
+        },
+        {
+          "x": 0.9189,
+          "y": 0.0999
+        },
+        {
+          "x": 0.9189,
+          "y": 0.1015
+        },
+        {
+          "x": 0.9171,
+          "y": 0.1189
+        },
+        {
+          "x": 0.91,
+          "y": 0.1347
+        },
+        {
+          "x": 0.9055,
+          "y": 0.149
+        },
+        {
+          "x": 0.9002,
+          "y": 0.1664
+        },
+        {
+          "x": 0.893,
+          "y": 0.1902
+        },
+        {
+          "x": 0.8922,
+          "y": 0.1997
+        },
+        {
+          "x": 0.8895,
+          "y": 0.2108
+        },
+        {
+          "x": 0.8895,
+          "y": 0.214
+        },
+        {
+          "x": 0.8886,
+          "y": 0.2203
+        },
+        {
+          "x": 0.8859,
+          "y": 0.2266
+        },
+        {
+          "x": 0.885,
+          "y": 0.2282
+        },
+        {
+          "x": 0.885,
+          "y": 0.2298
+        },
+        {
+          "x": 0.8841,
+          "y": 0.233
+        },
+        {
+          "x": 0.8815,
+          "y": 0.2361
+        },
+        {
+          "x": 0.877,
+          "y": 0.2425
+        },
+        {
+          "x": 0.8734,
+          "y": 0.2441
+        },
+        {
+          "x": 0.8636,
+          "y": 0.2536
+        },
+        {
+          "x": 0.8503,
+          "y": 0.2583
+        },
+        {
+          "x": 0.8485,
+          "y": 0.2583
+        },
+        {
+          "x": 0.8387,
+          "y": 0.2726
+        },
+        {
+          "x": 0.828,
+          "y": 0.2757
+        },
+        {
+          "x": 0.8155,
+          "y": 0.2805
+        },
+        {
+          "x": 0.803,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7879,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7799,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7629,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7522,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7469,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7362,
+          "y": 0.2805
+        },
+        {
+          "x": 0.7326,
+          "y": 0.2773
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2757
+        },
+        {
+          "x": 0.7317,
+          "y": 0.271
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2647
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2504
+        },
+        {
+          "x": 0.7317,
+          "y": 0.2314
+        },
+        {
+          "x": 0.7389,
+          "y": 0.2171
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1934
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1918
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1886
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1807
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1743
+        },
+        {
+          "x": 0.7389,
+          "y": 0.1648
+        },
+        {
+          "x": 0.7362,
+          "y": 0.1506
+        },
+        {
+          "x": 0.7362,
+          "y": 0.1442
+        },
+        {
+          "x": 0.7344,
+          "y": 0.1347
+        },
+        {
+          "x": 0.7344,
+          "y": 0.13
+        },
+        {
+          "x": 0.7326,
+          "y": 0.1236
+        },
+        {
+          "x": 0.7317,
+          "y": 0.1189
+        },
+        {
+          "x": 0.7291,
+          "y": 0.1141
+        },
+        {
+          "x": 0.7291,
+          "y": 0.1125
+        },
+        {
+          "x": 0.7282,
+          "y": 0.1046
+        },
+        {
+          "x": 0.7255,
+          "y": 0.0999
+        }
+      ]
+    ]
+  },
+  {
+    "id": "c21",
+    "raw_timecode": "00:01:38:25",
+    "timecode_sec": 98.83,
+    "text": "When the ring appears, with it only the inner characters have to appear\nafter appearing, the voice bubble appears, then the inner lines animates, like they are talking",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6435,
+      "y": 0.2789,
+      "w": 0.2736,
+      "h": 0.507
+    }
+  },
+  {
+    "id": "c22",
+    "raw_timecode": "00:01:54:02",
+    "timecode_sec": 114.05,
+    "text": "Before title text itself the shapes and the bottom 3 logos are shown - WRONG\n\nAfter the title appear only the shapes should appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0303,
+      "y": 0.0824,
+      "w": 0.8717,
+      "h": 0.873
+    }
+  },
+  {
+    "id": "c23",
+    "raw_timecode": "00:01:56:12",
+    "timecode_sec": 116.41,
+    "text": "All three texts are appearing together - wrong\nOne by one has to animate - typewriting\nand its respecting logo has to appear with it\nThen the arrow then the next text box, then the text and its respective logo appears [ then the inner logo animates] - THIS IS A GLOBAL LOGIC - always follow it",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1061,
+      "y": 0.1854,
+      "w": 0.754,
+      "h": 0.4785
+    }
+  },
+  {
+    "id": "c24",
+    "raw_timecode": "00:02:31:18",
+    "timecode_sec": 151.6,
+    "text": "JIttering Waves, Completely Wrong",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4403,
+      "y": 0.3645,
+      "w": 0.5579,
+      "h": 0.2551
+    }
+  },
+  {
+    "id": "c25",
+    "raw_timecode": "00:02:36:19",
+    "timecode_sec": 156.65,
+    "text": "The wheel has to rotate on the left part",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6471,
+      "y": 0.2995,
+      "w": 0.2282,
+      "h": 0.2519
+    }
+  },
+  {
+    "id": "c26",
+    "raw_timecode": "00:02:36:27",
+    "timecode_sec": 156.9,
+    "text": "The ship have to animate with the waves movement below it. The waves at the bottom has to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1194,
+      "y": 0.6085,
+      "w": 0.4537,
+      "h": 0.3232
+    }
+  },
+  {
+    "id": "c27",
+    "raw_timecode": "00:02:48:17",
+    "timecode_sec": 168.56,
+    "text": "Jittering plant, as i said earlier, we need the waveswarp",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.8556,
+      "y": 0.5911,
+      "w": 0.1007,
+      "h": 0.3201
+    }
+  },
+  {
+    "id": "c28",
+    "raw_timecode": "00:02:56:28",
+    "timecode_sec": 176.92,
+    "text": "Here the ship and the wave motion should represent a motion towards the bottom [ this is a top view]\nthe waves have to animate accordingly",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0588,
+      "y": 0.0745,
+      "w": 0.2353,
+      "h": 0.8049
+    }
+  },
+  {
+    "id": "c29",
+    "raw_timecode": "00:03:11:29",
+    "timecode_sec": 191.97,
+    "text": "The inner logo has to animate, left side the book has to animate, the gears all three have to connect rotate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4029,
+      "y": 0.6956,
+      "w": 0.3405,
+      "h": 0.2583
+    }
+  },
+  {
+    "id": "c30",
+    "raw_timecode": "00:03:12:04",
+    "timecode_sec": 192.13,
+    "text": "The logo inside have to animate, the message box have to shake and stay, the bulb have to animate the oute small like a glow effect",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.3975,
+      "y": 0.0761,
+      "w": 0.3414,
+      "h": 0.2107
+    }
+  },
+  {
+    "id": "c31",
+    "raw_timecode": "00:03:20:08",
+    "timecode_sec": 200.27,
+    "text": "At the start both the boxes should not appear\nand the inner effect on the left box is should not show up here, it has only show when the character appears\n\nalso All the inner part of each box is a set\nso it has to appear together, the outer dotter stoke should have the march effect across always until the end",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1078,
+      "y": 0.1046,
+      "w": 0.7959,
+      "h": 0.751
+    }
+  },
+  {
+    "id": "c32",
+    "raw_timecode": "00:03:41:01",
+    "timecode_sec": 221.04,
+    "text": "The waves are not animating",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0036,
+      "y": 0.759,
+      "w": 0.9599,
+      "h": 0.241
+    }
+  },
+  {
+    "id": "c33",
+    "raw_timecode": "00:03:54:02",
+    "timecode_sec": 234.07,
+    "text": "Waves Jittering, and before the Title Text appear no elements should appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.008,
+      "y": 0.4786,
+      "w": 0.3512,
+      "h": 0.2519
+    }
+  },
+  {
+    "id": "c34",
+    "raw_timecode": "00:04:01:09",
+    "timecode_sec": 241.31,
+    "text": "THe Ship has to animate with the waves below it",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0526,
+      "y": 0.3787,
+      "w": 0.1702,
+      "h": 0.2424
+    }
+  },
+  {
+    "id": "c35",
+    "raw_timecode": "00:04:03:12",
+    "timecode_sec": 243.4,
+    "text": "The waves have to animate, the Anchor has to move with the waves",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6925,
+      "y": 0.1981,
+      "w": 0.2923,
+      "h": 0.1775
+    }
+  },
+  {
+    "id": "c36",
+    "raw_timecode": "00:04:04:01",
+    "timecode_sec": 244.04,
+    "text": "The Dotted ring has to rotate clockwise, the three characters have to animates, like a slight movement, eye blink effect, and the double sided arrow has to showup and disappear, loop",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4759,
+      "y": 0.4009,
+      "w": 0.3342,
+      "h": 0.5991
+    }
+  },
+  {
+    "id": "c37",
+    "raw_timecode": "00:04:12:16",
+    "timecode_sec": 252.53,
+    "text": "These Border has to appear only with the white panel",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2433,
+      "y": 0.2599,
+      "w": 0.4144,
+      "h": 0.4262
+    }
+  },
+  {
+    "id": "c38",
+    "raw_timecode": "00:04:15:20",
+    "timecode_sec": 255.67,
+    "text": "Should appear after the row texts appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak"
+  },
+  {
+    "id": "c39",
+    "raw_timecode": "00:04:20:20",
+    "timecode_sec": 260.67,
+    "text": "Three Rows are in total [all texts are appearing at once - wrong] WE need to show one row after another, after the first row is shown then only the logo in the last column must appear, after appearing the logo has to animate, the thunber has to blink appear and disappear, loop till end. After the first row appear only the second row must appear [same for all the rows]",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1141,
+      "y": 0.2821,
+      "w": 0.7558,
+      "h": 0.4072
+    }
+  },
+  {
+    "id": "c42",
+    "raw_timecode": "00:04:33:05",
+    "timecode_sec": 273.18,
+    "text": "after the second row completes, the third row has to appear, and this logo also must appear then, the bulb has a left right rotation, the bottom has the pivot, and the outer small lines animate outwards",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1266,
+      "y": 0.5308,
+      "w": 0.1381,
+      "h": 0.1537
+    }
+  },
+  {
+    "id": "c40",
+    "raw_timecode": "00:04:41:00",
+    "timecode_sec": 281.01,
+    "text": "Once the second row texts appear this logo has to animate [three gears, left gear [clockwise] right top [anticlockwise] right bottom [anticlockwise] all in same speed",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6533,
+      "y": 0.4247,
+      "w": 0.2273,
+      "h": 0.1283
+    }
+  },
+  {
+    "id": "c41",
+    "raw_timecode": "00:04:41:05",
+    "timecode_sec": 281.17,
+    "text": "After the third row data appears. the logo animates [scale up within the outer ring, then scale to noramal - loop",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6738,
+      "y": 0.561,
+      "w": 0.1988,
+      "h": 0.1268
+    }
+  },
+  {
+    "id": "c44",
+    "raw_timecode": "00:04:48:29",
+    "timecode_sec": 288.97,
+    "text": "Before the 30 why are we showing the four logos here - wrong\nalso when the logos appear their respective outer Logo BG has to appear together - GLOBAL rule, always",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2371,
+      "y": 0.0888,
+      "w": 0.5143,
+      "h": 0.7986
+    }
+  },
+  {
+    "id": "c43",
+    "raw_timecode": "00:04:50:14",
+    "timecode_sec": 290.48,
+    "text": "Bottom two plants are perfect, the third right plant is floating up and down - wrong, waveswarp and the bottom is stuck in the same place like the other plants",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.738,
+      "y": 0.3613,
+      "w": 0.2585,
+      "h": 0.5783
+    }
+  },
+  {
+    "id": "c45",
+    "raw_timecode": "00:05:05:01",
+    "timecode_sec": 305.04,
+    "text": "The Four logos has to appear with the logo BG, and must appear based on the VO one after the other\nafter they appear, the inner logo  has to animate - GLOBAL RULE - based on the content, context, Voice Over",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2103,
+      "y": 0.084,
+      "w": 0.5633,
+      "h": 0.8382
+    }
+  },
+  {
+    "id": "c46",
+    "raw_timecode": "00:05:11:09",
+    "timecode_sec": 311.31,
+    "text": "The Clock has to animate, the Minutes needle have to keep rotating clockwise smooth",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2415,
+      "y": 0.3772,
+      "w": 0.1578,
+      "h": 0.2424
+    }
+  },
+  {
+    "id": "c47",
+    "raw_timecode": "00:05:11:14",
+    "timecode_sec": 311.47,
+    "text": "The two curved arrow have to rotate anticlockwise, the anchor inside the shield have to shake rotate left and right - slightly",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.426,
+      "y": 0.0872,
+      "w": 0.1471,
+      "h": 0.2519
+    }
+  },
+  {
+    "id": "c48",
+    "raw_timecode": "00:05:11:18",
+    "timecode_sec": 311.6,
+    "text": "First the mountain appear, then the clock appear(clock needle animates continuosly, then the Cross mark appear then animates scaling up and down",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6034,
+      "y": 0.3756,
+      "w": 0.1631,
+      "h": 0.2535
+    }
+  },
+  {
+    "id": "c49",
+    "raw_timecode": "00:05:11:22",
+    "timecode_sec": 311.73,
+    "text": "The Graph appears, then the arrow animates moving upwards marking, then the characters appears one by one",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4323,
+      "y": 0.6703,
+      "w": 0.1408,
+      "h": 0.2519
+    }
+  },
+  {
+    "id": "c50",
+    "raw_timecode": "00:05:11:27",
+    "timecode_sec": 311.9,
+    "text": "We can see a partial border guideline, which is wrong and should never appear in any frame - REMOVE it {GLOBAL}",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0348,
+      "y": 0.0587,
+      "w": 0.9269,
+      "h": 0.8905
+    }
+  },
+  {
+    "id": "c51",
+    "raw_timecode": "00:05:16:18",
+    "timecode_sec": 316.6,
+    "text": "Border Guideline - REMOVE\nThe Logos should never appear before the Title and Subheading appear - GLOBAL RULE",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0285,
+      "y": 0.0539,
+      "w": 0.934,
+      "h": 0.8952
+    }
+  },
+  {
+    "id": "c52",
+    "raw_timecode": "00:05:23:10",
+    "timecode_sec": 323.32,
+    "text": "Character have to animate with the context, and react based on thier position\nShould appear after the tile and subheading appear",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0784,
+      "y": 0.3867,
+      "w": 0.3494,
+      "h": 0.4452
+    }
+  },
+  {
+    "id": "c53",
+    "raw_timecode": "00:05:23:16",
+    "timecode_sec": 323.53,
+    "text": "Should appear after the character appears,\nMust appear one after the other\nleft logo [inner logo has to animate - hand shake and the bulb other lines outwards animation]\nright logo [inner logo has to animate - stopwatch needle rotates clockwise continuously, the wings swing up and down",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.5009,
+      "y": 0.4437,
+      "w": 0.377,
+      "h": 0.3185
+    }
+  },
+  {
+    "id": "c59",
+    "raw_timecode": "00:06:10:10",
+    "timecode_sec": 370.34,
+    "text": "The is the Left Set, and they have to appear at once\nSimilarly the Right Set have to appear all at once",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1292,
+      "y": 0.1569,
+      "w": 0.3592,
+      "h": 0.6227
+    }
+  },
+  {
+    "id": "c60",
+    "raw_timecode": "00:06:10:15",
+    "timecode_sec": 370.5,
+    "text": "The outer stroke have to march anticlockwise, the Stopwatch have to animate and the Cross shape have to scale up and down. The Characters have to animate, blinking and actions",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1248,
+      "y": 0.1553,
+      "w": 0.3752,
+      "h": 0.637
+    }
+  },
+  {
+    "id": "c61",
+    "raw_timecode": "00:06:35:26",
+    "timecode_sec": 395.86,
+    "text": "Characters have to animate shaking their hands, blinking the eyers, the TICK mark have to scale up and down",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.5134,
+      "y": 0.1791,
+      "w": 0.3556,
+      "h": 0.6116
+    }
+  },
+  {
+    "id": "c54",
+    "raw_timecode": "00:07:38:00",
+    "timecode_sec": 458,
+    "text": "Logo and the Logo BG is a Group, the timing of the BG logo is perfect, please tie up the inner logo with it and it must appear together always\nTHe Left two arrow must animate from left to right end\nThe RIght two arrow must animate from right to left end",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.098,
+      "y": 0.1506,
+      "w": 0.8048,
+      "h": 0.6718
+    }
+  },
+  {
+    "id": "c55",
+    "raw_timecode": "00:07:52:02",
+    "timecode_sec": 472.07,
+    "text": "Should appear after the title appears only",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.5588,
+      "y": 0.0856,
+      "w": 0.3485,
+      "h": 0.8128
+    }
+  },
+  {
+    "id": "c56",
+    "raw_timecode": "00:07:52:08",
+    "timecode_sec": 472.27,
+    "text": "Must appear after the title appears only",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0873,
+      "y": 0.3597,
+      "w": 0.3298,
+      "h": 0.5181
+    }
+  },
+  {
+    "id": "c57",
+    "raw_timecode": "00:07:56:11",
+    "timecode_sec": 476.36,
+    "text": "All these is a set, the Logo BG and the outer curved arrows\nSo lets keep it Set one, After appearing, the outer curved arrows have to rotate clockwise. the inner logo character have to animate, the text bubble have to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.623,
+      "y": 0.0904,
+      "w": 0.2273,
+      "h": 0.3898
+    }
+  },
+  {
+    "id": "c58",
+    "raw_timecode": "00:07:56:20",
+    "timecode_sec": 476.67,
+    "text": "This is Set two the outer curved arrows have to rotate clockwise, always appear as a set only, the inner character have to animate,  the weight machine have to animate up and down, the chains have to animate, with the effects",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6194,
+      "y": 0.5293,
+      "w": 0.2139,
+      "h": 0.3565
+    }
+  },
+  {
+    "id": "c63",
+    "raw_timecode": "00:08:09:13",
+    "timecode_sec": 489.42,
+    "text": "These belong to the characters set, and must always appear with the characters only",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0357,
+      "y": 0.0587,
+      "w": 0.1898,
+      "h": 0.2202
+    }
+  },
+  {
+    "id": "c64",
+    "raw_timecode": "00:08:12:04",
+    "timecode_sec": 492.12,
+    "text": "These must also appear with the chracters only",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.664,
+      "y": 0.6687,
+      "w": 0.3048,
+      "h": 0.2725
+    }
+  },
+  {
+    "id": "c65",
+    "raw_timecode": "00:08:21:29",
+    "timecode_sec": 501.95,
+    "text": "After this set appears,  the gears have to animate, the bulb have to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0365,
+      "y": 0.0682,
+      "w": 0.1729,
+      "h": 0.2662
+    }
+  },
+  {
+    "id": "c66",
+    "raw_timecode": "00:08:22:05",
+    "timecode_sec": 502.17,
+    "text": "The effects have to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6729,
+      "y": 0.6592,
+      "w": 0.2986,
+      "h": 0.3121
+    }
+  },
+  {
+    "id": "c62",
+    "raw_timecode": "00:08:27:05",
+    "timecode_sec": 507.18,
+    "text": "We have two rows here, and the content have to appear one after the other",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1818,
+      "y": 0.2583,
+      "w": 0.6319,
+      "h": 0.4278
+    }
+  },
+  {
+    "id": "c67",
+    "raw_timecode": "00:08:40:23",
+    "timecode_sec": 520.76,
+    "text": "The Weighting have to lift up and down on either sides",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.221,
+      "y": 0.233,
+      "w": 0.1426,
+      "h": 0.2329
+    }
+  },
+  {
+    "id": "c68",
+    "raw_timecode": "00:08:46:17",
+    "timecode_sec": 526.58,
+    "text": "animate the inner logo",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.2237,
+      "y": 0.5451,
+      "w": 0.1435,
+      "h": 0.2424
+    }
+  },
+  {
+    "id": "c69",
+    "raw_timecode": "00:08:52:17",
+    "timecode_sec": 532.56,
+    "text": "The Lines around the ear have to animate outwars, the spark inside the bubble have to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6381,
+      "y": 0.2298,
+      "w": 0.1266,
+      "h": 0.2393
+    }
+  },
+  {
+    "id": "c70",
+    "raw_timecode": "00:08:59:01",
+    "timecode_sec": 539.04,
+    "text": "The chracters have to animates blinking, the bulb have to animates with the outer lines [outwards]",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.6364,
+      "y": 0.5467,
+      "w": 0.1328,
+      "h": 0.2313
+    }
+  },
+  {
+    "id": "c71",
+    "raw_timecode": "00:09:15:07",
+    "timecode_sec": 555.22,
+    "text": "The outer dotted stoke have to animate anitclockwise around",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1283,
+      "y": 0.0634,
+      "w": 0.7362,
+      "h": 0.8144
+    }
+  },
+  {
+    "id": "c72",
+    "raw_timecode": "00:09:23:21",
+    "timecode_sec": 563.71,
+    "text": "The ship have to animate with the waves below",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.0989,
+      "y": 0.2361,
+      "w": 0.1346,
+      "h": 0.2028
+    }
+  },
+  {
+    "id": "c73",
+    "raw_timecode": "00:09:23:25",
+    "timecode_sec": 563.83,
+    "text": "The watchtower has a dotted view that has to move around left and right smoothly, the waves at the bottom have to animate",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.1025,
+      "y": 0.4976,
+      "w": 0.1248,
+      "h": 0.1981
+    }
+  },
+  {
+    "id": "c74",
+    "raw_timecode": "00:09:23:29",
+    "timecode_sec": 563.97,
+    "text": "Handshake animation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.4376,
+      "y": 0.7146,
+      "w": 0.1159,
+      "h": 0.1933
+    }
+  },
+  {
+    "id": "c75",
+    "raw_timecode": "00:09:28:24",
+    "timecode_sec": 568.81,
+    "text": "Left gear clockwise rotation, right gear anticlockwise rotation",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7781,
+      "y": 0.4817,
+      "w": 0.1203,
+      "h": 0.2123
+    }
+  },
+  {
+    "id": "c76",
+    "raw_timecode": "00:09:34:17",
+    "timecode_sec": 574.56,
+    "text": "The inner logo is a global, we need the smooth rotation like a global",
+    "scene_id": null,
+    "local_frame": null,
+    "status": "unresolved",
+    "label": "visual",
+    "author": "Deepak",
+    "region": {
+      "x": 0.7754,
+      "y": 0.2171,
+      "w": 0.1283,
+      "h": 0.2361
+    }
+  }
+]

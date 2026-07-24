@@ -31,7 +31,7 @@ ELEMENTS (34, in the order motion.ts wraps them)
   env_sea [ambient]
       enters on the fallback recipe (no spec entry — role-based stagger).
   deco_ring [prop]
-      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 4.0px / 5.0s.
+      enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; orbit 360deg / 14.0s (override); default idle 4.0px / 5.0s.
   crew_3 [character]
       enters at 3:57 (237.0s film time = 6.0s into this scene) on the narration beat "mooring station" (beat 2), slide; default idle 5.0px / 4.2s.
   crew_3_hand_r [character]
