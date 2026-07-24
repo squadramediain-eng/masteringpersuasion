@@ -25,35 +25,35 @@ ELEMENTS (29, in the order motion.ts wraps them)
   h1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   scenario_disc_1 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.2s.
+      enters 115.40s (frame-overrides); default idle 4.0px / 5.2s.
   c1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   scenario_disc_2 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.2s.
+      enters 116.60s (frame-overrides); default idle 4.0px / 5.2s.
   c1_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   step_1_disc [circle]
-      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), pop; default idle 4.0px / 5.2s.
+      enters 115.00s (frame-overrides); default idle 4.0px / 5.2s.
   c1_3 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   step_2_disc [circle]
-      enters at 2:02 (122.0s film time = 10.0s into this scene) on the narration beat "state the risk" (beat 2), pop; default idle 4.0px / 5.2s.
+      enters 116.20s (frame-overrides); default idle 4.0px / 5.2s.
   c1_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   part_8 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   scenario_disc_3 [circle]
-      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.2s.
+      enters 117.80s (frame-overrides); default idle 4.0px / 5.2s.
   c1_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   step_3_disc [circle]
-      enters at 2:10 (130.0s film time = 18.0s into this scene) on the narration beat "clear solution" (beat 3), pop; default idle 4.0px / 5.2s.
+      enters 117.40s (frame-overrides); default idle 4.0px / 5.2s.
   c1_6 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   connectors [arrow]
-      enters on the fallback recipe (no spec entry — role-based stagger).
+      enters 115.20s (frame-overrides).
   step_labels [prop]
-      enters at 1:56 (116.0s film time = 4.0s into this scene) on the narration beat "cite the facts" (beat 1), pop; default idle 4.0px / 5.0s.
+      enters 115.00s (frame-overrides); default idle 4.0px / 5.0s.
   title [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   env_backdrop [background]

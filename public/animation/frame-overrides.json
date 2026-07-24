@@ -52,12 +52,27 @@
    "card_center": { "at": 47.4 }
   },
   "frame_3.svg": {
-   "_note": "SCENARIO. Content-heavy (title + mariner + 3 dashed-ring icons + AB/Bosun pair), no visible background for the world blobs, so it read frozen. Give the two mariner groups and the helmet badge a gentle breathe, and let the gear icon spin — the reference keeps a full scene like this alive with ring/gear motion, not a dead hold.",
-   "mariner_officer": { "idle": { "amp": 4.5, "period": 4400 } },
-   "mariner_2": { "idle": { "amp": 4.5, "period": 4800 } },
-   "mariner_extra": { "idle": { "amp": 4.5, "period": 4000 } },
-   "ab_bosun_pair": { "idle": { "amp": 5, "period": 5000, "rot": 0.4 } },
-   "helmet_disc": { "idle": { "amp": 4, "period": 4600, "rot": 0.6 } }
+   "_note": "SECTION DIVIDER. Build order (Comments c19): the TITLE + subheading type first (sequential-heading rule), then the characters land — never before the text. Left mariner after the subheading; the AB/Bosun pair (right) later; helmet badge with them. They keep a gentle breathe on the hold.",
+   "mariner_officer": { "at": 92.0, "idle": { "amp": 4.5, "period": 4400 } },
+   "mariner_2": { "at": 92.6, "idle": { "amp": 4.5, "period": 4800 } },
+   "mariner_extra": { "at": 93.2, "idle": { "amp": 4.5, "period": 4000 } },
+   "helmet_disc": { "at": 93.0, "idle": { "amp": 4, "period": 4600, "rot": 0.6 } },
+   "ab_bosun_pair": { "at": 94.5, "idle": { "amp": 5, "period": 5000, "rot": 0.4 } }
+  },
+  "frame_4.svg": {
+   "_note": "PERSUASION STEPS. Build order (Comments c22/c23): the TITLE types first; only then do the step shapes appear, one after another left-to-right (disc -> connector arrow -> next disc), not all at once. (The three step LABELS share one group id 'step_labels', so they still type together until Design gives each label its own id — flagged.)",
+   "step_labels": { "at": 115.0 },
+   "connectors": { "at": 115.2 },
+   "step_1_disc": { "at": 115.0 },
+   "scenario_disc_1": { "at": 115.4 },
+   "step_2_disc": { "at": 116.2 },
+   "scenario_disc_2": { "at": 116.6 },
+   "step_3_disc": { "at": 117.4 },
+   "scenario_disc_3": { "at": 117.8 }
+  },
+  "frame_5.svg": {
+   "_note": "MASTER-PILOT. The ship's wheel on the bridge console had no id of its own; tagged 'ship_wheel' from its on-screen position (scripts/tag-shapes.js) so it can rotate (Comments c25). The tug + ship already rock with the water (vessel idle); waves are the persistent WorldLayer.",
+   "ship_wheel": { "orbit": { "period": 8000, "deg": 360 } }
   },
   "frame_14.svg": {
    "_note": "SCENARIO. The container ship rocks (vessel idle), but the two engineers dominate the frame and held it static. Float the two speech bubbles (natural for a chat bubble) and let the engineers shift gently, so the exchange reads as live conversation, not a freeze-frame.",

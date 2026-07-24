@@ -23,11 +23,11 @@ ELEMENTS (39, in the order motion.ts wraps them)
   bg_detail_4 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   helmet_disc [circle]
-      enters at 1:37 (97.0s film time = 8.0s into this scene) on the narration beat "paint locker" (beat 3), pop; idle 4px / 4.6s (override).
+      enters 93.00s (frame-overrides); idle 4px / 4.6s (override).
   mariner_extra [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; idle 4.5px / 4.0s (override).
+      enters 93.20s (frame-overrides); idle 4.5px / 4.0s (override).
   mariner_officer [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; idle 4.5px / 4.4s (override).
+      enters 92.00s (frame-overrides); idle 4.5px / 4.4s (override).
   section_title [prop]
       enters at 1:31 (91.0s film time = 2.0s into this scene) on the narration beat "section one" (beat 1), typewriter; default idle 4.0px / 5.0s.
   first [prop]
@@ -37,9 +37,9 @@ ELEMENTS (39, in the order motion.ts wraps them)
   heading_2 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   mariner_2 [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; idle 4.5px / 4.8s (override).
+      enters 92.60s (frame-overrides); idle 4.5px / 4.8s (override).
   ab_bosun_pair [character]
-      enters at 1:34 (94.0s film time = 5.0s into this scene) on the narration beat "AB and a bosun" (beat 2), slide; idle 5px / 5.0s (override).
+      enters 94.50s (frame-overrides); idle 5px / 5.0s (override).
   bg_detail_5 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   bg_detail_6 [prop]
