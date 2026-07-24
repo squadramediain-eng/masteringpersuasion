@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (14, in the order motion.ts wraps them)
+ELEMENTS (19, in the order motion.ts wraps them)
 
   ship_wake [ship]
       enters at 2:49 (169.0s film time = 3.0s into this scene) on the narration beat "sail area" (beat 1), slide; default idle 9.0px / 4.8s.
@@ -28,14 +28,24 @@ ELEMENTS (14, in the order motion.ts wraps them)
       enters at 2:54 (174.0s film time = 8.0s into this scene) on the narration beat "sail area aft" (beat 2), typewriter; default idle 2.6px / 6.0s.
   concept_icon_1 [icon]
       enters 190.00s (frame-overrides); default idle 4.5px / 4.6s.
+  f6_target [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   concept_icon_2 [icon]
       enters 190.40s (frame-overrides); default idle 4.5px / 4.6s.
   icon4_2_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
+  f6_gear1 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit 360deg / 5.0s (override); default idle 4.5px / 4.6s.
+  f6_gear2 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit -360deg / 5.0s (override); default idle 4.5px / 4.6s.
   concept_icon_3 [icon]
       enters 190.80s (frame-overrides); default idle 4.5px / 4.6s.
+  f6_bulb [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   concept_icon_4 [icon]
       enters 191.20s (frame-overrides); default idle 4.5px / 4.6s.
+  f6_message [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); idle 1.5px / 1.5s (override).
   deco_disc [circle]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.2s.
   text_0 "Kick-ahead"

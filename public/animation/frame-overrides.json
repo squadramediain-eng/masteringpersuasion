@@ -65,11 +65,21 @@
    "mariner_2": { "at": 92.6, "idle": { "amp": 4.5, "period": 4800 } },
    "mariner_extra": { "at": 93.2, "idle": { "amp": 4.5, "period": 4000 } },
    "helmet_disc": { "at": 93.0, "idle": { "amp": 4, "period": 4600, "rot": 0.6 } },
-   "ab_bosun_pair": { "at": 94.5, "idle": { "amp": 5, "period": 5000, "rot": 0.4 } }
+   "ab_bosun_pair": { "at": 94.5, "idle": { "amp": 5, "period": 5000, "rot": 0.4 } },
+   "f3_gear1": { "orbit": { "period": 5000, "deg": 360 } },
+   "f3_gear2": { "orbit": { "period": 4500, "deg": -360 } },
+   "f3_spanner": { "idle": { "amp": 0, "period": 1500, "rot": 5 } },
+   "f3_lifering": { "orbit": { "period": 8000, "deg": 360 } }
   },
   "frame_8.svg": {
    "_note": "The big dotted ring around the three characters rotates CLOCKWISE (c36). Its own march is a dash flow; the orbit gives the whole ring a clear rotation. deco_ring is centred so it spins about its own centre.",
    "deco_ring": { "orbit": { "period": 14000, "deg": 360 } }
+  },
+  "frame_9.svg": {
+   "_note": "RESULTS TABLE. Row result-logos animate after their row (c39-c42): the thunder pulses/flashes (blink); the bulb rotates left-right; the danger skull scales up-and-back in a loop. (Tagged from the render via tag-shapes.)",
+   "f9_bulb": { "idle": { "amp": 0, "period": 2200, "rot": 7 } },
+   "f9_skull": { "pulse": { "amp": 0.12, "period": 2000 } },
+   "f9_thunder": { "pulse": { "amp": 0.16, "period": 1300, "grow": true } }
   },
   "frame_4.svg": {
    "_note": "PERSUASION STEPS. Build order (Comments c22/c23): the TITLE types first; only then do the step shapes appear, one after another left-to-right (disc -> connector arrow -> next disc), not all at once. (The three step LABELS share one group id 'step_labels', so they still type together until Design gives each label its own id — flagged.)",
@@ -94,11 +104,16 @@
    "engineer_2": { "idle": { "amp": 4, "period": 4000 } }
   },
   "frame_6.svg": {
-   "_note": "SCENARIO. The 4 tug/concept icons clumped on one beat (190s). Cascade them left-to-right as the reference builds a list one item at a time.",
+   "_note": "SCENARIO. 4 icons cascade one-by-one (c29/c30). INNER LIFE after each lands (tagged from the render via tag-shapes): book icon = 2 gears counter-rotate; message box shakes; bulb glows (pulse); target rings pulse.",
    "concept_icon_1": { "at": 190.0 },
    "concept_icon_2": { "at": 190.4 },
    "concept_icon_3": { "at": 190.8 },
-   "concept_icon_4": { "at": 191.2 }
+   "concept_icon_4": { "at": 191.2 },
+   "f6_gear1": { "orbit": { "period": 5000, "deg": 360 } },
+   "f6_gear2": { "orbit": { "period": 5000, "deg": -360 } },
+   "f6_message": { "idle": { "amp": 1.5, "period": 1500, "rot": 4 } },
+   "f6_bulb": { "pulse": { "amp": 0.1, "period": 2000, "grow": true } },
+   "f6_target": { "pulse": { "amp": 0.07, "period": 2800 } }
   },
   "frame_10.svg": {
    "_note": "STAT. The '30' punches on settle. The four orbit logos appear AFTER the 30, one-by-one on the VO (c44/c45). env_stone is the third (right) plant that was floating up/down — give it the wave-warp like the other two (c43).",
@@ -107,7 +122,12 @@
    "orbit_disc_2": { "at": 306.2 },
    "orbit_disc_3": { "at": 307.4 },
    "orbit_disc_4": { "at": 308.6 },
-   "env_stone": { "life": "plant-warp" }
+   "env_stone": { "life": "plant-warp" },
+   "f10_arrow1": { "orbit": { "period": 8000, "deg": -360, "cx": 961, "cy": 235 } },
+   "f10_arrow2": { "orbit": { "period": 8000, "deg": -360, "cx": 961, "cy": 235 } },
+   "f10_shield": { "idle": { "amp": 0, "period": 1600, "rot": 3 } },
+   "f10_clockL": { "orbit": { "period": 6000, "deg": 360, "cx": 581, "cy": 522 } },
+   "f10_clockR": { "orbit": { "period": 6000, "deg": 360, "cx": 1352, "cy": 527 } }
   },
   "frame_12.svg": {
    "_note": "SCENARIO. 5 elements clumped at 339s. Stage them: cranes slide in, then the ship, then the bubble, then the two figures — so the set reads as assembling, not appearing.",
@@ -127,7 +147,9 @@
    "recap_icon_2": { "at": 560.35 },
    "recap_icon_3": { "at": 560.7 },
    "recap_icon_4": { "at": 561.05 },
-   "recap_icon_5": { "at": 561.4 }
+   "recap_icon_5": { "at": 561.4 },
+   "f19_gearL": { "orbit": { "period": 6000, "deg": 360 } },
+   "f19_gearR": { "orbit": { "period": 6000, "deg": -360 } }
   }
  }
 }

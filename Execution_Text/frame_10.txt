@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (20, in the order motion.ts wraps them)
+ELEMENTS (25, in the order motion.ts wraps them)
 
   sb_1 [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
@@ -44,12 +44,22 @@ ELEMENTS (20, in the order motion.ts wraps them)
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
   icon_clock_2 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
+  f10_clockR [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit 360deg / 6.0s (override); default idle 4.5px / 4.6s.
   icon_shield [icon]
       enters 1.01s (guider spec, pop); default idle 4.5px / 4.6s.
+  f10_arrow2 [arrow]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit -360deg / 8.0s (override).
+  f10_shield [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); idle 0px / 1.6s (override).
+  f10_arrow1 [arrow]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit -360deg / 8.0s (override).
   icon_person [character]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 5.0px / 4.2s.
   icon_clock_1 [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
+  f10_clockL [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit 360deg / 6.0s (override); default idle 4.5px / 4.6s.
   guide_grid [decor]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 6.6s.
   text_0 "30"

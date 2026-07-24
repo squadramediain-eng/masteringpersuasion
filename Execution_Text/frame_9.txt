@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (30, in the order motion.ts wraps them)
+ELEMENTS (33, in the order motion.ts wraps them)
 
   env_hand [prop]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
@@ -36,10 +36,16 @@ ELEMENTS (30, in the order motion.ts wraps them)
       enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 4.5px / 4.6s.
   result_icon_extra [icon]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.5px / 4.6s.
+  f9_bulb [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); idle 0px / 2.2s (override).
   row_divider [numeral]
       enters on the fallback recipe (no spec entry — role-based stagger); default idle 3.0px / 6.0s.
   row_labels [card]
       enters at 4:20 (260.0s film time = 8.0s into this scene) on the narration beat "aggressive push" (beat 2), row; default idle 2.6px / 6.0s.
+  f9_thunder [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
+  f9_skull [prop]
+      enters on the fallback recipe (no spec entry — role-based stagger); default idle 4.0px / 5.0s.
   header_bar [prop]
       enters at 4:15 (255.0s film time = 3.0s into this scene) on the narration beat "strategy" (beat 1), header; default idle 4.0px / 5.0s.
   header_labels [prop]
