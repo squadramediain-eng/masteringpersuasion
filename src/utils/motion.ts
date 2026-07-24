@@ -296,6 +296,11 @@ export interface ElOverride {
   // point OTHER than its own centre — e.g. a clock hand about the dial centre, a curved
   // arrow about the icon centre. Omit cx/cy to rotate about the element's own bbox centre.
   orbit?: { period: number; deg: number; cx?: number; cy?: number } | false;
+  // Continuous scale breath/pulse AFTER the element lands — a bulb glow, a logo that
+  // scales up-then-normal, a cross/tick that pulses (Comments c41/c48/c60/c67/c68/c70).
+  // amp = peak extra scale (0.12 = ±12%); period ms. `grow:true` = only scale UP from 1
+  // (expand+fade, for soundwave/spark/outward lines) instead of symmetric breathing.
+  pulse?: { amp: number; period: number; grow?: boolean };
   // Ambient-life loop for an element the artwork mislabelled (e.g. a fish school in a
   // generic "decor" group): "fish-swim" | "plant-warp" | "coral-sway" | "bubble-rise".
   life?: string;
@@ -345,6 +350,7 @@ function withOverride(rec: Rec, svgFile: string, id: string, sceneStartSec: numb
   if (o.dur !== undefined) next.dur = o.dur;
   if (o.idle !== undefined) next.idle = o.idle === false ? undefined : o.idle;
   if (o.orbit !== undefined) next.orbit = o.orbit === false ? undefined : o.orbit;
+  if (o.pulse !== undefined) next.pulse = o.pulse;
   // Force an ambient-life loop (fish/plant/coral/bubble) onto an element whose id the
   // engine could not classify — the whole group animates smoothly, never frozen.
   if (o.life) { next.anim = o.life; next.loop = true; next.world = true; next.from = {}; next.to = {}; next.start = 0; next.dur = 1; next.lifePhase = hashPhase(id); }
@@ -440,6 +446,7 @@ interface Rec {
   idle?: { amp: number; period: number; rot?: number; phase?: number };
   shake?: boolean;
   orbit?: { period: number; deg: number; cx?: number; cy?: number };
+  pulse?: { amp: number; period: number; grow?: boolean };
   draw?: boolean;
   // Continuous marching of a dotted stroke (the decorative rings around icons, and
   // dotted rectangles). The dashes travel along the stroke — for a ring that reads
@@ -933,6 +940,16 @@ export function styleFor(plan: PlanItem[], localFrame: number, fps: number): str
     // group about its own centre travels the dashes and carries the bead round; the
     // icon is a sibling group, so it stays upright.
     if (r.orbit) rot += (ms / r.orbit.period) * r.orbit.deg;
+
+    // Continuous scale pulse after the element lands — a bulb glow, a logo breathing,
+    // a cross/tick pulsing, or (grow) outward-expanding lines/soundwaves. Ramps in over
+    // the first cycle so it never jerks on from the entrance.
+    if (r.pulse && ms > r.start + r.dur) {
+      const pf = ms - (r.start + r.dur);
+      const ramp = Math.min(1, pf / r.pulse.period);
+      const s = Math.sin((2 * Math.PI * pf) / r.pulse.period);
+      scale *= 1 + r.pulse.amp * ramp * (r.pulse.grow ? (0.5 + 0.5 * s) : s);
+    }
 
     // Emphasis punch — a one-time scale bump after the element lands, on the beat
     // the VO stresses it. A single sine hump (up then back to 1), so it reads as an

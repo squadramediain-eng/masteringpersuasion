@@ -25,6 +25,13 @@ What it gives them, frame.io-style:
   the exact element, and/or ▭ Box to drag a rectangle. Both replay when you seek back to
   that comment's frame. Stored as normalised 0..1 coords so they map to the 1920×1080 still.
 - labels (`timing` / `visual` / `text` / `audio` / `other`), reviewer name
+- **voice-over panel** under the scrubber — the current scene's narration, karaoke-highlighted
+  and auto-scrolling word-by-word with the playhead, so the reviewer sees exactly what line is
+  being read while judging the picture. It's the film's own transcript (`public/audio/vo-words.json`)
+  inlined into the HTML by `node scripts/build-review-transcript.js` — **re-run that script only
+  when the voiceover is re-cut**, then re-send the HTML. Nothing else to send; it stays one file.
+- comments are **partitioned by scene** with a per-scene count, and each card carries a big
+  half-visible `#N` (its chronological number, matching its timeline dot) plus its comment id
 - markers on the timeline, click to jump; edit/delete; autosaves to localStorage
 - Export JSON → `v{N}-comments.json`; Import JSON to resume a session or review someone's
 

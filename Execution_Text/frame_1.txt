@@ -12,7 +12,7 @@ WORLD — never enters, never exits
 
 ENTRANCE — contents slide in from the right, decelerating on the brand curve.
 
-ELEMENTS (20, in the order motion.ts wraps them)
+ELEMENTS (23, in the order motion.ts wraps them)
 
   env_backdrop [background]
       enters on the fallback recipe (no spec entry — role-based stagger).
@@ -28,6 +28,12 @@ ELEMENTS (20, in the order motion.ts wraps them)
       enters 46.00s (frame-overrides); idle 5px / 4.2s (override).
   person_1 [character]
       enters 46.20s (frame-overrides); idle 4.5px / 4.6s (override).
+  setc_gear3 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit 360deg / 5.0s (override); default idle 4.5px / 4.6s.
+  setc_gear2 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit -360deg / 6.0s (override); default idle 4.5px / 4.6s.
+  setc_gear1 [icon]
+      enters on the fallback recipe (no spec entry — role-based stagger); orbit 360deg / 6.0s (override); default idle 4.5px / 4.6s.
   concept_icon_2 [icon]
       enters 45.80s (frame-overrides); idle 5px / 4.6s (override).
   concept_icon_3 [icon]
