@@ -572,7 +572,10 @@ export function isDashRing(el: Element): boolean {
 // half the rings run one way, half the other, at 0.70–1.59 px/frame.
 function marchFor(n: number): { pxPerFrame: number; dir: number } {
   const h = Math.imul(n + 1, 2654435761) >>> 0;
-  return { pxPerFrame: 0.7 + ((h >>> 3) % 90) / 100, dir: (h & 1) ? 1 : -1 };
+  // 2.4–4.3 px/frame: fast enough that the dashes VISIBLY travel round the stroke
+  // (the old 0.7–1.6 read as barely moving under the icon's own bob — review: "the
+  // dotted stroke is not marching"). Still varied per ring, half each direction.
+  return { pxPerFrame: 2.4 + ((h >>> 3) % 20) / 10, dir: (h & 1) ? 1 : -1 };
 }
 // Give every dotted ring/rect a unique id and a continuous march. Run AFTER the main
 // wrap so draw-groups have already stamped pathLength on their shapes (excluded above).

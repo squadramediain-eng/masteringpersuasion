@@ -189,19 +189,31 @@ export const WorldLayer: React.FC = () => {
     );
   }).join('');
 
-  const html =
+  // The WAVE BAND is drawn as a STATIC svg string (no per-frame values inside), so
+  // React never re-injects it and Chromium keeps ONE cached raster — the drift is a
+  // CSS transform on its wrapper (GPU composite, no re-rasterisation). Re-parsing the
+  // detailed wave path every frame at a sub-pixel offset is what made the edges
+  // shimmer and read as "jittering waves" (review, repeated). Keeping the raster
+  // stable and only translating it makes the water glide dead-smooth.
+  const wavesSvg =
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
-    `<defs>${blobDefs}</defs>` +
-    blobs +                       // atmosphere first — everything else sits over it
-    defs +
-    `<g transform="translate(${tx.toFixed(2)}, ${ty.toFixed(2)})">${waves}</g>` +
-    fish +
-    bubbles +
-    `</svg>`;
+    defs + waves + `</svg>`;
 
+  // Atmosphere (soft edgeless blobs) and ambient life (fish + bubbles) DO change each
+  // frame, but they are soft/small shapes that do not shimmer. Kept in their own layers.
+  const blobsSvg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
+    `<defs>${blobDefs}</defs>` + blobs + `</svg>`;
+  const lifeSvg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">` +
+    fish + bubbles + `</svg>`;
+
+  const fill = { position: 'absolute', inset: 0 } as const;
   return (
     <div style={{ position: 'absolute', inset: 0, background: PALETTE.lightPanel }}>
-      <div style={{ position: 'absolute', inset: 0 }} dangerouslySetInnerHTML={{ __html: html }} />
+      <div style={fill} dangerouslySetInnerHTML={{ __html: blobsSvg }} />
+      <div style={{ ...fill, transform: `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px)`, willChange: 'transform' }} dangerouslySetInnerHTML={{ __html: wavesSvg }} />
+      <div style={fill} dangerouslySetInnerHTML={{ __html: lifeSvg }} />
     </div>
   );
 };
