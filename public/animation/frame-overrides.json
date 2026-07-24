@@ -86,6 +86,11 @@
    "f11_bulb": { "pulse": { "amp": 0.1, "period": 2000, "grow": true } },
    "f11_stopwatch": { "pulse": { "amp": 0.05, "period": 2400 } }
   },
+  "frame_16.svg": {
+   "_note": "KEY BEHAVIOURS. Each set's OUTER CURVED ARROWS rotate clockwise (c57/c58). bg_detail_7 = Set 1 (top) arrow ring, bg_detail_8 = Set 2 (bottom) arrow ring — named groups, spun about their own centre; the character inside is a separate group and stays put.",
+   "bg_detail_7": { "orbit": { "period": 10000, "deg": 360 } },
+   "bg_detail_8": { "orbit": { "period": 10000, "deg": 360 } }
+  },
   "frame_17.svg": {
    "_note": "ACTION TABLE. The character-set bulb glows (c65). result_icon_2 is the bulb (a named group).",
    "result_icon_2": { "pulse": { "amp": 0.1, "period": 2000, "grow": true } }
